@@ -17,5 +17,12 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
+    url(r'^$', "entidade.views.index"),
+    
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^index/$', "entidade.views.index"),
+    url(r'^consultar_cep/(?P<codigo_postal>\d+)/$', "entidade.views.consultar_cep"),
+    #url(r'^consultar_cep/(?P<cep>\d+\.\d+-\d+)/$', "entidade.views.consultar_cep"),
+    url(r'^cadastro_entidades$', "entidade.views.cadastro_entidades"),
+    url(r'^adicionar_entidade$', "entidade.views.adicionar_entidade"),
 ]
