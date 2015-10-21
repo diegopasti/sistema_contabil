@@ -23,6 +23,9 @@ urlpatterns = [
     url(r'^index/$', "entidade.views.index"),
     url(r'^consultar_cep/(?P<codigo_postal>\d+)/$', "entidade.views.consultar_cep"),
     #url(r'^consultar_cep/(?P<cep>\d+\.\d+-\d+)/$', "entidade.views.consultar_cep"),
-    url(r'^cadastro_entidades$', "entidade.views.cadastro_entidades"),
-    url(r'^adicionar_entidade$', "entidade.views.adicionar_entidade"),
+    url(r'^cadastro_entidades/$', "entidade.views.cadastro_entidades"),
+    url(r'^emitir_protocolo/$', "entidade.views.emitir_protocolo",{'numero_item': -1}),
+    url(r'^emitir_protocolo/excluir/(?P<numero_item>\d+)/$', "entidade.views.emitir_protocolo"),
+    url(r'^adicionar_entidade/$', "entidade.views.adicionar_entidade"),
+    url(r'^consultar_entidade/(?P<entidade_id>\d+)/$',"entidade.views.consultar_entidade"),
 ]

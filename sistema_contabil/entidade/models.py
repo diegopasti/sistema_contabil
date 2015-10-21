@@ -1,14 +1,25 @@
 # -*- encoding: utf-8 -*-
 from django.db import models
 
-
-
 MENSAGENS_ERROS={'required': 'Campo Obrigatório!',
                  'invalid' : 'Formato Inválido!'
                 }
 
 
 
+
+
+class natureza_juridica(models.Model):    
+    codigo_natureza   = models.CharField("Código:",max_length=5,null=False,unique=True,error_messages=MENSAGENS_ERROS)
+    natureza_juridica = models.CharField("Natureza Jurídica:",max_length=100,null=False,unique=True,error_messages=MENSAGENS_ERROS)
+
+class observacao(models.Model):
+    
+    data      = models.DateField("Data:",null=False,auto_now=True)
+    #autor     = models.ForeignKey()
+    
+    descricao = models.TextField("Descrição: ",max_length=500,null=False,error_messages=MENSAGENS_ERROS)
+    
 
 class entidade(models.Model):
     opcoes_tipos_registros = (
@@ -23,7 +34,7 @@ class entidade(models.Model):
     registro_geral        = models.CharField("Identidade:",max_length=12,null=False,unique=False,error_messages=MENSAGENS_ERROS)
     tipo_registro         = models.CharField("Tipo Registro:",max_length=1,null=False,choices=opcoes_tipos_registros, default='C',error_messages=MENSAGENS_ERROS)
     nome_razao            = models.CharField("Nome / Razão Social:",max_length=100,null=False,unique=False,error_messages=MENSAGENS_ERROS) 
-    apelido_fantasia         = models.CharField("Apelido / Nome Fantasia:",max_length=50,null=False,unique=False,error_messages=MENSAGENS_ERROS)
+    apelido_fantasia      = models.CharField("Apelido / Nome Fantasia:",max_length=50,null=False,unique=False,error_messages=MENSAGENS_ERROS)
     inscricao_estadual    = models.BooleanField("Inscrição Estadual:",null=False,default=False,error_messages=MENSAGENS_ERROS)
     inscricao_municipal   = models.BooleanField("Inscrição Municipal:",null=False,default=False,error_messages=MENSAGENS_ERROS)
     inscricao_rural       = models.BooleanField("Inscrição Rural:",null=False,default=False,error_messages=MENSAGENS_ERROS)
@@ -32,6 +43,10 @@ class entidade(models.Model):
     
     data_cadastro         = models.DateField(auto_now=True)
     desabilitado          = models.BooleanField(default=False)
+
+    def __unicode__(self):
+        return unicode(self.nome_razao)
+    
 #class indicacao(models.Model):
 #    data = models.DateField(null=False,auto_now=False, input_formats=['%d/%m/%Y'],error_messages=MENSAGENS_ERROS)
 
@@ -83,7 +98,32 @@ class endereco(models.Model):
     bairro      = models.ForeignKey(bairro)
     
 class localizacao(models.Model):
+    entidade     = models.ForeignKey(entidade)
     cep          = models.ForeignKey(endereco)
     numero       = models.CharField("Número:",max_length=5,null=False,error_messages=MENSAGENS_ERROS)
     complemento  = models.CharField("Complemento:",max_length=100,null=True,error_messages=MENSAGENS_ERROS)
+
+
+class protocolo(models.Model):
+    emissor      = models.ForeignKey(entidade,related_name='entidade_emissora')
+    destinatario = models.ForeignKey(entidade,related_name='entidade_destinataria')
+    data_emissao = models.DateField(auto_now=True)
+    
+class item_protocolo(models.Model):    
+    protocolo      = models.ForeignKey(protocolo)
+    documento      = models.CharField("Item:",max_length=100,null=False,error_messages=MENSAGENS_ERROS)
+    referencia     = models.DateField("Mês de Referência:",null=True,error_messages=MENSAGENS_ERROS)
+    vencimento     = models.DateField("Vencimento:",null=True,error_messages=MENSAGENS_ERROS)
+    valor          = models.DateField("Valor:",null=True,error_messages=MENSAGENS_ERROS)
+    complemento    = models.TextField("Descrição:",max_length=500,null=True,error_messages=MENSAGENS_ERROS)
+
+
+
+
+
+
+    
+
+
+
     

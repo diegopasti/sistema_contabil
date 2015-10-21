@@ -31,6 +31,6 @@ def consultar_codigo_postal(cep):
         uf     = resultado['uf'][0].upper() 
         resultado = ["","",cidade,uf,]
     else:  
-        resultado = ["","","","",]  
+        resultado = None
     
     return resultado

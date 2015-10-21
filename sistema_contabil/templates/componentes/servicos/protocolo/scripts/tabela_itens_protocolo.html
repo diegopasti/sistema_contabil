@@ -1,0 +1,152 @@
+<meta charset="utf-8">
+{% load staticfiles %}
+<!-- DataTables JavaScript -->
+
+<style type="text/css">
+.botao_desabilitado {
+	opacity: 0.65; 
+  	cursor: not-allowed;
+  	visibility: hidden;
+}
+</style>
+
+<script src="{% static 'datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js' %}"></script>
+<script	src="{% static 'datatable/datatables/media/js/jquery.dataTables.min.js' %}"></script>  
+<script type="text/javascript" src="{% static 'jquery/dist/jquery.confirm.js' %}"></script>
+
+<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+ 
+<script>
+$(document).ready(function() {
+	
+	$('#{{datatable_nome}}').DataTable({
+		responsive: true,
+		"bPaginate": false,
+		"lengthMenu": [[10, 100, -1], [10, 100, "All"]],
+		"dom": '<"top">rt"<"rightcolumn"p><"clear">',
+		"bSort": false,
+		"ordering": false,
+		"bAutoWidth": false,
+		"bFilter": false,
+		"aoColumns": [
+	                    { "sWidth": "null" }, // 3th column width
+	                    { "sWidth": "60px"}, // 4st column width 
+	                    { "sWidth": "60px"},
+	                    { "sWidth": "60px"}
+	                    ]
+	});
+	
+});
+
+//jQuery(document).ready(function($) {
+//    $(".clickable-row").click(function() {
+//        window.document.location = $(this).data("href");
+//    });
+//});
+
+$('#search').on( 'keyup', function () {
+	var table = $('#{{datatable_nome}}').DataTable();
+    table.search( this.value ).draw();
+} );
+
+$(".alert").fadeOut(4000 );
+
+</script>
+
+<script>
+$(document).ready(function() {
+    var table = $('#datatable').DataTable();
+ 
+    $('#datatable tbody').on( 'click', 'tr', function () {
+    	
+    	$("#bt_apagar").prop("disabled", false);
+    	
+        if ( $(this).hasClass('selected') ) {
+            $(this).removeClass('selected');
+            $("#bt_apagar").prop("disabled", true);
+        }
+        else {
+            table.$('tr.selected').removeClass('selected');
+            $(this).addClass('selected');
+            
+        }
+    } );
+ 
+    $('#bt_apagar').click( function () {
+    	//alert( 'Row index: '+table.row( '.selected' ).index() );
+    	$.confirm({
+    		title: "Excluir Documento",
+    	    text: "Deseja mesmo excluir esse Documento?",
+    	    confirmButton: "Excluir",
+    	    cancelButton: "Cancelar",
+    	    confirmButtonClass: "btn-danger pull-right",
+    	    cancelButtonClass: "btn-default botao_desabilitado",
+    	    
+    	    confirm: function() {
+    	    	
+    	    	var table = $('#datatable').DataTable();
+    	    	    	    	
+    	    	$.ajax({
+    	    		url: '/emitir_protocolo/excluir/'+table.row( '.selected' ).index(),
+    	    	    type: 'get', //this is the default though, you don't actually need to always mention it
+    	    	    success: function(data) {
+    	    	    	// $('#endereco').val(data[0]);
+    	    	      	//alert(data);
+    	    	    },
+    	    	    failure: function(data) { 
+    	    	        alert('Falha na requisao');
+    	    	    }
+    	    	});
+    	    	
+    	    	table.row('.selected').remove().draw( false );
+    	        $("#bt_apagar").prop("disabled", true);
+    	    },
+    	    
+    	    cancel: function() {
+    	        // nothing to do
+    	    }
+    	});
+    } );
+} );
+</script>
+
+<script type="text/javascript">
+
+$(".confirm").confirm({
+	    text: "Deseja mesmo remover esse Documento?",
+	    
+	    confirm: function(button) {
+	    	
+	    	$.ajax({
+	    		url: '/emitir_protocolo/excluir/'+table.row( '.selected' ).index(),
+	    	    type: 'get', //this is the default though, you don't actually need to always mention it
+	    	    success: function(data) {
+	    	    	// $('#endereco').val(data[0]);
+	    	      	//alert(data);
+	    	    },
+	    	    failure: function(data) { 
+	    	        alert('Falha na requisao');
+	    	    }
+	    	}); 
+	    	
+	    	var table = $('#datatable').DataTable();
+	    	table.row('.selected').remove().draw( false );
+	        $("#bt_apagar").prop("disabled", true);
+	    },
+	    cancel: function(button) {
+	        // nothing to do
+	    },
+	    confirmButton: "Excluir",
+	    cancelButton: "Cancelar",
+	    post: true,
+	    confirmButtonClass: "btn-danger",
+	    cancelButtonClass: "btn-default",
+	    dialogClass: "modal-dialog modal-lg" // Bootstrap classes for large modal
+	});
+	
+	
+}); 
+</script>
+
+
+

@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+
+{% block Titulo %}
+	<meta charset="utf-8">
+    <title>Digitar - Emitir Protocolo</title>
+{% endblock %}
+
+{% block ArquivosEstaticos %}
+{% load staticfiles %}
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css">
+
+<!-- 
+
+
+<link href="{% static 'datatable/datatables-responsive/css/dataTables.responsive.css' %}" rel="stylesheet">
+<link href="{% static 'datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+
+
+<script type="text/javascript" src="{% static 'jquery/dist/mask.js' %}"></script>
+<script	type="text/javascript" src="{% static 'bower_components/datatables/media/js/jquery.dataTables.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'bower_components/datatables-plugis/integration/bootstrap/3/dataTables.bootstrap.min.js' %}"></script>
+ -->
+
+<!-- DataTables Responsive CSS -->
+
+
+<style type="text/css">
+
+.row.better_col_spacings_first_chield [class*='col-']:first-child {
+	padding-right:5px;
+	padding-bottom:15px;
+}
+
+.row.better_col_spacings_last_chield [class*='col-']:last-child {
+	padding-left:5px;
+	padding-bottom:15px;
+}
+
+.row.better_col_middle_spacings [class*='col-']:not(:first-child):not(:last-child) {
+  padding-right:5px;
+  padding-left:5px;
+  padding-bottom:15px;
+}
+
+.uppercase{ 
+    text-transform: uppercase;
+}
+
+.lowercase{ 
+    text-transform: uppercase;
+}
+
+
+.scrollable {
+    height: 100px;
+    overflow-y: scroll;
+}
+
+
+ 
+
+
+</style>
+
+{% endblock %} 
+
+{% block Principal %}
+
+{% include "componentes/servicos/protocolo/tabela_itens_protocolo.html" with dados=dados form=formulario_itens datatable_nome="datatable" %}
+
+{% include "componentes/mensagem.html" with messages=messages %}
+
+{% endblock %}
+
+{% block ArquivosScripts %}
+{% load staticfiles %}
+
+
+    
+
+{% include "componentes/servicos/protocolo/scripts/tabela_itens_protocolo.html"  with datatable_nome="datatable" %}
+
+ <script type="text/javascript">
+ $(".alert").fadeOut(6000);
+</script>
+
+<script type="text/javascript">
+$('#codigo_postal').blur(function(){
+	$.ajax({
+		url: '/consultar_cep/'+$('#codigo_postal').val(),
+	    type: 'get', //this is the default though, you don't actually need to always mention it
+	    success: function(data) {
+	    	$('#endereco').val(data[0]);
+	    	$('#bairro').val(data[1]);
+	    	$('#municipio').val(data[2]);
+	    	$('#estado').val(data[3]);
+	    	$('#codigo_municipio').val(data[4]);
+	    	$('#pais').val(data[5]);
+	        $('#numero_endereco').focus();
+	      //alert(data);
+	    },
+	    failure: function(data) { 
+	        alert('Got an error dude');
+	    }
+	}); 
+}); 
+</script>
+
+<script type="text/javascript">
+$('#tipo_contato').blur(function(){
+	var campo_telefone = document.getElementById('tipo_contato');
+	if (campo_telefone.value == 'C') {
+		$("#numero_contato").mask("(99) 99999-9999");
+	} else {		
+		if (campo_telefone.value == 'F') {
+			$("#numero_contato").mask("(99) 9999-9999");
+		} else {
+			$("#numero_contato").unmask();
+		}
+	} 
+}); 
+</script>
+
+<script>
+jQuery(document).ready(function(){
+	$("#bt_apagar").prop("disabled", true);
+	$("#cpf_cnpj").mask("999.999.999-99");
+   	$("#nascimento_fundacao").mask("99/99/9999");
+   	$("#numero_contato").mask("(99) 99999-9999");
+   	$("#codigo_postal").mask("99999999");
+});
+</script>
+
+<script>
+$('.modal').on('hidden.bs.modal', function(){
+    $(this).find('form')[0].reset();
+});
+</script>
+
+
+<script>
+$(document).ready(function() {
+	
+	{% if erro %}
+    	$('#myModal').modal('show');
+    	BootstrapDialog.show({
+	        message: $("Tentando")
+	    });
+    
+    {% else %}
+		$('#myModal').modal('hide');
+		message: $("Esconde")
+	{% endif %}
+});
+
+</script>
+
+
+{% endblock %}
