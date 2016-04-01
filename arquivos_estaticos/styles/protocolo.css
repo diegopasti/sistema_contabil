@@ -1,0 +1,307 @@
+@page {
+	
+	margin: 0.5cm;
+	
+	
+	@frame {
+        -pdf-frame-content: company_logo;
+        /* -pdf-frame-border: 1; */
+        left: 1cm;
+        width: 4cm;
+        top: 1cm;
+        height: 1.5cm;
+    }
+    
+    @frame {
+        -pdf-frame-content: page_title;
+        /* -pdf-frame-border: 1; */
+        width: 3cm;
+        height: 1.5cm;
+        left: 9.1cm;
+        top: 1.2cm;        
+    }
+    
+    @frame {    	
+        -pdf-frame-content: codigo_protocolo;
+        /* -pdf-frame-border: 1; */
+        text-align: right;
+        width: 3cm;
+        height: 1.5cm;
+        right: 1cm;
+        top: 1.2cm;
+        
+    }
+    
+    @frame {    	
+        -pdf-frame-content: painel_emissor;
+        /* -pdf-frame-border: 1; */
+        width: 19cm;
+        height: 1.5cm;
+        left: 1cm;
+        top: 3.4cm;
+    }
+    
+    @frame {    	
+        -pdf-frame-content: label_emissor;
+        /* -pdf-frame-border: 1; */
+        width: 2cm;
+        height: 0.8cm;
+        left: 1cm;
+        top: 2.75cm;
+    }
+    
+    @frame {    	
+        -pdf-frame-content: painel_telefone_emissor;
+        /* -pdf-frame-border: 1; */
+        text-align: center;
+        width: 4.0cm;
+        height: 1.3cm;
+        right: 1cm;
+        top: 3.3cm;
+        padding-top: 1px;
+    }
+    
+    @frame {    	
+        -pdf-frame-content: line_separator_entidades;
+        padding-left: 39px;
+        padding-right: 39px;
+        top: 4.65cm;
+    }
+    
+    @frame {    	
+        -pdf-frame-content: label_destinatario;
+        width: 2cm;
+        height: 0.8cm;
+        left: 1cm;
+        top: 5.2cm;
+    }    
+    
+    @frame {    	
+        -pdf-frame-content: painel_destinatario;
+        /* -pdf-frame-border: 1; */
+        width: 19cm;
+        height: 1.5cm;
+        left: 1cm;
+        top: 5.9cm;
+    }
+    
+    @frame {    	
+        -pdf-frame-content: painel_telefone_destinatario;
+        /* -pdf-frame-border: 1; */
+        text-align: center;
+        width: 4cm;
+        height: 1.3cm;
+        right: 1cm;
+        top: 5.9cm;
+        padding-top: 1px;
+    }
+    
+    @frame {    	
+        -pdf-frame-content: tabela_documentos;
+        /*width: 18.8cm; */
+        left: 1.16cm;
+        top: 8.1cm;
+        padding-top: 2px;
+    }
+    
+    @frame {    	
+        -pdf-frame-content: background_tabela;
+        width: 19cm;
+        left: 1cm;
+        top: 7.6cm;
+        padding-left: 5px;
+    }
+    
+    @frame {    	
+        -pdf-frame-content: recebido_por;
+        width: 19cm;
+        left: 1cm;
+        top: 12.4cm;
+        padding-top: 1px;
+    }
+    
+    @frame {    	
+        -pdf-frame-content: primeira_via_label;
+        width: 3cm;
+        left: 0.5cm;
+        top: 14.18cm;
+        padding-top: 1px;
+    }
+    
+    @frame {    	
+        -pdf-frame-content: segunda_via_label;
+        width: 3cm;
+        left: 0.5cm;
+        top: 14.62cm;
+        padding-top: 1px;
+    }
+    
+    @frame {    	
+        -pdf-frame-content: line_separador_vias;
+        padding-left: 0px;
+        padding-right: -20px;
+        top: 14.40cm;
+    }
+    
+    
+    /* ------------ */
+    /*  SEGUNDA VIA */
+    /* ------------ */
+    
+    @frame {
+        -pdf-frame-content: company_logo2;
+        /* -pdf-frame-border: 1; */
+        left: 1cm;
+        width: 4cm;
+        top: 15.4cm;
+        height: 1.5cm;
+    }
+    
+    @frame {
+        -pdf-frame-content: page_title2;
+        /* -pdf-frame-border: 1; */
+        width: 3cm;
+        height: 1.5cm;
+        left: 9.1cm;
+        top: 15.6cm;        
+    }
+    
+    @frame {    	
+        -pdf-frame-content: codigo_protocolo2;
+        text-align: right;
+        width: 3cm;
+        height: 1.5cm;
+        right: 1cm;
+        top: 15.6cm;
+    }    
+    
+    @frame {    	
+        -pdf-frame-content: painel_emissor2;
+        /* -pdf-frame-border: 1; */
+        width: 19cm;
+        height: 1.5cm;
+        left: 1cm;
+        top: 17.8cm;
+    }
+    
+    @frame {    	
+        -pdf-frame-content: label_emissor2;
+        /* -pdf-frame-border: 1; */
+        width: 2cm;
+        height: 0.8cm;
+        left: 1cm;
+        top: 17.15cm;
+    }
+    
+    @frame {    	
+        -pdf-frame-content: painel_telefone_emissor2;
+        /* -pdf-frame-border: 1; */
+        text-align: center;
+        width: 4.0cm;
+        height: 1.3cm;
+        right: 1cm;
+        top: 17.7cm;
+        padding-top: 1px;
+    }
+    
+    @frame {    	
+        -pdf-frame-content: line_separator_entidades2;
+        padding-left: 39px;
+        padding-right: 39px;
+        top: 19.05cm;
+    }    
+    
+    @frame {    	
+        -pdf-frame-content: label_destinatario2;
+        width: 2cm;
+        height: 0.8cm;
+        left: 1cm;
+        top: 19.6cm;
+    }    
+    
+    @frame {    	
+        -pdf-frame-content: painel_destinatario2;
+        /* -pdf-frame-border: 1; */
+        width: 19cm;
+        height: 1.5cm;
+        left: 1cm;
+        top: 20.3cm;
+    }
+    
+    @frame {    	
+        -pdf-frame-content: painel_telefone_destinatario2;
+        /* -pdf-frame-border: 1; */
+        text-align: center;
+        width: 4cm;
+        height: 1.3cm;
+        right: 1cm;
+        top: 20.3cm;
+        padding-top: 1px;
+    }
+    
+    @frame {    	
+        -pdf-frame-content: tabela_documentos2;
+        /*width: 18.8cm; */
+        left: 1.16cm;
+        top: 22.5cm;
+        padding-top: 2px;
+    }
+    
+    @frame {    	
+        -pdf-frame-content: background_tabela2;
+        width: 19cm;
+        left: 1cm;
+        top: 22cm;
+        padding-left: 5px;
+    }
+    
+    @frame {    	
+        -pdf-frame-content: recebido_por2;
+        width: 19cm;
+        left: 1cm;
+        top: 26.8cm;
+        padding-top: 1px;
+    }
+    
+    
+}
+
+#page_title{
+	text-align: center;
+}
+
+#codigo_protocolo{
+	text-align: right;	
+}
+
+.negrito{
+	font-weight: bold; 
+}
+
+.center{
+	text-align: center;
+}
+
+.left{
+	text-align: left;
+}
+
+.padrao_medio{
+	height: 40px;
+}
+
+tr.padrap {
+	padding: 10px;
+}
+
+td.codigo{
+	padding-left: 2px; 
+	width:45px;
+}
+
+td.documento{
+	text-align: left;
+	padding-left: 20px; 
+	width:1100px;
+}
+

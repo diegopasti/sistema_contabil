@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+
+{% block Titulo %}
+	<meta charset="utf-8">
+    <title>Digitar - Emitir Protocolo</title>
+{% endblock %}
+
+{% block ArquivosEstaticos %}
+{% load staticfiles %}
+
+<!-- <link href="{% static 'datatable/datatables/media/css/jquery.dataTables.min.css' %}" rel="stylesheet">  -->
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/s/ju/dt-1.10.10,se-1.1.0/datatables.min.css"/>
+ 
+<script type="text/javascript" src="https://cdn.datatables.net/s/ju/dt-1.10.10,se-1.1.0/datatables.min.js"></script>
+ 
+<script type="text/javascript" src="{% static 'scripts/meu_script.js' %}"></script>
+
+
+<!--
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css">
+
+<link href="{% static 'datatable/datatables-pulgins/integration/bootstrap/3/dataTables.bootstrap.js' %}" rel="stylesheet">
+
+<link href="{% static 'datatable/datatables-responsive/css/dataTables.responsive.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+<script type="text/javascript" src="{% static 'jquery/dist/mask.js' %}"></script>
+
+ -->
+<!-- DataTables Responsive CSS -->
+
+<style type="text/css">
+
+.row.better_col_spacings_first_chield [class*='col-']:first-child {
+	padding-right:5px;
+	padding-bottom:15px;
+}
+
+.row.better_col_spacings_last_chield [class*='col-']:last-child {
+	padding-left:5px;
+	padding-bottom:15px;
+}
+
+.row.better_col_middle_spacings [class*='col-']:not(:first-child):not(:last-child) {
+  padding-right:5px;
+  padding-left:5px;
+  padding-bottom:15px;
+}
+
+.uppercase{ 
+    text-transform: uppercase;
+}
+
+.lowercase{ 
+    text-transform: uppercase;
+}
+
+.scrollable {
+    height: 100px;
+    overflow-y: scroll;
+}
+
+</style>
+
+{% endblock %} 
+
+{% block Principal %}
+{% include "componentes/servicos/protocolo/tabela_itens_protocolo.html" with destinatarios=destinatarios dados=dados form=formulario_protocolo datatable_nome="datatable" %}
+{% include "componentes/mensagem.html" with messages=messages %}
+{% endblock %}
+
+{% block ArquivosScripts %}
+{% load staticfiles %}
+{% include "componentes/servicos/protocolo/scripts/tabela_itens_protocolo.html"  with dados=dados datatable_nome="datatable" %}
+
+
+<!-- Cria o datatable -->
+<script	type="text/javascript" src="{% static 'datatable/datatables/media/js/jquery.dataTables.min.js' %}"></script>
+
+<!-- Cria as janelas de confirmações -->
+<script type="text/javascript" src="{% static 'jquery/dist/jquery.confirm.js' %}"></script>
+
+<!-- Cria as mascaras para campos monetarios -->
+<script type="text/javascript" src="{% static 'jquery/dist/jquery.maskMoney.js' %}"></script>
+
+
+
+<!-- Plugin para realizar autocomplete -->
+<!-- <script src="http://code.jquery.com/jquery-1.9.1.js"></script> -->
+<!--   -->
+<!-- 
+<script src="{% static 'datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js' %}"></script>
+-->
+
+<script type="text/javascript">
+$(".alert").fadeOut(6000);
+</script>
+
+<script type="text/javascript">
+$('#tipo_contato').blur(function(){
+	var campo_telefone = document.getElementById('tipo_contato');
+	if (campo_telefone.value == 'C') {
+		$("#numero_contato").mask("(99) 99999-9999");
+	} else {		
+		if (campo_telefone.value == 'F') {
+			$("#numero_contato").mask("(99) 9999-9999");
+		} else {
+			$("#numero_contato").unmask();
+		}
+	} 
+}); 
+</script>
+
+<script>
+$(document).ready(function() {
+	
+	{% if erro %}
+    	$('#myModal').modal('show');
+    	BootstrapDialog.show({
+	        message: $("Tentando")
+	    });
+    
+    {% else %}
+		$('#myModal').modal('hide');
+		message: $("Esconde")
+	{% endif %}
+});
+
+</script>
+
+{% endblock %}

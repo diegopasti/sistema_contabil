@@ -1,0 +1,44 @@
+<meta charset="utf-8">
+{% load staticfiles %}
+<!-- DataTables JavaScript -->
+
+<script	src="{% static 'datatable/datatables/media/js/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js' %}"></script>
+<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+ 
+<script>
+$(document).ready(function() {
+	
+	$('#{{datatable_nome}}').DataTable({
+		responsive: true,
+		"pagingType": "simple",
+		"lengthMenu": [[10, 100, -1], [10, 100, "All"]],
+		"dom": '<"top">rt"<"rightcolumn"p><"clear">',
+		"bSort": true,
+		"ordering": true,
+		"bAutoWidth": false,
+		"aoColumns": [
+	                    { "sWidth": "15px" }, // 2st column width 
+	                    { "sWidth": "60px" }, // 3th column width
+	                    { "sWidth": "null"}, // 4st column width 
+	                    { "sWidth": "null"}
+	                    
+	                    ]
+	});
+	
+});
+
+jQuery(document).ready(function($) {
+    $(".clickable-row").click(function() {
+        window.document.location = $(this).data("href");
+    });
+});
+
+$('#search').on( 'keyup', function () {
+	var table = $('#{{datatable_nome}}').DataTable();
+    table.search( this.value ).draw();
+} );
+
+$(".alert").fadeOut(4000 );
+
+</script>

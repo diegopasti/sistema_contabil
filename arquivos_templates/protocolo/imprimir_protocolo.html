@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Teste PDF</title>
+		<meta charset="utf-8">
+	
+		{% load staticfiles %}
+		<link href="{% static 'styles/reset.css' %}" rel="stylesheet">
+		<link href="{% static 'styles/protocolo.css' %}" rel="stylesheet">
+	
+	</head>
+	
+	<body id="pagina">
+	
+		<table border=1 style="height: 700px ; padding: 5px">
+			<tr>
+				<td>
+					<div id="company_logo">
+						{% load staticfiles %}
+						<img src="{% static 'imagens/exemplo_logo.png' %}"  alt="logo"/>
+					</div>
+					
+					<div id="page_title">
+						<font size=6>PROTOCOLO</font>
+					</div>
+					
+					<br><br>
+					
+					<div id='codigo_protocolo'>
+						<font size=6>{{ codigo_protocolo }}</font><br>
+						<font size=3>31/03/2016 - 13:04</font>
+					</div>
+					
+					<br><br><br><br><br>
+					
+					<center>
+						<img src="{% static 'imagens/line.png' %}" width="300px" height="6px"/>
+					</center>
+					
+					<div id="label_emissor">
+						{% load staticfiles %}
+						<img src="{% static 'imagens/emissor.png' %}" height="60px"/>
+					</div>
+					
+					<div id='painel_emissor'>
+						<font size=4 class='negrito'>DIGITAR ACESSORIA CONTÁBIL LTDA ME - 08.265.538/0001-30</font><br>
+						<font size=4>Rua Capitão Domingos Correa Rocha, 80, Santa Lucia, Vitória - ES - Cep: 29.056-220<br>Edificil Master Place Salas 213/214 </font>
+					</div>	
+					
+					<div id='painel_telefone_emissor'>
+						
+						<table border=0>
+							<tr style="padding-top:3px">
+								<td class="codigo">
+									{% load staticfiles %}
+									<img src="{% static 'imagens/phone.png' %}" width="20px" height="20px" alt="phone"/>
+								</td>
+								
+								<td><font size=4>(27) 3022-1223 <br> (27) 3022-1224</font></td>
+							</tr>
+						</table>	
+					</div>	
+					
+					<br><br><br><br><br>
+					<br><br><br><br>
+					
+					<div id='line_separator_entidades'>
+						{% load staticfiles %}
+						<img src="{% static 'imagens/line.png' %}" width="980px" height="6px"/>
+					</div>
+					<br>
+					
+					<div id="label_destinatario">
+						<img src="{% static 'imagens/destinatario.png' %}"/>
+					</div>
+					
+					
+					<div id='painel_destinatario'>
+						<font size=4 class='negrito'>{{ destinatario }} - 128.598.557-50</font><br>
+						<font size=4>{{ endereco_destinatario }}<br>Casa residencial</font>
+					</div>	
+					
+					<div id='painel_telefone_destinatario'>
+						
+						<table border=0>
+							<tr style="padding-top:3px">
+								<td class="codigo">
+									{% load staticfiles %}
+									<img src="{% static 'imagens/phone.png' %}" width="20px" height="20px" alt="phone"/>
+								</td>
+								
+								<td><font size=4>(27) 3043-0703 <br> (27) 99988-1254</font></td>
+							</tr>
+						</table>
+									
+					</div>
+					
+					<br><br><br><br>
+					
+					<div id="tabela_documentos">
+					
+						<table>
+						
+						{% for item in documentos %}						
+							<tr >
+								<td class="center" width='29px'>{{ item.0 }}</td>
+								<td width='450px' style="padding-left: 4px; padding-top: 2px; padding-bottom: 1px;">{{ item.1 }}</td>
+								<td class="center" width='74px' style="padding-left: 2px;">{{ item.2 }}</td>
+								<td class="center" width='73px' style="padding-left: 2px;">{{ item.3 }}</td>
+								<td class="center" width='86px' style="padding-left: 2px;">{{ item.4 }}</td>
+							</tr>
+						{% endfor %}
+															
+						</table>
+					
+					</div>
+					
+					<br><br><br><br>
+					<br><br><br><br>
+					<br><br><br><br>
+					<br><br><br><br>
+					<br><br><br><br>
+					<br><br><br><br>
+					<br><br><br><br>
+					
+					<div id="background_tabela">
+						<img src="{% static 'imagens/tabela_transparente.png' %}"/>
+					</div>
+					
+					
+					
+					<br><br><br>
+					
+					<div id="recebido_por">
+						<img src="{% static 'imagens/recebido_por.png' %}" />
+					</div>
+					<br><br><br>
+			
+				</td>
+			</tr>
+		</table>
+		
+		
+		<div id="primeira_via_label">
+			<img src="{% static 'imagens/primeira_via.png' %}" height="20px" />
+		</div>
+		
+		<div id="line_separador_vias">
+			{% load staticfiles %}
+			<img src="{% static 'imagens/dashed.png' %}" width="1800px" height="10px"/>
+		</div>
+		
+		<div id="segunda_via_label">
+			<img src="{% static 'imagens/segunda_via.png' %}" height="16px" />
+		</div>
+		
+		
+		
+		
+		
+		<!--  SEGUNDA VIA -->
+		
+		
+		
+		
+		<br><br><br>
+		<table border=1 style="height: 700px ; padding: 5px">
+			<tr>
+				<td>
+					<div id="company_logo2">
+						{% load staticfiles %}
+						<img src="{% static 'imagens/exemplo_logo.png' %}"  alt="logo"/>
+					</div>
+					
+					<div id="page_title2">
+						<font size=6>PROTOCOLO</font>
+					</div>
+					
+					<br><br>
+					
+					<div id='codigo_protocolo2'>
+						<font size=6 style="text-align: right;">{{ codigo_protocolo }}</font><br>
+						<font size=3 style="text-align: right;">31/03/2016 - 13:04</font>
+					</div>
+					
+					<br><br><br><br><br>
+					
+					<center>
+						<img src="{% static 'imagens/line.png' %}" width="300px" height="6px"/>
+					</center>
+					
+					<div id="label_emissor2">
+						{% load staticfiles %}
+						<img src="{% static 'imagens/emissor.png' %}" height="60px"/>
+					</div>
+					
+					<div id='painel_emissor2'>
+						<font size=4 class='negrito'>DIGITAR ACESSORIA CONTÁBIL LTDA ME - 08.265.538/0001-30</font><br>
+						<font size=4>Rua Capitão Domingos Correa Rocha, 80, Santa Lucia, Vitória - ES - Cep: 29.056-220<br>Edificil Master Place Salas 213/214 </font>
+					</div>	
+					
+					<div id='painel_telefone_emissor2'>
+						
+						<table border=0>
+							<tr style="padding-top:3px">
+								<td class="codigo">
+									{% load staticfiles %}
+									<img src="{% static 'imagens/phone.png' %}" width="20px" height="20px" alt="phone"/>
+								</td>
+								
+								<td><font size=4>(27) 3022-1223 <br> (27) 3022-1224</font></td>
+							</tr>
+						</table>	
+					</div>	
+					
+					<br><br><br><br><br>
+					<br><br><br><br>
+					
+					<div id='line_separator_entidades2'>
+						{% load staticfiles %}
+						<img src="{% static 'imagens/line.png' %}" width="980px" height="6px"/>
+					</div>
+					<br>
+					
+					<div id="label_destinatario2">
+						<img src="{% static 'imagens/destinatario.png' %}"/>
+					</div>
+					
+					
+					<div id='painel_destinatario2'>
+						<font size=4 class='negrito'>{{ destinatario }} - 128.598.557-50</font><br>
+						<font size=4>{{ endereco_destinatario }}<br>Casa residencial</font>
+					</div>	
+					
+					<div id='painel_telefone_destinatario2'>
+						
+						<table border=0>
+							<tr style="padding-top:3px">
+								<td class="codigo">
+									{% load staticfiles %}
+									<img src="{% static 'imagens/phone.png' %}" width="20px" height="20px" alt="phone"/>
+								</td>
+								
+								<td><font size=4>(27) 3043-0703 <br> (27) 99988-1254</font></td>
+							</tr>
+						</table>
+									
+					</div>
+					
+					<br><br><br><br>
+					
+					<div id="tabela_documentos2">
+					
+						<table>
+						
+						{% for item in documentos %}						
+							<tr >
+								<td class="center" width='29px'>{{ item.0 }}</td>
+								<td width='450px' style="padding-left: 4px; padding-top: 2px; padding-bottom: 1px;">{{ item.1 }}</td>
+								<td class="center" width='74px' style="padding-left: 2px;">{{ item.2 }}</td>
+								<td class="center" width='73px' style="padding-left: 2px;">{{ item.3 }}</td>
+								<td class="center" width='86px' style="padding-left: 2px;">{{ item.4 }}</td>
+							</tr>
+						{% endfor %}
+															
+						</table>
+					
+					</div>
+					
+					<br><br><br><br>
+					<br><br><br><br>
+					<br><br><br><br>
+					<br><br><br><br>
+					<br><br><br><br>
+					<br><br><br><br>
+					<br><br><br><br>
+					
+					<div id="background_tabela2">
+						<img src="{% static 'imagens/tabela_transparente.png' %}"/>
+					</div>
+					
+					<br><br><br><br>
+					<br>
+					
+					<div id="recebido_por2">
+						<img src="{% static 'imagens/recebido_por.png' %}" />
+					</div>
+					<br><br><br>
+			
+				</td>
+			</tr>
+		</table>
+	
+	</body>
+</html>

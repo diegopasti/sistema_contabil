@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+	{% block Titulo %}
+    <title>Digitar</title>
+    {% endblock %}
+	
+	{% load staticfiles %}
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    {% block ArquivosEstaticos %}
+    
+    {% endblock %}
+    
+    {% block recrusos_necessarios %}
+    
+    {% endblock %}
+    
+    <!-- jQuery -->
+    <script src="{% static 'jquery/dist/jquery.min.js' %}"></script>
+    
+	<!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    
+</head>
+
+<body>
+	<div id="wrapper">
+		{% include "componentes/cabecalho.html" %}
+		
+		<div id="page-wrapper"  style="padding: 25px;">
+		{% block Principal %}
+	
+		{% endblock %}
+		</div>
+	</div>
+</body>
+
+{% block ArquivosScripts %}
+	 
+{% endblock %}
+
+{% block recursos_complementares %}
+	 
+{% endblock %}
+
+</html>

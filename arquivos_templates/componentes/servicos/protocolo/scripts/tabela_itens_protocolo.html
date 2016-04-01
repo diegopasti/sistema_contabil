@@ -1,0 +1,41 @@
+<meta charset="utf-8">
+{% load staticfiles %}
+<!-- DataTables JavaScript -->
+
+<style type="text/css">
+.botao_desabilitado {
+	opacity: 0.65; 
+  	cursor: not-allowed;
+  	visibility: hidden;
+}
+</style>
+ 
+<script>
+
+//jQuery(document).ready(function($) {
+//    $(".clickable-row").click(function() {
+//        window.document.location = $(this).data("href");
+//    });
+//});
+
+$('#search').on( 'keyup', function () {
+	var table = $('#{{ datatable_nome }}').DataTable();
+    table.search( this.value ).draw();
+} );
+
+$(".alert").fadeOut(4000);
+
+</script>
+
+<script>
+$(document).ready(function() {
+	
+	{% if erro %}
+    	$('#myModal').modal('show');
+    	BootstrapDialog.show();
+    
+    {% else %}
+		$('#myModal').modal('hide');
+	{% endif %}
+});
+</script>
