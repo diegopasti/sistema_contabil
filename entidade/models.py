@@ -67,7 +67,7 @@ class contato(models.Model):
     email = models.EmailField(max_length=100,null=True,error_messages=MENSAGENS_ERROS)
     
 
-
+""" 
 class pais(models.Model):
     nome        = models.CharField("Estado:",max_length=100,null=False,unique=True,error_messages=MENSAGENS_ERROS)
     sigla       = models.CharField("Sigla:",max_length=2,null=False,unique=True,error_messages=MENSAGENS_ERROS)
@@ -103,7 +103,7 @@ class endereco(models.Model):
     
     def __unicode__(self):
         return unicode(self.nome)    
-    
+  
 class localizacao(models.Model):
     entidade     = models.ForeignKey(entidade)
     cep          = models.ForeignKey(endereco)
@@ -113,7 +113,12 @@ class localizacao(models.Model):
     class Meta:
         verbose_name = "Localizacao"
         verbose_name_plural = "Localizações"
+        
 
+"""
+
+
+"""
 class protocolo(models.Model):
     emissor      = models.ForeignKey(entidade,related_name='entidade_emissora')
     destinatario = models.ForeignKey(entidade,related_name='entidade_destinataria')
@@ -128,8 +133,7 @@ class item_protocolo(models.Model):
     vencimento     = models.DateField("Vencimento:",null=True,error_messages=MENSAGENS_ERROS)
     valor          = models.DateField("Valor:",null=True,error_messages=MENSAGENS_ERROS)
     complemento    = models.TextField("Descrição:",max_length=500,null=True,error_messages=MENSAGENS_ERROS)
-
-
+"""
 
 
 

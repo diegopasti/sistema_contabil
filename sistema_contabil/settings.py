@@ -38,7 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'sistema_contabil','entidade'
+    'sistema_contabil','entidade','endereco'
 )
 
 
@@ -105,11 +105,30 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 #LANGUAGE_CODE = 'pt-br'
 #TIME_ZONE = 'America/Sao_Paulo'
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, '/arquivos_estaticos')
+
+
+
+#FUNCIONAVA ANTIGAMENTE
+"""
+STATIC_URL = '/arquivos_estaticos/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "arquivos_estaticos"),
+    )
+
+"""
+
+
+#FIZ ISSO PRA FUNCIONAR O PDF
+
+STATIC_URL = '/arquivos_estaticos/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'arquivos_estaticos')
+
+#STATIC_ROOT = os.path.join(BASE_DIR, '/arquivos_estaticos') - Quando ta assim tudo funciona, menos o pdf
+#STATIC_ROOT = os.path.join(BASE_DIR, 'arquivos_estaticos') - Quando ta assim funciona o pdf.. o resto nao
+
 MEDIA_URL = '/static/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '/arquivos_estaticos/media')
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "arquivos_estaticos"),
-    )
+    os.path.join(BASE_DIR, "/arquivos_estaticos"),
+)

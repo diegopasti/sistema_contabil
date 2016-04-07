@@ -1,3 +1,5 @@
+INSERT INTO entidade_pais (id,nome, sigla) VALUES (1, 'BRASIL', 'BR');
+
 INSERT INTO entidade_estado (codigo_ibge, sigla, nome,regiao,pais_id) VALUES (11, 'RO', 'RONDÔNIA','NORTE',1);
 INSERT INTO entidade_estado (codigo_ibge, sigla, nome,regiao,pais_id) VALUES (12, 'AC', 'ACRE','NORTE',1);
 INSERT INTO entidade_estado (codigo_ibge, sigla, nome,regiao,pais_id) VALUES (13, 'AM', 'AMAZONAS','NORTE',1);

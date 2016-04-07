@@ -21,9 +21,14 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^$', "entidade.views.index"),
     
+    
+    
     url(r'^admin/', include(admin.site.urls)),
+    url(r'teste/$', "endereco.views.teste"),
+    
+    
     url(r'^index/$', "entidade.views.index"),
-    url(r'^gerar_pdf/$', "entidade.views.gerar_pdf"),
+    url(r'^gerar_pdf/$', "entidade.protocolo.views.gerar_pdf"),
     
     url(r'^cadastro_protocolo/$', "entidade.protocolo.views.cadastro_protocolo"),
     
@@ -35,8 +40,8 @@ urlpatterns = [
     url(r'^cadastro_entidades/$', "entidade.views.cadastro_entidades"),
     
     #url(r'^protocolo/$', "entidade.views.protocolo"),
-    url(r'^emitir_protocolo/$', "entidade.views.emitir_protocolo",{'numero_item': -1}),
-    url(r'^emitir_protocolo/excluir/(?P<numero_item>\d+)/$', "entidade.views.emitir_protocolo"),
+    url(r'^emitir_protocolo/$', "entidade.protocolo.views.emitir_protocolo",{'numero_item': -1}),
+    url(r'^emitir_protocolo/excluir/(?P<numero_item>\d+)/$', "entidade.protocolo.views.emitir_protocolo"),
     url(r'^adicionar_entidade/$', "entidade.views.adicionar_entidade"),
     url(r'^consultar_entidade/(?P<entidade_id>\d+)/$',"entidade.views.consultar_entidade"),
 ]

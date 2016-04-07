@@ -17,6 +17,13 @@ MENSAGENS_ERROS={'required': 'Precisa ser Informado!',
                 }
 
 
+class formulario_confirmar_entrega(forms.Form):    
+    data_emissao          = forms.DateField(initial=datetime.date.today,)
+    #                                        widget=forms.DateInput(attrs={"class":"form-control"}))
+    
+    recebido_por = forms.CharField(label="Cliente: ",required=True,error_messages=MENSAGENS_ERROS,widget=forms.TextInput(attrs={'class':'form-control uppercase' ,'id':'recebido_por' }))
+    doc_receptor     = forms.CharField(label="Identidade:",required=False,error_messages=MENSAGENS_ERROS)
+    
 class formulario_emitir_protocolo(forms.Form):
     
     #labels = [(obj.nome_razao) for obj in entidade.objects.all()]

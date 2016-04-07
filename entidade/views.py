@@ -1,6 +1,7 @@
 # -*- encoding: utf-8 -*-
 
 import StringIO
+from cgi import escape
 from decimal import Decimal
 import json
 import os
@@ -14,12 +15,12 @@ from django.template.context import RequestContext
 
 from entidade.formularios import formulario_cadastro_entidade_completo, \
     formulario_emitir_protocolo, formulario_adicionar_item_protocolo
-from entidade.models import entidade, contato, localizacao, endereco, estado, municipio, bairro, \
-    item_protocolo, protocolo
+from entidade.models import entidade, contato
+from endereco.models import endereco, estado, municipio, bairro #localizacao 
+from entidade.protocolo.models import item_protocolo
 from entidade.utilitarios import formatar_codificacao, remover_simbolos
 from sistema_contabil import settings
 from util.internet import consultar_codigo_postal
-from cgi import escape
 
 
 def index(request):
@@ -27,6 +28,11 @@ def index(request):
 
 def buscar_fontes(request):
     return render_to_response("index.html")
+
+
+    
+    
+    
 
 
 
@@ -237,8 +243,9 @@ def emitir_protocolo(request,numero_item):
             empresa = entidade.objects.get(pk=1)
             empresa.cpf_cnpj = formatar_cpfcnpj(empresa.cpf_cnpj)
             
-            endereco_cliente = construir_endereco(localizacao.objects.get(entidade_id=cliente.id))
-            endereco_emissor = construir_endereco(localizacao.objects.get(entidade_id=empresa.id))
+            ""
+            endereco_cliente = "RUA TESTE.. TO ACERTANDO AS COISAS NO NOVO MODULO DE ENDERECO"#construir_endereco(localizacao.objects.get(entidade_id=cliente.id))
+            endereco_emissor = "RUA TESTE.. TO ACERTANDO AS COISAS NO NOVO MODULO DE ENDERECO"#construir_endereco(localizacao.objects.get(entidade_id=empresa.id))
             
             
             pagina = "protocolo.html"
@@ -461,13 +468,15 @@ def construir_objeto_localizacao(formulario, registro_entidade):
     codigo_postal = remover_simbolos(formulario.cleaned_data['cep'])                
     registro_endereco = endereco.objects.get(cep=codigo_postal)
     
+    """
     registro = localizacao(
         #entidade    = registro_entidade,
         cep      = registro_endereco,
         numero      = str(formulario.cleaned_data['numero_endereco']),
         complemento = formulario.cleaned_data['complemento'].upper(),
-    )
-    return registro
+    )"""
+    
+    return None # TESTETANDDO NOVO MODULO registro
 
 def construir_objeto_contato(formulario, registro_entidade):
     registro = contato(
@@ -635,7 +644,7 @@ def verificar_erros_formulario(formulario):
             return msg
     
           
-
+"""
 def consultar_cep(request,codigo_postal):
     
     if request.is_ajax():
@@ -699,7 +708,7 @@ def consultar_cep(request,codigo_postal):
     
     else:
         raise Http404
-
+"""
 
 
 
@@ -750,13 +759,14 @@ def adicionar_entidade(request):
                 cep_id = endereco.objects.filter(cep=codigo_postal)
                 print "Cep ID: ",cep_id
                 
+                """
                 registro_localizacao = localizacao(
                     cep_id      = cep_id,
                     numero      = formulario.cleaned_data['numero_endereco'],
                     complemento = formulario.cleaned_data['complemento'],
                     
                     )
-                
+                """
             
                 #endereco = formulario.cleaned_data['endereco']
                 

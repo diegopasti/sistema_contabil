@@ -5,8 +5,9 @@ Created on 2 de dez de 2015
 '''
 
 from django.contrib import admin
-from entidade.models import entidade, contato, endereco, protocolo,\
-    item_protocolo, localizacao, bairro
+from endereco.models import entidade, endereco, bairro #,localizacao
+from entidade.models import contato #, endereco, bairro #,localizacao
+from entidade.protocolo.models import protocolo, item_protocolo
     
     
 class entidade_admin(admin.ModelAdmin):
@@ -29,7 +30,7 @@ class localizacao_admin(admin.ModelAdmin):
 admin.site.register(entidade,entidade_admin)
 admin.site.register(contato,contato_admin)
 admin.site.register(endereco,endereco_admin)
-admin.site.register(localizacao,localizacao_admin)
+#admin.site.register(localizacao,localizacao_admin)
 admin.site.register(protocolo)
 admin.site.register(item_protocolo)
 

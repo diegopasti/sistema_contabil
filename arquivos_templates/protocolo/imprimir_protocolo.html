@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 	
 		{% load staticfiles %}
-		<link href="{% static 'styles/reset.css' %}" rel="stylesheet">
+		<!-- <link href="{% static 'styles/reset.css' %}" rel="stylesheet">  -->
 		<link href="{% static 'styles/protocolo.css' %}" rel="stylesheet">
 	
 	</head>
@@ -17,25 +17,22 @@
 				<td>
 					<div id="company_logo">
 						{% load staticfiles %}
-						<img src="{% static 'imagens/exemplo_logo.png' %}"  alt="logo"/>
+						<img src="{% static 'imagens/exemplo_logo.png' %}" width="100%"  alt="logo"/>
 					</div>
 					
 					<div id="page_title">
 						<font size=6>PROTOCOLO</font>
 					</div>
 					
-					<br><br>
+					<br>
 					
 					<div id='codigo_protocolo'>
 						<font size=6>{{ codigo_protocolo }}</font><br>
-						<font size=3>31/03/2016 - 13:04</font>
+						<font size=3>31/03/2016 - 13:04</font><br>
+						<font size=3>Emitido por {{ emitido_por }}</font>
 					</div>
 					
-					<br><br><br><br><br>
 					
-					<center>
-						<img src="{% static 'imagens/line.png' %}" width="300px" height="6px"/>
-					</center>
 					
 					<div id="label_emissor">
 						{% load staticfiles %}
@@ -61,8 +58,6 @@
 						</table>	
 					</div>	
 					
-					<br><br><br><br><br>
-					<br><br><br><br>
 					
 					<div id='line_separator_entidades'>
 						{% load staticfiles %}
@@ -95,20 +90,18 @@
 									
 					</div>
 					
-					<br><br><br><br>
-					
 					<div id="tabela_documentos">
-					
 						<table>
 						
 						{% for item in documentos %}						
-							<tr >
-								<td class="center" width='29px'>{{ item.0 }}</td>
-								<td width='450px' style="padding-left: 4px; padding-top: 2px; padding-bottom: 1px;">{{ item.1 }}</td>
-								<td class="center" width='74px' style="padding-left: 2px;">{{ item.2 }}</td>
-								<td class="center" width='73px' style="padding-left: 2px;">{{ item.3 }}</td>
-								<td class="center" width='86px' style="padding-left: 2px;">{{ item.4 }}</td>
+							<tr style="padding:0px;">
+								<td class="center" width='25px'>{{ item.0 }}</td>
+								<td width='447px' style="padding-left: 4px;">{{ item.1 }}</td>
+								<td class="center" width='74px' style="padding-left: 0px;">{{ item.2 }}</td>
+								<td class="center" width='73px' style="padding-left: 0px;">{{ item.3 }}</td>
+								<td class="center" width='86px' style="padding-left: 0px;">{{ item.4 }}</td>
 							</tr>
+
 						{% endfor %}
 															
 						</table>
@@ -121,15 +114,12 @@
 					<br><br><br><br>
 					<br><br><br><br>
 					<br><br><br><br>
-					<br><br><br><br>
 					
 					<div id="background_tabela">
 						<img src="{% static 'imagens/tabela_transparente.png' %}"/>
 					</div>
 					
-					
-					
-					<br><br><br>
+					<br>
 					
 					<div id="recebido_por">
 						<img src="{% static 'imagens/recebido_por.png' %}" />
@@ -180,14 +170,11 @@
 					
 					<div id='codigo_protocolo2'>
 						<font size=6 style="text-align: right;">{{ codigo_protocolo }}</font><br>
-						<font size=3 style="text-align: right;">31/03/2016 - 13:04</font>
+						<font size=3 style="text-align: right;">31/03/2016 - 13:04</font><br>
+						<font size=3>Emitido por {{ emitido_por }}</font>
 					</div>
 					
-					<br><br><br><br><br>
-					
-					<center>
-						<img src="{% static 'imagens/line.png' %}" width="300px" height="6px"/>
-					</center>
+					<br><br><br><br><br><br>
 					
 					<div id="label_emissor2">
 						{% load staticfiles %}
