@@ -24,6 +24,22 @@ SECRET_KEY = 'a33ryhl1tch=ql&a32o!+92%akmtem5%s7bhs_tj0#s3q$e4$%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+LOGGING = {
+    'version': 1,
+    'handlers': {
+        'console':{
+            'level':'DEBUG',
+            'class':'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django.request': {
+            'handlers':['console'],
+            'propagate': True,
+            'level':'DEBUG',
+        }
+    },
+}
 
 ALLOWED_HOSTS = []
 
@@ -38,7 +54,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'sistema_contabil','entidade','endereco'
+    'sistema_contabil','entidade','protocolo'
 )
 
 
@@ -108,16 +124,79 @@ USE_TZ = True
 
 
 
-#FUNCIONAVA ANTIGAMENTE
+
+
+"""
+    STATIC_ROOT        
+        
+        O caminho absoluto para o diretorio onde ./manage.py collectstatic ira coletar os
+        arquivos para implantacao. Exemplo: STATIC_ROOT = "/var/www/example.com/static/"
+    
+        agora o comando ./manage.py collectstatic ira copiar todos os arquivos estaticos (ou seja, na pasta de arquivos estaticos
+        da aplicacao, arquivos estaticos em todos os caminhos) para a /var/www/example.com/static/ diretorio.
+        agora voce so precisa servir este diretorio no Apache ou nginx..etc.
+        
+
+        
+        
+    STATIC_URL (Obrigatorio)
+    
+        O URL do qual os arquivos estaticos no diretorio STATIC_ROOT sao servidos (por Apache ou nginx..etc).
+        Exemplo: /static/ ou http://static.example.com/
+
+        Se voce definir STATIC_URL = 'http://static.example.com/', entao voce deve servir a pasta
+        STATIC_ROOT (ou seja, "/var/www/example.com/static/") pela Apache ou nginx 
+        na url 'http: //static.example.com/'(so que voce pode consultar o arquivo 
+        estatico '/var/www/example.com/static/jquery.js' com 'http://static.example.com/jquery.js' )
+        
+        Agora em seus django-templates, voce pode submete-la por:
+        {Load% staticfiles%}
+        <Script src = "{% static" jquery.js "%}"> </ script>
+        
+        o que tornara:
+        <Script src = "http://static.example.com/jquery.js"> </ script>.
+
+"""
+
+
+""" 
+    Essa configuracao permite que os arquivos estaticos da pasta sejam carregadas, inclusive imagens.
+    O pisa consegue carregar tanto os arquivos estaticos mas nao com desse jeito. Por algum motivo,
+    ainda desconhecido, se estiver assim o pisa nao consegue ou encontrar ou renderizar o conteudo
+    estatico de outros arquivos mas do outro jeito sim.
+    
+    - Tentei usar STATIC_URL mas parece nao ter funcionado.
+    - Tentei retirar a formatacao da tag BODY tambem nao parece ter funcionado.
+    
+    Algumas ideias para manter essa configuracao:
+    - Embutir o css na pagina que vai ser convertida. (Testado - Funciona!)
+    - Utilizar o caminho absoluto das imagens ao inves de tentar carregar pelo static tag. (Funciona!)
+      Nao consegui um meio de carregar o base_dir diretamente no template, entao eu pego ele na view 
+      e passo pro template. 
+    
 """
 STATIC_URL = '/arquivos_estaticos/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "arquivos_estaticos"),
+    ("imagens", os.path.join(BASE_DIR, "/arquivos_estaticos/imagens")),
+    
+)
+                    
+
+
+
+"""
+#FUNCIONAVA ANTIGAMENTE
+STATIC_URL = '/arquivos_estaticos/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'arquivos_estaticos')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "arquivos_estaticos"),
     )
-
 """
 
 
+"""
 #FIZ ISSO PRA FUNCIONAR O PDF
 
 STATIC_URL = '/arquivos_estaticos/'
@@ -126,9 +205,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'arquivos_estaticos')
 #STATIC_ROOT = os.path.join(BASE_DIR, '/arquivos_estaticos') - Quando ta assim tudo funciona, menos o pdf
 #STATIC_ROOT = os.path.join(BASE_DIR, 'arquivos_estaticos') - Quando ta assim funciona o pdf.. o resto nao
 
-MEDIA_URL = '/static/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, '/arquivos_estaticos/media')
+MEDIA_URL = '/static/media/'   # isso faz diferenca
+#MEDIA_ROOT = os.path.join(BASE_DIR, '/arquivos_estaticos/media')
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "/arquivos_estaticos"),
 )
+"""

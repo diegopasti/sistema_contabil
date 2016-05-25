@@ -19,11 +19,11 @@ def consultar_codigo_postal(cep):
     
     if resultado['resultado'][0] == '1':
         #print "Endereco com cidade de CEP unico: "  
-        endereco = resultado['tipo_logradouro'][0].upper()+" "+resultado['logradouro'][0].upper()
+        Endereco = resultado['tipo_logradouro'][0].upper()+" "+resultado['logradouro'][0].upper()
         bairro = resultado['bairro'][0].upper()
         cidade = resultado['cidade'][0].upper()
         uf     = resultado['uf'][0].upper()
-        resultado = [endereco,bairro,cidade,uf,]
+        resultado = [Endereco,bairro,cidade,uf,]
         
     elif resultado['resultado'][0] == '2':
         #print "Endereco com cidade de CEP unico: "  

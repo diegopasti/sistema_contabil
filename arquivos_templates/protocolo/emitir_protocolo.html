@@ -1,0 +1,635 @@
+{% extends 'base.html' %}
+
+{% block Titulo %}
+	<meta charset="utf-8">
+    <title>Digitar - Emitir Protocolo</title>
+{% endblock %}
+
+{% block recrusos_necessarios %}
+{% load staticfiles %}
+
+<!-- JQUERY -->
+<script type="text/javascript" src="{% static 'jquery/jquery-2.2.0.min.js' %}"></script>
+<script src="{% static 'jquery/jquery-ui-1.11.4/jquery-ui.js' %}"></script>
+
+<!-- BOOTSTRAP -->
+<link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"/>
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+
+<!-- DATATABLE -->
+<link rel="stylesheet" type="text/css" href="{% static 'datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css' %}"/>
+
+<script src="{% static 'datatable/DataTables-1.10.11/js/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js' %}"></script>
+
+<!-- JQUERY AUTOCOMPLETE EDITABLE -->
+<link rel="stylesheet" type="text/css" href="{% static 'jquery/jquery-editable-select/jquery.editable-select.min.css' %}"></link>
+<script src="{% static 'jquery/jquery-editable-select/jquery.editable-select.min.js' %}"></script>
+
+<!-- Plugin para realizar autocomplete 
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+-->
+
+
+<!-- ICONES -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">  -->
+
+
+<!-- CUSTOM -->
+<script src="{% static 'scripts/padrao/controle_botoes.js' %}"></script>
+<script src="{% static 'scripts/protocolo/protocolo.js' %}"></script>
+<!-- <script src="{% static 'scripts/meu_script.js' %}"></script> 
+<script src="{% static 'scripts/padrao/controle_datatable.js' %}"></script> -->
+ 
+
+
+<style type="text/css">
+
+.row.better_col_spacings_first_chield [class*='col-']:first-child {
+	padding-right:5px;
+	padding-bottom:15px;
+}
+
+.row.better_col_spacings_last_chield [class*='col-']:last-child {
+	padding-left:5px;
+	padding-bottom:15px;
+}
+
+.row.better_col_middle_spacings [class*='col-']:not(:first-child):not(:last-child) {
+  padding-right:5px;
+  padding-left:5px;
+  padding-bottom:15px;
+}
+
+.uppercase{ 
+    text-transform: uppercase;
+}
+
+.lowercase{ 
+    text-transform: uppercase;
+}
+
+.scrollable {
+    height: 100px;
+    overflow-y: scroll;
+}
+
+
+.botao_desabilitado {
+	opacity: 0.65; 
+  	cursor: not-allowed;
+  	visibility: hidden;
+}
+
+.link_desabilitado {
+     pointer-events: none;
+     cursor: default;
+     opacity: 0.6;
+}
+
+</style>
+
+{% endblock %} 
+{% block Principal %}
+
+<!-- <form action="" method="post" id="form_protocolo_informacoes_complementares">  
+	{% csrf_token %}-->
+	<div id="myModal_informacoes_complementares" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+		<div class="modal-dialog">
+			<!--  style="width: 90%"> -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">×</button>
+					<h3 id="myModalLabel">Informações Complementares</h3>
+				</div>
+	
+				<div class="modal-body" style="padding: 30px;">	
+
+					<div class="row" style="padding-left: 15px; padding-right: 15px">
+						<div style='padding-left: 8px'>
+							<sub>CPF:</sub>
+						</div>
+						<input class='form-control uppercase' type='text' id='complemento_cpf'></input>
+
+							
+					</div>
+
+					<div class="row" style="padding-left: 15px; padding-right: 15px">
+						<div style='padding-left: 8px'>
+							<sub>Endereço:</sub>
+						</div>
+						<input type='text' class='form-control uppercase' id='complemento_endereco'></input>
+					</div>
+					
+					<div class="row" style="padding-left: 15px; padding-right: 15px">
+						<div style='padding-left: 8px'>
+							<sub>Contatos:</sub>
+						</div>
+						<input type='text' class='form-control uppercase' id='complemento_contato'></input>
+					</div>
+
+					<div class="row">
+						<div class="col-lg-3 col-lg-push-9">
+							<button type="button" id="bt_adicionar_informacoes" class="btn btn-primary form-control" onclick="adiciona_informacoes_complementares();" name='informacoes_complementares' style="position: relative; margin-top: 20px">Salvar</button>
+							<!-- <a href="#myModal" role="button" class="btn btn-primary form-control" data-toggle="modal" '  > Adicionar</a>  -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+<form action="" method="post" id="form_protocolo">
+	{% csrf_token %}
+	<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+		<div class="modal-dialog">
+			<!--  style="width: 90%"> -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">×</button>
+					<h3 id="myModalLabel">Novo Documento</h3>
+				</div>
+	
+				<div class="modal-body" style="padding: 30px;">	
+
+					<div class="row" style="padding-left: 15px; padding-right: 15px">
+						<div style='padding-left: 8px'>
+							<sub>{{ formulario_protocolo.documento.label }}</sub>
+						</div>
+						{{ formulario_protocolo.documento }}
+							
+					</div>
+
+					<div class="row" style="padding-left: 15px; padding-right: 15px">
+						<div style='padding-left: 8px'>
+							<sub>{{ formulario_protocolo.complemento.label }}</sub>
+						</div>
+						{{ formulario_protocolo.complemento }}
+					</div>
+
+					<div
+						class="row better_col_spacings_first_chield better_col_middle_spacings better_col_spacings_last_chield">
+
+						<div class="col-lg-4">
+							<div style='padding-left: 8px'>
+								<sub>{{ formulario_protocolo.referencia.label }}</sub>
+							</div>
+							{{ formulario_protocolo.referencia }}
+						</div>
+
+						<div class="col-lg-4">
+							<div style='padding-left: 8px'>
+								<sub>{{ formulario_protocolo.vencimento.label }}</sub>
+							</div>
+							{{ formulario_protocolo.vencimento }}
+						</div>
+
+						<div class="col-lg-4">
+							<div style='padding-left: 8px'>
+								<sub>{{ formulario_protocolo.valor.label }}</sub>
+							</div>
+
+							<div class="input-group">
+								<span class="input-group-addon">R$</span> {{ formulario_protocolo.valor }}
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-lg-3 col-lg-push-9">
+							<button type="submit" id="bt_adicionar_item" class="btn btn-primary form-control" name='adicionar_item' style="position: relative; margin-top: 20px">Adicionar</button>
+							<!-- <a href="#myModal" role="button" class="btn btn-primary form-control" data-toggle="modal" '  > Adicionar</a>  -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="panel panel-default" style="margin-top: -15px; margin-left: 0px; margin-right: 0px;">
+				<div class="panel-heading">
+					<div class="row" style="height: 30px; line-height: 30px">
+						<div class="col-lg-7">
+							<b>Destinatário</b>
+						</div>
+					</div>
+				</div>
+	
+				<div class="panel-body"	style="padding-bottom: 18px; margin-top: 1px;">
+					<div class="row">
+						<div class="col-lg-5">
+							<div style='padding-left: 8px'>
+								<sub>{{ formulario_protocolo.select_destinatarios.label }}</sub>
+							</div>
+							
+							<select class='form-control uppercase' id="select_destinatarios" onblur="conferir_destinatario()">
+								
+							
+							
+							{% for item in destinatarios %}
+								<option value='{{ item.id }}'>{{ item.id }} - {{ item.nome_razao }}</option>
+							{% endfor %}
+															
+							</select>
+						</div>
+						
+						<div class="col-lg-3">
+						{{ formulario_protocolo.entidade_destinatario }}
+						</div>
+						
+						<div class="col-lg-2 pull-right">
+						
+							<a id='bt_resetar' role="button" onclick="resetar_protocolo()" class="pull-right" style="color: #8B0000;position: relative; margin-top: 9px; margin-right: 10px;" > Alterar Destinatário</a>
+
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<br>
+	
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="panel panel-default"
+				style="margin-top: -15px; margin-left: 0px; margin-right: 0px;">
+	
+				<div class="panel-heading">
+	
+					<div class="row" style="height: 30px; line-height: 30px">
+						<div class="col-lg-9">
+							<b>Documentos</b>
+						</div>
+						
+						<div class="col-lg-3 ">
+						
+							<div class = "btn-toolbar" role = "toolbar">
+								<div class="btn-group pull-right" role="group">			
+									<button type="submit" name='excluir_item' value='-1' id="bt_apagar" class="confirm btn btn-default " style="position: relative; margin-top: -2px;margin-right: -8px;">Apagar</button>
+								</div>
+							
+								<div class="btn-group pull-right" role="group">
+									<button type="button" id="bt_novo_documento" class="btn btn-default" data-toggle="modal" data-target="#myModal" style="position: relative; margin-top: -2px;margin-right: 2px;">Novo Documento</button> <!--  -->
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+	
+				<div class="panel-body" style="padding-bottom: -10px; margin-top: -5px;">
+					
+					<div class="dataTable_wrapper" style="padding-top: -5px">
+					
+						<table class="table table-striped table-bordered table-hover bordas_padrao" id="datatable" style="border-color:#CCC;">
+	
+							<thead>
+								<tr class="text-right">
+									<th style="text-align:center;">Documentos Entregues</th>
+									<th style="text-align:center;">Referência</th>
+									<th style="text-align:center;">Vencimento</th>
+									<th style="text-align:center;">Valor</th>
+								</tr>
+							</thead>
+	
+							{% if dados %}
+								<tbody>
+									{% for item in dados %}
+		
+									<tr>
+										{% if item.complemento %}
+										<td style="cursor: pointer;">{{ item.documento }} - {{ item.complemento }}</td> 
+										{% else %}
+											<td style="cursor: pointer;">{{ item.documento }}</td> 
+										{% endif %}
+		
+										<td align="center" style="cursor: pointer;">{{	item.referencia }}</td>
+										<td align="center" style="cursor: pointer;">{{ item.vencimento }}</td>
+										
+										{% if item.valor %}
+											<td align="center" style="cursor: pointer;">R$ {{ item.valor }}</td>
+										{% else %}
+											<td align="center" style="cursor: pointer;"></td>
+										{% endif %}
+									</tr>
+									
+									{% endfor %}
+								</tbody>
+							
+							{% else %}
+								<tbody>
+									<tr><td colspan=4 style='text-align:center;'>Adicione novos documentos</td> </tr>
+								</tbody>
+							{% endif %}
+						</table>
+						<!-- /.table-responsive -->
+					</div>
+	
+					<div class='row'>
+						
+					
+						<div class="col-lg-2 col-lg-push-10">
+							{% if dados %}
+								<button type="submit" id="bt_gerar_protocolo" target=_blank class="btn btn-primary pull-right liberado" name='gerar_protocolo' onclick="return confirm('Finalizar Protocolo?')" style="position: relative; margin-top: 15px">Gerar Protocolo</button>
+							{% else %}
+								<button type="submit" id="bt_gerar_protocolo" target=_blank class="btn btn-default pull-right aguardando" name='gerar_protocolo' onclick="return confirm('Finalizar Protocolo?')" style="position: relative; margin-top: 15px">Gerar Protocolo</button> 
+							{% endif %}
+						</div>
+					</div>							
+				</div>
+			</div>
+		</div>
+	</div>
+</form>	
+
+{% include "componentes/mensagem.html" with messages=messages %}
+{% endblock %}
+
+
+{% block recursos_complementares %}
+{% load staticfiles %}
+
+
+<!-- SCRIPTS CERTO!!!! -->
+<script type="text/javascript">
+if ($("#entidade_destinatario").val() != ""){
+	$('#bt_resetar').removeClass('link_desabilitado');
+}
+else{
+	$('#bt_resetar').addClass('link_desabilitado');
+
+}
+</script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	configurar_pagina(document);
+	configurar_datatable("#datatable");
+	
+	var destinatario = $("#entidade_destinatario").val();
+	if (destinatario != ""){
+		
+		if ( destinatario.indexOf('|') > -1 ) {
+			//alert("identificou o caractet |");
+			var campos = destinatario.split("|");	
+			$("#select_destinatarios").val(campos[0]);
+		} 
+		else {
+			//alert("nao identificou o caracter |");
+			$("#select_destinatarios").val(destinatario);
+		}
+		
+		$('#bt_resetar').removeClass('link_desabilitado');
+		desabilitar_botao("#select_destinatarios");
+	}
+	else{
+		alert("nao precisa do texto");
+		$('#bt_resetar').addClass('link_desabilitado');
+		//$("#select_destinatarios").val("desgrama2");
+
+	}
+	
+		
+});
+</script>
+
+
+
+<script type="text/javascript">
+$('#select_destinatarios').editableSelect({ 
+	effects: 'fade',
+	
+	onSelect: function (element) {
+		//alert(this.val());
+		habilitar_botao("#bt_novo_documento");
+		$("#entidade_destinatario").val(this.val());
+		var el = document.getElementById("bt_resetar");
+		el.classList.remove("link_desabilitado");
+		desabilitar_botao("#select_destinatarios");
+		//$("#entidade_destinatario").text = ;
+    },
+});
+</script>
+
+<script type="text/javascript">
+	function conferir_destinatario(){
+		
+		var destinatario = $('#select_destinatarios').val();
+		if (destinatario == ''){
+			desabilitar_botao("#bt_novo_documento");
+			desabilitar_botao("#bt_gerar_protocolo");
+			$('#bt_resetar').addClass('link_desabilitado');
+			$("#entidade_destinatario").val(destinatario);
+		}
+		
+		else{			
+
+			habilitar_botao("#bt_novo_documento");
+			$('#bt_resetar').removeClass('link_desabilitado');
+			
+			if(destinatario.contains("-")) {
+				$("#entidade_destinatario").val(destinatario);   
+				desabilitar_botao("#select_destinatarios");
+			}
+			
+			else{
+				$('#myModal_informacoes_complementares').modal('show');
+				desabilitar_botao("#select_destinatarios");
+				
+			}
+		}
+	}
+	
+	function adiciona_informacoes_complementares(){
+		var cpf = $("#complemento_cpf").val();
+		var endereco = $("#complemento_endereco").val();
+		var contato = $("#complemento_contato").val();
+		
+		var complemento = cpf+"|"+endereco+"|"+contato;
+		
+		$("#entidade_destinatario").val($("#select_destinatarios").val()+"|"+complemento);
+		$('#myModal_informacoes_complementares').modal('hide');
+	}
+	
+</script>
+
+<script type="text/javascript">   
+	function resetar_protocolo() { 
+    	if (window.confirm('Para trocar o destinatário do protocolo é necessário \nresetar o protocolo. Deseja continuar?')){
+         	window.location.href = ('/protocolo/emitir_protocolo/');
+    	}
+     	else{
+            return false;
+     }
+};
+</script>
+
+ <script type="text/javascript">
+ $(".alert").fadeOut(6000);
+</script>
+
+
+
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+	alert("Olha o que temos de documentos: {{ dados }}");
+	{% if dados %}
+		alert("vim configurar a exclusao e tenho dados..");
+		configurar_datatable_selecionavel("#datatable","#bt_apagar","{{ dados|length }}");
+		
+	{% else %}
+		alert("vim configurar a exclusaom mas nao tenho dados..");
+		configurar_datatable_selecionavel("#datatable","#bt_apagar","{{ dados|length }}");
+		desabilitar_botao("#bt_gerar_protocolo");
+	{% endif %}	
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#datatable"+' tbody').on( 'click', 'tr', seleciona_linha("#datatable",$(this),true));
+});
+</script>
+
+
+
+
+
+<script>
+
+//$(document).ready(function() {
+	//configurar_datatable("#datatable");
+	
+	//alert("tentando configurar o datatable certo..");
+	//$("#datatable").DataTable({
+//		'responsive': true,
+		//"bPaginate": false,
+		//"lengthMenu": [[10, 100, -1], [10, 100, "All"]],
+		//"dom": '<"top">rt"<"rightcolumn"p><"clear">',
+		//"bSort": false,
+		//"ordering": false,
+		//"bAutoWidth": false,
+		//"bFilter": false,
+		//"aoColumns": [
+	        //{ "sWidth": null },
+	        //{ "sWidth": "100px" },
+	       // /{ "sWidth": "100px" },  
+	        //{ "sWidth": "120p"}
+	       //]/
+		
+	//});
+	
+	
+	
+	
+	
+	
+	//configurar_datatable_selecionavel("#datatable","#bt_apagar","{{ dados|length }}"));
+	//alert("funcionei?");
+
+
+//});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+	//configurar_pagina(document);
+	//configurar_datatable("#datatable");
+	//$("#select_destinatarios").val("desgrama");
+	
+	///var destinatario = $("#select_destinatarios").val();
+	
+	//if (destinatario === ""){
+//		alert("tinha nada");
+	//}
+	
+	//else{
+//		alert("tem coisa preenchida");
+//	}
+	
+//	alert("supostamente configurei a pagina");
+//});
+</script>
+
+<!-- 
+
+
+
+
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+	//configurar_pagina(document);
+	
+	
+	//configurar_datatable_padrao("#datatable");
+	///alert("funciona carai");
+	//console.log("consegui chegar nesse log?");
+
+	//$("#select_destinatarios").val("teste");//$("#entidade_destinatario").val());
+	
+	
+	//desabilitar_botao("#select_destinatarios");
+	
+	//$('#editable-select').editableSelect();
+	
+	
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ --> 
+{% endblock %}
+
+

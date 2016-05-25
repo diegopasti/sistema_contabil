@@ -5,58 +5,104 @@
     <title>Digitar - Protocolo</title>
 {% endblock %}
 
-{% block ArquivosEstaticos %}
+{% block recrusos_necessarios %}
 {% load staticfiles %}
 
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/t/bs-3.3.6/dt-1.10.11/datatables.min.css"/>
-<script type="text/javascript" src="https://cdn.datatables.net/t/bs-3.3.6/dt-1.10.11/datatables.min.js"></script>
+<!-- JQUERY -->
+<script type="text/javascript" src="{% static 'jquery/jquery-2.2.0.min.js' %}"></script>
+
+<!-- BOOTSTRAP -->
+<link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+
+<!-- DATATABLE -->
+<link rel="stylesheet" type="text/css" href="{% static 'datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css' %}"/>
 
 
+<style type="text/css">
+.uppercase{ 
+    text-transform: uppercase;
+}
 
-{% endblock %} 
+.lowercase{ 
+    text-transform: uppercase;
+}
+</style>
+{% endblock %}
+
 
 {% block Principal %}
 
-<form action="" method="post" id="form_protocolo">
-	{% csrf_token %}
-	<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
-		<div class="modal-dialog">
-			<!--  style="width: 90%"> -->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-hidden="true">×</button>
-					<h3 id="myModalLabel">Confirmação de Recebimento</h3>
-				</div>
-	
-				<div class="modal-body" style="padding: 30px;">	
 
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+	<div class="modal-dialog">
+		<!--  style="width: 90%"> -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">×</button>
+				<h3 id="myModalLabel">Confirmação de Recebimento</h3>
+			</div>
+
+
+			<div class="modal-body" style="padding: 30px;">	
+				<form action="" method="post" id="form_confirma_entrega">
+				{% csrf_token %}
 					<div class="row" style="padding-left: 15px; padding-right: 15px">
 						<div style='padding-left: 8px'>
-							<sub>{{ form_entrega.data_recebimento.label }}</sub>
+							<sub>{{ form_entrega.recebido_por.label }}</sub>
 						</div>
-						{{ form_entrega.data_recebimento }}
+						{{ form_entrega.recebido_por }}
+							
 					</div>
-
-					<div class="row" style="padding-left: 15px; padding-right: 15px">
-						<div style='padding-left: 8px'>
-							<sub>{{ formulario_protocolo.complemento.label }}</sub>
-						</div>
-						{{ formulario_protocolo.complemento }}
-					</div>
-
 					
-
+					<div class="row" style="padding-left: 15px; padding-right: 15px">
+						
+						<table>
+							<tr>
+								<td>
+									<div style='padding-left: 8px'>
+										<sub>{{ form_entrega.doc_receptor.label }}</sub>
+									</div>
+									{{ form_entrega.doc_receptor }}
+								</td>
+								
+								<td>
+									<div style='padding-left: 10px'>
+										<div style='padding-left: 8px'>
+											<sub>{{ form_entrega.data_emissao.label }}</sub>
+										</div>
+										{{ form_entrega.data_emissao }}
+									</div>
+								</td>
+							</tr>
+							
+						</table>
+													
+					</div>
+					
+					<div class="row" style="padding-left: 15px; padding-right: 15px">
+						<div style='padding-left: 8px'>
+							<sub>{{ form_entrega.observacao_entrega.label }}</sub>
+						</div>
+						{{ form_entrega.observacao_entrega }}
+							
+					</div>
+					
 					<div class="row">
 						<div class="col-lg-3 col-lg-push-9">
 							<button type="submit" id="bt_adicionar_item" class="btn btn-primary form-control" name='adicionar_item' style="position: relative; margin-top: 20px">Adicionar</button>
 							<!-- <a href="#myModal" role="button" class="btn btn-primary form-control" data-toggle="modal" '  > Adicionar</a>  -->
 						</div>
 					</div>
-				</div>
+				</form>
 			</div>
 		</div>
 	</div>
+</div>
+
 
 <div class="row">
 	<div class="col-lg-12">
@@ -70,7 +116,7 @@
 		
 					<div class="col-lg-5">	
 						<a href="#" role="button" class="pull-right" id="bt_novo_documento" data-toggle="modal" data-target="#myModal" style="position: relative; margin-top: 0px;margin-right: 2px;">Confirmar Recebimento</button>										
-						<a href="/emitir_protocolo" role="button" class="pull-right" style="position: relative; margin-top: 0px; margin-right: 20px;" ><i class="fa fa-plus fa-1x"></i> Novo Protocolo</a>
+						<a href="/protocolo/emitir_protocolo" role="button" class="pull-right" style="position: relative; margin-top: 0px; margin-right: 20px;" ><i class="fa fa-plus fa-1x"></i> Novo Protocolo</a>
 						
 					</div>
 					
@@ -86,9 +132,12 @@
 		
 						<thead>
 							<tr class="linha_cabecalho">
+								<th style="vertical-align: middle;"></th>
 								<th style="vertical-align: middle;">COD</th>
 								<th style="vertical-align: middle;">DESTINATÁRIO</th>
-								<th style="vertical-align: middle;">EMISSÃO</th>
+								<th style="vertical-align: middle;">DATA EMISSÃO</th>
+								<th style="vertical-align: middle;">DATA ENTREGA</th>
+								<th style="vertical-align: middle;">RECEBIDO POR</th>
 								<th style="vertical-align: middle;">CONFIRMADO</th>
 							</tr>
 						</thead>
@@ -97,9 +146,13 @@
 							{% for item in dados %}
 							
 							<tr><!--  class="alinhado_meio clickable-row " data-href='/consultar_entidade/{{ item.id }}'> -->
+								<td style="cursor:pointer"></td>
 								<td style="cursor:pointer">{{ item.numeracao_destinatario }}</td>
 								<td align="left" style="cursor:pointer">{{ item.destinatario }}</td>
 								<td align="left" style="cursor:pointer">{{ item.data_emissao }}</td>
+								<td align="left" style="cursor:pointer">{{ item.data_recebimento }}</td>
+								<td align="left" style="cursor:pointer">{{ item.recebido_por }}</td>
+								
 								
 								{% if item.situacao %}
 									<td align="left" style="cursor:pointer">Sim</td>
@@ -109,7 +162,7 @@
 							</tr>
 							
 							{% empty %}
-    							<tr><td style="text-align: center;" colspan="5">Nenhuma protocolo emitido</td></tr>
+    							<tr><td style="text-align: center;" colspan="7">Nenhum protocolo emitido</td></tr>
 							{% endfor %}
 						</tbody>
 					</table>
@@ -117,7 +170,7 @@
 				</div>
 
 				<div class="col-lg-6">
-					<input type="text" id="search" class="form-control" style="position: relative; margin-left: -14px; margin-top: -4px;" placeholder="Consultar..">
+					<input type="text" id="search" class="form-control" style="position: relative; margin-left: -14px; margin-top: 10px;" placeholder="Consultar..">
 				</div>
 				
 			</div>
@@ -126,10 +179,6 @@
 	</div>
 	<!-- /.row -->
 </div>
-
-
-
-  
 
 
 {% include "componentes/mensagem.html" with messages=messages %}
@@ -169,16 +218,26 @@ $(document).ready(function() {
 		"ordering": true,
 		"bAutoWidth": false,
 		"aoColumns": [
+		              
+						{
+						    "class":          "details-control",
+						    "orderable":      false,
+						    "data":           null,
+						    "defaultContent": ""
+						},
 	                    { "sWidth": "10px" }, // 1st column width 
 	                    { "sWidth": "30px" }, // 2th column width
 	                    { "sWidth": "30px"}, // 3st column width 
 	                    { "sWidth": "40px"} // 4st column width
-	                    
-	                    
 	                    ]
-	});
-	
+	});	
 });
+
+function format ( d ) {
+    return 'Full name: Diego Pasti<br>'+
+        'Salary: '+R$ 10.000,00+'<br>'+
+        'The child row can contain any data you wish, including links, images, inner tables etc.';
+}
 
 jQuery(document).ready(function($) {
     $(".clickable-row").click(function() {
@@ -201,5 +260,31 @@ $(".alert").fadeOut(4000 );
 $(".alert").fadeOut(6000);
 </script>
 
+<script>
+$('.modal').on('hidden.bs.modal', function(){
+	$(this).find('form')[0].reset();
+	$("#recebido_por").val('');
+	$("#documento").val('');
+	$("#observacao_entrega").val('');
+    //alert("resetei o form?");
+    
+});
+</script>
+
+<script>
+$(document).ready(function() {
+	
+	{% if erro %}
+    	$('#myModal').modal('show');
+    	BootstrapDialog.show({
+	        message: $("Tentando")
+	    });
+    
+    {% else %}
+		$('#myModal').modal('hide');
+	{% endif %}
+});
+
+</script>
 
 {% endblock %}

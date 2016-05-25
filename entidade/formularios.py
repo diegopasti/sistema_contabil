@@ -18,11 +18,21 @@ MENSAGENS_ERROS={'required': 'Precisa ser Informado!',
 
 
 class formulario_confirmar_entrega(forms.Form):    
-    data_emissao          = forms.DateField(initial=datetime.date.today,)
-    #                                        widget=forms.DateInput(attrs={"class":"form-control"}))
+    data_emissao          = forms.DateField(
+                                label="Data Entrega:",initial=datetime.date.today,required=False,
+                                widget= forms.DateInput(attrs={'class':"form-control" ,'id':'data_entrega'},format = '%d/%m/%Y'), 
+                                input_formats=('%d/%m/%Y',)
+                                ) 
     
-    recebido_por = forms.CharField(label="Cliente: ",required=True,error_messages=MENSAGENS_ERROS,widget=forms.TextInput(attrs={'class':'form-control uppercase' ,'id':'recebido_por' }))
-    doc_receptor     = forms.CharField(label="Identidade:",required=False,error_messages=MENSAGENS_ERROS)
+    #forms.DateField(initial=datetime.date.today,)
+    #                                        widget=forms.DateInput(attrs={"class":"form-control"}))
+    recebido_por = forms.CharField(label="Recebido por: ",required=True,error_messages=MENSAGENS_ERROS,widget=forms.TextInput(attrs={'class':'form-control uppercase' ,'id':'recebido_por' }))
+    doc_receptor     = forms.CharField(label="Documento:",required=False,error_messages=MENSAGENS_ERROS,widget=forms.TextInput(attrs={'class':'form-control uppercase' ,'id':'documento' }))
+    
+    observacao_entrega = forms.CharField(label="Observação:",required=False,error_messages=MENSAGENS_ERROS,widget=forms.Textarea(attrs={'class':'form-control uppercase' ,'id':'observacao_entrega' }))
+    
+
+    
     
 class formulario_emitir_protocolo(forms.Form):
     
@@ -32,7 +42,7 @@ class formulario_emitir_protocolo(forms.Form):
     #                                               widget=forms.Select(attrs={"class":"form-control"}),
     #                                               )
                                                    
-    entidade_destinatario = forms.CharField(label="Cliente: ",max_length=100,required=True,error_messages=MENSAGENS_ERROS,widget=forms.TextInput(attrs={'class':'form-control uppercase' ,'id':'entidade_destinatario' }))
+    entidade_destinatario = forms.CharField(label="Cliente: ",max_length=100,required=True,error_messages=MENSAGENS_ERROS,widget=forms.TextInput(attrs={'class':'form-control uppercase' ,'id':'entidade_destinatario', 'readonly':True })) #,'type':"hidden"  
         
     #data_emissao          = forms.DateField(initial=datetime.date.today,
     #                                        widget=forms.DateInput(attrs={"class":"form-control"}))
@@ -98,8 +108,10 @@ class formulario_cadastro_entidade_completo(forms.Form):
         ('C', 'CLIENTE'),
         ('F', 'FORNECEDOR'),
         ('U', 'FUNCIONÁRIO'),
-        ('O', 'OUTRO'),
+        ('O', 'OUTRO')
     )
+    
+    #print "Type: ",type(opco)
     
     cpf_cnpj              = forms.CharField(label="Cpf / Cnpj:",max_length=18,required=True,error_messages=MENSAGENS_ERROS,
                                             widget=forms.TextInput(attrs={'class':"form-control", 'id':'cpf_cnpj' }),
@@ -108,10 +120,10 @@ class formulario_cadastro_entidade_completo(forms.Form):
                                             widget=forms.TextInput(attrs={'class':"form-control uppercase", 'id':'nome_razao'})
                                             ) 
     
-    apelido_fantasia      = forms.CharField(label="Apelido / Nome Fantasia:",max_length=50,required=True,error_messages=MENSAGENS_ERROS,
+    apelido_fantasia      = forms.CharField(label="Apelido / Nome Fantasia:",max_length=50,required=False,error_messages=MENSAGENS_ERROS,
                                             widget=forms.TextInput(attrs={'class':"form-control uppercase" ,'id':'apelido_fantasia'})
                                             )
-    tipo_registro         = forms.ChoiceField(label="Tipo Registro:",choices=opcoes_tipos_registros,required=True,error_messages=MENSAGENS_ERROS, #choices=opcoes_tipos_registros, default='C',
+    tipo_registro         = forms.ChoiceField(label="Tipo Registro:",choices=opcoes_tipos_registros,required=False,error_messages=MENSAGENS_ERROS, #choices=opcoes_tipos_registros, default='C',
                                             widget=forms.Select(attrs={'class':"form-control" ,'id':'tipo_registro'})
                                             )
     
@@ -137,7 +149,7 @@ class formulario_cadastro_entidade_completo(forms.Form):
     
     endereco    = forms.CharField(label="Endereço:",max_length=100,required=True,error_messages=MENSAGENS_ERROS,
                                   widget=forms.TextInput(attrs={'class':"form-control uppercase" ,'id':'endereco'})
-                                  )
+                          )
     bairro      = forms.CharField(label="Bairro:",max_length=100,required=True,error_messages=MENSAGENS_ERROS,
                                   widget=forms.TextInput(attrs={'class':"form-control uppercase" ,'id':'bairro'})
                                   )
@@ -184,11 +196,11 @@ class formulario_cadastro_entidade_completo(forms.Form):
     
     estado       = forms.ChoiceField(label="Estado:",choices=opcoes_estados,required=True,error_messages=MENSAGENS_ERROS,
                                          widget=forms.Select(attrs={'class':"form-control uppercase" ,'id':'estado'})
-                                  )
+                  )
 
     pais       = forms.CharField(label="País:",required=True,error_messages=MENSAGENS_ERROS,
                                        widget=forms.TextInput(attrs={'class':"form-control uppercase" ,'id':'pais'})
-                                  )
+                              )
     
     opcoes_tipos_contatos = (
                             
@@ -328,7 +340,7 @@ class formulario_cadastro_entidade_completo(forms.Form):
     
     """ Tentar utilizar o campo do estado pra definir automaticamente a mascara da inscricao estadual para o estado definido """
     inscricao_estadual = forms.CharField(label="Inscrição Estadual:",max_length=50,required=False,initial="ISENTO",error_messages=MENSAGENS_ERROS,
-                                    widget=forms.TextInput(attrs={'class':"form-control" ,'id':'inscricao_estadual'})
+                              widget=forms.TextInput(attrs={'class':"form-control" ,'id':'inscricao_estadual'})
                                     )
     codigo_estado_inscricao = forms.CharField(label="Código do Estado:",max_length=50,required=False,error_messages=MENSAGENS_ERROS,
                                     widget=forms.TextInput(attrs={'class':"form-control" ,'id':'codigo_estado_inscricao'})

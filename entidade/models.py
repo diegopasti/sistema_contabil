@@ -1,5 +1,7 @@
 # -*- encoding: utf-8 -*-
 from django.db import models
+from rest_framework import serializers
+
 
 MENSAGENS_ERROS={'required': 'Campo Obrigatório!',
                  'invalid' : 'Formato Inválido!'
@@ -17,7 +19,25 @@ class observacao(models.Model):
     
     descricao = models.TextField("Descrição: ",max_length=500,null=False,error_messages=MENSAGENS_ERROS)
     
-
+class localizacao_simples(models.Model):
+    cep         = models.CharField("Codigo Postal:",max_length=8,null=False,unique=True,error_messages=MENSAGENS_ERROS)
+    logradouro  = models.CharField("Logradouro:",max_length=100,null=True,error_messages=MENSAGENS_ERROS)
+    numero      = models.CharField("Numero:",max_length=5,null=True,error_messages=MENSAGENS_ERROS)
+    complemento = models.CharField("Complemento:",max_length=100,null=True,error_messages=MENSAGENS_ERROS)    
+    #codigo_ibge = models.CharField("Codigo IBGE:",max_length=10,null=False,unique=True,error_messages=MENSAGENS_ERROS)
+    bairro           = models.CharField("Bairro:",max_length=100,null=False,error_messages=MENSAGENS_ERROS)
+    codigo_ibge = models.CharField("Codigo Municipal:",max_length=7,null=False,error_messages=MENSAGENS_ERROS)
+    municipio        = models.CharField("Municipio:",max_length=100,null=False,error_messages=MENSAGENS_ERROS)
+    #sigla       = models.CharField("Sigla:",max_length=2,null=False,unique=True,error_messages=MENSAGENS_ERROS)
+    estado        = models.CharField("Estado:",max_length=100,null=False,error_messages=MENSAGENS_ERROS)    
+    
+    
+    pais        = models.CharField("País:",max_length=30,null=False,error_messages=MENSAGENS_ERROS)
+    #sigla       = models.CharField("Sigla:",max_length=2,null=False,unique=True,error_messages=MENSAGENS_ERROS)
+    
+    def get_endereco(self):
+        return self.logradouro+","+self.numero+","+self.bairro+","+self.municipio+","+self.estado+" - "+self.cep    
+    
 class entidade(models.Model):
     opcoes_tipos_registros = (
                             
@@ -28,20 +48,24 @@ class entidade(models.Model):
     )
     
     cpf_cnpj              = models.CharField("Cpf / Cnpj:",max_length=18,null=False,unique=True,error_messages=MENSAGENS_ERROS)
-    registro_geral        = models.CharField("Identidade:",max_length=12,null=False,unique=False,error_messages=MENSAGENS_ERROS)
-    tipo_registro         = models.CharField("Tipo Registro:",max_length=1,null=False,choices=opcoes_tipos_registros, default='C',error_messages=MENSAGENS_ERROS)
-    nome_razao            = models.CharField("Nome / Razão Social:",max_length=100,null=False,unique=False,error_messages=MENSAGENS_ERROS) 
-    apelido_fantasia      = models.CharField("Apelido / Nome Fantasia:",max_length=50,null=False,unique=False,error_messages=MENSAGENS_ERROS)
-    inscricao_estadual    = models.BooleanField("Inscrição Estadual:",null=False,default=False,error_messages=MENSAGENS_ERROS)
-    inscricao_municipal   = models.BooleanField("Inscrição Municipal:",null=False,default=False,error_messages=MENSAGENS_ERROS)
-    inscricao_rural       = models.BooleanField("Inscrição Rural:",null=False,default=False,error_messages=MENSAGENS_ERROS)
     
-    nascimento_fundacao   = models.DateField("Nascimento / Fundação:",null=True)
+    nome_razao            = models.CharField("Nome / Razão Social:",max_length=100,null=False,unique=False,error_messages=MENSAGENS_ERROS) 
+    apelido_fantasia      = models.CharField("Apelido / Nome Fantasia:",max_length=50,null=True,blank=True,unique=False,error_messages=MENSAGENS_ERROS)
+    
+    registro_geral        = models.CharField("Identidade:",max_length=12,null=True,unique=False,blank=True,error_messages=MENSAGENS_ERROS)
+    tipo_registro         = models.CharField("Tipo Registro:",max_length=1,null=True,default='C',unique=False,error_messages=MENSAGENS_ERROS)
+    inscricao_estadual    = models.CharField("Inscrição Estadual:",max_length=10,null=True,blank=True,error_messages=MENSAGENS_ERROS)
+    inscricao_municipal   = models.CharField("Inscrição Municipal:",max_length=10,null=True,blank=True,error_messages=MENSAGENS_ERROS)
+    inscricao_rural       = models.CharField("Inscrição Rural:",max_length=10,null=True,blank=True,error_messages=MENSAGENS_ERROS)
+    
+    nascimento_fundacao   = models.DateField("Nascimento / Fundação:",null=True,blank=True)
     
     data_cadastro         = models.DateField(auto_now=True)
     ativo          = models.BooleanField(default=True)
     
     numeracao_protocolo = models.IntegerField(null=False,default=0)
+    
+    endereco = models.ForeignKey(localizacao_simples,default=0)
     
 
     def __unicode__(self):
@@ -61,85 +85,82 @@ class contato(models.Model):
     
     entidade = models.ForeignKey(entidade)
     tipo_contato         = models.CharField("Tipo:",max_length=1,null=False,choices=opcoes_tipos_contatos, default='C',error_messages=MENSAGENS_ERROS)
-    numero = models.CharField("Numero:",max_length=20,null=False,error_messages=MENSAGENS_ERROS)
-    nome_contato = models.CharField("Nome do Contato:",max_length=50,null=False,error_messages=MENSAGENS_ERROS)
-    cargo_setor = models.CharField("Cargo ou Setor:",max_length=50,null=True,error_messages=MENSAGENS_ERROS)
-    email = models.EmailField(max_length=100,null=True,error_messages=MENSAGENS_ERROS)
-    
+    numero = models.CharField("Numero:",max_length=20,null=False,blank=True,error_messages=MENSAGENS_ERROS)
+    nome_contato = models.CharField("Nome do Contato:",max_length=50,null=False,blank=True,error_messages=MENSAGENS_ERROS)
+    cargo_setor = models.CharField("Cargo ou Setor:",max_length=50,null=True,blank=True,error_messages=MENSAGENS_ERROS)
+    email = models.EmailField(max_length=100,null=True,blank=True,error_messages=MENSAGENS_ERROS)
 
-""" 
-class pais(models.Model):
-    nome        = models.CharField("Estado:",max_length=100,null=False,unique=True,error_messages=MENSAGENS_ERROS)
+
+
+class Pais(models.Model):
+    nome        = models.CharField("País:",max_length=100,null=False,unique=True,error_messages=MENSAGENS_ERROS)
     sigla       = models.CharField("Sigla:",max_length=2,null=False,unique=True,error_messages=MENSAGENS_ERROS)
+    
+    class Meta:
+        verbose_name = "País"
+        verbose_name_plural = "Países"
+    
+    def __unicode__(self):
+        return unicode(self.nome) 
 
-class estado(models.Model):
-    codigo_ibge = models.CharField("Código IBGE:",max_length=2,null=False,unique=True,error_messages=MENSAGENS_ERROS)
+class Estado(models.Model):
+    codigo_ibge = models.CharField("Codigo IBGE:",max_length=2,null=False,unique=True,error_messages=MENSAGENS_ERROS)
     sigla       = models.CharField("Sigla:",max_length=2,null=False,unique=True,error_messages=MENSAGENS_ERROS)
     nome        = models.CharField("Estado:",max_length=100,null=False,unique=True,error_messages=MENSAGENS_ERROS)    
     regiao      = models.CharField("Região:",max_length=20,null=False,unique=False,error_messages=MENSAGENS_ERROS)
-    pais        = models.ForeignKey(pais)
+    pais        = models.ForeignKey(Pais)
     
-class municipio(models.Model):
-    codigo_ibge = models.CharField("Código Municípal:",max_length=7,null=False,unique=True,error_messages=MENSAGENS_ERROS)
-    nome        = models.CharField("Município:",max_length=100,null=False,unique=False,error_messages=MENSAGENS_ERROS)
-    estado      = models.ForeignKey(estado)  
+    def __unicode__(self):
+        return unicode(self.nome) 
+    
+class Municipio(models.Model):
+    codigo_ibge = models.CharField("Codigo Municipal:",max_length=7,null=False,unique=True,error_messages=MENSAGENS_ERROS)
+    nome        = models.CharField("Municipio:",max_length=100,null=False,unique=False,error_messages=MENSAGENS_ERROS)
+    estado      = models.ForeignKey(Estado)  
+    
+    def __unicode__(self):
+        return unicode(self.nome) 
 
-class bairro(models.Model):
-    codigo_ibge = models.CharField("Código IBGE:",max_length=10,null=False,unique=True,error_messages=MENSAGENS_ERROS)
+class Bairro(models.Model):
+    codigo_ibge = models.CharField("Codigo IBGE:",max_length=10,null=False,unique=True,error_messages=MENSAGENS_ERROS)
     nome           = models.CharField("Bairro:",max_length=100,null=False,unique=False,error_messages=MENSAGENS_ERROS)
-    municipio      = models.ForeignKey(municipio)
+    municipio      = models.ForeignKey(Municipio)
     
     class Meta:
         unique_together = ('nome', 'municipio')
         
     def __unicode__(self):
-        return unicode(self.nome)    
-    
+        return unicode(self.nome)   
         
-class endereco(models.Model):
-    cep         = models.CharField("Código Postal:",max_length=8,null=False,unique=True,error_messages=MENSAGENS_ERROS)
+class Logradouro(models.Model):
+    cep         = models.CharField("Codigo Postal:",max_length=8,null=False,unique=True,error_messages=MENSAGENS_ERROS)
     nome        = models.CharField("Endereço:",max_length=100,null=False,unique=False,error_messages=MENSAGENS_ERROS)
-    bairro      = models.ForeignKey(bairro)
+    bairro      = models.ForeignKey(Bairro)
     
     def __unicode__(self):
-        return unicode(self.nome)    
-  
-class localizacao(models.Model):
-    entidade     = models.ForeignKey(entidade)
-    cep          = models.ForeignKey(endereco)
-    numero       = models.CharField("Número:",max_length=5,null=False,error_messages=MENSAGENS_ERROS)
-    complemento  = models.CharField("Complemento:",max_length=100,null=True,error_messages=MENSAGENS_ERROS)
+        return unicode(self.nome) 
+
+class Localizacao(models.Model):
+    logradouro  = models.ForeignKey(Logradouro)
+    numero      = models.CharField("Numero:",max_length=5,null=True,unique=False,error_messages=MENSAGENS_ERROS)
+    complemento = models.CharField("Complemento:",max_length=100,null=True,unique=False,error_messages=MENSAGENS_ERROS)
     
-    class Meta:
-        verbose_name = "Localizacao"
-        verbose_name_plural = "Localizações"
-        
-
-"""
-
-
-"""
-class protocolo(models.Model):
-    emissor      = models.ForeignKey(entidade,related_name='entidade_emissora')
-    destinatario = models.ForeignKey(entidade,related_name='entidade_destinataria')
-    data_emissao = models.DateField(auto_now=True)
+class Endereco(object):
     
-    numeracao_destinatario = models.IntegerField(null=True)
+    logradouro   = None
+    bairro       = None
+    municipio    = None
+    estado       = None
+    pais         = None
+    codigo_bairro = None
+    codigo_municipio = None   
     
-class item_protocolo(models.Model):    
-    protocolo      = models.ForeignKey(protocolo)
-    documento      = models.CharField("Item:",max_length=100,null=False,error_messages=MENSAGENS_ERROS)
-    referencia     = models.DateField("Mês de Referência:",null=True,error_messages=MENSAGENS_ERROS)
-    vencimento     = models.DateField("Vencimento:",null=True,error_messages=MENSAGENS_ERROS)
-    valor          = models.DateField("Valor:",null=True,error_messages=MENSAGENS_ERROS)
-    complemento    = models.TextField("Descrição:",max_length=500,null=True,error_messages=MENSAGENS_ERROS)
-"""
-
-
-
-
+class endereco_serializer(serializers.Serializer):
     
-
-
-
-    
+    logradouro   = serializers.CharField(max_length=100)
+    bairro       = serializers.CharField(max_length=100)
+    municipio    = serializers.CharField(max_length=100)
+    estado       = serializers.CharField(max_length=100)
+    pais         = serializers.CharField(max_length=100)
+    codigo_municipio = serializers.CharField(max_length=7)
+    codigo_bairro = serializers.CharField(max_length=10)

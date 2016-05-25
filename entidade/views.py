@@ -4,27 +4,35 @@ import StringIO
 from cgi import escape
 from decimal import Decimal
 import json
-import os
 
 from django.contrib import messages
 from django.core.exceptions import ValidationError
 from django.db.utils import IntegrityError
-from django.http.response import HttpResponse, Http404
-from django.shortcuts import render_to_response, redirect
+from django.http.response import Http404, HttpResponseRedirect
+from django.http.response import HttpResponse  # , Http404
+from django.shortcuts import render_to_response  # , redirect
 from django.template.context import RequestContext
 
-from entidade.formularios import formulario_cadastro_entidade_completo, \
-    formulario_emitir_protocolo, formulario_adicionar_item_protocolo
+from entidade.formularios import formulario_cadastro_entidade_completo, formulario_emitir_protocolo  # , formulario_adicionar_item_protocolo
+from entidade.models import Endereco, Estado, Municipio, Bairro, Logradouro, localizacao_simples  # localizacao 
 from entidade.models import entidade, contato
-from endereco.models import endereco, estado, municipio, bairro #localizacao 
-from entidade.protocolo.models import item_protocolo
-from entidade.utilitarios import formatar_codificacao, remover_simbolos
-from sistema_contabil import settings
-from util.internet import consultar_codigo_postal
+from entidade.service import consultar_estado, consultar_codigo_postal_viacep  # consultar_codigo_postal_default
+from entidade.utilitarios import formatar_codificacao
+from entidade.utilitarios import remover_simbolos  # formatar_codificacao, 
+from protocolo.models import item_protocolo
 
 
+#import os
+#from django.core.exceptions import ValidationError
+#from sistema_contabil import settings
+#from util.internet import consultar_codigo_postal
 def index(request):
-    return render_to_response("index.html")
+    dados = entidade.objects.all()
+    if len(dados) != 0:
+        return render_to_response("index.html")
+    else:
+        return HttpResponseRedirect('/cadastrar_empresa')   
+        
 
 def buscar_fontes(request):
     return render_to_response("index.html")
@@ -120,10 +128,10 @@ def formatar_cnpj(cnpj):
 def construir_endereco(localizacao):
     comp = localizacao.complemento
     num  = localizacao.numero
-    rua = endereco.objects.get(pk=localizacao.cep_id)
-    Bairro = bairro.objects.get(pk=rua.bairro_id)
-    Cidade = municipio.objects.get(pk=Bairro.municipio_id)
-    Estado = estado.objects.get(pk=Cidade.estado_id)
+    rua = Logradouro.objects.get(pk=localizacao.cep_id)
+    Bairro = Bairro.objects.get(pk=rua.bairro_id)
+    Cidade = Municipio.objects.get(pk=Bairro.municipio_id)
+    Estado = Estado.objects.get(pk=Cidade.estado_id)
     
     
     endereco_completo = rua.nome+", "+num+", "+comp+", "+Bairro.nome+", "+Cidade.nome+", "+Estado.nome+" - "+formatar_cep(rua.cep)
@@ -131,8 +139,8 @@ def construir_endereco(localizacao):
 
 
 def gerar_pdf(request):
-    from django.template import loader,Context, Template
-    from xhtml2pdf import pisa
+    from django.template import Context# loader,, Template
+    #from xhtml2pdf import pisa
    
     parametros = {'emissor':"Digitar Contabilidade",
                           'destinatario':"HELDER PASTI",
@@ -258,7 +266,7 @@ def emitir_protocolo(request,numero_item):
                            'erro':erro}
             
             
-            from django.template import loader,Context, Template
+            from django.template import loader,Context#, Template
             from xhtml2pdf import pisa
            
             
@@ -368,7 +376,7 @@ def emitir_protocolo(request,numero_item):
                 print "olha o que tem na data: ",formulario_protocolo.data_emissao
                 #itens_temporarios = [documento,referencia,vencimento,valor]
                                 
-                print "Ve o que tem nos temporarios antes de salvar: ",formulario_itens.temporarios
+                print "Ve o que tem nos temporarios antes de validar_registro: ",formulario_itens.temporarios
                 formulario_itens.temporarios.append(item)
                                 
                 #messages.add_message(request, messages.SUCCESS, "Item adicionado com sucesso")
@@ -463,20 +471,21 @@ def consultar_entidade(request,entidade_id):
     return render_to_response("consultar_entidade.html",{'dados':registro_entidade,'formulario':formulario,'erro':False},context_instance=RequestContext(request))
 
 
-def construir_objeto_localizacao(formulario, registro_entidade):
-    
-    codigo_postal = remover_simbolos(formulario.cleaned_data['cep'])                
-    registro_endereco = endereco.objects.get(cep=codigo_postal)
-    
-    """
-    registro = localizacao(
-        #entidade    = registro_entidade,
-        cep      = registro_endereco,
+def construir_objeto_localizacao(formulario):
+
+    registro = localizacao_simples(
+        cep = remover_simbolos(formulario['cep'].value()),
         numero      = str(formulario.cleaned_data['numero_endereco']),
         complemento = formulario.cleaned_data['complemento'].upper(),
-    )"""
-    
-    return None # TESTETANDDO NOVO MODULO registro
+        
+        logradouro  = formulario.cleaned_data['endereco'].upper(),
+        bairro      = formulario.cleaned_data['bairro'].upper(),
+        codigo_ibge = formulario.cleaned_data['codigo_municipio'].upper(),
+        municipio   = formulario.cleaned_data['municipio'].upper(),
+        estado       = formulario.cleaned_data['estado'].upper() 
+    )
+
+    return registro
 
 def construir_objeto_contato(formulario, registro_entidade):
     registro = contato(
@@ -500,9 +509,13 @@ def construir_objeto_entidade(formulario):
     return registro
 
 def validar_registro(registro):
+    msg = ""
     try:
-        registro.clean()
-        return True        
+        registro.full_clean()
+        msg = "SUCESSO"
+    
+    except ValidationError as excecao:   
+        msg = "Erro! "+excecao.message
         
     except IntegrityError as excecao:
         if "cpf_cnpj" in excecao.message:
@@ -510,96 +523,124 @@ def validar_registro(registro):
         
         else:
             msg = excecao.message
-        
-        return msg
+
+        return msg,""
+    
+    finally:
+        return False,""
                     
     
 
 def cadastro_entidades(request):  
     
     dados = entidade.objects.all()
-    #if 'elevar_indice_categoria' in request.POST:  
+    if len(dados) != 0:
     
-    if (request.method == "POST"):
+    
+    
+        if (request.method == "POST"):
+                    
+            formulario = formulario_cadastro_entidade_completo(request.POST, request.FILES)        
+            codigo_postal = remover_simbolos(formulario['cep'].value())
+            erro = False
+            if formulario.is_valid():
+                msg = ""
                 
-        formulario = formulario_cadastro_entidade_completo(request.POST, request.FILES)        
-        codigo_postal = remover_simbolos(formulario['cep'].value())
-                
-        if formulario.is_valid():
-            msg = ""
-            
-            registro_entidade = construir_objeto_entidade(formulario)
-            if validar_registro(registro_entidade) == True:                
-                #registro_entidade.save()
-                
+                registro_entidade = construir_objeto_entidade(formulario)
                 registro_contato = construir_objeto_contato(formulario, registro_entidade)
-                if validar_registro(registro_contato):
-                    #registro_contato.save()        
-                            
-                    registro_localizacao = construir_objeto_localizacao(formulario, registro_entidade)
-                    if validar_registro(registro_localizacao):
-                        registro_entidade.save()
-                        registro_localizacao.entidade = registro_entidade
-                        registro_localizacao.save()
-                        registro_contato.entidade = registro_entidade
-                        registro_contato.save()  
+                registro_localizacao = construir_objeto_localizacao(formulario)
                 
-                #endereco = formulario.cleaned_data['endereco']
+                print "Olha as validacoes: ",registro_entidade,"-",registro_contato,"-",registro_localizacao
                 
-                bairro = formulario.cleaned_data['bairro']
+                if validar_registro(registro_entidade) and validar_registro(registro_contato) and validar_registro(registro_localizacao):
+                    print "Tudo certo.. podemos salvar"
+                    registro_entidade.save()
+                    registro_localizacao.entidade = registro_entidade
+                    registro_localizacao.save()
+                    registro_contato.entidade = registro_entidade
+                    registro_contato.save()  
+                    messages.add_message(request, messages.SUCCESS, "Registro salvo com sucesso!")
+                    
+                else:
+                    print "Problema de validacao.. tem que reapresentar o formulario.."
+                    messages.add_message(request, messages.SUCCESS, "Problemas com alguma informação!")
                 
-                municipio = formulario.cleaned_data['municipio']
-                codigo_municipio = remover_simbolos(formulario.cleaned_data['codigo_municipio'])
-                estado = formulario.cleaned_data['estado']
                 
-                pais = formulario.cleaned_data['pais']
-                tipo_contato = formulario.cleaned_data['tipo_contato']
-                numero_contato = remover_simbolos(formulario.cleaned_data['numero_contato'])
-                cargo_setor = formulario.cleaned_data['cargo_setor']
-                email = formulario.cleaned_data['email']
+                """
+                if validar_registro(registro_entidade) == True:   
+                    print "Entidade salva com Sucesso!"             
+                    #registro_entidade.save()
+                    
+                    registro_contato = construir_objeto_contato(formulario, registro_entidade)
+                    if validar_registro(registro_contato):
+                        #registro_contato.save()        
+                                
+                        registro_localizacao = construir_objeto_localizacao(formulario, registro_entidade)
+                        if validar_registro(registro_localizacao):
+                            registro_entidade.save()
+                            registro_localizacao.entidade = registro_entidade
+                            registro_localizacao.save()
+                            registro_contato.entidade = registro_entidade
+                            registro_contato.save()  
+                    
+                            #Endereco = formulario.cleaned_data['Endereco']
+                    
+                        print "cheguei a concluir isso?"
+                        bairro = formulario.cleaned_data['bairro']
+                        
+                        municipio = formulario.cleaned_data['Municipio']
+                        codigo_municipio = remover_simbolos(formulario.cleaned_data['codigo_municipio'])
+                        Estado = formulario.cleaned_data['Estado']
+                        
+                        Pais = formulario.cleaned_data['Pais']
+                        tipo_contato = formulario.cleaned_data['tipo_contato']
+                        numero_contato = remover_simbolos(formulario.cleaned_data['numero_contato'])
+                        cargo_setor = formulario.cleaned_data['cargo_setor']
+                        email = formulario.cleaned_data['email']
+                    
+                        messages.add_message(request, messages.SUCCESS, "Registro salvo com sucesso!")
+                        
+                        formulario = formulario_cadastro_entidade_completo()
+                    
+                else:
+                    print 'deu erro na entidade'
+                    messages.add_message(request, messages.SUCCESS, msg)
+                """   
             
-                messages.add_message(request, messages.SUCCESS, "Registro salvo com sucesso!")
-                
-                formulario = formulario_cadastro_entidade_completo()
-                
             else:
-                messages.add_message(request, messages.SUCCESS, msg)
-                
+                print "Falha na validacao dos campos"
+                msg = ""            
+                for campo in formulario:
+                    erros = campo.errors.as_data()
+                    
+                    if erros != []:
+                        
+                        
+                        erro = erros[0][0]
+                        
+                        print "olha o erro:",campo.label+" "+erro
+                        
+                        if 'email' in erro:
+                            msg = "Erro! "+unicode(erro)
+                        
+                        elif 'data' in erro:          
+                            msg = "Erro! "+unicode(erro)
+                        
+                        else:
+                            msg = campo.label+" "+erro
+                            
+                        messages.add_message(request, messages.SUCCESS, msg)
+                        break
+                return render_to_response("entidade/cadastro_entidades.html",{'dados':dados,'formulario':formulario,'erro':True},context_instance=RequestContext(request))
         
         else:
-            
-            msg = ""            
-            for campo in formulario:
-                erros = campo.errors.as_data()
-                
-                
-                if erros != []:
-                    
-                    
-                    erro = erros[0][0]
-                    
-                    print erro
-                    
-                    if 'email' in erro:
-                        msg = "Erro! "+unicode(erro)
-                    
-                    elif 'data' in erro:          
-                        msg = "Erro! "+unicode(erro)
-                    
-                    else:
-                        msg = campo.label+" "+erro
-                    
-                        
-                        
-                    messages.add_message(request, messages.SUCCESS, msg)
-                    break
-            return render_to_response("cadastro_entidades.html",{'dados':dados,'formulario':formulario,'erro':True},context_instance=RequestContext(request))
+            formulario = formulario_cadastro_entidade_completo()
+            #formulario_contato  = form_adicionar_contato()
     
     else:
-        formulario = formulario_cadastro_entidade_completo()
-        #formulario_contato  = form_adicionar_contato()
+        return HttpResponseRedirect('/cadastrar_empresa')
     
-    return render_to_response("cadastro_entidades.html",{'dados':dados,'formulario':formulario,'erro':False},context_instance=RequestContext(request))
+    return render_to_response("entidade/cadastro_entidades.html",{'dados':dados,'formulario':formulario,'erro':False},context_instance=RequestContext(request))
 
 
 
@@ -644,46 +685,47 @@ def verificar_erros_formulario(formulario):
             return msg
     
           
-"""
+
 def consultar_cep(request,codigo_postal):
-    
+    from entidade.models import Logradouro
     if request.is_ajax():
         
         codigo_postal = codigo_postal.replace(".","")
         codigo_postal = codigo_postal.replace("-","")
         
-        resultado = endereco.objects.filter(cep=codigo_postal)
+        resultado = Logradouro.objects.filter(cep=codigo_postal)
                
-        if resultado.count() == 0:
+        if True: #resultado.count() == 0:
             print "Nao achei na base de dados"
-            resultado = consultar_codigo_postal(codigo_postal)
+            resultado = consultar_codigo_postal_viacep(codigo_postal)
+            #return HttpResponse(resultado, content_type='application/json')
+            #resultado = [resultado['logradouro'],resultado['bairro'],resultado['municipio'],resultado['estado'],resultado['codigo_municipio'],resultado['pais']]
             
-            print "pesquisei e deu isso aqui oh: ",resultado
-            
+            """
             if resultado != None:
                 resultado[0] = formatar_codificacao(resultado[0])
                 resultado[1] = formatar_codificacao(resultado[1])
                 resultado[2] = formatar_codificacao(resultado[2])
                                                                   
-                registro_estado    = estado.objects.get(sigla=resultado[3])            
-                registro_pais      = registro_estado.pais.nome
-                registro_municipio = municipio.objects.select_related().get(estado=registro_estado,nome=resultado[2])
+                registro_estado    = Estado.objects.get(sigla=resultado[3])            
+                registro_pais      = registro_estado.Pais.nome
+                registro_municipio = Municipio.objects.select_related().get(Estado=registro_estado,nome=resultado[2])
                 codigo_municipal   = registro_municipio.codigo_ibge
                 resultado.append(codigo_municipal)
                 resultado.append(registro_pais)
                 
                 print "ate aqui eu consegui.."          
-                registro_bairro = bairro.objects.select_related().get(municipio=registro_municipio,nome=resultado[1])
+                registro_bairro = Bairro.objects.select_related().get(municipio=registro_municipio,nome=resultado[1])
                 
                 print "achei o bairro?"                       
-                registro_endereco = endereco(
+                registro_endereco = Endereco(
                                      cep = codigo_postal,
-                                     bairro = registro_bairro,
+                                     Bairro = registro_bairro,
                                      nome = resultado[0]
                                     )
                 
                 try:             
-                    print "salvei um novo endereco"       
+                    print "salvei um novo Endereco"       
                     registro_endereco.save()
 
                 except Exception as excecao:
@@ -691,24 +733,25 @@ def consultar_cep(request,codigo_postal):
                     
             else:
                 resultado = ["","","","","",""]
+            """
             
         else:
             print "Achei na base de dados"
             registro_endereco = resultado[0]
-            registro_bairro = bairro.objects.get(id=registro_endereco.bairro_id)
+            registro_bairro = Bairro.objects.get(id=registro_endereco.bairro_id)
             registro_cidade = registro_bairro.municipio 
             registro_estado = registro_cidade.estado    
             resultado = [registro_endereco.nome,registro_bairro.nome,registro_cidade.nome,registro_estado.sigla,registro_cidade.codigo_ibge,registro_estado.pais.nome]
             print "Deu certo: ",resultado
         
         
-        print "Verfique o resultado: ",resultado
+        #print "Verfique o resultado: ",resultado
         data = json.dumps(resultado)
         return HttpResponse(data, content_type='application/json')
     
     else:
         raise Http404
-"""
+
 
 
 
@@ -756,7 +799,7 @@ def adicionar_entidade(request):
                 codigo_postal = remover_simbolos(formulario.cleaned_data['cep'])
                 
                 print "Tamo procurando o cep: ",codigo_postal
-                cep_id = endereco.objects.filter(cep=codigo_postal)
+                cep_id = Logradouro.objects.filter(cep=codigo_postal)
                 print "Cep ID: ",cep_id
                 
                 """
@@ -768,15 +811,15 @@ def adicionar_entidade(request):
                     )
                 """
             
-                #endereco = formulario.cleaned_data['endereco']
+                #Endereco = formulario.cleaned_data['Endereco']
                 
                 bairro = formulario.cleaned_data['bairro']
                 
-                municipio = formulario.cleaned_data['municipio']
+                Municipio = formulario.cleaned_data['Municipio']
                 codigo_municipio = remover_simbolos(formulario.cleaned_data['codigo_municipio'])
-                estado = formulario.cleaned_data['estado']
+                Estado = formulario.cleaned_data['Estado']
                 
-                pais = formulario.cleaned_data['pais']
+                Pais = formulario.cleaned_data['Pais']
                 tipo_contato = formulario.cleaned_data['tipo_contato']
                 numero_contato = remover_simbolos(formulario.cleaned_data['numero_contato'])
                 cargo_setor = formulario.cleaned_data['cargo_setor']
