@@ -10,15 +10,26 @@
 
 <!-- JQUERY -->
 <script type="text/javascript" src="{% static 'jquery/jquery-2.2.0.min.js' %}"></script>
+<script src="{% static 'jquery/jquery-ui-1.11.4/jquery-ui.js' %}"></script>
+<!-- DATAPICKER -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
 
 <!-- BOOTSTRAP -->
-<link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"/>
 <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
 
 <!-- DATATABLE -->
 <link rel="stylesheet" type="text/css" href="{% static 'datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css' %}"/>
 <link rel="stylesheet" type="text/css" href="{% static 'datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css' %}"/>
 <link rel="stylesheet" type="text/css" href="{% static 'datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css' %}"/>
+
+<script src="{% static 'datatable/DataTables-1.10.11/js/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js' %}"></script>
+
+<!-- CUSTOM -->
+<script src="{% static 'scripts/padrao/controle_botoes.js' %}"></script>
+<script src="{% static 'scripts/protocolo/protocolo.js' %}"></script>
+
 
 
 <style type="text/css">
@@ -29,6 +40,26 @@
 .lowercase{ 
     text-transform: uppercase;
 }
+
+.centralizado{ 
+    text-align: center;
+}
+
+.link_desabilitado {
+     pointer-events: none;
+     cursor: default;
+     opacity: 0.6;
+}
+
+.div_desabilitado {
+	display: none;
+    z-index: 1000;
+    background-color: lightgrey;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+
 </style>
 {% endblock %}
 
@@ -72,11 +103,31 @@
 								<td>
 									<div style='padding-left: 10px'>
 										<div style='padding-left: 8px'>
-											<sub>{{ form_entrega.data_emissao.label }}</sub>
+											<sub>{{ form_entrega.data_entrega.label }}</sub>
 										</div>
-										{{ form_entrega.data_emissao }}
+										{{ form_entrega.data_entrega }}
+
 									</div>
 								</td>
+								
+								<td>
+									<div style='padding-left: 10px'>
+										<div style='padding-left: 8px'>
+											<sub>{{ form_entrega.hora_entrega.label }}</sub>
+										</div>
+										{{ form_entrega.hora_entrega }}
+									</div>
+								</td>
+								
+								
+								<td>
+									 
+									<div style='padding-left: 10px'>
+										{{ form_entrega.protocolo_id }}
+									</div>
+									
+								</td>
+								
 							</tr>
 							
 						</table>
@@ -93,7 +144,7 @@
 					
 					<div class="row">
 						<div class="col-lg-3 col-lg-push-9">
-							<button type="submit" id="bt_adicionar_item" class="btn btn-primary form-control" name='adicionar_item' style="position: relative; margin-top: 20px">Adicionar</button>
+							<button type="submit" id="bt_adicionar_item" class="btn btn-primary form-control" name='adicionar_item' style="position: relative; margin-top: 20px">Salvar</button>
 							<!-- <a href="#myModal" role="button" class="btn btn-primary form-control" data-toggle="modal" '  > Adicionar</a>  -->
 						</div>
 					</div>
@@ -105,40 +156,36 @@
 
 
 <div class="row">
-	<div class="col-lg-12">
+	<div class="col-lg-12 col-md-12 col-xs-12">
 		<div class="panel panel-default" style="margin-top: -15px; margin-left: 0px; margin-right: 0px; ">
 			<div class="panel-heading">
 		
 				<div class="row" style="height:30px; line-height: 30px">
-					<div class="col-lg-7" >
+					<div class="col-lg-7 col-md-7 col-sm-4 col-xs-2" >
 						<b>Protocolos</b>
 					</div>
 		
-					<div class="col-lg-5">	
-						<a href="#" role="button" class="pull-right" id="bt_novo_documento" data-toggle="modal" data-target="#myModal" style="position: relative; margin-top: 0px;margin-right: 2px;">Confirmar Recebimento</button>										
+					<div class="col-lg-5 col-md-5 col-sm-8 col-xs-10">
+						<a href="#" role="button" class="pull-right" id="bt_confirmar_entrega" data-toggle="modal" data-target="#myModal" style="position: relative; margin-top: 0px;margin-right: 2px;padding-left: 8px;">Confirmar Recebimento</a>
 						<a href="/protocolo/emitir_protocolo" role="button" class="pull-right" style="position: relative; margin-top: 0px; margin-right: 20px;" ><i class="fa fa-plus fa-1x"></i> Novo Protocolo</a>
-						
 					</div>
-					
-					<!-- /.col-lg-6 -->
 				</div>
-		
 			</div>
 			<!-- /.panel-heading -->
 		
-			<div class="panel-body" style="padding-bottom: -10px; margin-top: 0px;">
+			<div class="panel-body" style="padding-bottom: -10px; margin-top: -5px;">
 				<div class="dataTable_wrapper">
 					<table class="table table-striped table-bordered table-hover" id="datatable">
 		
 						<thead>
 							<tr class="linha_cabecalho">
 								<th style="vertical-align: middle;"></th>
-								<th style="vertical-align: middle;">COD</th>
-								<th style="vertical-align: middle;">DESTINATÁRIO</th>
-								<th style="vertical-align: middle;">DATA EMISSÃO</th>
-								<th style="vertical-align: middle;">DATA ENTREGA</th>
-								<th style="vertical-align: middle;">RECEBIDO POR</th>
-								<th style="vertical-align: middle;">CONFIRMADO</th>
+								<th style="text-align: center;vertical-align: middle;">COD</th>
+								<th style="text-align: center;vertical-align: middle;">DESTINATÁRIO</th>
+								<th style="text-align: center;vertical-align: middle;">DATA EMISSÃO</th>
+								<th style="text-align: center;vertical-align: middle;">DATA ENTREGA</th>
+								<th style="text-align: center;vertical-align: middle;">RECEBIDO POR</th>
+								<th style="text-align: center;vertical-align: middle;">CONFIRMADO</th>
 							</tr>
 						</thead>
 		
@@ -146,18 +193,26 @@
 							{% for item in dados %}
 							
 							<tr><!--  class="alinhado_meio clickable-row " data-href='/consultar_entidade/{{ item.id }}'> -->
-								<td style="cursor:pointer"></td>
-								<td style="cursor:pointer">{{ item.numeracao_destinatario }}</td>
-								<td align="left" style="cursor:pointer">{{ item.destinatario }}</td>
-								<td align="left" style="cursor:pointer">{{ item.data_emissao }}</td>
-								<td align="left" style="cursor:pointer">{{ item.data_recebimento }}</td>
-								<td align="left" style="cursor:pointer">{{ item.recebido_por }}</td>
+								<td style="text-align: center;cursor:pointer">{{ item.id }}</td>
+								<td style="text-align: center;cursor:pointer">{{ item.numeracao_destinatario }}</td>
+								<td style="text-align: center;cursor:pointer">{{ item.destinatario }}</td>
+								<td style="text-align: center;cursor:pointer">{{ item.data_emissao }} às {{ item.hora_emissao }}</td>
+								{% if item.data_recebimento %}
+								<td style="text-align: center;cursor:pointer">{{ item.data_recebimento }} às {{ item.hora_recebimento }}</td>
+								{% else %}
+								<td style="text-align: center;cursor:pointer">-</td>
+								{% endif %}
 								
+								{% if item.recebido_por %}
+								<td style="text-align: center;cursor:pointer">{{ item.recebido_por }}</td>
+								{% else %}
+								<td style="text-align: center;cursor:pointer">-</td>
+								{% endif %}
 								
 								{% if item.situacao %}
-									<td align="left" style="cursor:pointer">Sim</td>
+									<td align="left" style="text-align: center;cursor:pointer"><font color='green'>Sim</font></td>
 								{% else %}
-									<td align="left" style="cursor:pointer">Não</td>
+									<td align="left" style="text-align: center;cursor:pointer"><font color='red'>Não</font></td>
 								{% endif %}
 							</tr>
 							
@@ -169,15 +224,78 @@
 					<!-- /.table-responsive -->
 				</div>
 
-				<div class="col-lg-6">
-					<input type="text" id="search" class="form-control" style="position: relative; margin-left: -14px; margin-top: 10px;" placeholder="Consultar..">
+				<div class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
+					<input type="text" id="search" class="form-control" autofocus style="position: relative; margin-left: -14px; margin-top: 10px;" placeholder="Consultar..">
 				</div>
 				
+				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style='margin-left: -28px; margin-top: 10px;'>
+					 <select class='form-control'>
+					 	<option value="emitidos">Protocolos Emitidos</option>
+					 	<option value="abertos">Protocolos em Aberto</option>
+					 	<option value="recebidos">Protocolos Confirmados</option>
+					  	
+					</select> 
+				</div>
+				
+				<div class="col-lg-1 col-md-2 col-sm-2 col-xs-3" style='margin-left: -18px; margin-top: 12px;'>
+					<a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal" style="position: relative; margin-top: -2px; margin-right: -50px;" ><i class="fa fa-plus fa-1x"></i> Gerar Relatório</a>
+				</div>
 			</div>
 		</div>
 		<!-- /.panel -->
 	</div>
 	<!-- /.row -->
+</div>
+
+<br>
+
+<div class="row div_desabilitado" id='painel_detalhes'>
+	<div class="col-lg-12">
+		<div class="panel panel-default" style="margin-top: -15px; margin-left: 0px; margin-right: 0px; ">
+			<div class="panel-heading">
+		
+				<div class="row" style="height:30px; line-height: 30px">
+					<div class="col-lg-7" >
+						<b>Documentos Entregues </b>(Emitido por: <font id="lb_emitido_por"></font>)
+					</div>
+					
+					<div class="col-lg-5">
+						<a href="#" role="button" class="pull-right" id="bt_visualizar_protocolo" onclick='visualizar_protocolo()' target="_blank" style="position: relative; margin-top: 0px;">Visualizar Protocolo</a>										
+					</div>
+				</div>
+			</div>
+			<!-- /.panel-heading -->
+			
+			<div class="panel-body" style="padding-bottom: -10px; margin-top: -5px;">
+				
+				
+				<div class="dataTable_wrapper">
+					<table class="table display compact" cellspacing="0" width="100%"  id="datatable_detalhes">
+						
+						
+						<thead>
+							<tr class="linha_cabecalho">
+								<th style="text-align: center;vertical-align: middle;">DOCUMENTO</th>
+								<th style="text-align: center;vertical-align: middle;">COMPLEMENTO</th>
+								<th style="text-align: center;vertical-align: middle;">REFERENCIA</th>
+								<th style="text-align: center;vertical-align: middle;">VENCIMENTO</th>
+								<th style="text-align: center;vertical-align: middle;">VALOR</th>
+							</tr>
+						</thead>
+						
+						<tbody>	
+						
+							
+						</tbody>
+						
+						
+					</table>
+					<!-- /.table-responsive -->
+				</div>
+			
+			</div>
+		</div>
+	</div>
 </div>
 
 
@@ -187,78 +305,121 @@
 
 {% block ArquivosScripts %}
 {% load staticfiles %}
+<script type="text/javascript" src="{% static 'scripts/mask.js' %}"></script>
 
-<script type="text/javascript" src="{% static 'jquery/dist/mask.js' %}"></script>
-
-<!-- 
-<script	type="text/javascript" src="{% static 'datatable/datatables/media/js/jquery.dataTables.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js' %}"></script>
- -->
- 
-
-
-
-<!-- DataTables JavaScript -->
-
-<!-- 
-<script	src="{% static 'datatable/datatables/media/js/jquery.dataTables.min.js' %}"></script>
-<script src="{% static 'datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js' %}"></script>
- -->
-<!-- Page-Level Demo Scripts - Tables - Use for reference -->
- 
 <script>
-$(document).ready(function() {
-	
-	$('#datatable').DataTable({
-		responsive: true,
-		"pagingType": "simple",
-		"lengthMenu": [[10, 100, -1], [10, 100, "All"]],
-		"dom": '<"top">rt"<"rightcolumn"p><"clear">',
-		"bSort": true,
-		"ordering": true,
-		"bAutoWidth": false,
-		"aoColumns": [
-		              
-						{
-						    "class":          "details-control",
-						    "orderable":      false,
-						    "data":           null,
-						    "defaultContent": ""
-						},
-	                    { "sWidth": "10px" }, // 1st column width 
-	                    { "sWidth": "30px" }, // 2th column width
-	                    { "sWidth": "30px"}, // 3st column width 
-	                    { "sWidth": "40px"} // 4st column width
-	                    ]
-	});	
+jQuery(document).ready(function(){
+	$("#data_entrega").mask("99/99/9999");
+   	$("#hora_entrega").mask("99:99");
 });
-
-function format ( d ) {
-    return 'Full name: Diego Pasti<br>'+
-        'Salary: '+R$ 10.000,00+'<br>'+
-        'The child row can contain any data you wish, including links, images, inner tables etc.';
-}
-
-jQuery(document).ready(function($) {
-    $(".clickable-row").click(function() {
-        window.document.location = $(this).data("href");
-    });
-});
-
-$('#search').on( 'keyup', function () {
-	var table = $('#datatable').DataTable();
-    table.search( this.value ).draw();
-} );
-
-
-
-$(".alert").fadeOut(4000 );
-
 </script>
+
+<script>
+ $('#search').on( 'keyup', function () {
+	var table = $('#datatable').DataTable();
+    table.search(this.value).draw();
+} );
+</script>
+
+
+ 
+
+<script>	
+$('#datatable').DataTable({
+	
+	"pagingType": "simple",
+	"lengthMenu": [[10, 100, -1], [10, 100, "All"]],
+	"dom": '<"top">rt"<"rightcolumn"><"clear">',
+	"bSort": true,
+	"ordering": true,
+	"bAutoWidth": false,
+	
+	//"columnDefs": [ {
+	      //"targets": 0,
+	      ///"data": null,
+	      //"orderable": false,
+	      //"className": 'details-control',
+	      //"defaultContent": '<button><i class="fa fa-plus" aria-hidden="true"></i> oi</button>'
+	    //} ]
+
+	//"aoColumns": [
+    //                { "sWidth": "1px" }, // 1st column width 
+    //                { "sWidth": "30px" }, // 2th column width
+    //                { "sWidth": "30px"}, // 3st column width 
+    //                { "sWidth": "30px" }, // 2th column width
+    //                { "sWidth": "30px"}, // 3st column width
+    //                { "sWidth": "30px"}, // 3st column width
+    //                { "sWidth": "40px"} // 4st column width
+    //                ],
+	//
+	
+});	
+
+var table = $('#datatable').DataTable();
+$('#datatable'+' tbody').on('click', 'tr', function () {
+	 
+     if ($(this).hasClass('selected') ) {
+    	 $(this).removeClass('selected');
+    	 desabilitar_botao('#bt_confirmar_entrega');
+    	 $('#bt_confirmar_entrega').addClass('link_desabilitado');
+    	 $('#bt_visualizar_protocolo').addClass('link_desabilitado');
+    	 $('#painel_detalhes').addClass('div_desabilitado');
+     }
+     else {
+    	 table.$('tr.selected').removeClass('selected');
+    	 $(this).addClass('selected');
+    	 habilitar_botao('#bt_confirmar_entrega');
+    	 habilitar_botao('#bt_visualizar_protocolo');
+    	 $('#bt_visualizar_protocolo').removeClass('link_desabilitado');
+    	 $('#bt_confirmar_entrega').removeClass('link_desabilitado');
+    	 $('#painel_detalhes').removeClass('div_desabilitado');
+    	 
+    	 
+    	 //alert("Quero procurar os detalhes de: "+table.cell('.selected', 0).data()[1]);
+    	 
+    	 $.ajax({
+    			url: 'get_detalhes_protocolo/'+table.cell('.selected', 0).data()[0],
+    		    type: 'get', //this is the default though, you don't actually need to always mention it
+    		    success: function(data) {
+    		    	//alert(data['data']);
+    				
+    		    	$('#lb_emitido_por').text(data['emitido_por']);
+    		    	var table_detalhes = $('#datatable_detalhes').DataTable();
+    		    	table_detalhes.rows().remove();
+    		        table_detalhes.rows.add(data['data']).draw();
+    		        $("#datatable_detalhes tbody tr td").addClass("centralizado");
+    		    	//alert("consegui?");
+    		      
+    		    },
+    		    failure: function(data) { 
+    		        alert('Got an error dude');
+    		    }
+    		}); 
+    	 
+     }
+     
+     $('#bt_confirmar_entrega').click( function () {
+         //table.row('.selected').remove().draw( false );
+         alert("Vamos confirmar.. "+table.cell('.selected', 0).data());
+         $("#protocolo_id").val(table.cell('.selected', 0).data());
+         alert("Vamos confirmar.. "+table.cell('.selected', 0).data());
+     } );
+		
+});
+
+$('#datatable tbody').on( 'click', 'button', function () {
+    var data = table.row( $(this).parents('tr') ).data();
+    alert( data[0] +"'s salary is: "+ data[ 5 ] );
+} );
+</script>
+
 
 <script type="text/javascript">
-$(".alert").fadeOut(6000);
+//$(document).ready(function() {
+////	$("#datatable"+' tbody').on( 'click', 'tr', seleciona_linha("#datatable",$(this),true));
+//});
 </script>
+
 
 <script>
 $('.modal').on('hidden.bs.modal', function(){
@@ -267,12 +428,15 @@ $('.modal').on('hidden.bs.modal', function(){
 	$("#documento").val('');
 	$("#observacao_entrega").val('');
     //alert("resetei o form?");
-    
 });
 </script>
 
 <script>
 $(document).ready(function() {
+	
+	$('#bt_confirmar_entrega').addClass('link_desabilitado');
+	$('#bt_visualizar_protocolo').addClass('link_desabilitado');
+	
 	
 	{% if erro %}
     	$('#myModal').modal('show');
@@ -284,7 +448,96 @@ $(document).ready(function() {
 		$('#myModal').modal('hide');
 	{% endif %}
 });
+</script>
+
+
+
+
+<script type="text/javascript">
+//$(document).ready(function() {
+	//alert("Olha o que temos de documentos: {{ dados }}");
+//	{% if dados %}
+		//alert("vim configurar a exclusao e tenho dados..");
+//		configurar_datatable_selecionavel("#datatable","#bt_apagar","{{ dados|length }}");
+		
+//	{% else %}
+		//alert("vim configurar a exclusaom mas nao tenho dados..");
+//		configurar_datatable_selecionavel("#datatable","#bt_apagar","{{ dados|length }}");
+//		desabilitar_botao("#bt_gerar_protocolo");
+//	{% endif %}	
+//});
+</script>
+
+<script type="text/javascript">
+//$(document).ready(function() {
+//	$("#datatable"+' tbody').on( 'click', 'tr', seleciona_linha("#datatable",$(this),true));
+//	});
+</script>
+
+
+<script type="text/javascript">
+	function visualizar_protocolo(){
+		alert("cliquei pra visualizar protocolo"+table.cell('.selected', 0).data());
+		$("#protocolo_id").val(table.cell('.selected', 0).data());
+		
+	}
+</script>
+
+
+<script>
+$(function() {
+	$("#data_entrega").datepicker({
+		  dayNames: [ "Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado" ],
+		  monthNames: [ "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho","Agosto","Setembro","Outubro","Novembro","Dezembro" ],
+		  dayNamesMin: [ "D", "S", "T", "Q", "Q", "S", "S" ]
+	});
+	
+	//$("#data_entrega").formatDate( "DD, MM d, yy", new Date( 2007, 7 - 1, 14 ), {
+//		  dayNamesShort: $.datepicker.regional["fr"].dayNamesShort,
+		  //dayNames: $.datepicker.regional[ "fr" ].dayNames,
+		  //monthNamesShort: $.datepicker.regional[ "fr" ].monthNamesShort,
+		  //monthNames: $.datepicker.regional[ "fr" ].monthNames
+	//});
+});
+</script>
+
+<script type="text/javascript">
+$('#codigo_postal').blur(function(){
+	$.ajax({
+		url: '/get_detalhes_protocolo/'+$('#codigo_postal').val(),
+	    type: 'get', //this is the default though, you don't actually need to always mention it
+	    success: function(data) {
+	    	$('#endereco').val(data[0]);
+	    	$('#bairro').val(data[1]);
+	    	$('#municipio').val(data[2]);
+	    	$('#codigo_municipio').val(data[3]);
+	    	$('#estado').val(data[4]);
+	    	$('#pais').val(data[5]);
+	        $('#numero_endereco').focus();
+	      //alert(data);
+	    },
+	    failure: function(data) { 
+	        alert('Got an error dude');
+	    }
+	}); 
+}); 
+</script>
+
+<script>
+$('#datatable_detalhes').DataTable({
+	"pagingType": false,
+	"lengthMenu": [[10, 100, -1], [10, 100, "All"]],
+	"dom": '<"top">rt"<"rightcolumn"><"clear">',
+	"bSort": false,
+	"ordering": false,
+	"bAutoWidth": false
+});	
+
+//alert("defini o detalhe");
 
 </script>
+
+
+
 
 {% endblock %}

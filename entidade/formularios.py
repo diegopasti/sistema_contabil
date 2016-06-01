@@ -17,13 +17,21 @@ MENSAGENS_ERROS={'required': 'Precisa ser Informado!',
                 }
 
 
-class formulario_confirmar_entrega(forms.Form):    
-    data_emissao          = forms.DateField(
-                                label="Data Entrega:",initial=datetime.date.today,required=False,
+class formulario_confirmar_entrega(forms.Form):
+    
+    protocolo_id = forms.CharField(label="Protocolo: ",max_length=5,required=True,error_messages=MENSAGENS_ERROS,widget=forms.TextInput(attrs={'class':'form-control uppercase' ,'id':'protocolo_id', 'readonly':True,'type':"hidden"})) #, 
+        
+    data_entrega          = forms.DateField(
+                                label="Data da Entrega:",initial=datetime.date.today,required=False,
                                 widget= forms.DateInput(attrs={'class':"form-control" ,'id':'data_entrega'},format = '%d/%m/%Y'), 
                                 input_formats=('%d/%m/%Y',)
                                 ) 
     
+    hora_entrega = forms.TimeField(
+                                label="Hora da Entrega:",initial=datetime.date.today,required=False,
+                                widget= forms.TimeInput(attrs={'class':"form-control" ,'id':'hora_entrega'}),#,format='%H:%M'), 
+                                input_formats=(['%H:%M'])
+                                ) 
     #forms.DateField(initial=datetime.date.today,)
     #                                        widget=forms.DateInput(attrs={"class":"form-control"}))
     recebido_por = forms.CharField(label="Recebido por: ",required=True,error_messages=MENSAGENS_ERROS,widget=forms.TextInput(attrs={'class':'form-control uppercase' ,'id':'recebido_por' }))
@@ -42,7 +50,7 @@ class formulario_emitir_protocolo(forms.Form):
     #                                               widget=forms.Select(attrs={"class":"form-control"}),
     #                                               )
                                                    
-    entidade_destinatario = forms.CharField(label="Cliente: ",max_length=100,required=True,error_messages=MENSAGENS_ERROS,widget=forms.TextInput(attrs={'class':'form-control uppercase' ,'id':'entidade_destinatario', 'readonly':True })) #,'type':"hidden"  
+    entidade_destinatario = forms.CharField(label="Cliente: ",max_length=100,required=True,error_messages=MENSAGENS_ERROS,widget=forms.TextInput(attrs={'class':'form-control uppercase' ,'id':'entidade_destinatario', 'readonly':True,'type':"hidden" })) #  
         
     #data_emissao          = forms.DateField(initial=datetime.date.today,
     #                                        widget=forms.DateInput(attrs={"class":"form-control"}))

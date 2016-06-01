@@ -4,5 +4,6 @@ encoding//entidade/models.py=utf-8
 encoding//entidade/service.py=utf-8
 encoding//entidade/views.py=utf-8
 encoding//nucleo/views.py=utf-8
+encoding//protocolo/migrations/0001_initial.py=utf-8
 encoding//protocolo/models.py=utf-8
 encoding//protocolo/views.py=utf-8

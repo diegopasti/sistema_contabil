@@ -114,6 +114,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+TIME_INPUT_FORMATS = [ '%H:%M', ]
+
 
 # Static files (CSS, JavaScript, Images)
 

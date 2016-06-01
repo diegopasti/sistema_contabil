@@ -32,6 +32,8 @@ urlpatterns = [
     
     url(r'^gerar_pdf/$', "protocolo.views.gerar_pdf"),
     url(r'^protocolo/$', "protocolo.views.cadastro_protocolo"),
+    url(r'^protocolo/get_detalhes_protocolo/(?P<protocolo_id>\d+)/$', "protocolo.views.get_detalhes_protocolo"),
+    
     url(r'^protocolo/emitir_protocolo/$', "protocolo.views.emitir_protocolo",{'numero_item': -1}),
     url(r'^emitir_protocolo/excluir/(?P<numero_item>\d+)/$', "protocolo.views.emitir_protocolo"),
     

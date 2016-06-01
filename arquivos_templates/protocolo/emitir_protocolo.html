@@ -480,19 +480,15 @@ $('#select_destinatarios').editableSelect({
  $(".alert").fadeOut(6000);
 </script>
 
-
-
-
-
 <script type="text/javascript">
 $(document).ready(function() {
-	alert("Olha o que temos de documentos: {{ dados }}");
+	//alert("Olha o que temos de documentos: {{ dados }}");
 	{% if dados %}
-		alert("vim configurar a exclusao e tenho dados..");
+		//alert("vim configurar a exclusao e tenho dados..");
 		configurar_datatable_selecionavel("#datatable","#bt_apagar","{{ dados|length }}");
 		
 	{% else %}
-		alert("vim configurar a exclusaom mas nao tenho dados..");
+		//alert("vim configurar a exclusaom mas nao tenho dados..");
 		configurar_datatable_selecionavel("#datatable","#bt_apagar","{{ dados|length }}");
 		desabilitar_botao("#bt_gerar_protocolo");
 	{% endif %}	
@@ -505,131 +501,6 @@ $(document).ready(function() {
 });
 </script>
 
-
-
-
-
-<script>
-
-//$(document).ready(function() {
-	//configurar_datatable("#datatable");
-	
-	//alert("tentando configurar o datatable certo..");
-	//$("#datatable").DataTable({
-//		'responsive': true,
-		//"bPaginate": false,
-		//"lengthMenu": [[10, 100, -1], [10, 100, "All"]],
-		//"dom": '<"top">rt"<"rightcolumn"p><"clear">',
-		//"bSort": false,
-		//"ordering": false,
-		//"bAutoWidth": false,
-		//"bFilter": false,
-		//"aoColumns": [
-	        //{ "sWidth": null },
-	        //{ "sWidth": "100px" },
-	       // /{ "sWidth": "100px" },  
-	        //{ "sWidth": "120p"}
-	       //]/
-		
-	//});
-	
-	
-	
-	
-	
-	
-	//configurar_datatable_selecionavel("#datatable","#bt_apagar","{{ dados|length }}"));
-	//alert("funcionei?");
-
-
-//});
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script type="text/javascript">
-$(document).ready(function() {
-	//configurar_pagina(document);
-	//configurar_datatable("#datatable");
-	//$("#select_destinatarios").val("desgrama");
-	
-	///var destinatario = $("#select_destinatarios").val();
-	
-	//if (destinatario === ""){
-//		alert("tinha nada");
-	//}
-	
-	//else{
-//		alert("tem coisa preenchida");
-//	}
-	
-//	alert("supostamente configurei a pagina");
-//});
-</script>
-
-<!-- 
-
-
-
-
-
-
-<script type="text/javascript">
-$(document).ready(function() {
-	//configurar_pagina(document);
-	
-	
-	//configurar_datatable_padrao("#datatable");
-	///alert("funciona carai");
-	//console.log("consegui chegar nesse log?");
-
-	//$("#select_destinatarios").val("teste");//$("#entidade_destinatario").val());
-	
-	
-	//desabilitar_botao("#select_destinatarios");
-	
-	//$('#editable-select').editableSelect();
-	
-	
-});
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- --> 
 {% endblock %}
 
 

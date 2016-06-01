@@ -19,7 +19,7 @@ function configurar_pagina(documento){
 }
 
 function verifica_alteracao_campo(document,campo,botao_documento,botao_concluir){
-	
+	//alert("estou vindo no script protocolo configurar o datatable??");
 	var class_bt_concluir = $(botao_concluir).attr('class');
 	var liberado = class_bt_concluir.search("liberado"); 
 	
@@ -74,12 +74,12 @@ function configurar_datatable_selecionavel(datatable,botao_apagar,tem_dados){
 
 function configurar_datatable(datatable_id){
 	
-	alert("eh esse datatable aqui");
+	//alert("eh esse datatable aqui");
 	$(datatable_id).DataTable({
 		'responsive': true,
 		"bPaginate": false,
 		"lengthMenu": [[10, 100, -1], [10, 100, "All"]],
-		"dom": '<"top">rt"<"rightcolumn"p><"clear">',
+		//"dom": '<"top">rt"<"rightcolumn"p><"clear">',
 		"bSort": false,
 		"ordering": false,
 		"bAutoWidth": false,

@@ -4,18 +4,71 @@ Created on 1 de abr de 2016
 
 @author: Win7
 '''
+
+from rest_framework import serializers
+
+"""
+class parametros_impressao_protocolo():
+    
+        
+    'emissor_nome':emissor.nome_razao,
+    'emissor_cpf_cnpj':formatar_cpf_cnpj(emissor.cpf_cnpj),
+    'emissor_endereco':"Reta da Penha, Vitoria - ES",
+    
+    'destinatario_nome':destinatario_nome,
+    'destinatario_cpf_cnpj':destinatario_cpf_cnpj,
+    'destinatario_endereco':destinatario_endereco,
+    'destinatario_complemento':destinatario_complemento,
+    #destinatario.endereco_id.complemento
+    
+    'destinatario_contatos':destinatario_contatos,
+    
+    
+    'codigo_protocolo':codigo_protocolo,
+    'emitido_por':'Marcelo',
+    
+    'recebido_por':recebido_por,
+    'identificacao':identidade,
+    'data_entrega':data_entrega,
+    'hora_entrega':hora_entrega,
+    
+    
+    
+    #'emissor':emissor,
+    
+    #'destinatario':destinatario,
+    #'endereco_destinatario':endereco,
+    #'contatos_destinatario':contatos,
+    
+    #'documentos':formulario.temporarios,
+    #'documentos':[
+    #                  ["33","IMPOSTO DE RENDA","2015","","R$ 285,50"],
+    #                  ["8","EMISSAO DE CERTIFICADO DIGITAL","","31/12/2018","R$ 175,10"],
+    #                  ["14","CONTRATO - PLANO COMPLETO","","31/12/2018","R$ 475,00"],
+    #              ],
+    'formulario_protocolo':"Nada por enquanto",
+    'erro':"sem erros tambem",
+    'path':path,
+    
+    'path_imagens':path
+"""   
+
 from django.db import models
 
-from entidade.models import entidade
 from entidade.formularios import MENSAGENS_ERROS
+from entidade.models import entidade
+
 
 class protocolo(models.Model):
     emissor      = models.ForeignKey(entidade,related_name='entidade_emissora')
-    destinatario = models.ForeignKey(entidade,related_name='entidade_destinataria')
+    emitido_por  = models.CharField("Recebido por:",max_length=100,null=True,error_messages=MENSAGENS_ERROS)
+    destinatario = models.ForeignKey(entidade,null=True,related_name='entidade_destinataria')
     data_emissao = models.DateField(auto_now=True)
-    numeracao_destinatario = models.IntegerField(null=True)
+    hora_emissao = models.TimeField(auto_now=True)
+    numeracao_destinatario = models.CharField(max_length=5,null=True)
     
-    data_recebimento = models.DateField(null=True)
+    data_recebimento = models.DateField(blank=True)
+    hora_recebimento = models.TimeField(blank=True)
     recebido_por     = models.CharField("Recebido por:",max_length=100,null=True,error_messages=MENSAGENS_ERROS)
     doc_receptor     = models.CharField("Identidade:",max_length=20,null=True,error_messages=MENSAGENS_ERROS)
     situacao         = models.BooleanField(default=False)
@@ -28,3 +81,23 @@ class item_protocolo(models.Model):
     vencimento     = models.CharField("Vencimento:",max_length=100,null=False,error_messages=MENSAGENS_ERROS)
     valor          = models.CharField("Valor:",max_length=100,null=False,error_messages=MENSAGENS_ERROS)
     complemento    = models.TextField("Complemento:",max_length=500,null=True,error_messages=MENSAGENS_ERROS)
+
+
+    
+class item_protocolo_serializer(serializers.Serializer):
+    #protocolo      = models.ForeignKey(protocolo)
+    documento      = serializers.CharField(max_length=100) #models.CharField("Item:",max_length=100,null=False,error_messages=MENSAGENS_ERROS)
+    #referencia     = models.CharField("Mês de Referência:",max_length=100,null=False,error_messages=MENSAGENS_ERROS)
+    #vencimento     = models.CharField("Vencimento:",max_length=100,null=False,error_messages=MENSAGENS_ERROS)
+    #valor          = models.CharField("Valor:",max_length=100,null=False,error_messages=MENSAGENS_ERROS)
+    #complemento
+    
+    """
+    logradouro   = serializers.CharField(max_length=100)
+    bairro       = serializers.CharField(max_length=100)
+    municipio    = serializers.CharField(max_length=100)
+    estado       = serializers.CharField(max_length=100)
+    pais         = serializers.CharField(max_length=100)
+    codigo_municipio = serializers.CharField(max_length=7)
+    codigo_bairro = serializers.CharField(max_length=10)
+    """
