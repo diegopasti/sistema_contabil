@@ -77,6 +77,11 @@
     pointer-events: none;
 }
 
+.dataTables_paginate {
+	position: relative;
+    display: block;
+    top: 30px;
+}
 
 </style>
 {% endblock %}
@@ -227,7 +232,7 @@
 										<td style="text-align: center;cursor:pointer">{{ item.numeracao_destinatario }}</td>
 										
 										{% if item.destinatario %}
-										<td class='left_align' style="cursor:pointer">{{ item.id }} - {{ item.destinatario }}</td>
+										<td class='left_align' style="cursor:pointer">{{ item.destinatario.id }} - {{ item.destinatario }}</td>
 										{% else %}
 										<td class='left_align' style="cursor:pointer">{{ item.nome_avulso }}</td>
 										{% endif %}
@@ -263,7 +268,7 @@
 				
 				<div class='row'>
 
-					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-3">
+					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-3" style='margin-top:-36px;'>
 					
 						<label class='left_align'><sub>Buscar por:</sub></label>
 						 <select id='buscar_por' class='form-control'>
@@ -275,7 +280,7 @@
 						</select> 
 					</div>
 					
-					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-3" style='margin-left:-20px;'>
+					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-3" style='margin-left:-20px;margin-top:-36px;'>
 					
 						<label class='left_align'><sub>Filtrar por:</sub></label>
 						 <select id='filtrar_por' class='form-control'>
@@ -286,7 +291,7 @@
 						</select> 
 					</div>
 					
-					<div class="col-lg-4 col-md-4 col-sm-5 col-xs-6" style='margin-left:-20px;margin-top: 24px;'>
+					<div class="col-lg-4 col-md-4 col-sm-5 col-xs-6" style='margin-left:-20px;margin-top: -11px;'>
 						<input type="text" id="search" class="form-control" autofocus placeholder="Consultar..">
 					</div>
 				
@@ -382,7 +387,8 @@ jQuery(document).ready(function(){
 	var filtro = $('#filtrar_por').val();
 	
 	if (filtro == 'emitidos'){
-		//table.columns(campo).search(this.value).draw();
+		table.columns(campo).search(this.value).draw();
+		//alert('aqui?');
 	}
 	
 	else if (filtro == 'abertos'){
@@ -399,16 +405,10 @@ jQuery(document).ready(function(){
 	
 	else{
 		//table.columns(campo).search(this.value).draw();
+		alert('ou aqui?');
 	}
 	
 	
-	//alert("olha o campo que temos que buscar: "+campo);
-	
-	//.column( 0 ).search( 'Gecko' )
- 	//.column( 1 ).search( 'Cam' )
- 	//.draw();
-    
-	//table.columns(campo).search( this.value ).search(this.value).draw(); // POR COLUNA
 	//table.search( this.value ).search(this.value).draw();              // GERAL
 } );
 </script>
@@ -445,7 +445,7 @@ $('#datatable').DataTable({
 	"dom": '<"top">rt"<"rightcolumn"><"clear">p',
 	"bSort": true,
 	"ordering": true,
-	"bAutoWidth": false,
+	"bAutoWidth": false
 	
 	//"columnDefs": [ {
 	      //"targets": 0,
