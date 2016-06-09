@@ -28,6 +28,16 @@
 	<!-- Bootstrap Core JavaScript -->
     <!--<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>-->
     
+    <!-- ICONES -->
+	<link href="{% static 'icones/css/font-awesome.min.css' %}" rel="stylesheet"/>	
+    
+    <!-- CUSTOM THEME 
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/custom_theme.css' %}"/>
+    -->
+    <!-- CUSTOM THEME --> 
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/darkness_theme.css' %}"/>
+    
+    
 </head>
 
 <body>
@@ -42,7 +52,8 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
-		      <a class="navbar-brand" href="#">Digitar</a>
+		      
+		      <a class="navbar-brand" href="#"><img src="{% static 'imagens/exemplo_logo.png' %}" alt="logo" height="40px" style='margin-top:-10px;'/></a>
 		    </div>
 		
 		    <!-- Collect the nav links, forms, and other content for toggling -->
@@ -85,8 +96,11 @@
 		</nav>
 		
 		<div id="page-wrapper"  style="padding: 25px;">
+		
+		
 		{% block Principal %}
-	
+		
+		
 		{% endblock %}
 		</div>
 	</div>

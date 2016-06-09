@@ -119,8 +119,8 @@ def cadastro_protocolo(request):
         
     dados = protocolo.objects.all()
     
-    for item in dados:
-        print item.data_emissao
+    #for item in dados:
+    #    print item.data_emissao
     
     return render_to_response("protocolo/cadastro_protocolo.html",{"form_entrega":form_entrega,'dados':dados,'erro':erro},context_instance=RequestContext(request))
 
@@ -325,8 +325,13 @@ def criar_protocolo(request,formulario):
             destinatario.contatos = []
         else:
             destinatario.contatos = [campos[3]]
-            
-        p.destinatario = formulario['entidade_destinatario'].value()
+        
+        print "olha o que veio: ",formulario['entidade_destinatario'].value() 
+        p.destinatario = None
+        p.nome_avulso = destinatario.nome
+        p.endereco_avulso = destinatario.endereco
+        p.contatos_avulso = campos[3]
+        
         p.numeracao_destinatario = destinatario.codigo_protocolo
     
     else:

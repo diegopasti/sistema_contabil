@@ -554,9 +554,10 @@ def cadastro_entidades(request):
                 
                 if validar_registro(registro_entidade) and validar_registro(registro_contato) and validar_registro(registro_localizacao):
                     print "Tudo certo.. podemos salvar"
-                    registro_entidade.save()
-                    registro_localizacao.entidade = registro_entidade
                     registro_localizacao.save()
+                    registro_entidade.endereco = registro_localizacao
+                    registro_entidade.save()
+                    
                     registro_contato.entidade = registro_entidade
                     registro_contato.save()  
                     messages.add_message(request, messages.SUCCESS, "Registro salvo com sucesso!")

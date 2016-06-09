@@ -79,7 +79,7 @@ function configurar_datatable(datatable_id){
 		'responsive': true,
 		"bPaginate": false,
 		"lengthMenu": [[10, 100, -1], [10, 100, "All"]],
-		//"dom": '<"top">rt"<"rightcolumn"p><"clear">',
+		"dom": '<"top">rt"<"rightcolumn"p><"clear">',
 		"bSort": false,
 		"ordering": false,
 		"bAutoWidth": false,

@@ -62,13 +62,18 @@ from entidade.models import entidade
 class protocolo(models.Model):
     emissor      = models.ForeignKey(entidade,related_name='entidade_emissora')
     emitido_por  = models.CharField("Recebido por:",max_length=100,null=True,error_messages=MENSAGENS_ERROS)
-    destinatario = models.ForeignKey(entidade,null=True,related_name='entidade_destinataria')
+    destinatario = models.ForeignKey(entidade,null=True,related_name='entidade_destinatario')
     data_emissao = models.DateField(auto_now=True)
     hora_emissao = models.TimeField(auto_now=True)
     numeracao_destinatario = models.CharField(max_length=5,null=True)
     
-    data_recebimento = models.DateField(blank=True)
-    hora_recebimento = models.TimeField(blank=True)
+    nome_avulso      = models.CharField(max_length=100,null=True)
+    endereco_avulso  = models.CharField(max_length=500,null=True)
+    documento_avulso = models.CharField(max_length=30,null=True)
+    contatos_avulso  = models.CharField(max_length=50,null=True)
+    
+    data_recebimento = models.DateField(null=True,blank=True)
+    hora_recebimento = models.TimeField(null=True,blank=True)
     recebido_por     = models.CharField("Recebido por:",max_length=100,null=True,error_messages=MENSAGENS_ERROS)
     doc_receptor     = models.CharField("Identidade:",max_length=20,null=True,error_messages=MENSAGENS_ERROS)
     situacao         = models.BooleanField(default=False)
