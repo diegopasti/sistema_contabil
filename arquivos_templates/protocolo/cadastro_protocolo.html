@@ -18,10 +18,13 @@
 
 <!-- DATATABLE -->
 <link rel="stylesheet" type="text/css" href="{% static 'datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css' %}"/>
+
+
 <link rel="stylesheet" type="text/css" href="{% static 'datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css' %}"/>
 <link rel="stylesheet" type="text/css" href="{% static 'datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css' %}"/>
 
 <script src="{% static 'datatable/DataTables-1.10.11/js/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js' %}"></script>
 <script src="{% static 'datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js' %}"></script>
 
 <!-- JQUERY UI DATAPICKER -->
@@ -437,9 +440,9 @@ $('#filtrar_por').change(function() {
 <script>	
 $('#datatable').DataTable({
 	
-	"pagingType": "simple",
+	"pagingType": "simple_numbers",
 	"lengthMenu": [[10, 100, -1], [10, 100, "All"]],
-	"dom": '<"top">rt"<"rightcolumn"><"clear">',
+	"dom": '<"top">rt"<"rightcolumn"><"clear">p',
 	"bSort": true,
 	"ordering": true,
 	"bAutoWidth": false,
@@ -515,9 +518,9 @@ $('#datatable'+' tbody').on('click', 'tr', function () {
      
      $('#bt_confirmar_entrega').click( function () {
          //table.row('.selected').remove().draw( false );
-         alert("Vamos confirmar.. "+table.cell('.selected', 0).data());
+         //alert("Vamos confirmar.. "+table.cell('.selected', 0).data());
          $("#protocolo_id").val(table.cell('.selected', 0).data());
-         alert("Vamos confirmar.. "+table.cell('.selected', 0).data());
+         //alert("Vamos confirmar.. "+table.cell('.selected', 0).data());
      } );
 		
 });
@@ -605,7 +608,8 @@ $(function() {
 	$("#data_entrega").datepicker({
 		  dayNames: [ "Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado" ],
 		  monthNames: [ "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho","Agosto","Setembro","Outubro","Novembro","Dezembro" ],
-		  dayNamesMin: [ "D", "S", "T", "Q", "Q", "S", "S" ]
+		  dayNamesMin: [ "D", "S", "T", "Q", "Q", "S", "S" ],
+		  dateFormat: 'dd/mm/yy'
 	});
 	
 	//$("#data_entrega").formatDate( "DD, MM d, yy", new Date( 2007, 7 - 1, 14 ), {

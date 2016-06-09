@@ -63,7 +63,7 @@ class entidade(models.Model):
     data_cadastro         = models.DateField(auto_now=True)
     ativo          = models.BooleanField(default=True)
     
-    numeracao_protocolo = models.IntegerField(null=False,default=0)
+    numeracao_protocolo = models.IntegerField(null=False,default=1)
     
     endereco = models.ForeignKey(localizacao_simples,default=0)
     
