@@ -30,14 +30,12 @@
 <!-- JQUERY UI DATAPICKER -->
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
 
-<!-- JQUERY UI SELECT -->
-<!-- <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" /> -->
-
-
+<!-- JQUERY AUTOCOMPLETE EDITABLE -->
+<link rel="stylesheet" type="text/css" href="{% static 'jquery/jquery-editable-select/jquery.editable-select.min.css' %}"></link>
+<script src="{% static 'jquery/jquery-editable-select/jquery.editable-select.min.js' %}"></script>
 
 <!-- CUSTOM -->
-<link href="{% static 'styles/menu_simples_responsivo.css' %}" rel="stylesheet"/>
-
+<!-- <link href="{% static 'styles/menu_simples_responsivo.css' %}" rel="stylesheet"/> -->
 <script src="{% static 'scripts/padrao/controle_botoes.js' %}"></script>
 <script src="{% static 'scripts/protocolo/protocolo.js' %}"></script>
 
@@ -88,6 +86,85 @@
 
 
 {% block Principal %}
+
+<div id="modal_relatorio" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+	<div class="modal-dialog" style="width: 40%">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">×</button>
+				<h3 id="myModalLabel">Gerar Relatório</h3>
+			</div>
+
+
+			<div class="modal-body" style="padding: 30px;">	
+				<form action="" method="post" name='gerar_relatorio_teste'>
+				{% csrf_token %}
+					<div class="row">
+					
+						<div class='col-lg-8'>
+							<div style='margin-left: 8px'>
+								<sub>{{ form_relatorio.filtar_por_cliente.label }}</sub>
+							</div>
+							
+							<select id="select_filtrar_por_cliente" class='form-control uppercase'  onblur="selecionar_filtro_cliente()">
+								<option value='' selected></option>
+								{% for item in clientes %}
+									<option value='{{ item.id }}'>{{ item.id }} - {{ item.nome_razao }}</option>
+								{% endfor %}					
+							</select>
+							{{ form_relatorio.filtar_por_cliente }}
+						</div>
+					
+						<div class='col-lg-4'>
+							<div style='padding-left: 8px'>
+								<sub>{{ form_relatorio.filtrar_por_status.label }}</sub>
+							</div>
+							{{ form_relatorio.filtrar_por_status }}
+						</div>
+					</div>
+					
+					<div class="row">
+					
+						<div class='col-lg-6'>
+							<div>
+								<div style='padding-left: 8px'>
+									<sub>{{ form_relatorio.filtrar_por_operacao.label }}</sub>
+								</div>
+								{{ form_relatorio.filtrar_por_operacao }}
+							</div>
+						</div>
+						
+						<div class='col-lg-3'>
+							<div>
+								<div style='padding-left: 8px'>
+									<sub>{{ form_relatorio.filtrar_desde.label }}</sub>
+								</div>
+								{{ form_relatorio.filtrar_desde }}
+							</div>
+						</div>
+						
+						<div class='col-lg-3'>
+							<div>
+								<div style='padding-left: 8px'>
+									<sub>{{ form_relatorio.filtrar_ate.label }}</sub>
+								</div>
+								{{ form_relatorio.filtrar_ate }}
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-lg-3 col-lg-push-9">
+							<button type="submit" id="bt_gerar_relatorio" class="btn btn-primary form-control" name='gerar_relatorio'  value='value_gerar_relatorio' style="position: relative; margin-top: 20px">Gerar</button>
+							<!-- <a href="#myModal" role="button" class="btn btn-primary form-control" data-toggle="modal" '  > Adicionar</a>  -->
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
 
 
 <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
@@ -167,7 +244,7 @@
 					
 					<div class="row">
 						<div class="col-lg-3 col-lg-push-9">
-							<button type="submit" id="bt_adicionar_item" class="btn btn-primary form-control" name='adicionar_item' style="position: relative; margin-top: 20px">Salvar</button>
+							<button type="submit" class="btn btn-primary form-control" name='confirmar_protocolo' style="position: relative; margin-top: 20px">Confirmar</button>
 							<!-- <a href="#myModal" role="button" class="btn btn-primary form-control" data-toggle="modal" '  > Adicionar</a>  -->
 						</div>
 					</div>
@@ -176,6 +253,8 @@
 		</div>
 	</div>
 </div>
+
+
 
 
 <div class="row">
@@ -194,7 +273,7 @@
 						 <div class="btn-group" role="group" style='margin-top: -2px;' aria-label="...">
 						  
 						  <a href="/protocolo/emitir_protocolo" role="button" class="btn btn-primary"><i class="fa fa-plus fa-1x" aria-hidden="true"></i> Novo Protocolo</a>
-						  <a href="#myModal" role="button" class="btn btn-default" data-toggle="modal" style='margin-left: 10px;'><i class="fa fa-file-text-o"></i> Gerar Relatório</a>
+						  <a href="#modal_relatorio" id='bt_relatorio' role="button" class="btn btn-default" data-toggle="modal" style='margin-left: 10px;'><i class="fa fa-file-text-o"></i> Gerar Relatório</a>
 						  <a href="#" role="button" class="btn btn-default pull-right link_desabilitado" id="bt_confirmar_entrega" data-toggle="modal" data-target="#myModal" style="position: relative; margin-top: 0px;margin-right: 2px;margin-left: 10px;"><i class="fa fa-check" aria-hidden="true"></i> Confirmar Recebimento</a>
 						</div>
 						
@@ -210,17 +289,17 @@
 					<div class='row'>
 						
 						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-							<table class="table table-bordered table-hover" id="datatable">
+							<table class="table compact table-bordered table-hover" id="datatable">
 				
 								<thead>
 									<tr class="linha_cabecalho">
 										<th style="vertical-align: middle;"></th>
-										<th style="text-align: center;vertical-align: middle;">COD</th>
-										<th style="text-align: center;vertical-align: middle;">DESTINATÁRIO</th>
-										<th style="text-align: center;vertical-align: middle;">DATA EMISSÃO</th>
-										<th style="text-align: center;vertical-align: middle;">DATA ENTREGA</th>
-										<th style="text-align: center;vertical-align: middle;">RECEBIDO POR</th>
-										<th style="text-align: center;vertical-align: middle;">CONFIRMADO</th>
+										<th style="text-align: center;vertical-align: middle;">Código</th>
+										<th style="text-align: center;vertical-align: middle;">Destinatário</th>
+										<th style="text-align: center;vertical-align: middle;">Data Emissão</th>
+										<th style="text-align: center;vertical-align: middle;">Data Entrega</th>
+										<th style="text-align: center;vertical-align: middle;">Recebido por</th>
+										<th style="text-align: center;vertical-align: middle;">Confirmardo</th>
 									</tr>
 								</thead>
 				
@@ -229,7 +308,13 @@
 									
 									<tr><!--  class="alinhado_meio clickable-row " data-href='/consultar_entidade/{{ item.id }}'> -->
 										<td style="text-align: center;cursor:pointer">{{ item.id }}</td>
+										
+										{% if item.numeracao_destinatario == 'AVULSO' %}
+										<td style="text-align: center;cursor:pointer">-</td>
+										{% else %}
 										<td style="text-align: center;cursor:pointer">{{ item.numeracao_destinatario }}</td>
+										{% endif %}
+										
 										
 										{% if item.destinatario %}
 										<td class='left_align' style="cursor:pointer">{{ item.destinatario.id }} - {{ item.destinatario }}</td>
@@ -251,11 +336,12 @@
 										{% endif %}
 										
 										{% if item.situacao %}
-											<td align="left" style="text-align: center;cursor:pointer"><font color='green'>Sim</font></td>
+											<td align="left" style="text-align: center;cursor:pointer"><font color='green'>SIM</font></td>
 										{% else %}
-											<td align="left" style="text-align: center;cursor:pointer"><font color='red'>Não</font></td>
+											<td align="left" style="text-align: center;cursor:pointer"><font color='red'>NÃO</font></td>
 										{% endif %}
 									</tr>
+									
 									
 									{% empty %}
 		    							<tr><td style="text-align: center;" colspan="7">Nenhum protocolo emitido</td></tr>
@@ -362,6 +448,9 @@
 </div>
 
 
+
+
+
 {% include "componentes/mensagem.html" with messages=messages %}
 
 {% endblock %}
@@ -370,12 +459,11 @@
 {% load staticfiles %}
 <script type="text/javascript" src="{% static 'scripts/mask.js' %}"></script>
 
-
-
-
 <script>
 jQuery(document).ready(function(){
 	$("#data_entrega").mask("99/99/9999");
+	$("#filtrar_desde").mask("99/99/9999");
+	$("#filtrar_ate").mask("99/99/9999");
    	$("#hora_entrega").mask("99:99");
 });
 </script>
@@ -400,7 +488,7 @@ jQuery(document).ready(function(){
 	}
 	
 	else if (filtro == 'avulsos'){
-		table.columns(campo).search(this.value).column(1).search('AVULSO').draw();
+		table.columns(campo).search(this.value).column(1).search('-').draw();
 	}
 	
 	else{
@@ -429,8 +517,17 @@ $('#filtrar_por').change(function() {
  		}
  		
  		else if (filtro == 'avulsos'){
- 			table.column(1).search('AVULSO').draw();
+ 			table.column(1).search('-').draw();
  		}
+});
+
+$('#buscar_por').change(function() { 
+		var table = $('#datatable').DataTable();
+		var filtro = $('#buscar_por').val();
+		var campo = $('#buscar_por').val();
+		
+		table.search('').columns().search( '' ).draw();
+		table.columns(campo).search($('#search').val()).draw();
 });
 </script>
 
@@ -611,13 +708,24 @@ $(function() {
 		  dayNamesMin: [ "D", "S", "T", "Q", "Q", "S", "S" ],
 		  dateFormat: 'dd/mm/yy'
 	});
-	
-	//$("#data_entrega").formatDate( "DD, MM d, yy", new Date( 2007, 7 - 1, 14 ), {
-//		  dayNamesShort: $.datepicker.regional["fr"].dayNamesShort,
-		  //dayNames: $.datepicker.regional[ "fr" ].dayNames,
-		  //monthNamesShort: $.datepicker.regional[ "fr" ].monthNamesShort,
-		  //monthNames: $.datepicker.regional[ "fr" ].monthNames
-	//});
+});
+
+$(function(){
+	$("#filtrar_desde").datepicker({
+		  dayNames: [ "Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado" ],
+		  monthNames: [ "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho","Agosto","Setembro","Outubro","Novembro","Dezembro" ],
+		  dayNamesMin: [ "D", "S", "T", "Q", "Q", "S", "S" ],
+		  dateFormat: 'dd/mm/yy'
+	});
+});
+
+$(function(){
+	$("#filtrar_ate").datepicker({
+		  dayNames: [ "Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado" ],
+		  monthNames: [ "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho","Agosto","Setembro","Outubro","Novembro","Dezembro" ],
+		  dayNamesMin: [ "D", "S", "T", "Q", "Q", "S", "S" ],
+		  dateFormat: 'dd/mm/yy'
+	});
 });
 </script>
 
@@ -657,6 +765,13 @@ $('#datatable_detalhes').DataTable({
 
 </script>
 
+<script type="text/javascript">
+function selecionar_filtro_cliente(){
+	
+	var destinatario = $('#select_filtrar_por_cliente').val();
+	$("#filtar_por_cliente").val(destinatario);
+}
+</script>
 
 
 

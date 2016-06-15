@@ -63,8 +63,8 @@ class protocolo(models.Model):
     emissor      = models.ForeignKey(entidade,related_name='entidade_emissora')
     emitido_por  = models.CharField("Recebido por:",max_length=100,null=True,error_messages=MENSAGENS_ERROS)
     destinatario = models.ForeignKey(entidade,null=True,related_name='entidade_destinatario')
-    data_emissao = models.DateField(auto_now=True)
-    hora_emissao = models.TimeField(auto_now=True)
+    data_emissao = models.DateField(auto_now_add=True)
+    hora_emissao = models.TimeField(auto_now_add=True)
     numeracao_destinatario = models.CharField(max_length=5,null=True)
     
     nome_avulso      = models.CharField(max_length=100,null=True)

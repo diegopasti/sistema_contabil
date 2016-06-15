@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:pdf="http://example.com"> 
+<html>
+	<head>
+		<title>Relatório de Protocolos</title>
+		
+		<meta charset="utf-8">
+	
+		{% load staticfiles %}
+		
+		<!-- <link rel="stylesheet" type="text/css" href="{% static 'styles/protocolo.css' %}"/>  -->
+		
+		<style>
+			@page {
+		
+				margin: 0.5cm;
+				/*-pdf-frame-border: 1; */ 
+				
+				@frame {
+			        -pdf-frame-content: company_logo;
+			        left: 1cm;
+			        top: 0.7cm;
+			        height: 1.3cm;
+			    }
+			    
+			    @frame {
+			        -pdf-frame-content: page_title;
+			        /* -pdf-frame-border: 1; */
+			        width: 6cm;
+			        height: 1cm;
+			        left: 8.1cm;
+			        top: 1.1cm;        
+			    }
+			    
+			    @frame {    	
+			        -pdf-frame-content: codigo_protocolo;
+			        text-align: right;
+			        width: 5cm;
+			        height: 1.1cm;
+			        right: 1cm;
+			        top: 1.0cm;
+			        
+			    }
+			    
+			    @frame {    	
+			        -pdf-frame-content: line_separator_entidades;
+			        padding-left: 39px;
+			        padding-right: 39px;
+			        top: 1.8cm;
+			    }
+			    
+			    @frame {    	
+			        -pdf-frame-content: descricao;
+			        top: 2.5cm;
+			        left: 1cm;
+			    }
+			    
+			    @frame {    	
+			        -pdf-frame-content: tabela_documentos;
+			        -pdf-frame-border: 0.5;
+			        width: 18.8cm; 
+			        left: 1cm;
+			        top: 4cm;
+			    }
+			    
+			}
+			
+			#page_title{
+				text-align: center;
+			}
+			
+			#codigo_protocolo2{
+				text-align: right;	
+			}
+			
+			#codigo_protocolo{
+				text-align: right;	
+			}
+			
+			.negrito{
+				font-weight: bold; 
+			}
+			
+			.center{
+				text-align: center;
+			}
+			
+			.left{
+				text-align: left;
+			}
+			
+			.padrao_medio{
+				height: 40px;
+			}
+			
+			tr.padrap {
+				padding: 10px;
+			}
+			
+			td.codigo{
+				padding-left: 2px; 
+				width:45px;
+			}
+			
+			td.documento{
+				text-align: left;
+				padding-left: 20px; 
+				width:1100px;
+			}
+			
+		</style>
+		
+	</head>
+	
+	<body id="pagina">
+	
+		<table border=0 style="padding: 5px">
+			<tr>
+				<td>
+					<div id="company_logo">
+						<img src="{{ path_imagens }}exemplo_logo.png"  alt="logo"/>
+					</div>
+					
+					<div id="page_title">
+						<p style="font-size: 14pt; padding-bottom:-40px;">Relatório de Protocolo</p>
+					</div>
+					
+					<div id='codigo_protocolo'>
+						<font size=3>Emitido por {{ emitido_por }}</font><br>
+						<font size=3>31/03/2016 às 13:04</font><br>
+					</div>
+					
+					<div id='line_separator_entidades'>
+						<img src="{{ path_imagens }}line.png" width="980px" height="6px"/>
+					</div>
+					<br>
+					
+					<div id='descricao'>
+						<font size=4>Protocolos para Gustavo Falchetto Bernadino</font><br>
+						<font size=4>Emitidos/Recebidos entre 01/06/2016 à 13/06/2016</font>
+					</div>
+					
+					
+					<div id="tabela_documentos">
+						<table border='1' width='714px'>
+						
+						<!-- 
+						emissor      = models.ForeignKey(entidade,related_name='entidade_emissora')
+					    emitido_por  = models.CharField("Recebido por:",max_length=100,null=True,error_messages=MENSAGENS_ERROS)
+					    destinatario = models.ForeignKey(entidade,null=True,related_name='entidade_destinatario')
+					    data_emissao = models.DateField(auto_now_add=True)
+					    hora_emissao = models.TimeField(auto_now_add=True)
+					    numeracao_destinatario = models.CharField(max_length=5,null=True)
+					    
+					    nome_avulso      = models.CharField(max_length=100,null=True)
+					    endereco_avulso  = models.CharField(max_length=500,null=True)
+					    documento_avulso = models.CharField(max_length=30,null=True)
+					    contatos_avulso  = models.CharField(max_length=50,null=True)
+					    
+					    data_recebimento = models.DateField(null=True,blank=True)
+					    hora_recebimento = models.TimeField(null=True,blank=True)
+					    recebido_por     = models.CharField("Recebido por:",max_length=100,null=True,error_messages=MENSAGENS_ERROS)
+					    doc_receptor     = models.CharField("Identidade:",max_length=20,null=True,error_messages=MENSAGENS_ERROS)
+					    situacao
+						 -->
+						 
+						 <tr>
+						 	<td></td>
+						 	<td>CÓDIGO</td>
+						 	<td><b>DESTINATÁRIO</b></td>
+						 	<td><b>EMITIDO EM</b></td>
+						 	<td><b>RECEBIDO EM</b></td>
+						 </tr>
+						 						
+						{% for item in protocolos %}						
+						<tr style='line-height: 9px;padding-top: 2px;padding-bottom: 2px;'>
+							<td class="center" width='25px'>{{ item.counter }}</td>
+							
+							{% if item.id == None %}
+							<td class="center" width='25px'>AVULSO</td>
+							{% else %}
+							<td class="center" width='25px'>{{ item.id }}</td>
+							{% endif %}
+							<td>{{ item.destinatario }}</td>
+						</tr>
+	
+						{% endfor %}
+						
+						{% for item in protocolos %}						
+						<tr style='line-height: 9px;padding-top: 2px;padding-bottom: 2px;'>
+							<td class="center" width='25px'>{{ item.counter }}</td>
+							
+							{% if item.id == None %}
+							<td class="center" width='25px'>AVULSO</td>
+							{% else %}
+							<td class="center" width='25px'>{{ item.id }}</td>
+							{% endif %}
+							<td>{{ item.destinatario }}</td>
+						</tr>
+	
+						{% endfor %}
+						
+						<div>
+						  <pdf:nextpage />
+						</div> 
+						
+						{% for item in protocolos %}						
+						<tr style='line-height: 9px;padding-top: 2px;padding-bottom: 2px;'>
+							<td class="center" width='25px'>{{ item.counter }}</td>
+							
+							{% if item.id == None %}
+							<td class="center" width='25px'>AVULSO</td>
+							{% else %}
+							<td class="center" width='25px'>{{ item.id }}</td>
+							{% endif %}
+							<td>{{ item.destinatario }}</td>
+						</tr>
+	
+						{% endfor %}
+						
+										
+						</table>
+					
+					</div>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

@@ -28,6 +28,9 @@
 <link rel="stylesheet" type="text/css" href="{% static 'jquery/jquery-editable-select/jquery.editable-select.min.css' %}"></link>
 <script src="{% static 'jquery/jquery-editable-select/jquery.editable-select.min.js' %}"></script>
 
+<!-- JQUERY UI DATAPICKER -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+
 <!-- Plugin para realizar autocomplete 
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
@@ -233,12 +236,9 @@
 							</div>
 							
 							<select class='form-control uppercase' id="select_destinatarios" onblur="conferir_destinatario()">
-								
-							
-							
-							{% for item in destinatarios %}
+								{% for item in destinatarios %}
 								<option value='{{ item.id }}'>{{ item.id }} - {{ item.nome_razao }}</option>
-							{% endfor %}
+								{% endfor %}
 															
 							</select>
 						</div>
@@ -361,6 +361,27 @@
 {% block recursos_complementares %}
 {% load staticfiles %}
 
+<script type="text/javascript" src="{% static 'scripts/mask.js' %}"></script>
+<script type="text/javascript" src="{% static 'jquery/jquery.maskMoney.js' %}"></script>
+
+<script>
+jQuery(document).ready(function(){
+	$("#referencia").mask("99/9999");
+	$("#vencimento").mask("99/99/9999");
+	$('#valor').maskMoney({showSymbol:false, symbol:"R$", decimal:",", thousands:"."});
+});
+</script>
+
+<script>
+$(function() {
+	$("#vencimento").datepicker({
+		  dayNames: [ "Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado" ],
+		  monthNames: [ "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho","Agosto","Setembro","Outubro","Novembro","Dezembro" ],
+		  dayNamesMin: [ "D", "S", "T", "Q", "Q", "S", "S" ],
+		  dateFormat: 'dd/mm/yy'
+	});
+});
+</script>
 
 <!-- SCRIPTS CERTO!!!! -->
 <script type="text/javascript">
@@ -500,6 +521,8 @@ $(document).ready(function() {
 	$("#datatable"+' tbody').on( 'click', 'tr', seleciona_linha("#datatable",$(this),true));
 });
 </script>
+
+
 
 {% endblock %}
 

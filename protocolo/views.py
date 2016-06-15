@@ -19,6 +19,7 @@ from django.template.context import RequestContext
 from entidade.formularios import formulario_emitir_protocolo, formulario_confirmar_entrega
 from entidade.models import entidade, contato, localizacao_simples  # , localizacao
 from entidade.views import verificar_erros_formulario
+from protocolo.formularios import formulario_gerar_relatorio
 from protocolo.models import protocolo, item_protocolo, item_protocolo_serializer
 from sistema_contabil.settings import BASE_DIR
 
@@ -64,71 +65,139 @@ def validar_temporalidade(data_primeira_operacao,hora_primeira_operacao,data_seg
     return primeiro_datetime < segundo_datetime
 
 def cadastro_protocolo(request):
-    
-    print request
-    
+
     erro = False
     if (request.method == "POST"):
-        form_entrega = formulario_confirmar_entrega(request.POST)
-        p = protocolo.objects.get(pk=int(form_entrega['protocolo_id'].value()))
         
-        if form_entrega.is_valid(): 
-            print "Parece que deu tudo certo.."
+        form_entrega = formulario_confirmar_entrega()
+        form_relatorio = formulario_gerar_relatorio()
+        
+        if 'gerar_relatorio' in request.POST:
+            print "e uma requisicao pro relatorio",request.POST
+            form_relatorio = formulario_gerar_relatorio(request.POST)
             
-            p = protocolo.objects.get(pk=int(form_entrega['protocolo_id'].value()))
-            p.situacao = True
-            p.recebido_por = form_entrega['recebido_por'].value().upper()
-            
-            data = form_entrega['data_entrega'].value()
-            data = data.replace(" ","")
-            tempo = form_entrega['hora_entrega'].value()
-            
-            if data != "":
-                dia = int(data[:2])
-                mes = int(data[3:5])
-                ano = int(data[6:])
-                data_entrega = datetime.date(ano,mes,dia)
-            
-                if tempo != "":
-                    tempo = tempo.split(':')
-                    hora = int(tempo[0])
-                    minuto = int(tempo[1])
-                    hora_entrega = datetime.time(hora,minuto)
-                    
-                    if validar_temporalidade(p.data_emissao,p.hora_emissao,data_entrega,hora_entrega):
-                        p.data_recebimento = data_entrega
-                        p.hora_recebimento = hora_entrega
-                        p.save()
-                    
-                    else:
-                        messages.add_message(request, messages.SUCCESS, "Erro! Horário da entrega não pode ser anterior a emissão.")
-                        erro = True
+            if form_relatorio.is_valid(): 
+                filtro_por_cliente = form_relatorio['filtar_por_cliente'].value().upper()
+                filtro_por_status = form_relatorio['filtrar_por_status'].value().upper()
+                filtro_por_data_desde = form_relatorio['filtrar_desde'].value()
+                filtro_por_operacao = form_relatorio['filtrar_por_operacao'].value()
+                filtro_por_data_ate = form_relatorio['filtrar_ate'].value()
+                 
+                if filtro_por_cliente == '':
+                    resultado = protocolo.objects.all()
                 
                 else:
-                    print "foi informado somente o dia, que nao pode ser anterior ao da emissao"
+                    resultado = protocolo.objects.filter(destinatario_id=filtro_por_cliente)
+                    
+                if filtro_por_status == 'CONFIRMADOS':
+                    resultado = resultado.filter(situacao=1)
+                
+                elif filtro_por_status == 'ABERTOS':
+                    resultado = resultado.filter(situacao=0)
+                
+                if filtro_por_data_desde != "":
+                    filtro_por_data_desde = converte_formato_data(filtro_por_data_desde)
+                    print 'emitidos desde: ',filtro_por_data_desde
+                    
+                    if filtro_por_operacao == "EMITIDOS":
+                        resultado = resultado.filter(data_emissao__gte=filtro_por_data_desde)   
+                    else:
+                        resultado = resultado.filter(data_recebimento__gte=filtro_por_data_desde)
+                    
+                
+                if filtro_por_data_ate != "":
+                    filtro_por_data_ate = converte_formato_data(filtro_por_data_ate)
+                    
+                    if filtro_por_operacao == "EMITIDOS":
+                        resultado = resultado.filter(data_emissao__lte=filtro_por_data_ate)
+                    else:
+                        resultado = resultado.filter(data_recebimento__lte=filtro_por_data_ate)
+                    print 'emitidos ate: ',filtro_por_data_ate
+                    
+                
+                #print 'resultados: '                
+                #for item in resultado:
+                #    print "Veja: ",item
+                
+                form_entrega = formulario_confirmar_entrega()
+                form_relatorio = formulario_gerar_relatorio()
+                
+                return gerar_relatorio_simples(request,resultado)
+                
+                
             
+        elif 'confirmar_protocolo' in request.POST:
+            form_entrega = formulario_confirmar_entrega(request.POST)
+            p = protocolo.objects.get(pk=int(form_entrega['protocolo_id'].value()))
+            
+            if form_entrega.is_valid(): 
+                p = protocolo.objects.get(pk=int(form_entrega['protocolo_id'].value()))
+                p.situacao = True
+                p.recebido_por = form_entrega['recebido_por'].value().upper()
+                
+                data = form_entrega['data_entrega'].value()
+                data = data.replace(" ","")
+                tempo = form_entrega['hora_entrega'].value()
+                
+                if data != "":
+                    dia = int(data[:2])
+                    mes = int(data[3:5])
+                    ano = int(data[6:])
+                    data_entrega = datetime.date(ano,mes,dia)
+                
+                    if tempo != "":
+                        tempo = tempo.split(':')
+                        hora = int(tempo[0])
+                        minuto = int(tempo[1])
+                        hora_entrega = datetime.time(hora,minuto)
+                        
+                        if validar_temporalidade(p.data_emissao,p.hora_emissao,data_entrega,hora_entrega):
+                            p.data_recebimento = data_entrega
+                            p.hora_recebimento = hora_entrega
+                            p.save()
+                        
+                        else:
+                            messages.add_message(request, messages.SUCCESS, "Erro! Horário da entrega não pode ser anterior a emissão.")
+                            erro = True
+                    
+                    else:
+                        print "foi informado somente o dia, que nao pode ser anterior ao da emissao"
+                
+            else:
+                msg = verificar_erros_formulario(form_entrega)
+                print "olha o erro: ",msg
+                messages.add_message(request, messages.SUCCESS, msg)
+                erro = True
+            
+        
         else:
-            print "tem algum erro no formulario.."
-            msg = verificar_erros_formulario(form_entrega)
-            print "olha o erro: ",msg
-            messages.add_message(request, messages.SUCCESS, msg)
-            erro = True
-            
+            print "e uma requisicao mas sem name do form"
     else:
         form_entrega = formulario_confirmar_entrega()
+        form_relatorio = formulario_gerar_relatorio()
         
     dados = protocolo.objects.all()
-    
-    #for item in dados:
-    #    print item.data_emissao
-    
-    return render_to_response("protocolo/cadastro_protocolo.html",{"form_entrega":form_entrega,'dados':dados,'erro':erro},context_instance=RequestContext(request))
+    clientes = entidade.objects.all()[1:]
+    return render_to_response("protocolo/cadastro_protocolo.html",{"form_entrega":form_entrega,"form_relatorio":form_relatorio,'clientes':clientes,'dados':dados,'erro':erro},context_instance=RequestContext(request))
 
 """
 def imprimir_protocolo(request,emissor,destinatario,documentos,):
     from django.template import Context
     path = os.path.join(BASE_DIR, "arquivos_estaticos\imagens")
 """
+
+def gerar_relatorio_simples(request,resultado):
+    from django_xhtml2pdf.utils import generate_pdf
+    from django.template import Context
+    path = os.path.join(BASE_DIR, "arquivos_estaticos\imagens\\")
+    parametros = {'protocolos':resultado,'path_imagens':path,'emitido_por':'MARCELO'}
+    context = Context(parametros)
+    
+    
+    resp = HttpResponse(content_type='application/pdf')
+    result = generate_pdf('protocolo/imprimir_relatorio_simples.html', file_object=resp,context=context)
+    return result
+
 
 def gerar_pdf(request, formulario,emissor, destinatario, protocolo):
     from django.template import Context# loader,Context, Template
@@ -551,6 +620,10 @@ def salvar_itens_protocolos(protocolo,itens_protocolo):
  COISAS QUE PODEM SER COLOCADAS EM OUTROS LUGARES
 
 """
+
+def converte_formato_data(data):
+    nova_data = data[6:]+"-"+data[3:5]+'-'+data[:2]
+    return nova_data
 
 def formatar_cep(cep):
     cep_formatado = ""+cep[:2]+"."+cep[2:5]+"-"+cep[5:]
