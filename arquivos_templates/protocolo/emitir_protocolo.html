@@ -416,7 +416,7 @@ $(document).ready(function() {
 		desabilitar_botao("#select_destinatarios");
 	}
 	else{
-		alert("nao precisa do texto");
+		//alert("nao precisa do texto");
 		$('#bt_resetar').addClass('link_desabilitado');
 		//$("#select_destinatarios").val("desgrama2");
 
@@ -522,7 +522,15 @@ $(document).ready(function() {
 });
 </script>
 
-
+<script type="text/javascript">
+$('#bt_gerar_protocolo').click( function () {
+	document.getElementById('form_protocolo').target='_blank';
+	setTimeout(function(){ window.location.href = ('/protocolo/emitir_protocolo/'); }, 3000);
+	//window.location.reload();
+	//setTimeout(function () {  }, 3);
+	
+ });
+</script>
 
 {% endblock %}
 

@@ -21,7 +21,7 @@ MENSAGENS_ERROS={'required': 'Precisa ser Informado!',
 
 class formulario_gerar_relatorio(forms.Form):
     
-    filtar_por_cliente = forms.CharField(label="Filtrar por Cliente: ",max_length=100,required=False,error_messages=MENSAGENS_ERROS,widget=forms.TextInput(attrs={'class':'form-control uppercase' ,'id':'filtar_por_cliente','readonly':True,'type':"hidden" })) #
+    filtrar_por_cliente = forms.CharField(label="Filtrar por Cliente: ",max_length=100,required=False,error_messages=MENSAGENS_ERROS,widget=forms.TextInput(attrs={'class':'form-control uppercase' ,'id':'filtrar_por_cliente','readonly':True,'type':"hidden" })) #
     
     opcoes_filtro = (                            
         ('TODOS','Todos Protocolos'),

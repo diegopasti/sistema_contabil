@@ -5,10 +5,12 @@ Created on 1 de abr de 2016
 @author: Win7
 '''
 
+from datetime import date
 import datetime
 from decimal import Decimal
 import json
 import os
+import time
 
 from django.contrib import messages
 from django.core import serializers
@@ -73,11 +75,10 @@ def cadastro_protocolo(request):
         form_relatorio = formulario_gerar_relatorio()
         
         if 'gerar_relatorio' in request.POST:
-            print "e uma requisicao pro relatorio",request.POST
             form_relatorio = formulario_gerar_relatorio(request.POST)
             
             if form_relatorio.is_valid(): 
-                filtro_por_cliente = form_relatorio['filtar_por_cliente'].value().upper()
+                filtro_por_cliente = form_relatorio['filtrar_por_cliente'].value().upper()
                 filtro_por_status = form_relatorio['filtrar_por_status'].value().upper()
                 filtro_por_data_desde = form_relatorio['filtrar_desde'].value()
                 filtro_por_operacao = form_relatorio['filtrar_por_operacao'].value()
@@ -176,7 +177,7 @@ def cadastro_protocolo(request):
         form_entrega = formulario_confirmar_entrega()
         form_relatorio = formulario_gerar_relatorio()
         
-    dados = protocolo.objects.all()
+    dados = list(protocolo.objects.all())#*50
     clientes = entidade.objects.all()[1:]
     return render_to_response("protocolo/cadastro_protocolo.html",{"form_entrega":form_entrega,"form_relatorio":form_relatorio,'clientes':clientes,'dados':dados,'erro':erro},context_instance=RequestContext(request))
 
@@ -190,7 +191,71 @@ def gerar_relatorio_simples(request,resultado):
     from django_xhtml2pdf.utils import generate_pdf
     from django.template import Context
     path = os.path.join(BASE_DIR, "arquivos_estaticos\imagens\\")
-    parametros = {'protocolos':resultado,'path_imagens':path,'emitido_por':'MARCELO'}
+    
+    print request.POST
+    
+    resultado = list(resultado)
+    
+    descricao_destinatario = ""
+    descricao_periodo = ""
+    
+    
+    
+    if request.POST['filtrar_por_cliente'] != '':
+        cliente = entidade.objects.get(pk=request.POST['filtrar_por_cliente']).nome_razao
+        
+        
+        if request.POST['filtrar_por_status'] == 'ABERTOS':
+            descricao_destinatario = descricao_destinatario +u"Relatório de Protocolos em aberto do cliente "+cliente
+        else:
+            descricao_destinatario = descricao_destinatario +u"Relatório de Protocolos do cliente "+cliente
+    else:
+        cliente = "TODOS"
+        if request.POST['filtrar_por_status'] == 'ABERTOS':
+            descricao_destinatario = descricao_destinatario +u"Relatório de protocolos em aberto dos clientes"
+        else:
+            descricao_destinatario = descricao_destinatario +u"Relatório de protocolos dos clientes"
+        
+    if request.POST['filtrar_desde'] != '':
+        
+        if request.POST['filtrar_por_operacao'] == 'EMITIDOS':
+            #descricao_periodo = descricao_periodo +"Emitidos desde "+request.POST['filtrar_desde']
+            descricao_periodo = descricao_periodo + request.POST['filtrar_desde']
+            
+        elif request.POST['filtrar_por_operacao'] == 'RECEBIDOS':
+            descricao_periodo = descricao_periodo + request.POST['filtrar_desde']
+    
+    else:
+        pass
+        #if request.POST['filtrar_por_operacao'] == 'EMITIDOS':
+        #    descricao_periodo = descricao_periodo +" Emitidos"
+            
+        #elif request.POST['filtrar_por_operacao'] == 'RECEBIDOS':
+        #    descricao_periodo = descricao_periodo +"Recebidos"
+            
+    if request.POST['filtrar_ate'] != '':
+        descricao_periodo = descricao_periodo +u" até "+request.POST['filtrar_ate']
+    
+    data = date.today() 
+    hora = datetime.datetime.now().strftime("%H:%M")
+    
+
+    
+    parametros = {'protocolos':resultado,
+                  'path_imagens':path,
+                  'emitido_por':'MARCELO',
+                  'descricao_destinatario':descricao_destinatario,
+                  
+                  
+                  'filtro_operacao':request.POST['filtrar_por_operacao'].capitalize(),
+                  'filtro_status':request.POST['filtrar_por_status'].upper(),
+                  'filtro_periodo':descricao_periodo,
+                  'filtro_cliente':cliente,
+                  
+                  'data_emissao':data,
+                  'hora_emissao':hora
+                  
+                  }
     context = Context(parametros)
     
     
@@ -202,6 +267,9 @@ def gerar_relatorio_simples(request,resultado):
 def gerar_pdf(request, formulario,emissor, destinatario, protocolo):
     from django.template import Context# loader,Context, Template
     path = os.path.join(BASE_DIR, "arquivos_estaticos\imagens\\")
+    
+    print protocolo.data_emissao, protocolo.hora_emissao
+
     
     parametros = {
                   'emissor_nome':emissor.nome,
@@ -217,6 +285,9 @@ def gerar_pdf(request, formulario,emissor, destinatario, protocolo):
                   
                   'codigo_protocolo':destinatario.codigo_protocolo,
                   'emitido_por':'Marcelo',
+                  'data_emissao':protocolo.data_emissao,
+                  'hora_emissao':protocolo.hora_emissao,
+                  
                   
                   'recebido_por':"",#recebido_por,
                   'identificacao':"",#identidade,
@@ -238,100 +309,6 @@ def gerar_pdf(request, formulario,emissor, destinatario, protocolo):
                 }
     
     c = Context(parametros)
-    
-    
-    """emissor = entidade.objects.get(pk=1)
-    
-    destinatario = formulario['entidade_destinatario'].value()
-    
-    if '|' in destinatario:
-        campos = destinatario.split("|")
-        destinatario_nome = campos[0]
-        destinatario_cpf_cnpj = formatar_cpf_cnpj(campos[1])
-        destinatario_complemento = ""
-        codigo_protocolo = "AVULSO"
-        
-        print campos[2].title()
-        destinatario_endereco = campos[2].title()
-        
-        if campos[3] == "":
-            destinatario_contatos = []
-        else:
-            destinatario_contatos = [campos[3]]
-    
-    else:
-        destinatario = destinatario[:destinatario.find(" - ")]
-        destinatario = int(destinatario)
-        destinatario = entidade.objects.get(pk=destinatario)
-        
-        destinatario_nome = destinatario.nome_razao.upper()
-        destinatario_cpf_cnpj = formatar_cpf_cnpj(destinatario.cpf_cnpj)
-        
-        codigo_protocolo = "%05d"%(destinatario.numeracao_protocolo)
-        destinatario_endereco = destinatario.endereco
-        destinatario_endereco = "%s, %s, %s, %s, %s - %s"%(destinatario_endereco.logradouro,destinatario_endereco.numero,destinatario_endereco.bairro,destinatario_endereco.municipio, destinatario_endereco.estado, formatar_cep(destinatario_endereco.cep))
-        destinatario_endereco = destinatario_endereco.title()
-        
-        destinatario_complemento = destinatario.endereco.complemento.title()
-        destinatario_contatos = []
-        
-        for item in contato.objects.filter(entidade=destinatario):
-            destinatario_contatos.append(item.numero)
-    
-    
-    recebido_por = 'DIEGO PASTI'
-    identidade = "128.598.557-50"
-    data_entrega = '12/04/2015'
-    hora_entrega = '14:25'
-    parametros = {
-                  'emissor_nome':emissor.nome_razao,
-                  'emissor_cpf_cnpj':formatar_cpf_cnpj(emissor.cpf_cnpj),
-                  'emissor_endereco':"Reta da Penha, Vitoria - ES",
-                  
-                  'destinatario_nome':destinatario_nome,
-                  'destinatario_cpf_cnpj':destinatario_cpf_cnpj,
-                  'destinatario_endereco':destinatario_endereco,
-                  'destinatario_complemento':destinatario_complemento,
-                  #destinatario.endereco_id.complemento
-                  
-                  'destinatario_contatos':destinatario_contatos,
-    
-                  
-                  'codigo_protocolo':codigo_protocolo,
-                  'emitido_por':'Marcelo',
-                  
-                  'recebido_por':recebido_por,
-                  'identificacao':identidade,
-                  'data_entrega':data_entrega,
-                  'hora_entrega':hora_entrega,
-                  
-                  
-                  
-                  #'emissor':emissor,
-                  
-                  #'destinatario':destinatario,
-                  #'endereco_destinatario':endereco,
-                  #'contatos_destinatario':contatos,
-                  
-                  
-                  
-                  'documentos':formulario.temporarios,
-                  #'documentos':[
-                  #                  ["33","IMPOSTO DE RENDA","2015","","R$ 285,50"],
-                  #                  ["8","EMISSAO DE CERTIFICADO DIGITAL","","31/12/2018","R$ 175,10"],
-                  #                  ["14","CONTRATO - PLANO COMPLETO","","31/12/2018","R$ 475,00"],
-                  #              ],
-                  'formulario_protocolo':"Nada por enquanto",
-                  'erro':"sem erros tambem",
-                  'path':path,
-                  
-                  'path_imagens':path
-                   
-                }
-                
-    """
-    
-    c = Context(parametros)#{'message': 'Your message'})
     
     # RENDERIZAR NORMAL
     #return render_to_response('protocolo/imprimir_protocolo.html', c)
@@ -359,7 +336,6 @@ class ParametroProtocolo:
 
 def criar_protocolo(request,formulario):
     emissor = entidade.objects.get(pk=1)
-    
     parametro_emissor = ParametroProtocolo()
     
     parametro_emissor.nome = emissor.nome_razao
@@ -395,7 +371,7 @@ def criar_protocolo(request,formulario):
         else:
             destinatario.contatos = [campos[3]]
         
-        print "olha o que veio: ",formulario['entidade_destinatario'].value() 
+        #print "olha o que veio: ",formulario['entidade_destinatario'].value() 
         p.destinatario = None
         p.nome_avulso = destinatario.nome
         p.endereco_avulso = destinatario.endereco
@@ -429,23 +405,18 @@ def criar_protocolo(request,formulario):
         p.numeracao_destinatario = destinatario.codigo_protocolo
         
     p.save()
-    print "Salvei o protocolo?"
     
     if cliente_id != -1:
         registro = entidade.objects.get(pk=cliente_id)
         registro.numeracao_protocolo = registro.numeracao_protocolo + 1
         registro.save()
-    print "Incrementei o contador do protocolo do cliente"
+    
     
     for item in formulario.temporarios:
         item.protocolo_id = p.id
         
         print item.documento,item.referencia,item.vencimento,item.valor,item.complemento
         item.save()
-    
-    print 'hora de salvar os itens do protocolo..'
-    
-    
     
     return parametro_emissor,destinatario,p
          
@@ -458,9 +429,6 @@ def emitir_protocolo(request,numero_item):
     if (request.method == "POST"):
         
         formulario_protocolo = formulario_emitir_protocolo(request.POST)
-        #print "olha o request:",formulario_protocolo
-            
-        #print "O que que tem nos temporarios: ",formulario_protocolo.temporarios
         
         if 'adicionar_item' in request.POST:
             
@@ -485,8 +453,6 @@ def emitir_protocolo(request,numero_item):
                 
                 formulario_protocolo  = formulario_emitir_protocolo({'entidade_destinatario':cliente})
                 formulario_protocolo.temporarios = temp
-                
-                #messages.add_message(request, messages.SUCCESS, "Item adicionado com sucesso")
             
             else:
                 msg = verificar_erros_formulario(formulario_protocolo)
@@ -495,14 +461,6 @@ def emitir_protocolo(request,numero_item):
             
             
         elif 'gerar_protocolo' in request.POST:
-            
-            """
-                TENHO QUE VERIFICAR UM JEITO DE ABRIR O PDF EM UMA OUTRA ABA, E RESETAR A ATUAL, OU RESETAR A ATUAL
-                NO CASO DELE VOLTAR PRA PAGINA..
-            """
-            #formulario_protocolo = formulario_emitir_protocolo()
-            #formulario_protocolo.limpar_temporarios()
-            
             emissor, destinatario, protocolo = criar_protocolo(request, formulario_protocolo)
             resposta_pdf = gerar_pdf(request,formulario_protocolo, emissor, destinatario, protocolo)
             return resposta_pdf
@@ -516,91 +474,9 @@ def emitir_protocolo(request,numero_item):
             except:
                 pass
             
-            """
-            formulario_protocolo = formulario_emitir_protocolo(request.POST)
-            #print "O que que tem nos temporarios: ",formulario_protocolo.temporarios
-            formulario_protocolo.temporarios = formulario_protocolo.temporarios
-            nome_cliente = formulario_protocolo['entidade_destinatario'].value().upper()
-            id_cliente = int(nome_cliente[:nome_cliente.index("-")])
-            cliente = entidade.objects.get(pk=id_cliente)
-            #cliente.cpf_cnpj = formatar_cpfcnpj(cliente.cpf_cnpj)
-            
-            
-            try:
-                empresa = entidade.objects.get(pk=1)
-            except:
-                print "Nao temos um registro da emrpesa ainda.. vamos usar o default"
-                
-            print "Tem algum registro da empresa:",empresa
-            empresa.cpf_cnpj = formatar_cpfcnpj(empresa.cpf_cnpj)
-            endereco_cliente = construir_endereco(localizacao.objects.get(entidade_id=cliente.id))
-            endereco_emissor = construir_endereco(localizacao.objects.get(entidade_id=empresa.id))
-            
-            
-            
-            p = protocolo()
-            p.emissor = empresa
-            p.destinatario = cliente
-            p.numeracao_destinatario = cliente.numeracao_protocolo
-            p.save()
-            print "Salvei o protocolo?"
-            
-            cliente.numeracao_protocolo = cliente.numeracao_protocolo + 1
-            cliente.save()
-            print "Incrementei o contador do protocolo do cliente"
-                
-            salvar_itens_protocolos(protocolo,formulario_protocolo.temporarios)
-            
-            
-            formulario_protocolo = formulario_emitir_protocolo()
-            formulario_protocolo.limpar_temporarios()
-            
-            parametros = {'emissor':empresa,
-                          'destinatario':cliente,
-                          'endereco_destinatario':endereco_cliente,
-                          'endereco_emissor':endereco_emissor,
-                          'documentos':formulario_protocolo.temporarios,
-                          'formulario_protocolo':formulario_protocolo,
-                          'erro':erro}
-            
-            
-            from django.template import loader,Context, Template
-            from xhtml2pdf import pisa
-           
-            c = Context(parametros)#{'message': 'Your message'})
-            from django_xhtml2pdf.utils import generate_pdf
-            resp = HttpResponse(content_type='application/pdf')
-            result = generate_pdf('protocolo/imprimir_protocolo.html', file_object=resp,context=c)
-            
-            return result
-        
-        """
-            
     else:
         formulario_protocolo = formulario_emitir_protocolo()
         formulario_protocolo.limpar_temporarios()
-        
-        """
-        if "excluir" in request.path:
-            print "Acho que estou tentando apagar algum item"
-            formulario_protocolo = formulario_emitir_protocolo(request.GET)
-            print "olha os temporarios: ",formulario_protocolo.temporarios
-            
-            temp = formulario_protocolo.temporarios
-            cliente = formulario_protocolo.destinatario_temporario
-                
-            formulario_protocolo  = formulario_emitir_protocolo({'entidade_destinatario':cliente})
-            formulario_protocolo.destinatario_temporario = cliente
-            
-            print "olha o destinatario: ",formulario_protocolo['entidade_destinatario'].value().upper()
-            formulario_protocolo.temporarios.remove(formulario_protocolo.temporarios[numero_item])
-            print "olha os temporarios depois: ",formulario_protocolo.temporarios
-            
-            return render_to_response("emitir_protocolo.html",{'destinatarios':destinatarios ,'dados':formulario_protocolo.temporarios,'formulario_protocolo':formulario_protocolo,'erro':erro},context_instance=RequestContext(request))
-            
-        #else:
-        """ 
-        
                     
     return render_to_response("protocolo/emitir_protocolo.html",{'destinatarios':destinatarios ,'dados':formulario_protocolo.temporarios,'formulario_protocolo':formulario_protocolo,'erro':erro},context_instance=RequestContext(request))
 

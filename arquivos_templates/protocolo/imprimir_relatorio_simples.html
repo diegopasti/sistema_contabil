@@ -12,14 +12,17 @@
 		
 		<style>
 			@page {
-		
+			
+		        /*-pdf-frame-content: wrap;
+		        -pdf-keep-with-next:false;*/
 				margin: 0.5cm;
-				/*-pdf-frame-border: 1; */ 
+				/*-pdf-frame-border: 1;  */
 				
 				@frame {
 			        -pdf-frame-content: company_logo;
 			        left: 1cm;
 			        top: 0.7cm;
+			        width: 4cm;
 			        height: 1.3cm;
 			    }
 			    
@@ -47,20 +50,73 @@
 			        padding-left: 39px;
 			        padding-right: 39px;
 			        top: 1.8cm;
+			        width: 3cm;
 			    }
 			    
 			    @frame {    	
 			        -pdf-frame-content: descricao;
 			        top: 2.5cm;
 			        left: 1cm;
+			        width: 15cm;
+			        height: 1.5cm;
+			    }
+			    
+			    @frame {    	
+			        -pdf-frame-content: filtro_cliente;
+			        /* -pdf-frame-border: 1; */
+			        top: 2.5cm;
+			        left: 8.4cm;
+			        width: 12cm;
+			        height: 1.1cm;
+			    }
+			    
+			    @frame {    	
+			        -pdf-frame-content: filtro_status;
+			        /* -pdf-frame-border: 1;*/
+			        top: 2.5cm;
+			        left: 1cm;
+			        width: 3cm;
+			        height: 1.1cm;
+			    }
+			    
+			    @frame {    	
+			        -pdf-frame-content: filtro_periodo;
+			        /* -pdf-frame-border: 1;*/
+			        top: 2.5cm;
+			        left: 4.2cm;
+			        width: 4cm;
+			        height: 1.1cm;
 			    }
 			    
 			    @frame {    	
 			        -pdf-frame-content: tabela_documentos;
-			        -pdf-frame-border: 0.5;
-			        width: 18.8cm; 
+			        width: 18.8cm;
+			        
 			        left: 1cm;
-			        top: 4cm;
+			        top: 4.2cm;
+			    }
+			    
+			    @frame {    	
+			        -pdf-frame-content: line_separator_footer;
+			        width: 15cm;
+			        top: 28cm;
+			        padding-left: 39px;
+			        padding-right: 39px;
+			    }
+			    
+			    @frame {    	
+			        -pdf-frame-content: footer;
+			        width: 10.8cm;
+			        height: 1cm; 
+			        top: 28.18cm;
+			    }
+			    
+			    @frame {    	
+			        -pdf-frame-content: pagination;
+			        top: 28.3cm;
+			        left: 18cm;
+			        width: 2cm;
+			        height: 0.7cm; 
 			    }
 			    
 			}
@@ -108,6 +164,8 @@
 				width:1100px;
 			}
 			
+			table {    -pdf-keep-in-frame-mode: shrink;}
+			
 		</style>
 		
 	</head>
@@ -127,7 +185,7 @@
 					
 					<div id='codigo_protocolo'>
 						<font size=3>Emitido por {{ emitido_por }}</font><br>
-						<font size=3>31/03/2016 às 13:04</font><br>
+						<font size=3>{{ data_emissao|date:"d/m/Y" }} às {{ hora_emissao }}</font><br>
 					</div>
 					
 					<div id='line_separator_entidades'>
@@ -135,92 +193,115 @@
 					</div>
 					<br>
 					
-					<div id='descricao'>
-						<font size=4>Protocolos para Gustavo Falchetto Bernadino</font><br>
-						<font size=4>Emitidos/Recebidos entre 01/06/2016 à 13/06/2016</font>
+
+					
+					<div id='filtro_status'>
+						<font size=4>Protocolos:</font><br>
+						{{ filtro_status }}
 					</div>
 					
+					<div id='filtro_periodo'>
+						<font size=4>{{ filtro_operacao }}:</font><br>
+						{{ filtro_periodo }}
+					</div>
+
+					<div id='filtro_cliente'>
+						<font size=4>Cliente:</font><br>
+						{{ filtro_cliente }}
+					</div>
 					
+					 
+					 
 					<div id="tabela_documentos">
-						<table border='1' width='714px'>
-						
-						<!-- 
-						emissor      = models.ForeignKey(entidade,related_name='entidade_emissora')
-					    emitido_por  = models.CharField("Recebido por:",max_length=100,null=True,error_messages=MENSAGENS_ERROS)
-					    destinatario = models.ForeignKey(entidade,null=True,related_name='entidade_destinatario')
-					    data_emissao = models.DateField(auto_now_add=True)
-					    hora_emissao = models.TimeField(auto_now_add=True)
-					    numeracao_destinatario = models.CharField(max_length=5,null=True)
-					    
-					    nome_avulso      = models.CharField(max_length=100,null=True)
-					    endereco_avulso  = models.CharField(max_length=500,null=True)
-					    documento_avulso = models.CharField(max_length=30,null=True)
-					    contatos_avulso  = models.CharField(max_length=50,null=True)
-					    
-					    data_recebimento = models.DateField(null=True,blank=True)
-					    hora_recebimento = models.TimeField(null=True,blank=True)
-					    recebido_por     = models.CharField("Recebido por:",max_length=100,null=True,error_messages=MENSAGENS_ERROS)
-					    doc_receptor     = models.CharField("Identidade:",max_length=20,null=True,error_messages=MENSAGENS_ERROS)
-					    situacao
-						 -->
-						 
-						 <tr>
-						 	<td></td>
-						 	<td>CÓDIGO</td>
-						 	<td><b>DESTINATÁRIO</b></td>
-						 	<td><b>EMITIDO EM</b></td>
-						 	<td><b>RECEBIDO EM</b></td>
+					
+					
+					
+						<table border='0.2' width='714px' repeat="20">
+						 <tr style='border-color: #EEE;border-width:0.2px ; line-height: 3px;'>
+						 	<th style='width: 30px;'></th>
+						 	<th style='width: 70px;'>CÓD</th>
+						 	<th><b>DESTINATÁRIO</b></th>
+						 	<th style='width: 130px;'><b>EMITIDO EM</b></th>
+						 	{% if "em aberto" in descricao_destinatario %}
+						 	<th style='width: 130px;'><b>EMISSOR</b></th>
+						 	{% else %}
+						 	<th style='width: 130px;'><b>RECEBIDO EM </b></th>
+						 	{% endif %}
+						 	
 						 </tr>
 						 						
-						{% for item in protocolos %}						
-						<tr style='line-height: 9px;padding-top: 2px;padding-bottom: 2px;'>
-							<td class="center" width='25px'>{{ item.counter }}</td>
-							
-							{% if item.id == None %}
-							<td class="center" width='25px'>AVULSO</td>
-							{% else %}
-							<td class="center" width='25px'>{{ item.id }}</td>
-							{% endif %}
-							<td>{{ item.destinatario }}</td>
-						</tr>
-	
-						{% endfor %}
+						{% for item in protocolos %}		
 						
-						{% for item in protocolos %}						
-						<tr style='line-height: 9px;padding-top: 2px;padding-bottom: 2px;'>
-							<td class="center" width='25px'>{{ item.counter }}</td>
-							
-							{% if item.id == None %}
-							<td class="center" width='25px'>AVULSO</td>
-							{% else %}
-							<td class="center" width='25px'>{{ item.id }}</td>
-							{% endif %}
-							<td>{{ item.destinatario }}</td>
-						</tr>
-	
-						{% endfor %}
+						{% if forloop.counter|divisibleby:41 %}
 						
-						<div>
-						  <pdf:nextpage />
-						</div> 
-						
-						{% for item in protocolos %}						
-						<tr style='line-height: 9px;padding-top: 2px;padding-bottom: 2px;'>
-							<td class="center" width='25px'>{{ item.counter }}</td>
-							
-							{% if item.id == None %}
-							<td class="center" width='25px'>AVULSO</td>
-							{% else %}
-							<td class="center" width='25px'>{{ item.id }}</td>
-							{% endif %}
-							<td>{{ item.destinatario }}</td>
-						</tr>
-	
-						{% endfor %}
-						
-										
 						</table>
-					
+						
+						<br>
+						
+						<pdf:nextpage />
+
+						
+						<table border='0.2' width='714px' repeat="20" >
+						 <tr style='border-color: #EEE;border-width:0.2px ; line-height: 3px;'>
+						 	<th></th>
+						 	<th>CÓD</th>
+						 	<th><b>DESTINATÁRIO</b></th>
+						 	<th><b>EMITIDO EM</b></th>
+						 	{% if "em aberto" in descricao_destinatario %}
+						 	<th><b>EMISSOR</b></th>
+						 	{% else %}
+						 	<th ><b>RECEBIDO EM </b></th>
+						 	{% endif %}
+						 	
+						 </tr>
+						 
+						{% endif %}
+										
+						<tr style='border-color: #EEE;border-width:0.2px; line-height: 2px;padding-top: 4px;padding-bottom: 2px;'>
+							<td class="center"  style='width: 30px;'>{{ forloop.counter }}</td>
+							
+							{% if item.numeracao_destinatario == 'AVULSO' %}
+							<td class="center"  style='width: 70px;'></td>
+							{% else %}
+							<td class="center"  style='width: 70px;'>{{ item.numeracao_destinatario }}</td>
+							{% endif %}
+							
+							
+							{% if item.destinatario == None %}
+							<td class="left">{{ item.nome_avulso }}</td>
+							{% else %}
+							<td class="left">{{ item.destinatario }}</td>
+							{% endif %}
+							
+							<td class="center" style='width: 130px;'>{{ item.data_emissao|date:"d/m/Y" }}</td>
+							
+							{% if "em aberto" in descricao_destinatario %}
+						 	<td class="center" style='width: 180px;'>{{ item.emitido_por }}</td>
+						 	{% else %}
+						 	<td class="center" style='width: 140px;'>{{ item.data_recebimento|date:"d/m/Y" }}</td>
+						 	{% endif %}
+							
+							
+						</tr>
+						
+						{% empty %}
+		    				<tr style='border-color: #EEE;border-width:0.2px; line-height: 2px;padding-top: 4px;padding-bottom: 2px;'>
+		    					<td style="text-align: center;" colspan="5">Nenhum protocolo Encontrado!</td>
+		    				</tr>
+	
+						{% endfor %}
+						</table>
+						
+						
+						 
+						 <div id='line_separator_footer'>
+							<img src="{{ path_imagens }}line.png" width="980px" height="6px"/>
+						</div>
+						
+						<div id='pagination'>
+							Page <pdf:pagenumber> of <pdf:pagecount>
+						</div>
+						
 					</div>
 				</td>
 			</tr>

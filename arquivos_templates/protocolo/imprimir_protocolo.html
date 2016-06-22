@@ -425,7 +425,7 @@
 					
 					<div id='codigo_protocolo'>
 						<font size=6>{{ codigo_protocolo }}</font><br>
-						<font size=3>31/03/2016 - 13:04</font><br>
+						<font size=3>{{ data_emissao|date:"d/m/Y" }} - {{ hora_emissao }}</font><br>
 						<font size=3>Emitido por {{ emitido_por }}</font>
 					</div>
 					
@@ -611,7 +611,7 @@
 					
 					<div id='codigo_protocolo2'>
 						<font size=6>{{ codigo_protocolo }}</font><br>
-						<font size=3>31/03/2016 - 13:04</font><br>
+						<font size=3>{{ data_emissao|date:"d/m/Y" }} - {{ hora_emissao }}</font><br>
 						<font size=3>Emitido por {{ emitido_por }}</font>
 					</div>
 					
