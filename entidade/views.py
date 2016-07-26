@@ -14,7 +14,7 @@ from django.shortcuts import render_to_response  # , redirect
 from django.template.context import RequestContext
 
 from entidade.formularios import formulario_cadastro_entidade_completo, formulario_emitir_protocolo  # , formulario_adicionar_item_protocolo
-from entidade.models import Endereco, Estado, Municipio, Bairro, Logradouro, localizacao_simples  # localizacao 
+from entidade.models import  Estado, Municipio, Bairro, Logradouro, localizacao_simples  # localizacao , Endereco 
 from entidade.models import entidade, contato
 from entidade.service import consultar_estado, consultar_codigo_postal_viacep  # consultar_codigo_postal_default
 from entidade.utilitarios import formatar_codificacao

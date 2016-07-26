@@ -501,7 +501,7 @@
 								{% if item.id == None %}
 									<td class="center" width='25px'>0</td>
 								{% else %}
-									<td class="center" width='25px'>{{ item.counter }}</td>
+									<td class="center" width='25px'>{{ forloop.counter }}</td>
 								{% endif %}
 								<td width='447px' style="padding-left: 4px;">{{ item.documento }}
 								
@@ -552,7 +552,7 @@
 						</div>
 						
 						<div id="data_entrega">
-							<font size=4>{{ data_entrega }}</font>
+							<font size=4>{{ data_entrega|date:"d/m/Y" }}</font>
 						</div>
 						
 						<div id="hora_entrega">
@@ -691,7 +691,7 @@
 								{% if item.id == None %}
 									<td class="center" width='25px'>0</td>
 								{% else %}
-									<td class="center" width='25px'>{{ item.id }}</td>
+									<td class="center" width='25px'>{{ forloop.counter }}</td>
 								{% endif %}
 								<td width='447px' style="padding-left: 4px;">{{ item.documento }}
 								
@@ -740,7 +740,7 @@
 						</div>
 						
 						<div id="data_entrega2">
-							<font size=4>{{ data_entrega }}</font>
+							<font size=4>{{ data_entrega|date:"d/m/Y" }}</font>
 						</div>
 						
 						<div id="hora_entrega2">

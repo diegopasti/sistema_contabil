@@ -4,8 +4,9 @@ Created on 2 de dez de 2015
 @author: Diego
 '''
 
-from django.contrib import admin
+#from django.contrib import admin
 
+"""
 #from entidade.models import contato  # , Endereco, Bairro #,localizacao
 #from entidade.models import Bairro,Logradouro #entidade, Endereco,   # ,localizacao
 from protocolo.models import protocolo, item_protocolo
@@ -34,5 +35,5 @@ class contato_admin(admin.ModelAdmin):
 #admin.site.register(localizacao,localizacao_admin)
 admin.site.register(protocolo)
 admin.site.register(item_protocolo)
-
+"""
 

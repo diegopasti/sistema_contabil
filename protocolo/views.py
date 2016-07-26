@@ -28,6 +28,98 @@ from sistema_contabil.settings import BASE_DIR
 
 #from sistema_contabil.settings import BASE_DIR, STATIC_URL
 #from endereco.models import localizacao
+
+def visualizar_protocolo(request,protocolo_id):
+    #if request.is_ajax():
+    
+    documentos = item_protocolo.objects.filter(protocolo_id=protocolo_id)
+    p = protocolo.objects.get(pk=protocolo_id)
+    contatos = contato.objects.filter(entidade=p.destinatario)
+    
+    from django.template import Context# loader,Context, Template
+    path = os.path.join(BASE_DIR, "arquivos_estaticos\imagens\\")
+
+    if p.destinatario == None:
+        destinatario_nome = p.nome_avulso
+        destinatario_cpf_cnpj = formatar_cpf_cnpj(p.documento_avulso)
+        destinatario_complemento = ""
+
+        if p.endereco_avulso != None:
+            destinatario_endereco = p.endereco_avulso
+        else:
+            destinatario_endereco = ""
+
+        if p.contatos_avulso != None:
+            destinatario_contatos = p.contatos_avulso
+        else:
+            destinatario_contatos = ""
+
+    else:
+        destinatario_nome     = p.destinatario.nome_razao
+        destinatario_endereco = p.destinatario.endereco.get_endereco()
+        destinatario_cpf_cnpj = formatar_cpf_cnpj(p.destinatario.cpf_cnpj)
+        destinatario_contatos = contatos
+        destinatario_complemento = p.destinatario.endereco.complemento.title()
+
+    if p.doc_receptor != None:
+        documento_receptor = p.doc_receptor
+
+    else:
+        documento_receptor = ""
+
+    print "olha a data do recebimento:",p.data_recebimento
+    parametros = {
+                  'emissor_nome':p.emissor.nome_razao,
+                  'emissor_cpf_cnpj':formatar_cpf_cnpj(p.emissor.cpf_cnpj),
+                  'emissor_endereco':p.emissor.endereco_id,
+                  'emissor_contatos':"",
+                  
+                  'destinatario_nome':destinatario_nome,
+                  'destinatario_cpf_cnpj':destinatario_cpf_cnpj,
+                  'destinatario_endereco':destinatario_endereco,
+                  'destinatario_complemento':destinatario_complemento,
+                  'destinatario_contatos':destinatario_contatos,
+                  
+                  'codigo_protocolo':p.numeracao_destinatario,
+                  'emitido_por':p.emitido_por,
+                  'data_emissao':p.data_emissao,
+                  'hora_emissao':p.hora_emissao,
+                  
+                  
+                  'recebido_por':p.recebido_por,#recebido_por,
+                  'identificacao':documento_receptor,#identidade,
+                  'data_entrega':p.data_recebimento,#data_entrega,
+                  'hora_entrega':p.hora_recebimento,#hora_entrega,
+                  
+                  'documentos':documentos,
+                  #'documentos':[
+                  #                  ["33","IMPOSTO DE RENDA","2015","","R$ 285,50"],
+                  #                  ["8","EMISSAO DE CERTIFICADO DIGITAL","","31/12/2018","R$ 175,10"],
+                  #                  ["14","CONTRATO - PLANO COMPLETO","","31/12/2018","R$ 475,00"],
+                  #              ],
+                  #'formulario_protocolo':"Nada por enquanto",
+                  #'erro':"sem erros tambem",
+                  #'path':path,
+                  
+                  'path_imagens':path
+                   
+                }
+    
+    c = Context(parametros)
+    
+    # RENDERIZAR NORMAL
+    #return render_to_response('protocolo/imprimir_protocolo.html', c)
+    
+    # RENDERIZAR PDF
+    from django_xhtml2pdf.utils import generate_pdf
+    resp = HttpResponse(content_type='application/pdf')
+    result = generate_pdf('protocolo/imprimir_protocolo.html', file_object=resp,context=c)
+    return result
+
+
+    
+
+
 def get_detalhes_protocolo(request,protocolo_id):
     #if request.is_ajax():
     resultado = {}
@@ -506,9 +598,13 @@ def formatar_cep(cep):
     return cep_formatado
 
 def formatar_cpf_cnpj(codigo):
-    if len(codigo) == 11:
-        codigo_formatado = codigo[:3]+"."+codigo[3:6]+"."+codigo[6:9]+"-"+codigo[9:]
+    if codigo != None:
+        if len(codigo) == 11:
+            codigo_formatado = codigo[:3]+"."+codigo[3:6]+"."+codigo[6:9]+"-"+codigo[9:]
+        else:
+            codigo_formatado = codigo[:2]+"."+codigo[2:5]+"."+codigo[5:8]+"/"+codigo[9:13]+"-"+codigo[13:]
+        return codigo_formatado
+
     else:
-        codigo_formatado = codigo[:2]+"."+codigo[2:5]+"."+codigo[5:8]+"/"+codigo[9:13]+"-"+codigo[13:]
-    return codigo_formatado
+        return ""
 

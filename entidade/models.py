@@ -36,8 +36,13 @@ class localizacao_simples(models.Model):
     #sigla       = models.CharField("Sigla:",max_length=2,null=False,unique=True,error_messages=MENSAGENS_ERROS)
     
     def get_endereco(self):
-        return self.logradouro+","+self.numero+","+self.bairro+","+self.municipio+","+self.estado+" - "+self.cep    
-    
+
+        return self.logradouro.title()+", "+self.numero+", "+self.bairro.title()+", "+self.municipio.title()+", "+self.estado+" - "+formatar_cep(self.cep)
+
+def formatar_cep(cep):
+    cep_formatado = ""+cep[:2]+"."+cep[2:5]+"-"+cep[5:]
+    return cep_formatado
+
 class entidade(models.Model):
     opcoes_tipos_registros = (
                             
@@ -90,6 +95,8 @@ class contato(models.Model):
     cargo_setor = models.CharField("Cargo ou Setor:",max_length=50,null=True,blank=True,error_messages=MENSAGENS_ERROS)
     email = models.EmailField(max_length=100,null=True,blank=True,error_messages=MENSAGENS_ERROS)
 
+    def __unicode__(self):
+        return unicode(self.numero)
 
 
 class Pais(models.Model):
