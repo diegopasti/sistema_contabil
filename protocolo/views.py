@@ -21,13 +21,90 @@ from django.template.context import RequestContext
 from entidade.formularios import formulario_emitir_protocolo, formulario_confirmar_entrega
 from entidade.models import entidade, contato, localizacao_simples  # , localizacao
 from entidade.views import verificar_erros_formulario
-from protocolo.formularios import formulario_gerar_relatorio
-from protocolo.models import protocolo, item_protocolo, item_protocolo_serializer
+from protocolo.formularios import formulario_gerar_relatorio, formulario_adicionar_documento
+from protocolo.models import protocolo, item_protocolo,documento #item_protocolo_serializer
 from sistema_contabil.settings import BASE_DIR
-
 
 #from sistema_contabil.settings import BASE_DIR, STATIC_URL
 #from endereco.models import localizacao
+
+def cadastro_documentos(request):
+    erro = False
+    documentos = documento.objects.all()
+    formulario = formulario_adicionar_documento()
+
+    if (request.method == "POST"):
+        formulario = formulario_adicionar_documento(request.POST)
+        print "Olha o request:",request.POST
+
+        if 'adicionar_documento' in request.POST:
+
+            if formulario.is_valid():
+                doc = documento()
+                doc.nome = formulario['documento'].value().upper()
+                doc.descricao = formulario['descricao'].value()
+                doc.save()
+                formulario = formulario_adicionar_documento()
+                messages.add_message(request, messages.SUCCESS, "Inclusão Realizada com sucesso!")
+
+            else:
+                print "Erro! Algum campo nao esta correto"
+                messages.add_message(request, messages.SUCCESS, "Erro! Inclusão não pode ser realizada!")
+                erro = True
+
+        elif 'alterar_documento' in request.POST:
+            id_documento = int(request.POST['alterar_documento'])
+            doc = documento.objects.get(pk=id_documento)
+            doc.nome = formulario['documento'].value().upper()
+            doc.descricao = formulario['descricao'].value()
+            doc.save()
+            formulario = formulario_adicionar_documento()
+            messages.add_message(request, messages.SUCCESS, "Alteração realizada com sucesso!")
+
+        else:
+            pass
+
+
+
+
+
+
+
+
+    return render_to_response("protocolo/cadastro_documentos.html",
+                              {'dados': documentos,'formulario':formulario,'erro':erro},
+                              context_instance=RequestContext(request))
+
+
+def get_documento(request, id):
+    doc = documento.objects.get(pk=id)
+    if doc != None:
+        resultado = [doc.nome,doc.descricao]
+    else:
+        resultado = ["", ""]
+        raise Http404
+
+    data = json.dumps(resultado)
+    return HttpResponse(data, content_type='application/json')
+
+def excluir_documento(request, id):
+    doc = documento.objects.get(pk=id)
+    try:
+        doc.delete()
+        resultado = ["SUCESS"]
+    except:
+        resultado = ["ERROR"]
+        raise Http404
+
+    data = json.dumps(resultado)
+    return HttpResponse(data, content_type='application/json')
+
+
+
+
+
+
+
 
 def visualizar_protocolo(request,protocolo_id):
     #if request.is_ajax():
@@ -67,7 +144,6 @@ def visualizar_protocolo(request,protocolo_id):
     else:
         documento_receptor = ""
 
-    print "olha a data do recebimento:",p.data_recebimento
     parametros = {
                   'emissor_nome':p.emissor.nome_razao,
                   'emissor_cpf_cnpj':formatar_cpf_cnpj(p.emissor.cpf_cnpj),

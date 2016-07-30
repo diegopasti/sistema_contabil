@@ -54,7 +54,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'sistema_contabil','entidade','protocolo'
+    'sistema_contabil','entidade','protocolo','servico'
 )
 
 

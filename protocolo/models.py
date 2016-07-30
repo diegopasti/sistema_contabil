@@ -58,6 +58,9 @@ from django.db import models
 from entidade.formularios import MENSAGENS_ERROS
 from entidade.models import entidade
 
+class documento(models.Model):
+    nome      = models.CharField("Nome:", max_length=100, null=True, error_messages=MENSAGENS_ERROS)
+    descricao = models.TextField("Descrição:",max_length=500,null=True,error_messages=MENSAGENS_ERROS)
 
 class protocolo(models.Model):
     emissor      = models.ForeignKey(entidade,related_name='entidade_emissora')

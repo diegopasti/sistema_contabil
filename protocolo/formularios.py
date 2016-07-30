@@ -14,10 +14,15 @@ from entidade.models import entidade
 
 MENSAGENS_ERROS={'required': 'Precisa ser Informado!',
                  'invalid' : 'Formato Inválido!'
-                }
+}
 
 
+class formulario_adicionar_documento(forms.Form):
+    documento      = forms.CharField(label="Documento: ", max_length=100, required=True, error_messages=MENSAGENS_ERROS,
+                           widget=forms.TextInput(attrs={'class': 'form-control uppercase','id': 'documento'}))
 
+    descricao = forms.CharField(label="Descrição (Opcional): ",max_length=500,required=False,error_messages=MENSAGENS_ERROS,
+                                widget=forms.Textarea(attrs={'class':"form-control", 'id':'descricao' }))
 
 class formulario_gerar_relatorio(forms.Form):
     

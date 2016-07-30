@@ -38,6 +38,11 @@ urlpatterns = [
     
     url(r'^protocolo/emitir_protocolo/$', "protocolo.views.emitir_protocolo",{'numero_item': -1}),
     url(r'^emitir_protocolo/excluir/(?P<numero_item>\d+)/$', "protocolo.views.emitir_protocolo"),
+
+    url(r'^protocolo/documentos/$', "protocolo.views.cadastro_documentos"),
+    url(r'^protocolo/documento/(?P<id>\d+)/$', "protocolo.views.get_documento"),
+	url(r'^protocolo/documento/excluir/(?P<id>\d+)/$', "protocolo.views.excluir_documento"),
+
     
     url(r'^consultar_cep/(?P<codigo_postal>\d+)/$', "entidade.views.consultar_cep"),
     url(r'^buscar_entidades/$', "entidade.views.buscar_entidades"),
