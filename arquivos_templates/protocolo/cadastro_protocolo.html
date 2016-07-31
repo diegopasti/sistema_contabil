@@ -454,8 +454,12 @@ label {
 				
 				<div class='row'>
 
+                    {% if dados %}
 					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6" style='margin-top:-36px;'>
-					
+                    {% else %}
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6" style='margin-top:6px;'>
+                    {% endif %}
+
 						<label class='left_align'><sub>Buscar por:</sub></label>
 						 <select id='buscar_por' class='form-control'>
 						 	<option value="2" selected>Nome do Destinátario</option>
@@ -465,8 +469,14 @@ label {
 						 	<option value="4">Data Entrega</option>								  	
 						</select> 
 					</div>
-					
+
+                    {% if dados %}
 					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6" style='margin-left:-20px;margin-top:-36px;'>
+                    {% else %}
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6" style='margin-left:-20px;margin-top:6px;'>
+                    {% endif %}
+
+
 					
 						<label class='left_align'><sub>Filtrar por:</sub></label>
 						 <select id='filtrar_por' class='form-control'>
@@ -476,8 +486,13 @@ label {
 						 	<option value="avulsos">Protocolos Avulsos</option>					  	
 						</select> 
 					</div>
-					
-					<div class="col-lg-4 col-md-4 col-sm-5 col-xs-6" style='margin-left:-20px;margin-top: -11px;'>
+
+                {% if dados %}
+				<div class="col-lg-4 col-md-4 col-sm-5 col-xs-6" style='margin-left:-20px;margin-top: -11px;'>
+                {% else %}
+                <div class="col-lg-4 col-md-4 col-sm-5 col-xs-6" style='margin-left:-20px;margin-top: 31px;'>
+                {% endif %}
+
 						<input type="text" id="search" class="form-control" autofocus placeholder="Consultar..">
 					</div>
 				
