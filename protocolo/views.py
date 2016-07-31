@@ -35,7 +35,6 @@ def cadastro_documentos(request):
 
     if (request.method == "POST"):
         formulario = formulario_adicionar_documento(request.POST)
-        print "Olha o request:",request.POST
 
         if 'adicionar_documento' in request.POST:
 
@@ -48,7 +47,6 @@ def cadastro_documentos(request):
                 messages.add_message(request, messages.SUCCESS, "Inclusão Realizada com sucesso!")
 
             else:
-                print "Erro! Algum campo nao esta correto"
                 messages.add_message(request, messages.SUCCESS, "Erro! Inclusão não pode ser realizada!")
                 erro = True
 
@@ -63,13 +61,6 @@ def cadastro_documentos(request):
 
         else:
             pass
-
-
-
-
-
-
-
 
     return render_to_response("protocolo/cadastro_documentos.html",
                               {'dados': documentos,'formulario':formulario,'erro':erro},
@@ -592,7 +583,8 @@ def criar_protocolo(request,formulario):
 def emitir_protocolo(request,numero_item):
     numero_item = int(numero_item)
     erro = False
-    destinatarios = entidade.objects.all()[1:]  
+    destinatarios = entidade.objects.all()[1:]
+    documentos = documento.objects.all()
     
     if (request.method == "POST"):
         
@@ -646,7 +638,7 @@ def emitir_protocolo(request,numero_item):
         formulario_protocolo = formulario_emitir_protocolo()
         formulario_protocolo.limpar_temporarios()
                     
-    return render_to_response("protocolo/emitir_protocolo.html",{'destinatarios':destinatarios ,'dados':formulario_protocolo.temporarios,'formulario_protocolo':formulario_protocolo,'erro':erro},context_instance=RequestContext(request))
+    return render_to_response("protocolo/emitir_protocolo.html",{'destinatarios':destinatarios ,'documentos':documentos,'dados':formulario_protocolo.temporarios,'formulario_protocolo':formulario_protocolo,'erro':erro},context_instance=RequestContext(request))
 
 
 def salvar_itens_protocolos(protocolo,itens_protocolo):

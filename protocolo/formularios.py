@@ -73,13 +73,13 @@ class formulario_emitir_protocolo(forms.Form):
     #                                               widget=forms.Select(attrs={"class":"form-control"}),
     #                                               )
                                                    
-    entidade_destinatario = forms.CharField(label="Cliente: ",max_length=100,required=True,error_messages=MENSAGENS_ERROS,widget=forms.TextInput(attrs={'class':'form-control uppercase' ,'id':'entidade_destinatario', 'readonly':True,'type':"hidden" })) #  
+    entidade_destinatario = forms.CharField(label="Cliente: ",max_length=100,required=True,error_messages=MENSAGENS_ERROS,widget=forms.TextInput(attrs={'class':'form-control uppercase' ,'id':'entidade_destinatario', 'readonly':True,'type':"hidden"})) #
         
     #data_emissao          = forms.DateField(initial=datetime.date.today,
     #                                        widget=forms.DateInput(attrs={"class":"form-control"}))
     
     
-    documento    = forms.CharField(label="Documento: ",max_length=100,required=True,error_messages=MENSAGENS_ERROS,widget=forms.TextInput(attrs={'class':"form-control uppercase", 'id':'item' }),)
+    documento    = forms.CharField(label="Documento: ",max_length=100,required=True,error_messages=MENSAGENS_ERROS,widget=forms.TextInput(attrs={'class':"form-control uppercase", 'id':'item'}),)
     referencia   = forms.DateField(label="Referência:",required=False,
                                             widget= forms.DateInput(attrs={'class':"form-control" ,'id':'referencia'},format = '%m/%Y'), 
                                             input_formats=('%m/%Y',)

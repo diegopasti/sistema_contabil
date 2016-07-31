@@ -31,7 +31,14 @@
 <!-- JQUERY UI DATAPICKER -->
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
 
-<!-- Plugin para realizar autocomplete 
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+  <!--<link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script> -->
+
+
+<!-- Plugin para realizar autocomplete
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 -->
@@ -93,6 +100,8 @@
      opacity: 0.6;
 }
 
+.ui-autocomplete { z-index:2147483647; }
+
 </style>
 
 {% endblock %} 
@@ -149,9 +158,9 @@
 
 
 
-<form action="" method="post" id="form_protocolo">
+<form action="" method="post" id="form_protocolo" autocomplete="off">
 	{% csrf_token %}
-	<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+	<div id="myModal" class="modal fade " tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
 		<div class="modal-dialog">
 			<!--  style="width: 90%"> -->
 			<div class="modal-content">
@@ -161,15 +170,22 @@
 					<h3 id="myModalLabel">Novo Documento</h3>
 				</div>
 	
-				<div class="modal-body" style="padding: 30px;">	
+				<div class="modal-body" style="padding: 30px;">
 
 					<div class="row" style="padding-left: 15px; padding-right: 15px">
-						<div style='padding-left: 8px'>
+
+                        <div style='padding-left: 8px'>
 							<sub>{{ formulario_protocolo.documento.label }}</sub>
 						</div>
-						{{ formulario_protocolo.documento }}
-							
-					</div>
+
+                        {{ formulario_protocolo.documento }}
+                          <datalist id="lista_documentos">
+                            {% for item in documentos %}
+                              <option value="{{ item.nome }}">
+                            {% endfor %}
+                          </datalist>
+
+    				</div>
 
 					<div class="row" style="padding-left: 15px; padding-right: 15px">
 						<div style='padding-left: 8px'>
@@ -352,7 +368,7 @@
 			</div>
 		</div>
 	</div>
-</form>	
+</form>
 
 {% include "componentes/mensagem.html" with messages=messages %}
 {% endblock %}
@@ -429,7 +445,7 @@ $(document).ready(function() {
 
 
 <script type="text/javascript">
-$('#select_destinatarios').editableSelect({ 
+$('#select_destinatarios').editableSelect({
 	effects: 'fade',
 	
 	onSelect: function (element) {
@@ -529,6 +545,10 @@ $('#bt_gerar_protocolo').click( function () {
 	//window.location.reload();
 	//setTimeout(function () {  }, 3);
 	
+ });
+
+$('#bt_novo_documento').click( function () {
+	$("#item").attr('list','lista_documentos');
  });
 </script>
 
