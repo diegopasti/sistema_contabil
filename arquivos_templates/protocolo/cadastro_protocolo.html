@@ -280,8 +280,9 @@ label {
 						  
 						  <a href="/protocolo/emitir_protocolo" role="button" class="btn btn-primary"><i class="fa fa-plus fa-1x" aria-hidden="true"></i> Novo Protocolo</a>
 						  <a href="#modal_relatorio" id='bt_relatorio' role="button" class="btn btn-default" data-toggle="modal" style='margin-left: 10px;'><i class="fa fa-file-text-o"></i> Gerar Relatório</a>
-						  <a href="#" role="button" class="btn btn-default pull-right link_desabilitado" id="bt_confirmar_entrega" data-toggle="modal" data-target="#myModal" style="position: relative; margin-top: 0px;margin-right: 2px;margin-left: 10px;"><i class="fa fa-check" aria-hidden="true"></i> Confirmar Recebimento</a>
-
+                          <div id="tooltip_confirmar" style="display: inline-block;" tooltip="My Tooltip">
+                             <a href="#" role="button" class="btn btn-default pull-right link_desabilitado" id="bt_confirmar_entrega" data-toggle="modal" data-target="#myModal" style="position: relative; margin-top: 0px;margin-right: 2px;margin-left: 10px;"><i class="fa fa-check" aria-hidden="true"></i> Confirmar Recebimento</a>
+                          </div>
 						</div>
 						
 						
@@ -403,10 +404,23 @@ label {
 					     else {
 					    	 table.$('tr.selected').removeClass('selected');
 					    	 $(this).addClass('selected');
-					    	 habilitar_botao('#bt_confirmar_entrega');
+                             var confirmado = table.cell('.selected', 6).data();
+                             if (confirmado.indexOf("SIM") !=-1) {
+                                 desabilitar_botao('#bt_confirmar_entrega');
+                                 $('#bt_confirmar_entrega').addClass('link_desabilitado');
+                                 $('#tooltip_confirmar').tooltip({title: "Esse documento já foi confirmado!", animation: true, delay:{show: 200, hide: 200}, placement: "top"});
+
+
+                             }
+                             else{
+                                 habilitar_botao('#bt_confirmar_entrega');
+                                 $('#bt_confirmar_entrega').removeClass('link_desabilitado');
+                                 $('#tooltip_confirmar').tooltip("destroy");
+                             }
+
 					    	 habilitar_botao('#visualizar_protocolo');
 					    	 $('#visualizar_protocolo').removeClass('link_desabilitado');
-					    	 $('#bt_confirmar_entrega').removeClass('link_desabilitado');
+
 					    	 $('#painel_detalhes').removeClass('div_desabilitado');
 					    	 
 					    	 

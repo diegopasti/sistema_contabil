@@ -297,14 +297,11 @@
 								</div>
 							
 								<div class="btn-group pull-right" role="group">
-                                    {% if dados|length > 2 %}
-                                    <button type="button" id="bt_novo_documento" class="btn btn-default" data-toggle="modal" data-target="#myModal" data-toggle="tooltip" data-placement="top" title="Hooray!" style="position: relative; margin-top: -2px;margin-right: 2px;">Novo Documento</button>
-                                    {% else %}
+                                    <div id="tooltip_documento" style="display: inline-block;" tooltip="My Tooltip">
                                         <button type="button" id="bt_novo_documento" class="btn btn-default" data-toggle="modal" data-target="#myModal" style="position: relative; margin-top: -2px;margin-right: 2px;">Novo Documento</button> <!--  -->
-                                    {% endif %}
+                                    </div>
+                                </div>
 
-								</div>
-								
 							</div>
 						</div>
 					</div>
@@ -392,12 +389,13 @@ jQuery(document).ready(function(){
 	$('#valor').maskMoney({showSymbol:false, symbol:"R$", decimal:",", thousands:"."});
 
 
-    {% if dados|length > 9 %}
+    {% if dados|length > 1 %}
     $('#bt_novo_documento').addClass('link_desabilitado');
+    $('#tooltip_documento').tooltip({title: "Permitido apenas 10 documentos por protocolo!", animation: true, delay:{show: 200, hide: 200}, placement: "top"});
 
     {% else %}
     $('#bt_novo_documento').removeClass('link_desabilitado');
-        $('#bt_novo_documento').tooltip({title: "Permitido apenas 10 documentos por protocolo!", animation: true, delay:{show: 200, hide: 200}, placement: "top"});
+    $('#tooltip_documento').tooltip("destroy");
     {% endif %}
 });
 </script>
