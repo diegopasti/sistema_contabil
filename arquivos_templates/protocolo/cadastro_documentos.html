@@ -148,8 +148,8 @@ label {
 						 <div class="btn-group" role="group" style='margin-top: -2px;' aria-label="...">
 						  
 						  <a href="#" id='bt_adicionar' role="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus fa-1x" aria-hidden="true"></i> Novo Documento</a>
-						  <a href="#myModal" id='bt_alterar' role="button" class="btn btn-default link_desabilitado" data-toggle="modal" style='margin-left: 10px;'><i class="fa fa-file-text-o"></i> Alterar</a>
-						  <a href="#" role="button" class="btn btn-default pull-right link_desabilitado" id="bt_excluir"  style="position: relative; margin-top: 0px;margin-right: 2px;margin-left: 10px;"><i class="fa fa-trash-o" aria-hidden="true"></i> Excluir</a>
+						  <a href="#myModal" id='bt_alterar' role="button" class="btn btn-default link_desabilitado"   data-toggle="modal" style='margin-left: 10px;'><i class="fa fa-file-text-o"></i> Alterar</a>
+						  <a href="#" role="button" class="btn btn-default pull-right link_desabilitado" id="bt_excluir" onclick="return confirm('Deseja mesmo excluir esse documento?')" style="position: relative; margin-top: 0px;margin-right: 2px;margin-left: 10px;"><i class="fa fa-trash-o" aria-hidden="true"></i> Excluir</a>
 						</div>
 					</div>
 				</div>
@@ -315,8 +315,8 @@ label {
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6" style='margin-top:6px;'>
                     {% endif %}
 					
-						<label class='left_align'><sub>Buscar por:</sub></label>
-						 <select id='buscar_por' class='form-control'>
+						<label id="label_buscar_por" class='left_align link_desabilitado'><sub>Buscar por:</sub></label>
+						 <select id='buscar_por' class='form-control link_desabilitado '>
                              <option value="0">Código</option>
                              <option value="1" selected>Documento</option>
 						 	<option value="2">Descrição</option>
@@ -328,8 +328,7 @@ label {
                     {% else %}
                     <div class="col-lg-4 col-md-4 col-sm-5 col-xs-6" style='margin-left:-20px;margin-top: 31px;'>
                     {% endif %}
-
-						<input type="text" id="search" class="form-control" autofocus placeholder="Consultar..">
+						<input type="text" id="search" class="form-control link_desabilitado" placeholder="Consultar..">
 					</div>
 
 				</div>
@@ -374,6 +373,15 @@ label {
             }
         });
 
+        $("#bt_submit_documento").click(function () {
+            if (window.confirm('Deseja mesmo alterar esse documento?')){
+                return true;
+            }
+            else{
+                return false;
+            }
+        });
+
     });
 
     //
@@ -402,6 +410,17 @@ $('#buscar_por').change(function() {
         table.search('').columns().search( '' ).draw(); // reseta a pesquisa
 		table.columns(campo).search($('#search').val()).draw();
 });
+
+{% if dados %}
+    $('#buscar_por').removeClass('link_desabilitado');
+    $('#search').removeClass('link_desabilitado');
+    $('#label_buscar_por').removeClass('link_desabilitado');
+    document.getElementById("search").focus();
+
+{% else  %}
+    $('#buscar_por').addClass('link_desabilitado');
+    $('#search').addClass('link_desabilitado');
+{% endif %}
 </script>
 
 
