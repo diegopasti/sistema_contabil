@@ -10,10 +10,15 @@
 
 <!-- JQUERY -->
 <script type="text/javascript" src="{% static 'jquery/jquery-2.2.0.min.js' %}"></script>
+<script src="{% static 'jquery/jquery-ui-1.11.4/jquery-ui.js' %}"></script>
 
 <!-- BOOTSTRAP -->
-<link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"/>
 <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+
+<!-- JQUERY UI DATAPICKER -->
+<link rel="stylesheet" href="{% static 'jquery/jquery-ui-1.11.4/jquery-ui.css' %}">
+<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css"> -->
 
 <!-- DATATABLE -->
 <link rel="stylesheet" type="text/css" href="{% static 'datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css' %}"/>
@@ -295,7 +300,7 @@
 
 {% block ArquivosScripts %}
 {% load staticfiles %}
-<script type="text/javascript" src="{% static 'jquery/dist/mask.js' %}"></script>
+<script type="text/javascript" src="{% static 'scripts/mask.js' %}"></script>
 <script	type="text/javascript" src="{% static 'datatable/datatables/media/js/jquery.dataTables.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js' %}"></script>
 
@@ -303,6 +308,23 @@
 $(".alert").fadeOut(6000);
 </script>
 
+<script>
+jQuery(document).ready(function(){
+	$("#nascimento_fundacao").mask("99/99/9999");
+});
+</script>
+
+<script type="text/javascript">
+$(function() {
+    alert("Configurando o datepicker");
+	$("#nascimento_fundacao").datepicker({
+		  dayNames: [ "Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado" ],
+		  monthNames: [ "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho","Agosto","Setembro","Outubro","Novembro","Dezembro" ],
+		  dayNamesMin: [ "D", "S", "T", "Q", "Q", "S", "S" ],
+		  dateFormat: 'dd/mm/yy'
+	});
+});
+</script>
 <script type="text/javascript">
 $('#codigo_postal').blur(function(){
 	$.ajax({
