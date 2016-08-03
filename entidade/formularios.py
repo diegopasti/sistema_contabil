@@ -228,8 +228,8 @@ class formulario_cadastro_entidade_completo(forms.Form):
     cargo_setor   = forms.CharField(label="Cargo ou Setor:",max_length=50,required=False,error_messages=MENSAGENS_ERROS,
                                     widget=forms.TextInput(attrs={'class':"form-control uppercase" ,'id':'cargo_setor'})
                                     )
-    email         = forms.EmailField(max_length=100,required=False,error_messages=MENSAGENS_ERROS,
-                                     widget=forms.TextInput(attrs={'class':"form-control lowercase" ,'id':'email:'})
+    email         = forms.EmailField(label="Email:",max_length=100,required=False,error_messages=MENSAGENS_ERROS,
+                                     widget=forms.TextInput(attrs={'class':"form-control lowercase" ,'id':'email'})
                                     )
     
     
