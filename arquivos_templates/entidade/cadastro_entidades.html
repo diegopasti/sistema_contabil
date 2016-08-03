@@ -50,11 +50,14 @@
     text-transform: lowercase;
 }
 
-
 .scrollable {
     height: 100px;
     overflow-y: scroll;
   }
+
+label {
+    font-weight: normal !important;
+}
 </style>
 {% endblock %} 
 
@@ -137,21 +140,29 @@
 
 				<div class="col-lg-2">
 					<div style='padding-left: 8px'>
-						<sub> {{ formulario.cpf_cnpj.label.upper }} </sub>
+                        <sub>
+                            <label id="lb_cpf_cnpj">{{ formulario.cpf_cnpj.label.upper }}</label>
+                        </sub>
 					</div>
 					{{ formulario.cpf_cnpj }}
 				</div>
 			
 				<div class="col-lg-5">
 					<div style='padding-left: 8px'>
-						<sub> {{ formulario.nome_razao.label }} </sub>
+                        <sub>
+                            <label id="lb_nome_razao">
+						        {{ formulario.nome_razao.label }}
+                            </label>
+                        </sub>
 					</div>
 					{{ formulario.nome_razao }}
 				</div>
 			
 				<div class="col-lg-3">
 					<div style='padding-left: 8px'>
-						<sub> {{ formulario.apelido_fantasia.label }} </sub>
+						<sub>
+                            <label id="lb_apelido_fantasia">{{ formulario.apelido_fantasia.label }}</label>
+                        </sub>
 					</div>
 					{{ formulario.apelido_fantasia }}
 				</div>
@@ -169,7 +180,9 @@
 			
 				<div class="col-lg-2">
 					<div style='padding-left: 8px'>
-						<sub> {{ formulario.nascimento_fundacao.label }} </sub>
+                        <sub>
+                            <label id="lb_nascimento_fundacao">{{ formulario.nascimento_fundacao.label }}</label>
+                        </sub>
 					</div>
 					{{ formulario.nascimento_fundacao }}
 				</div>
@@ -308,12 +321,6 @@
 $(".alert").fadeOut(6000);
 </script>
 
-<script>
-jQuery(document).ready(function(){
-	$("#nascimento_fundacao").mask("99/99/9999");
-});
-</script>
-
 <script type="text/javascript">
 $(function() {
 	$("#nascimento_fundacao").datepicker({
@@ -383,12 +390,38 @@ $('#tipo_contato').blur(function(){
 
 <script>
 jQuery(document).ready(function(){
-	$("#cpf_cnpj").mask("999.999.999-99");
+	//$("#cpf_cnpj").mask("99999999999999");
+    $('#cpf_cnpj').tooltip({title: "Preencha somente os numeros!", animation: true, delay:{show: 200, hide: 200}, placement: "top"});
    	$("#nascimento_fundacao").mask("99/99/9999");
    	$("#numero_contato").mask("(99) 99999-9999");
    	$("#codigo_postal").mask("99999999");
 });
+
+$('#cpf_cnpj').blur(function(){
+	var texto = $('#cpf_cnpj').val();
+    if (texto.length == 11){
+        $("#lb_cpf_cnpj").text("CPF:");
+        $("#lb_nome_razao").text("Nome Completo:");
+        $("#lb_apelido_fantasia").text("Apelido:");
+        $("#lb_nascimento_fundacao").text("Nascimento:");
+    }
+    else{
+        $("#lb_cpf_cnpj").text("CNPJ:");
+        $("#lb_nome_razao").text("Razão Social:");
+        $("#lb_apelido_fantasia").text("Nome Fantasia:");
+        $("#lb_nascimento_fundacao").text("Fundação:");
+    }
+});
+
+$('.numbersOnly').keyup(function () {
+    if (this.value != this.value.replace(/[^0-9\.]/g, '')) {
+       this.value = this.value.replace(/[^0-9\.]/g, '');
+
+    }
+});
+
 </script>
+
 
 <script>
 $('.modal').on('hidden.bs.modal', function(){

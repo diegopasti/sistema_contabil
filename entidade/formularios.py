@@ -121,26 +121,26 @@ class formulario_cadastro_entidade_completo(forms.Form):
     
     #print "Type: ",type(opco)
     
-    cpf_cnpj              = forms.CharField(label="Cpf / Cnpj:",max_length=18,required=True,error_messages=MENSAGENS_ERROS,
-                                            widget=forms.TextInput(attrs={'class':"form-control", 'id':'cpf_cnpj' }),
+    cpf_cnpj              = forms.CharField(label="Cpf / Cnpj:",max_length=14,required=True,error_messages=MENSAGENS_ERROS,
+                                            widget=forms.TextInput(attrs={'class':"form-control numbersOnly", 'id':'cpf_cnpj'}),
                                             )
-    nome_razao            = forms.CharField(label="Nome / Razão Social:",max_length=100,required=True,error_messages=MENSAGENS_ERROS,
+    nome_razao            = forms.CharField(label="Razão Social:",max_length=100,required=True,error_messages=MENSAGENS_ERROS,
                                             widget=forms.TextInput(attrs={'class':"form-control uppercase", 'id':'nome_razao'})
-                                            ) 
+                                            )
     
-    apelido_fantasia      = forms.CharField(label="Apelido / Nome Fantasia:",max_length=50,required=False,error_messages=MENSAGENS_ERROS,
+    apelido_fantasia      = forms.CharField(label="Nome Fantasia:",max_length=50,required=False,error_messages=MENSAGENS_ERROS,
                                             widget=forms.TextInput(attrs={'class':"form-control uppercase" ,'id':'apelido_fantasia'})
                                             )
     tipo_registro         = forms.ChoiceField(label="Tipo Registro:",choices=opcoes_tipos_registros,required=False,error_messages=MENSAGENS_ERROS, #choices=opcoes_tipos_registros, default='C',
                                             widget=forms.Select(attrs={'class':"form-control" ,'id':'tipo_registro'})
                                             )
     
-    registro_geral        = forms.CharField(label="Inscrição Estadual / Identidade:",max_length=12,required=False,error_messages=MENSAGENS_ERROS,
+    registro_geral        = forms.CharField(label="Inscrição Estadual:",max_length=12,required=False,error_messages=MENSAGENS_ERROS,
                                             widget=forms.TextInput(attrs={'class':"form-control" ,'id':'registro_geral'})
                                             )
     
-    nascimento_fundacao   = forms.DateField(label="Nascimento / Fundação:",required=False,
-                                            widget= forms.DateInput(attrs={'class':"form-control" ,'id':'nascimento_fundacao'},format = '%d/%m/%Y'), 
+    nascimento_fundacao   = forms.DateField(label="Fundação:",required=False,
+                                            widget= forms.DateInput(attrs={'class':"form-control" ,'id':'nascimento_fundacao'},format = '%d/%m/%Y'),
                                             input_formats=('%d/%m/%Y',)
                                             )
     
