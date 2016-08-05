@@ -29,7 +29,7 @@ from protocolo.models import item_protocolo
 def index(request):
     dados = entidade.objects.all()
     if len(dados) != 0:
-        return render_to_response("index.html")
+        return render_to_response("base_page.html")
     else:
         return HttpResponseRedirect('/cadastrar_empresa')   
         
@@ -529,7 +529,12 @@ def validar_registro(registro):
     finally:
         return False,""
                     
-    
+
+def adicionar_entidade(request):
+    formulario = formulario_cadastro_entidade_completo(request.POST, request.FILES)
+    return render_to_response("entidade/adicionar_entidade.html",
+                              {'dados': [], 'formulario': formulario, 'erro': False},
+                              context_instance=RequestContext(request))
 
 def cadastro_entidades(request):  
     
@@ -756,7 +761,7 @@ def consultar_cep(request,codigo_postal):
 
 
 
-def adicionar_entidade(request):
+def adicionar_entidade_antigo(request):
     
     dados = entidade.objects.all()
     
