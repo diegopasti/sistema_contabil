@@ -1,0 +1,420 @@
+"C:\Program Files (x86)\JetBrains\PyCharm 2016.1.4\bin\runnerw.exe" C:\Python27\python.exe C:/Users/diego/OneDrive/Projetos/sistema_contabil/manage.py runserver localhost:8000
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 10, 2017 - 18:32:43
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[10/Mar/2017 18:32:48] "GET / HTTP/1.1" 200 15493
+[10/Mar/2017 18:32:48] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 18:32:52] "GET /preferencias/servicos HTTP/1.1" 301 0
+[10/Mar/2017 18:32:52] "GET /preferencias/servicos/ HTTP/1.1" 200 39340
+[10/Mar/2017 18:32:52] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 18:32:53] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 200 160366
+[10/Mar/2017 18:32:53] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 200 159
+[10/Mar/2017 18:32:53] "GET /arquivos_estaticos/angular-1.5.8/dirPagination.js HTTP/1.1" 200 28299
+[10/Mar/2017 18:32:53] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 200 2624
+[10/Mar/2017 18:32:53] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 200 3180
+[10/Mar/2017 18:32:53] "GET /arquivos_estaticos/styles/servico/servico.css HTTP/1.1" 200 1462
+[10/Mar/2017 18:32:53] "GET /api/preferencias/servicos/ HTTP/1.1" 200 298
+[10/Mar/2017 18:33:01] "POST /api/preferencias/novo_servico HTTP/1.1" 200 31
+[10/Mar/2017 18:34:55] "GET /preferencias/servicos/ HTTP/1.1" 200 39340
+[10/Mar/2017 18:34:55] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[10/Mar/2017 18:34:55] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[10/Mar/2017 18:34:55] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[10/Mar/2017 18:34:55] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[10/Mar/2017 18:34:55] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[10/Mar/2017 18:34:55] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[10/Mar/2017 18:34:55] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[10/Mar/2017 18:34:55] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 18:34:55] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[10/Mar/2017 18:34:55] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[10/Mar/2017 18:34:55] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[10/Mar/2017 18:34:55] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[10/Mar/2017 18:34:55] "GET /arquivos_estaticos/angular-1.5.8/dirPagination.js HTTP/1.1" 304 0
+[10/Mar/2017 18:34:55] "GET /arquivos_estaticos/styles/servico/servico.css HTTP/1.1" 304 0
+[10/Mar/2017 18:34:55] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[10/Mar/2017 18:34:55] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[10/Mar/2017 18:34:55] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[10/Mar/2017 18:34:55] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[10/Mar/2017 18:34:55] "GET /arquivos_estaticos/icones/fonts/fontawesome-webfont.woff2?v=4.3.0 HTTP/1.1" 304 0
+[10/Mar/2017 18:34:56] "GET /api/preferencias/servicos/ HTTP/1.1" 200 348
+[10/Mar/2017 18:54:27] "GET /preferencias/servicos/ HTTP/1.1" 200 39352
+[10/Mar/2017 18:54:28] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 18:54:28] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 18:54:28] "GET /arquivos_estaticos/icones/fonts/fontawesome-webfont.woff2?v=4.3.0 HTTP/1.1" 200 56780
+[10/Mar/2017 18:54:28] "GET /api/preferencias/servicos/ HTTP/1.1" 200 348
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+[10/Mar/2017 18:54:28] "GET /favicon.ico HTTP/1.1" 404 6202
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+[10/Mar/2017 18:54:28] "GET /favicon.ico HTTP/1.1" 404 6202
+[10/Mar/2017 22:03:03] "GET /preferencias/servicos/ HTTP/1.1" 200 39352
+[10/Mar/2017 22:03:03] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 22:03:03] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 22:03:04] "GET /api/preferencias/servicos/ HTTP/1.1" 200 348
+[10/Mar/2017 22:03:32] "POST /api/preferencias/excluir_servico/9/ HTTP/1.1" 200 34
+[10/Mar/2017 22:04:33] "GET /preferencias/ HTTP/1.1" 200 37139
+[10/Mar/2017 22:04:33] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 22:04:33] "GET /arquivos_estaticos/styles/padrao/base_format.css HTTP/1.1" 304 0
+[10/Mar/2017 22:04:33] "GET /arquivos_estaticos/scripts/preferencias/preferencia.js HTTP/1.1" 304 0
+[10/Mar/2017 22:04:33] "GET /arquivos_estaticos/styles/preferencias/salario_minimo.css HTTP/1.1" 304 0
+[10/Mar/2017 22:04:33] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 22:04:34] "GET /api/preferencias/salarios HTTP/1.1" 200 488
+[10/Mar/2017 22:04:50] "GET /preferencias/ HTTP/1.1" 200 37139
+[10/Mar/2017 22:04:50] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[10/Mar/2017 22:04:50] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[10/Mar/2017 22:04:50] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[10/Mar/2017 22:04:50] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[10/Mar/2017 22:04:50] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[10/Mar/2017 22:04:50] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[10/Mar/2017 22:04:50] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[10/Mar/2017 22:04:50] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 22:04:50] "GET /arquivos_estaticos/styles/padrao/base_format.css HTTP/1.1" 304 0
+[10/Mar/2017 22:04:50] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[10/Mar/2017 22:04:51] "GET /arquivos_estaticos/scripts/preferencias/preferencia.js HTTP/1.1" 304 0
+[10/Mar/2017 22:04:51] "GET /arquivos_estaticos/styles/preferencias/salario_minimo.css HTTP/1.1" 304 0
+[10/Mar/2017 22:04:51] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[10/Mar/2017 22:04:51] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[10/Mar/2017 22:04:51] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[10/Mar/2017 22:04:51] "GET /arquivos_estaticos/angular-1.5.8/dirPagination.js HTTP/1.1" 304 0
+[10/Mar/2017 22:04:51] "GET /arquivos_estaticos/jquery/jquery.maskMoney.js HTTP/1.1" 304 0
+[10/Mar/2017 22:04:51] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[10/Mar/2017 22:04:51] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 22:04:51] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[10/Mar/2017 22:04:51] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[10/Mar/2017 22:04:51] "GET /api/preferencias/salarios HTTP/1.1" 200 488
+[10/Mar/2017 22:09:17] "GET /preferencias/ HTTP/1.1" 200 37287
+[10/Mar/2017 22:09:17] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[10/Mar/2017 22:09:17] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[10/Mar/2017 22:09:18] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[10/Mar/2017 22:09:18] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[10/Mar/2017 22:09:18] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[10/Mar/2017 22:09:18] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[10/Mar/2017 22:09:18] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[10/Mar/2017 22:09:18] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 22:09:18] "GET /arquivos_estaticos/styles/padrao/base_format.css HTTP/1.1" 304 0
+[10/Mar/2017 22:09:18] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[10/Mar/2017 22:09:18] "GET /arquivos_estaticos/scripts/preferencias/preferencia.js HTTP/1.1" 304 0
+[10/Mar/2017 22:09:18] "GET /arquivos_estaticos/styles/preferencias/salario_minimo.css HTTP/1.1" 304 0
+[10/Mar/2017 22:09:18] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[10/Mar/2017 22:09:18] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[10/Mar/2017 22:09:18] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[10/Mar/2017 22:09:18] "GET /arquivos_estaticos/angular-1.5.8/dirPagination.js HTTP/1.1" 304 0
+[10/Mar/2017 22:09:18] "GET /arquivos_estaticos/jquery/jquery.maskMoney.js HTTP/1.1" 304 0
+[10/Mar/2017 22:09:18] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[10/Mar/2017 22:09:18] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 22:09:18] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[10/Mar/2017 22:09:18] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[10/Mar/2017 22:09:18] "GET /api/preferencias/salarios HTTP/1.1" 200 488
+olha o request: <QueryDict: {u'csrfmiddlewaretoken': [u'PdO1nkKQrsiQBGAgS4VHp7WOGMnwUhyp'], u'inicio_vigencia': [u'10/03/2017'], u'valor': [u'1238.82']}>
+[10/Mar/2017 22:09:49] "POST /api/preferencias/novo_salario HTTP/1.1" 200 31
+olha o request: <QueryDict: {u'csrfmiddlewaretoken': [u'PdO1nkKQrsiQBGAgS4VHp7WOGMnwUhyp'], u'inicio_vigencia': [u'09/11/2017'], u'valor': [u'1350.35']}>
+[10/Mar/2017 22:10:21] "POST /api/preferencias/novo_salario HTTP/1.1" 200 32
+olha o request: <QueryDict: {u'csrfmiddlewaretoken': [u'PdO1nkKQrsiQBGAgS4VHp7WOGMnwUhyp'], u'inicio_vigencia': [u'15/03/2018'], u'valor': [u'1450.00']}>
+[10/Mar/2017 22:10:39] "POST /api/preferencias/novo_salario HTTP/1.1" 200 32
+[10/Mar/2017 22:20:49] "GET /preferencias/ HTTP/1.1" 200 37287
+[10/Mar/2017 22:20:49] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[10/Mar/2017 22:20:49] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[10/Mar/2017 22:20:49] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[10/Mar/2017 22:20:49] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[10/Mar/2017 22:20:49] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[10/Mar/2017 22:20:49] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[10/Mar/2017 22:20:49] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[10/Mar/2017 22:20:49] "GET /arquivos_estaticos/styles/padrao/base_format.css HTTP/1.1" 304 0
+[10/Mar/2017 22:20:49] "GET /arquivos_estaticos/scripts/preferencias/preferencia.js HTTP/1.1" 304 0
+[10/Mar/2017 22:20:49] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[10/Mar/2017 22:20:49] "GET /arquivos_estaticos/styles/preferencias/salario_minimo.css HTTP/1.1" 304 0
+[10/Mar/2017 22:20:49] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[10/Mar/2017 22:20:49] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[10/Mar/2017 22:20:49] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[10/Mar/2017 22:20:49] "GET /arquivos_estaticos/angular-1.5.8/dirPagination.js HTTP/1.1" 304 0
+[10/Mar/2017 22:20:49] "GET /arquivos_estaticos/jquery/jquery.maskMoney.js HTTP/1.1" 304 0
+[10/Mar/2017 22:20:49] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[10/Mar/2017 22:20:49] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 22:20:49] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 22:20:56] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[10/Mar/2017 22:20:56] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[10/Mar/2017 22:20:57] "GET /api/preferencias/salarios HTTP/1.1" 200 688
+[10/Mar/2017 22:27:09] "GET /preferencias/ HTTP/1.1" 200 37361
+[10/Mar/2017 22:27:09] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[10/Mar/2017 22:27:09] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[10/Mar/2017 22:27:09] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[10/Mar/2017 22:27:09] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[10/Mar/2017 22:27:09] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[10/Mar/2017 22:27:09] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[10/Mar/2017 22:27:09] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[10/Mar/2017 22:27:09] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 22:27:09] "GET /arquivos_estaticos/styles/padrao/base_format.css HTTP/1.1" 304 0
+[10/Mar/2017 22:27:09] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[10/Mar/2017 22:27:09] "GET /arquivos_estaticos/scripts/preferencias/preferencia.js HTTP/1.1" 304 0
+[10/Mar/2017 22:27:09] "GET /arquivos_estaticos/styles/preferencias/salario_minimo.css HTTP/1.1" 304 0
+[10/Mar/2017 22:27:09] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[10/Mar/2017 22:27:09] "GET /arquivos_estaticos/angular-1.5.8/dirPagination.js HTTP/1.1" 304 0
+[10/Mar/2017 22:27:09] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[10/Mar/2017 22:27:09] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[10/Mar/2017 22:27:09] "GET /arquivos_estaticos/jquery/jquery.maskMoney.js HTTP/1.1" 304 0
+[10/Mar/2017 22:27:09] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[10/Mar/2017 22:27:09] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 22:27:28] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[10/Mar/2017 22:27:28] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[10/Mar/2017 22:27:28] "GET /arquivos_estaticos/angular-1.5.8/dirPagination.js HTTP/1.1" 304 0
+[10/Mar/2017 22:27:28] "GET /api/preferencias/salarios HTTP/1.1" 200 688
+[10/Mar/2017 22:43:33] "GET /preferencias/ HTTP/1.1" 200 37358
+[10/Mar/2017 22:43:33] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[10/Mar/2017 22:43:33] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[10/Mar/2017 22:43:33] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[10/Mar/2017 22:43:33] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[10/Mar/2017 22:43:33] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[10/Mar/2017 22:43:33] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[10/Mar/2017 22:43:33] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[10/Mar/2017 22:43:33] "GET /arquivos_estaticos/styles/padrao/base_format.css HTTP/1.1" 304 0
+[10/Mar/2017 22:43:33] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[10/Mar/2017 22:43:33] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 22:43:33] "GET /arquivos_estaticos/scripts/preferencias/preferencia.js HTTP/1.1" 304 0
+[10/Mar/2017 22:43:33] "GET /arquivos_estaticos/styles/preferencias/salario_minimo.css HTTP/1.1" 304 0
+[10/Mar/2017 22:43:33] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[10/Mar/2017 22:43:33] "GET /arquivos_estaticos/angular-1.5.8/dirPagination.js HTTP/1.1" 304 0
+[10/Mar/2017 22:43:33] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[10/Mar/2017 22:43:33] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[10/Mar/2017 22:43:33] "GET /arquivos_estaticos/jquery/jquery.maskMoney.js HTTP/1.1" 304 0
+[10/Mar/2017 22:43:33] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[10/Mar/2017 22:43:33] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 22:43:36] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[10/Mar/2017 22:43:36] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[10/Mar/2017 22:43:36] "GET /arquivos_estaticos/angular-1.5.8/dirPagination.js HTTP/1.1" 304 0
+[10/Mar/2017 22:43:36] "GET /api/preferencias/salarios HTTP/1.1" 200 688
+[10/Mar/2017 22:54:47] "GET /preferencias/ HTTP/1.1" 200 37358
+[10/Mar/2017 22:54:47] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[10/Mar/2017 22:54:47] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[10/Mar/2017 22:54:47] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[10/Mar/2017 22:54:47] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[10/Mar/2017 22:54:47] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[10/Mar/2017 22:54:47] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[10/Mar/2017 22:54:47] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[10/Mar/2017 22:54:47] "GET /arquivos_estaticos/styles/padrao/base_format.css HTTP/1.1" 304 0
+[10/Mar/2017 22:54:47] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[10/Mar/2017 22:54:47] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 22:54:47] "GET /arquivos_estaticos/scripts/preferencias/preferencia.js HTTP/1.1" 304 0
+[10/Mar/2017 22:54:47] "GET /arquivos_estaticos/styles/preferencias/salario_minimo.css HTTP/1.1" 304 0
+[10/Mar/2017 22:54:47] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[10/Mar/2017 22:54:47] "GET /arquivos_estaticos/angular-1.5.8/dirPagination.js HTTP/1.1" 304 0
+[10/Mar/2017 22:54:47] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[10/Mar/2017 22:54:47] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[10/Mar/2017 22:54:47] "GET /arquivos_estaticos/jquery/jquery.maskMoney.js HTTP/1.1" 304 0
+[10/Mar/2017 22:54:47] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[10/Mar/2017 22:54:48] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 22:54:48] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[10/Mar/2017 22:54:48] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[10/Mar/2017 22:54:48] "GET /arquivos_estaticos/angular-1.5.8/dirPagination.js HTTP/1.1" 304 0
+[10/Mar/2017 22:54:48] "GET /api/preferencias/salarios HTTP/1.1" 200 688
+[10/Mar/2017 23:02:20] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 23:02:23] "GET /preferencias/ HTTP/1.1" 200 37357
+[10/Mar/2017 23:02:23] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[10/Mar/2017 23:02:23] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[10/Mar/2017 23:02:23] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[10/Mar/2017 23:02:23] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[10/Mar/2017 23:02:23] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[10/Mar/2017 23:02:23] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[10/Mar/2017 23:02:23] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[10/Mar/2017 23:02:23] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 23:02:23] "GET /arquivos_estaticos/styles/padrao/base_format.css HTTP/1.1" 304 0
+[10/Mar/2017 23:02:23] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[10/Mar/2017 23:02:23] "GET /arquivos_estaticos/scripts/preferencias/preferencia.js HTTP/1.1" 304 0
+[10/Mar/2017 23:02:23] "GET /arquivos_estaticos/styles/preferencias/salario_minimo.css HTTP/1.1" 304 0
+[10/Mar/2017 23:02:23] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[10/Mar/2017 23:02:23] "GET /arquivos_estaticos/angular-1.5.8/dirPagination.js HTTP/1.1" 304 0
+[10/Mar/2017 23:02:23] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[10/Mar/2017 23:02:23] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[10/Mar/2017 23:02:23] "GET /arquivos_estaticos/jquery/jquery.maskMoney.js HTTP/1.1" 304 0
+[10/Mar/2017 23:02:23] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[10/Mar/2017 23:02:23] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+
+"C:\Program Files (x86)\JetBrains\PyCharm 2016.1.4\bin\runnerw.exe" C:\Python27\python.exe C:/Users/diego/OneDrive/Projetos/sistema_contabil/manage.py runserver localhost:8000
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 10, 2017 - 23:21:57
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[10/Mar/2017 23:22:00] "GET / HTTP/1.1" 200 15493
+[10/Mar/2017 23:22:00] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 23:22:18] "GET / HTTP/1.1" 200 15493
+[10/Mar/2017 23:22:18] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 23:22:19] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+[10/Mar/2017 23:22:19] "GET /favicon.ico HTTP/1.1" 404 6202
+[10/Mar/2017 23:23:50] "GET /preferencias/ HTTP/1.1" 200 37356
+[10/Mar/2017 23:23:50] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 23:23:50] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 23:23:50] "GET /api/preferencias/salarios HTTP/1.1" 200 688
+[10/Mar/2017 23:31:30] "GET /preferencias/ HTTP/1.1" 200 37362
+[10/Mar/2017 23:31:30] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[10/Mar/2017 23:31:30] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[10/Mar/2017 23:31:30] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[10/Mar/2017 23:31:30] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[10/Mar/2017 23:31:30] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[10/Mar/2017 23:31:30] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[10/Mar/2017 23:31:30] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[10/Mar/2017 23:31:30] "GET /arquivos_estaticos/styles/padrao/base_format.css HTTP/1.1" 304 0
+[10/Mar/2017 23:31:30] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 23:31:30] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[10/Mar/2017 23:31:30] "GET /arquivos_estaticos/scripts/preferencias/preferencia.js HTTP/1.1" 304 0
+[10/Mar/2017 23:31:30] "GET /arquivos_estaticos/styles/preferencias/salario_minimo.css HTTP/1.1" 304 0
+[10/Mar/2017 23:31:30] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[10/Mar/2017 23:31:30] "GET /arquivos_estaticos/angular-1.5.8/dirPagination.js HTTP/1.1" 304 0
+[10/Mar/2017 23:31:30] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[10/Mar/2017 23:31:30] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[10/Mar/2017 23:31:30] "GET /arquivos_estaticos/jquery/jquery.maskMoney.js HTTP/1.1" 304 0
+[10/Mar/2017 23:31:30] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[10/Mar/2017 23:31:30] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 23:31:30] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[10/Mar/2017 23:31:30] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[10/Mar/2017 23:31:30] "GET /arquivos_estaticos/angular-1.5.8/dirPagination.js HTTP/1.1" 304 0
+[10/Mar/2017 23:31:30] "GET /api/preferencias/salarios HTTP/1.1" 200 688
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 10, 2017 - 23:44:56
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[10/Mar/2017 23:45:23] "GET /preferencias/ HTTP/1.1" 200 37362
+[10/Mar/2017 23:45:23] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[10/Mar/2017 23:45:23] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[10/Mar/2017 23:45:23] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[10/Mar/2017 23:45:23] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[10/Mar/2017 23:45:23] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[10/Mar/2017 23:45:23] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[10/Mar/2017 23:45:23] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[10/Mar/2017 23:45:23] "GET /arquivos_estaticos/styles/padrao/base_format.css HTTP/1.1" 304 0
+[10/Mar/2017 23:45:23] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[10/Mar/2017 23:45:23] "GET /arquivos_estaticos/scripts/preferencias/preferencia.js HTTP/1.1" 304 0
+[10/Mar/2017 23:45:23] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 23:45:23] "GET /arquivos_estaticos/styles/preferencias/salario_minimo.css HTTP/1.1" 304 0
+[10/Mar/2017 23:45:23] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[10/Mar/2017 23:45:23] "GET /arquivos_estaticos/angular-1.5.8/dirPagination.js HTTP/1.1" 304 0
+[10/Mar/2017 23:45:23] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[10/Mar/2017 23:45:23] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[10/Mar/2017 23:45:23] "GET /arquivos_estaticos/jquery/jquery.maskMoney.js HTTP/1.1" 304 0
+[10/Mar/2017 23:45:23] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[10/Mar/2017 23:45:23] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 23:45:23] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[10/Mar/2017 23:45:23] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[10/Mar/2017 23:45:23] "GET /arquivos_estaticos/angular-1.5.8/dirPagination.js HTTP/1.1" 304 0
+[10/Mar/2017 23:45:23] "GET /api/preferencias/salarios HTTP/1.1" 200 708
+[10/Mar/2017 23:45:56] "GET /preferencias/ HTTP/1.1" 200 37362
+[10/Mar/2017 23:45:56] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[10/Mar/2017 23:45:56] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[10/Mar/2017 23:45:56] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[10/Mar/2017 23:45:56] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[10/Mar/2017 23:45:56] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[10/Mar/2017 23:45:56] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[10/Mar/2017 23:45:56] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[10/Mar/2017 23:45:56] "GET /arquivos_estaticos/styles/padrao/base_format.css HTTP/1.1" 304 0
+[10/Mar/2017 23:45:56] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 23:45:56] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[10/Mar/2017 23:45:56] "GET /arquivos_estaticos/scripts/preferencias/preferencia.js HTTP/1.1" 304 0
+[10/Mar/2017 23:45:56] "GET /arquivos_estaticos/styles/preferencias/salario_minimo.css HTTP/1.1" 304 0
+[10/Mar/2017 23:45:56] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[10/Mar/2017 23:45:56] "GET /arquivos_estaticos/angular-1.5.8/dirPagination.js HTTP/1.1" 304 0
+[10/Mar/2017 23:45:56] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[10/Mar/2017 23:45:56] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[10/Mar/2017 23:45:56] "GET /arquivos_estaticos/jquery/jquery.maskMoney.js HTTP/1.1" 304 0
+[10/Mar/2017 23:45:56] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[10/Mar/2017 23:45:57] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 23:46:03] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[10/Mar/2017 23:46:03] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[10/Mar/2017 23:46:03] "GET /arquivos_estaticos/angular-1.5.8/dirPagination.js HTTP/1.1" 304 0
+[10/Mar/2017 23:46:03] "GET /api/preferencias/salarios HTTP/1.1" 200 708
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 10, 2017 - 23:46:43
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[10/Mar/2017 23:46:43] "GET /preferencias/ HTTP/1.1" 200 37362
+[10/Mar/2017 23:46:43] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[10/Mar/2017 23:46:43] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[10/Mar/2017 23:46:43] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[10/Mar/2017 23:46:43] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[10/Mar/2017 23:46:43] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[10/Mar/2017 23:46:43] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[10/Mar/2017 23:46:43] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[10/Mar/2017 23:46:43] "GET /arquivos_estaticos/styles/padrao/base_format.css HTTP/1.1" 304 0
+[10/Mar/2017 23:46:43] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[10/Mar/2017 23:46:43] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 23:46:43] "GET /arquivos_estaticos/scripts/preferencias/preferencia.js HTTP/1.1" 304 0
+[10/Mar/2017 23:46:43] "GET /arquivos_estaticos/styles/preferencias/salario_minimo.css HTTP/1.1" 304 0
+[10/Mar/2017 23:46:43] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[10/Mar/2017 23:46:43] "GET /arquivos_estaticos/angular-1.5.8/dirPagination.js HTTP/1.1" 304 0
+[10/Mar/2017 23:46:43] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[10/Mar/2017 23:46:43] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[10/Mar/2017 23:46:43] "GET /arquivos_estaticos/jquery/jquery.maskMoney.js HTTP/1.1" 304 0
+[10/Mar/2017 23:46:43] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[10/Mar/2017 23:46:44] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 23:46:44] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[10/Mar/2017 23:46:44] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[10/Mar/2017 23:46:44] "GET /arquivos_estaticos/angular-1.5.8/dirPagination.js HTTP/1.1" 304 0
+[10/Mar/2017 23:46:44] "GET /api/preferencias/salarios HTTP/1.1" 200 641
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 10, 2017 - 23:49:30
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[10/Mar/2017 23:51:01] "GET /preferencias/ HTTP/1.1" 200 37369
+[10/Mar/2017 23:51:02] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[10/Mar/2017 23:51:02] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[10/Mar/2017 23:51:02] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[10/Mar/2017 23:51:02] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[10/Mar/2017 23:51:02] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[10/Mar/2017 23:51:02] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[10/Mar/2017 23:51:02] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[10/Mar/2017 23:51:02] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 23:51:02] "GET /arquivos_estaticos/styles/padrao/base_format.css HTTP/1.1" 304 0
+[10/Mar/2017 23:51:02] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[10/Mar/2017 23:51:02] "GET /arquivos_estaticos/scripts/preferencias/preferencia.js HTTP/1.1" 304 0
+[10/Mar/2017 23:51:02] "GET /arquivos_estaticos/styles/preferencias/salario_minimo.css HTTP/1.1" 304 0
+[10/Mar/2017 23:51:02] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[10/Mar/2017 23:51:02] "GET /arquivos_estaticos/angular-1.5.8/dirPagination.js HTTP/1.1" 304 0
+[10/Mar/2017 23:51:02] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[10/Mar/2017 23:51:02] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[10/Mar/2017 23:51:02] "GET /arquivos_estaticos/jquery/jquery.maskMoney.js HTTP/1.1" 304 0
+[10/Mar/2017 23:51:02] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[10/Mar/2017 23:51:02] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 23:51:02] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[10/Mar/2017 23:51:02] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[10/Mar/2017 23:51:02] "GET /arquivos_estaticos/angular-1.5.8/dirPagination.js HTTP/1.1" 304 0
+[10/Mar/2017 23:51:02] "GET /api/preferencias/salarios HTTP/1.1" 200 688
+[10/Mar/2017 23:51:24] "GET /preferencias/ HTTP/1.1" 200 37371
+[10/Mar/2017 23:51:24] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[10/Mar/2017 23:51:24] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[10/Mar/2017 23:51:24] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[10/Mar/2017 23:51:24] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[10/Mar/2017 23:51:24] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[10/Mar/2017 23:51:24] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[10/Mar/2017 23:51:24] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[10/Mar/2017 23:51:24] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 23:51:24] "GET /arquivos_estaticos/styles/padrao/base_format.css HTTP/1.1" 304 0
+[10/Mar/2017 23:51:24] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[10/Mar/2017 23:51:24] "GET /arquivos_estaticos/scripts/preferencias/preferencia.js HTTP/1.1" 304 0
+[10/Mar/2017 23:51:24] "GET /arquivos_estaticos/styles/preferencias/salario_minimo.css HTTP/1.1" 304 0
+[10/Mar/2017 23:51:24] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[10/Mar/2017 23:51:24] "GET /arquivos_estaticos/angular-1.5.8/dirPagination.js HTTP/1.1" 304 0
+[10/Mar/2017 23:51:24] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[10/Mar/2017 23:51:24] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[10/Mar/2017 23:51:24] "GET /arquivos_estaticos/jquery/jquery.maskMoney.js HTTP/1.1" 304 0
+[10/Mar/2017 23:51:24] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[10/Mar/2017 23:51:25] "GET /arquivos_estaticos/styles/padrao/AdminLTE.min.css HTTP/1.1" 404 1727
+[10/Mar/2017 23:51:25] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[10/Mar/2017 23:51:25] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[10/Mar/2017 23:51:25] "GET /arquivos_estaticos/angular-1.5.8/dirPagination.js HTTP/1.1" 304 0
+[10/Mar/2017 23:51:25] "GET /api/preferencias/salarios HTTP/1.1" 200 688
+[10/Mar/2017 23:59:46] "GET /api/preferencias/salarios HTTP/1.1" 200 688

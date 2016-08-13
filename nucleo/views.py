@@ -8,11 +8,11 @@ from django.template.context import RequestContext
 from entidade.formularios import formulario_cadastro_entidade_completo
 from entidade.models import entidade, contato, localizacao_simples  # , Logradouro, Localizacao,
 from entidade.utilitarios import remover_simbolos
+from nucleo.working_api import WorkingManager
 
 
 def cadastrar_empresa(request):  
     dados = entidade.objects.all()
-    
     if (request.method == "POST"):
         #print "Temos uma submissao"
         #request.POST['tipo_registro'] = u'E'
@@ -199,4 +199,11 @@ def cadastrar_empresa(request):
         #formulario_contato  = form_adicionar_contato()
         
     return render_to_response("nucleo/cadastrar_empresa.html",{'dados':dados,'formulario':formulario},context_instance=RequestContext(request))
-        
+
+def working(request):
+    if request.is_ajax():
+        print("TO INDO LA SAVLAR")
+        return WorkingManager().register_programming_frontend(request.GET['request_page'])
+        print("SALVEI")
+    else:
+        raise Http404

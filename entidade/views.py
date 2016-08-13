@@ -5,7 +5,9 @@ from cgi import escape
 from decimal import Decimal
 import json
 
+import datetime
 from django.contrib import messages
+from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.db.utils import IntegrityError
 from django.http.response import Http404, HttpResponseRedirect
@@ -13,37 +15,139 @@ from django.http.response import HttpResponse  # , Http404
 from django.shortcuts import render_to_response  # , redirect
 from django.template.context import RequestContext
 
-from entidade.formularios import formulario_cadastro_entidade_completo, formulario_emitir_protocolo  # , formulario_adicionar_item_protocolo
-from entidade.models import  Estado, Municipio, Bairro, Logradouro, localizacao_simples  # localizacao , Endereco 
+from entidade.formularios import formulario_cadastro_entidade_completo, formulario_justificar_operacao
+from entidade.models import  Estado, Municipio, Bairro, Logradouro, localizacao_simples, \
+    informacoes_juridicas, informacoes_tributarias, AtividadeEconomica, Documento, \
+    OperacaoRestrita  # localizacao , Endereco
 from entidade.models import entidade, contato
 from entidade.service import consultar_estado, consultar_codigo_postal_viacep  # consultar_codigo_postal_default
 from entidade.utilitarios import formatar_codificacao
 from entidade.utilitarios import remover_simbolos  # formatar_codificacao, 
 from protocolo.models import item_protocolo
+from util.controle_email import Email, EmailController
 
 
 #import os
 #from django.core.exceptions import ValidationError
 #from sistema_contabil import settings
 #from util.internet import consultar_codigo_postal
-def index(request):
-    dados = entidade.objects.all()
-    if len(dados) != 0:
-        return render_to_response("base_page.html")
+#from util.email import ControleEmail
+
+def verificar_cadastro_empresa():
+    registros = entidade.objects.count()
+    if registros == 0:
+        from nucleo.initial_data import precarregar_dados_digitar, precarregar_referencias_documentos
+        precarregar_dados_digitar()
+        precarregar_referencias_documentos()
+        print "DADOS PRECARREGADOS COM SUCESSO!"
+        return True
+        # Se nao for carregar os daods e so comentar as linhas acima e descomnetar o return False.
+        #return False
     else:
-        return HttpResponseRedirect('/cadastrar_empresa')   
-        
+        return True
+        #dados = entidade.objects.filter(ativo=True).exclude(id=1).order_by('-id')
+
+def index(request):
+    if verificar_cadastro_empresa():
+        return render_to_response("blank.html")
+    else:
+        return HttpResponseRedirect('/cadastrar_empresa')
+
 
 def buscar_fontes(request):
     return render_to_response("index.html")
 
 
-    
-    
-    
+def cadastro_entidades(request):
+    usuario_admin = False
+
+
+    dados = entidade.objects.filter(ativo=True).exclude(id=1).order_by('-id')
+    print 'olha os dados: ',dados
+
+    if (request.method == "POST"):
+
+        """
+        COM A EXCLUSÃO EM AJAX A FLUIDEZ MELHOROU MUITO E ESSE CODIGO JA NAO É MAIS NECESSARIO.
+
+        form_desativar = formulario_justificar_operacao(request.POST, request.FILES)
+        if form_desativar.is_valid():
 
 
 
+            tipo_operacao = form_desativar['operacao'].value()
+            operacao_tabela = form_desativar['tabela'].value()
+            operacao_user = form_desativar['user'].value()
+
+            operacao_cliente = int(form_desativar['cliente'].value())
+            operacao_descricao = form_desativar['descricao'].value()
+            operacao_justificativa = form_desativar['justificativa'].value().upper()
+
+            cliente = entidade.objects.get(pk=operacao_cliente)
+
+            print "olha o cliente: ",cliente
+
+
+            operacao = OperacaoRestrita()
+
+            operacao.user = None
+            operacao.tipo = tipo_operacao
+
+            operacao.tabela = operacao_tabela
+            operacao.descricao = operacao_descricao
+            operacao.entidade = cliente
+            operacao.justificativa = operacao_justificativa
+
+            #operacao.save()
+            messages.add_message(request, messages.SUCCESS, "Registro desativado com sucesso!")
+            form_desativar = formulario_justificar_operacao()
+
+        else:
+            msg = verificar_erro(form_desativar)
+            messages.add_message(request, messages.SUCCESS,msg)
+
+        """
+
+    else:
+        form_desativar = formulario_justificar_operacao()
+        # formulario_contato  = form_adicionar_contato()
+
+    return render_to_response("entidade/cadastro_entidades.html",
+                              {'dados': dados, 'form_desativar': form_desativar, 'erro': False},
+                              context_instance=RequestContext(request))
+
+
+def desativar_cliente(request,cliente):
+    if request.is_ajax():
+        cliente = entidade.objects.get(pk=int(cliente))
+        operacao = OperacaoRestrita()
+        operacao.tipo = "DES"
+        operacao.tabela = "ENTIDADE"
+        operacao.entidade = cliente
+
+        if request.user.is_anonymous():
+            operacao.user = None
+        else:
+            operacao.user = request.user
+
+        # POR ENQUANTO NAO PODEMOS UTILIZAR ACENTUAÇÃO NESSA DESCRICAO
+        operacao.descricao = "DESATIVACAO DO CLIENTE "+cliente.nome_razao+" ("+cliente.cpf_cnpj+") DO SISTEMA."
+        operacao.justificativa = list(request.GET)[0].upper()
+
+        #print "Tentano excluir: ", operacao.descricao,operacao.justificativa
+
+        try:
+            operacao.save()
+            cliente.ativo = False
+            cliente.save()
+            data = json.dumps("sucesso")
+        except:
+            data = None
+
+        return HttpResponse(data, content_type='application/json')
+
+    else:
+        raise Http404
 
 """
 def adicionar_item_protocolo(request):
@@ -87,17 +191,30 @@ def adicionar_item_protocolo(request):
         raise Http404
 """
 
+def novo_buscar_lista_clientes(request):
+    #if request.is_ajax():
+    clientes = entidade.objects.all().filter(ativo=True)#.exclude(id=1).order_by('-id')
+    dados = []
+    for item in clientes:
+        nome_cliente = str(item.id)+" - "+item.nome_razao
+        if item.nome_filial != None and item.nome_filial != "":
+            nome_cliente = nome_cliente + " (" + item.nome_filial + ")"
+
+        registro = {}
+        registro["id"] = str(item.id)
+        registro["name"] = nome_cliente.upper()
+        dados.append(registro)
+
+    data = json.dumps(dados)
+    return HttpResponse(data, content_type='application/json')
+    #else:
+    #    raise Http404
 
 
 def buscar_entidades(request):
-    print "to vindo aqui"
     resultado = entidade.objects.all()
-    
     results = []
-
     for item in resultado:
-        
-    
         dado = {}
         dado['cliente'] = item.nome_razao
         results.append(dado)
@@ -188,7 +305,7 @@ def link_callback(uri, rel):
     return path
 """    
 
-def emitir_protocolo(request,numero_item):
+"""def emitir_protocolo(request,numero_item):
     numero_item = int(numero_item)
     erro = False
     destinatarios = entidade.objects.all()  
@@ -197,7 +314,7 @@ def emitir_protocolo(request,numero_item):
         
         formulario_protocolo = formulario_emitir_protocolo(request.POST)
             
-        print "O que que tem nos temporarios: ",formulario_protocolo.temporarios
+        #print "O que que tem nos temporarios: ",formulario_protocolo.temporarios
         
         if 'adicionar_item' in request.POST:
             
@@ -294,7 +411,7 @@ def emitir_protocolo(request,numero_item):
             #return result.getvalue()
         
             
-            """
+            ""
             return render_to_response("protocolo.html",{
                                         'emissor':empresa,
                                         'destinatario':cliente,
@@ -305,7 +422,7 @@ def emitir_protocolo(request,numero_item):
                                         'erro':erro},
                                       
                                       context_instance=RequestContext(request))
-            """
+            ""
             
         elif 'excluir_item' in request.POST:
             #print "Axo que eh um POST pra apagar"
@@ -319,7 +436,7 @@ def emitir_protocolo(request,numero_item):
     else:
         formulario_protocolo = formulario_emitir_protocolo()
         formulario_protocolo.limpar_temporarios()
-        """
+        ""
         if "excluir" in request.path:
             formulario_protocolo = formulario_emitir_protocolo(request.GET)
             print "olha os temporarios: ",formulario_protocolo.temporarios
@@ -342,11 +459,11 @@ def emitir_protocolo(request,numero_item):
             
         else:
             
-        """
+        ""
                     
     return render_to_response("emitir_protocolo.html",{'destinatarios':destinatarios ,'dados':formulario_protocolo.temporarios,'formulario_protocolo':formulario_protocolo,'erro':erro},context_instance=RequestContext(request))
     
-    """
+    ""
     if (request.method == "POST"):
         
         formulario_protocolo = formulario_emitir_protocolo(request.POST, request.FILES)
@@ -471,42 +588,11 @@ def consultar_entidade(request,entidade_id):
     return render_to_response("consultar_entidade.html",{'dados':registro_entidade,'formulario':formulario,'erro':False},context_instance=RequestContext(request))
 
 
-def construir_objeto_localizacao(formulario):
-
-    registro = localizacao_simples(
-        cep = remover_simbolos(formulario['cep'].value()),
-        numero      = str(formulario.cleaned_data['numero_endereco']),
-        complemento = formulario.cleaned_data['complemento'].upper(),
-        
-        logradouro  = formulario.cleaned_data['endereco'].upper(),
-        bairro      = formulario.cleaned_data['bairro'].upper(),
-        codigo_ibge = formulario.cleaned_data['codigo_municipio'].upper(),
-        municipio   = formulario.cleaned_data['municipio'].upper(),
-        estado       = formulario.cleaned_data['estado'].upper() 
-    )
-
-    return registro
-
-def construir_objeto_contato(formulario, registro_entidade):
-    registro = contato(
-        #entidade = registro_entidade,#entidade.objects.get(pk=registro_entidade.id),
-        nome_contato = registro_entidade.nome_razao,
-        tipo_contato = formulario.cleaned_data['tipo_contato'],
-        numero       = remover_simbolos(formulario.cleaned_data['numero_contato']),
-        cargo_setor  = formulario.cleaned_data['cargo_setor'],
-        email        = formulario.cleaned_data['email'],
-    )      
-    return registro
 
 
-def construir_objeto_entidade(formulario):
-    registro = entidade()
-    registro.cpf_cnpj = remover_simbolos(formulario.cleaned_data['cpf_cnpj'])
-    registro.nome_razao = formulario.cleaned_data['nome_razao'].upper()
-    registro.apelido_fantasia = formulario.cleaned_data['apelido_fantasia'].upper()
-    registro.tipo_registro = formulario.cleaned_data['tipo_registro']
-    registro.nascimento_fundacao = formulario.cleaned_data['nascimento_fundacao']
-    return registro
+
+
+
 
 def validar_registro(registro):
     msg = ""
@@ -528,125 +614,502 @@ def validar_registro(registro):
     
     finally:
         return False,""
-                    
+
+
+def visualizar_entidade(request,id):
+    cliente = entidade.objects.get(pk=id)
+    meus_contatos = contato.objects.filter(entidade=cliente)
+    minhas_atividades = AtividadeEconomica.objects.filter(entidade=cliente)
+
+    contatos_serializado = serializar_contatos(meus_contatos)
+    atividades_serializadas = serializar_atividades(minhas_atividades)
+    meus_documentos = Documento.objects.filter(entidade=cliente)
+
+    if (request.method == "POST"):
+        formulario = formulario_cadastro_entidade_completo(request.POST, request.FILES)
+
+        if formulario.is_valid():
+            #print "olha, estou querendo alterar:"
+            #lista_objetos = load_objects_from_form(formulario,cliente,cliente.endereco,meus_contatos,minhas_atividades)
+
+            cliente.cpf_cnpj = remover_simbolos(formulario.cleaned_data['cpf_cnpj'])
+            cliente.nome_razao = formulario.cleaned_data['nome_razao'].upper()
+            cliente.apelido_fantasia = formulario.cleaned_data['apelido_fantasia'].upper()
+            cliente.tipo_registro = "C"
+            cliente.nascimento_fundacao = formulario.cleaned_data['nascimento_fundacao']
+            cliente.registro_geral = formulario.cleaned_data['registro_geral']
+
+            cliente.inscricao_estadual = formulario.cleaned_data['inscricao_estadual']
+            cliente.inscricao_municipal = formulario.cleaned_data['inscricao_municipal']
+            cliente.inscricao_produtor_rural = formulario.cleaned_data['inscricao_produtor_rural']
+            cliente.inscricao_imovel_rural = formulario.cleaned_data['inscricao_imovel_rural']
+
+            cliente.nome_filial = formulario.cleaned_data['nome_filial']
+            cliente.natureza_juridica = formulario.cleaned_data['natureza_juridica']
+            cliente.regime_apuracao = formulario.cleaned_data['regime_apuracao']
+            cliente.regime_desde = formulario.cleaned_data['regime_desde']
+            cliente.tipo_vencimento_iss = formulario.cleaned_data['tipo_vencimento']
+            cliente.data_vencimento_iss = formulario.cleaned_data['data_vencimento_iss']
+            cliente.dia_vencimento_iss = formulario.cleaned_data['dia_vencimento_iss']
+            cliente.taxa_iss = formulario.cleaned_data['taxa_iss']
+
+            cliente.responsavel_cliente = entidade.objects.get(pk=int(formulario.cleaned_data['responsavel_cliente']))
+            cliente.supervisor_cliente = entidade.objects.get(pk=int(formulario.cleaned_data['supervisor_cliente']))
+
+            cliente.observacoes = formulario.cleaned_data['observacoes']
+            cliente.save()
+
+            contatos = formulario.cleaned_data['contatos']
+            contatos = contatos.split("#")
+
+            for item in contatos:
+                item = item.replace("undefined", "")
+                if "|" in item:
+                    dados = item.split("|")
+                    #print "OLHA OS CAMPOS NA HORA DE CONSTRUIR O CONTATO:", dados
+
+                    if "+" in dados[0]:
+                        registro = contato(
+                            nome_contato=cliente.nome_razao,
+                            tipo_contato=dados[1],
+                            numero=dados[2],
+                            cargo_setor=dados[4].upper(),
+                            email=dados[5].lower(),
+                            entidade=cliente
+                        )
+                        registro.save()
+
+                    elif "-" in dados[0]:
+                        if dados[1] != "-":
+                            excluir_id = int(dados[0][1:])
+
+                            try:
+                                contato_excluir = contato.objects.get(id=excluir_id)
+                                contato_excluir.delete()
+                            except:
+                                #print "Erro! Não foi possivel excluir o contato %s, tente novamente."%(str(excluir_id))
+                                msg = "Erro! Não foi possivel excluir o contato %s, tente novamente."%(str(contato.objects.get(id=excluir_id)))
+                        else:
+                            pass#print "O usuario pode ter apagado muitos contatos de vez.."
+                    else:
+                        pass#print "MANTER"
+
+            atividades = formulario.cleaned_data['atividade_economica']
+            if atividades != "":
+                atividades = atividades.split("#")
+                for item in atividades:
+                    item = item.replace("undefined", "")
+                    dados = item.split("|")
+
+                    if "+" in dados[0]:
+                        registro = AtividadeEconomica()
+                        registro.atividade = dados[1]
+                        registro.entidade = cliente
+
+                        try:
+                            registro.desde = datetime.datetime.strptime(dados[2], "%d/%m/%Y").date()
+                        except:
+                            registro.desde = None
+
+                        registro.save()
+
+                    elif "-" in dados[0]:
+                        excluir_id = int(dados[0][1:])
+                        try:
+                            atividade_excluir = AtividadeEconomica.objects.get(id=excluir_id)
+                            atividade_excluir.delete()
+                        except:
+                            # print "Erro! Não foi possivel excluir o contato %s, tente novamente."%(str(excluir_id))
+                            msg = "Erro! Não foi possivel excluir o contato %s, tente novamente." % (
+                            str(atividade_excluir.objects.get(id=excluir_id)))
+
+
+                    else:
+                        pass  # print "MANTER"
+
+            documentos = formulario.cleaned_data['tabela_documentos']
+
+            if documentos != "":
+                documentos = documentos.split("#")
+                for item in documentos:
+                    dados = item.split("|")
+
+                    if "+" in dados[0]:
+                        registro = Documento()
+                        registro.tipo = dados[1]
+                        registro.nome = dados[2]
+                        registro.senha = dados[4]
+                        registro.notificar_cliente = dados[5]
+                        registro.prazo_notificar = dados[6]
+                        registro.entidade = cliente
+
+                        try:
+                            registro.vencimento = datetime.datetime.strptime(dados[3], "%d/%m/%Y").date()
+                        except:
+                            registro.vencimento = None
+
+                        registro.save()
+
+                    elif "-" in dados[0]:
+
+                        excluir_id = int(dados[0][1:])
+                        try:
+                            registro_excluir = Documento.objects.get(id=excluir_id)
+                            registro_excluir.delete()
+                        except:
+                            # print "Erro! Não foi possivel excluir o contato %s, tente novamente."%(str(excluir_id))
+                            msg = "Erro! Não foi possivel excluir o documento, tente novamente."
+
+                    else:
+                        # nenhuma alteracao no item da tabela.
+                        pass
+
+
+            else:
+                print "Nao tem documentos pra monitorar"
+
+            #for cnae in registro_cnae:
+            #    cnae.entidade = registro_entidade
+            #    cnae.save()
+
+            msg = "Cliente alterado com sucesso!"
+            messages.add_message(request, messages.SUCCESS, msg)
+
+            return HttpResponseRedirect('/entidade/cadastro')
+
+        else:
+            msg = verificar_erro(formulario)
+
+        #print "vim pra ca.."
+        messages.add_message(request, messages.SUCCESS, msg)
+
+    else:
+        cliente = entidade.objects.get(pk=id)
+        meus_contatos = contato.objects.filter(entidade=cliente)
+        minhas_atividades = AtividadeEconomica.objects.filter(entidade=cliente)
+        meus_documentos = Documento.objects.filter(entidade=cliente)
+        contatos_serializado = serializar_contatos(meus_contatos)
+        atividades_serializadas = serializar_atividades(minhas_atividades)
+        documentos_serializados = serializar_documentos(meus_documentos)
+        #print "olha minhas atividades:",minhas_atividades
+
+
+        if cliente.responsavel_cliente != None:
+            responsavel_cliente = cliente.responsavel_cliente.id
+        else:
+            responsavel_cliente = None
+
+        if cliente.supervisor_cliente != None:
+            supervisor_cliente = cliente.supervisor_cliente.id
+        else:
+            supervisor_cliente = None
+
+        #formulario_contrato = FormularioContrato()
+
+        formulario = formulario_cadastro_entidade_completo(initial={
+                        'cpf_cnpj':cliente.cpf_cnpj,
+                        'nome_razao':cliente.nome_razao,
+                        'apelido_fantasia':cliente.apelido_fantasia,
+                        'nascimento_fundacao':cliente.nascimento_fundacao,
+                        'natureza_juridica':cliente.natureza_juridica,
+                        'regime_apuracao':cliente.regime_apuracao,
+                        'regime_desde': cliente.regime_desde,
+                        'nome_filial': cliente.nome_filial.upper(),
+                        'inscricao_estadual': cliente.inscricao_estadual,
+                        'inscricao_municipal': cliente.inscricao_municipal,
+                        'inscricao_junta_comercial': cliente.inscricao_junta_comercial,
+                        'inscricao_produtor_rural': cliente.inscricao_produtor_rural,
+                        'cep': cliente.endereco.cep,
+                        'endereco': cliente.endereco.logradouro,
+                        'bairro': cliente.endereco.bairro,
+                        'municipio': cliente.endereco.municipio,
+                        'estado': cliente.endereco.estado,
+                        'pais':cliente.endereco.pais,
+                        'numero_endereco': cliente.endereco.numero,
+                        'complemento':cliente.endereco.complemento,
+                        'codigo_municipio': cliente.endereco.codigo_ibge,
+
+                        'contatos': contatos_serializado,
+                        'atividade_economica':atividades_serializadas,
+
+                        'responsavel_cliente': responsavel_cliente,
+                        'supervisor_cliente':supervisor_cliente,
+
+                        'notificacao_email': cliente.notificacao_email,
+
+
+                        'notificacao_envio': cliente.notificacao_envio,
+                        'notificacao_responsavel': cliente.notificacao_responsavel,
+                        'tabela_documentos':documentos_serializados,
+                        'observacoes':cliente.observacoes
+
+                            }
+                        )
+
+    return render_to_response("entidade/adicionar_entidade.html",
+                          {'dados': [],
+                          'formulario_entidade': formulario,
+                           'meus_contatos':meus_contatos,
+                           'minhas_atividades':minhas_atividades,
+                           'meus_documentos':meus_documentos,
+                          'naturezas_juridicas':informacoes_juridicas.natureza_juridica,
+                          'atividades_economicas':informacoes_tributarias.atividades_economicas,
+                          'erro': False},
+                          context_instance=RequestContext(request))
+
 
 def adicionar_entidade(request):
-    formulario = formulario_cadastro_entidade_completo(request.POST, request.FILES)
-    return render_to_response("entidade/adicionar_entidade.html",
-                              {'dados': [], 'formulario': formulario, 'erro': False},
-                              context_instance=RequestContext(request))
 
-def cadastro_entidades(request):  
-    
-    dados = entidade.objects.all()
-    if len(dados) != 0:
-    
-    
-    
-        if (request.method == "POST"):
-                    
-            formulario = formulario_cadastro_entidade_completo(request.POST, request.FILES)        
-            codigo_postal = remover_simbolos(formulario['cep'].value())
-            erro = False
-            if formulario.is_valid():
-                msg = ""
-                
-                registro_entidade = construir_objeto_entidade(formulario)
-                registro_contato = construir_objeto_contato(formulario, registro_entidade)
-                registro_localizacao = construir_objeto_localizacao(formulario)
-                
-                print "Olha as validacoes: ",registro_entidade,"-",registro_contato,"-",registro_localizacao
-                
-                if validar_registro(registro_entidade) and validar_registro(registro_contato) and validar_registro(registro_localizacao):
-                    print "Tudo certo.. podemos salvar"
+    if (request.method == "POST"):
+        print("VEJA O QUE VEIO: ",request.POST)
+        formulario = formulario_cadastro_entidade_completo(request.POST, request.FILES)
+        #formulario_contrato = FormularioContrato(request.POST, request.FILES)
+
+        #if formulario_contrato.is_valid():
+        #    print("OLHA O FORMULARIO DO CONTRATO TA OK")
+        #else:
+        #    print("VEJA OS CAMPOS LIMPOS: ",formulario_contrato.cleaned_data)
+        #    print("VEJA OS ERROS: ",formulario_contrato.errors)
+
+        erro = False
+        msg  = ""
+
+        #print "olha o documento:",formulario.documentos
+
+        if formulario.is_valid():
+            registro_entidade    = formulario.get_entidade(formulario)
+            registro_contato     = formulario.get_contatos(formulario, registro_entidade)
+            registro_localizacao = formulario.get_localizacao(formulario)
+            registro_cnae        = formulario.get_cnae(formulario)
+
+            registro_documentos  = formulario.get_documentos(formulario)
+            registro_contrato    = formulario.get_contrato(formulario)
+            print "Olha os contrato: ",registro_contrato
+
+            print "Tentar validar o contrato: ",validar_registro(registro_contrato)
+
+            #print "Olha as validacoes: ", registro_entidade, "-", registro_contato, "-", registro_localizacao
+            if validar_registro(registro_entidade) and validar_registro(registro_contato) and validar_registro(registro_localizacao) and validar_registro(registro_cnae):
+                try:
                     registro_localizacao.save()
                     registro_entidade.endereco = registro_localizacao
                     registro_entidade.save()
-                    
-                    registro_contato.entidade = registro_entidade
-                    registro_contato.save()  
-                    messages.add_message(request, messages.SUCCESS, "Registro salvo com sucesso!")
-                    
-                else:
-                    print "Problema de validacao.. tem que reapresentar o formulario.."
-                    messages.add_message(request, messages.SUCCESS, "Problemas com alguma informação!")
-                
-                
-                """
-                if validar_registro(registro_entidade) == True:   
-                    print "Entidade salva com Sucesso!"             
-                    #registro_entidade.save()
-                    
-                    registro_contato = construir_objeto_contato(formulario, registro_entidade)
-                    if validar_registro(registro_contato):
-                        #registro_contato.save()        
-                                
-                        registro_localizacao = construir_objeto_localizacao(formulario, registro_entidade)
-                        if validar_registro(registro_localizacao):
-                            registro_entidade.save()
-                            registro_localizacao.entidade = registro_entidade
-                            registro_localizacao.save()
-                            registro_contato.entidade = registro_entidade
-                            registro_contato.save()  
-                    
-                            #Endereco = formulario.cleaned_data['Endereco']
-                    
-                        print "cheguei a concluir isso?"
-                        bairro = formulario.cleaned_data['bairro']
-                        
-                        municipio = formulario.cleaned_data['Municipio']
-                        codigo_municipio = remover_simbolos(formulario.cleaned_data['codigo_municipio'])
-                        Estado = formulario.cleaned_data['Estado']
-                        
-                        Pais = formulario.cleaned_data['Pais']
-                        tipo_contato = formulario.cleaned_data['tipo_contato']
-                        numero_contato = remover_simbolos(formulario.cleaned_data['numero_contato'])
-                        cargo_setor = formulario.cleaned_data['cargo_setor']
-                        email = formulario.cleaned_data['email']
-                    
-                        messages.add_message(request, messages.SUCCESS, "Registro salvo com sucesso!")
-                        
-                        formulario = formulario_cadastro_entidade_completo()
-                    
-                else:
-                    print 'deu erro na entidade'
-                    messages.add_message(request, messages.SUCCESS, msg)
-                """   
-            
+
+                    for contato in registro_contato:
+                        contato.entidade = registro_entidade
+                        contato.save()
+
+                    for cnae in registro_cnae:
+                        cnae.entidade = registro_entidade
+                        cnae.save()
+
+                    for documento in registro_documentos:
+                        documento.entidade = registro_entidade
+                        documento.save()
+                        print "Salvei um documento?",documento.nome
+
+
+                    msg = "Cliente cadastrado com sucesso!"
+                    #formulario = formulario_cadastro_entidade_completo()
+                    return HttpResponseRedirect('/entidade/cadastro')
+
+                except Exception as e:
+                    msg = 'Erro! Exceção:' + str(e)
+                    print "Erro! Excecao:",msg
+
             else:
-                print "Falha na validacao dos campos"
-                msg = ""            
-                for campo in formulario:
-                    erros = campo.errors.as_data()
-                    
-                    if erros != []:
-                        
-                        
-                        erro = erros[0][0]
-                        
-                        print "olha o erro:",campo.label+" "+erro
-                        
-                        if 'email' in erro:
-                            msg = "Erro! "+unicode(erro)
-                        
-                        elif 'data' in erro:          
-                            msg = "Erro! "+unicode(erro)
-                        
-                        else:
-                            msg = campo.label+" "+erro
-                            
-                        messages.add_message(request, messages.SUCCESS, msg)
-                        break
-                return render_to_response("entidade/cadastro_entidades.html",{'dados':dados,'formulario':formulario,'erro':True},context_instance=RequestContext(request))
-        
+                #print "deu pau na validacao"
+                msg = "Erro! Existem Campos preenchidos incorretamente."
+
         else:
-            formulario = formulario_cadastro_entidade_completo()
-            #formulario_contato  = form_adicionar_contato()
-    
+            msg = verificar_erro(formulario)
+            if "Contatos: Precisa ser Informado!" in msg:
+                msg = "Erro! Pelo menos um contato deve ser informado."
+
+            print msg
+
+        messages.add_message(request, messages.SUCCESS,msg)
     else:
-        return HttpResponseRedirect('/cadastrar_empresa')
-    
-    return render_to_response("entidade/cadastro_entidades.html",{'dados':dados,'formulario':formulario,'erro':False},context_instance=RequestContext(request))
+        formulario = formulario_cadastro_entidade_completo()
+        #formulario_contrato = FormularioContrato()
+
+    return render_to_response("entidade/adicionar_entidade.html",
+                              {'dados': [], 'formulario_entidade': formulario,'naturezas_juridicas':informacoes_juridicas.natureza_juridica,'atividades_economicas':informacoes_tributarias.atividades_economicas, 'erro': False},
+                              context_instance=RequestContext(request))
+
+def load_objects_from_form(formulario,cliente,endereco,contatos,cnaes):
+    registro_localizacao = formulario.get_localizacao(formulario,endereco)
+    print "VALIDANDO A LOCALIZACAO:", validar_objeto(registro_localizacao)
+
+    registro_entidade = formulario.get_entidade(formulario,cliente)
+    print "VALIDANDO A ENTIDADE:", validar_objeto(registro_entidade)
+
+    registro_contatos = formulario.get_contatos(formulario, cliente)
+    print "VALIDANDO OS CONTATOS:", validar_objeto(registro_entidade)
+
+    registro_entidade = formulario.get_cnae(formulario, cliente)
+    print "VALIDANDO OS CNAES:", validar_objeto(registro_entidade)
+
+def create_objects_from_form(formulario):
+    registro_localizacao = formulario.get_localizacao(formulario)
+    print "VALIDANDO A LOCALIZACAO:", validar_objeto(registro_localizacao)
+
+    registro_entidade    = formulario.get_entidade(formulario)
+    print "VALIDANDO A ENTIDADE:",validar_objeto(registro_entidade)
+
+    registro_contato     = formulario.get_contatos(formulario, registro_entidade)
+
+    for item in registro_contato:
+        print "VALIDANDO OS CONTATOS:", validar_objeto(item)
+
+    registro_cnae        = formulario.get_cnae(formulario)
+    for item in registro_cnae:
+        print "VALIDANDO OS CNAES:", validar_objeto(item)
+
+    registros = [registro_entidade,registro_contato,registro_localizacao,registro_cnae]
+    return registros
+
+def validar_objetos_formulario(lista_objetos):
+    lista_erros = []
+    resultado_geral = True
+    for item in lista_objetos:
+        print "Olha o que eu quero validar: ",item,type(item)
+        if type(item) == list:
+            for elemento in item:
+                resultado, problemas = validar_objeto(elemento)
+                if resultado == False:
+                    print "Subitem com problemas:",elemento,problemas
+                    lista_erros = lista_erros + problemas
+                    resultado_geral = resultado
+        else:
+            resultado, problemas = validar_objeto(item)
+
+        if resultado == False:
+            print item
+            lista_erros.append(problemas)
+            resultado_geral = resultado
+
+    return resultado_geral,lista_erros
+
+
+def validar_objeto(registro):
+    try:
+        registro.full_clean()
+        return True,""
+
+    except ValidationError as excecao:
+        lista_problemas = dict(excecao).items()
+        #for item in lista_problemas:
+        #    print "Veja o problema:",item
+        #print "o erro:",list()
+        return False, lista_problemas
+
+
+    """except ValidationError as excecao:
+        msg = "Erro! " + excecao.message
+
+    except IntegrityError as excecao:
+        if "cpf_cnpj" in excecao.message:
+            msg = "Erro! cpf ou cnpj já existe no cadastro!"
+
+        else:
+            msg = excecao.message
+
+        return msg, ""
+
+    finally:
+        return False, ""
+
+    """
+
+def salvar_atividades(registro_contato,registro_entidade):
+    try:
+        for contato in registro_contato:
+            contato.entidade = registro_entidade
+            contato.save()
+        return True
+    except:
+        return False
+
+def salvar_contatos(registro_cnae,registro_entidade):
+    try:
+        for cnae in registro_cnae:
+            cnae.entidade = registro_entidade
+            cnae.save()
+        return True
+    except:
+        return False
+
+def serializar_contatos(dados):
+    resultado = ''
+    for item in dados:
+        resultado = resultado + str(item.id)+'|'+item.tipo_contato +'|'+item.numero+'|'+item.nome_contato+'|'+item.cargo_setor+'|'+item.email+'#'
+        #u'RESIDENCIAL|(27) 3043-0703|undefined|undefined#'
+        #print "serializar: ",item
+    return resultado
+
+def serializar_documentos(dados):
+    resultado = ''
+    for item in dados:
+
+        if item.vencimento == None:
+            vencimento = ""
+        else:
+            vencimento = str(item.vencimento.strftime('%d/%m/%Y'))
+
+        if item.notificar_cliente:
+            notificar_cliente = 'SIM'
+        else:
+            notificar_cliente = 'NAO'
+
+        registro = str(item.id) + '|' + item.tipo + '|' +item.nome + '|' + vencimento + "|"+ item.senha +'|'+notificar_cliente+'|'+str(item.prazo_notificar)+'#'
+        resultado = resultado + registro
+    return resultado
+
+def serializar_atividades(dados):
+    resultado = ''
+    #print "olha os cnaes: ",dados
+    for item in dados:
+        if item.desde == None:
+            desde = ""
+        else:
+            desde = str(item.desde.strftime('%d/%m/%Y'))
+
+        resultado = resultado + str(item.id)+'|'+item.atividade +'|'+desde+'#'
+        #u'RESIDENCIAL|(27) 3043-0703|undefined|undefined#'
+        #print "serializar: ",item
+    return resultado
+
+
+def verificar_erro(formulario):
+    msg = ""
+    for campo in formulario:
+        erros = campo.errors.as_data()
+
+        if erros != []:
+            erro = erros[0][0]
+
+            #print "olha o erro:", campo.label + " " + erro
+
+            if "Contatos: Precisa ser Informado!" in msg:
+                msg = "Erro! Pelo menos um contato deve ser informado."
+
+            else:
+                msg = campo.label + " " + erro
+
+            """if 'email' in erro:
+                msg = "Erro! " + unicode(erro)
+
+            elif 'data' in erro:
+                msg = "Erro! " + unicode(erro)
+
+            else:
+                msg = campo.label + " " + erro
+
+            print campo.label,"olha o err:",erro
+            msg = campo.label + " " + erro"""
+            return msg
+
 
 
 
@@ -702,7 +1165,7 @@ def consultar_cep(request,codigo_postal):
         resultado = Logradouro.objects.filter(cep=codigo_postal)
                
         if True: #resultado.count() == 0:
-            print "Nao achei na base de dados"
+            #print "Nao achei na base de dados"
             resultado = consultar_codigo_postal_viacep(codigo_postal)
             #return HttpResponse(resultado, content_type='application/json')
             #resultado = [resultado['logradouro'],resultado['bairro'],resultado['municipio'],resultado['estado'],resultado['codigo_municipio'],resultado['pais']]
@@ -742,16 +1205,12 @@ def consultar_cep(request,codigo_postal):
             """
             
         else:
-            print "Achei na base de dados"
             registro_endereco = resultado[0]
             registro_bairro = Bairro.objects.get(id=registro_endereco.bairro_id)
             registro_cidade = registro_bairro.municipio 
             registro_estado = registro_cidade.estado    
             resultado = [registro_endereco.nome,registro_bairro.nome,registro_cidade.nome,registro_estado.sigla,registro_cidade.codigo_ibge,registro_estado.pais.nome]
-            print "Deu certo: ",resultado
-        
-        
-        #print "Verfique o resultado: ",resultado
+
         data = json.dumps(resultado)
         return HttpResponse(data, content_type='application/json')
     
@@ -862,5 +1321,5 @@ def adicionar_entidade_antigo(request):
         
     return render_to_response("adicionar_entidade.html",{'dados':dados,'formulario':formulario},context_instance=RequestContext(request))
         
-    #return render_to_response("adicionar_entidade.html",{'formulario_entidade':formulario_entidade,'formulario_contato':formulario_contato},context_instance=RequestContext(request))   
+    #return render_to_response("adicionar_entidade.html",{'formulario_entidade':formulario_entidade,'formulario_contato':formulario_contato},context_instance=RequestContext(request))
         

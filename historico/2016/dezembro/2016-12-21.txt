@@ -1,0 +1,712 @@
+"C:\Program Files (x86)\JetBrains\PyCharm 2016.1.4\bin\runnerw.exe" C:\Python27\python.exe C:/Users/diego/OneDrive/Projetos/sistema_contabil/manage.py runserver localhost:8000
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 21, 2016 - 09:36:18
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[21/Dec/2016 09:36:26] "GET / HTTP/1.1" 200 14491
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+[21/Dec/2016 09:36:29] "GET /favicon.ico HTTP/1.1" 404 4672
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+[21/Dec/2016 09:36:29] "GET /favicon.ico HTTP/1.1" 404 4672
+Unhandled exception in thread started by <function wrapper at 0x039728F0>
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\utils\autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\django\core\management\commands\runserver.py", line 109, in inner_run
+    autoreload.raise_last_exception()
+  File "C:\Python27\lib\site-packages\django\utils\autoreload.py", line 249, in raise_last_exception
+    six.reraise(*_exception)
+  File "C:\Python27\lib\site-packages\django\utils\autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\django\__init__.py", line 18, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "C:\Python27\lib\site-packages\django\apps\registry.py", line 108, in populate
+    app_config.import_models(all_models)
+  File "C:\Python27\lib\site-packages\django\apps\config.py", line 202, in import_models
+    self.models_module = import_module(models_module_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\models.py", line 95
+    """ preenchimento automatico """
+    ^
+IndentationError: unexpected indent
+Unhandled exception in thread started by <function wrapper at 0x041C38F0>
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\utils\autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\django\core\management\commands\runserver.py", line 109, in inner_run
+    autoreload.raise_last_exception()
+  File "C:\Python27\lib\site-packages\django\utils\autoreload.py", line 249, in raise_last_exception
+    six.reraise(*_exception)
+  File "C:\Python27\lib\site-packages\django\utils\autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\django\__init__.py", line 18, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "C:\Python27\lib\site-packages\django\apps\registry.py", line 108, in populate
+    app_config.import_models(all_models)
+  File "C:\Python27\lib\site-packages\django\apps\config.py", line 202, in import_models
+    self.models_module = import_module(models_module_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\models.py", line 95
+    """ preenchimento automatico """
+    ^
+IndentationError: unexpected indent
+Unhandled exception in thread started by <function wrapper at 0x0400DC30>
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\utils\autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\django\core\management\commands\runserver.py", line 109, in inner_run
+    autoreload.raise_last_exception()
+  File "C:\Python27\lib\site-packages\django\utils\autoreload.py", line 249, in raise_last_exception
+    six.reraise(*_exception)
+  File "C:\Python27\lib\site-packages\django\utils\autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\django\__init__.py", line 18, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "C:\Python27\lib\site-packages\django\apps\registry.py", line 108, in populate
+    app_config.import_models(all_models)
+  File "C:\Python27\lib\site-packages\django\apps\config.py", line 202, in import_models
+    self.models_module = import_module(models_module_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\models.py", line 47, in <module>
+    class entidade(models.Model):
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\models.py", line 87, in entidade
+    supervisor   = models.ForeignKey(null=True,error_messages=MENSAGENS_ERROS)
+TypeError: __init__() takes at least 2 arguments (1 given)
+Unhandled exception in thread started by <function wrapper at 0x04804C30>
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\utils\autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\django\core\management\commands\runserver.py", line 109, in inner_run
+    autoreload.raise_last_exception()
+  File "C:\Python27\lib\site-packages\django\utils\autoreload.py", line 249, in raise_last_exception
+    six.reraise(*_exception)
+  File "C:\Python27\lib\site-packages\django\utils\autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\django\__init__.py", line 18, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "C:\Python27\lib\site-packages\django\apps\registry.py", line 108, in populate
+    app_config.import_models(all_models)
+  File "C:\Python27\lib\site-packages\django\apps\config.py", line 202, in import_models
+    self.models_module = import_module(models_module_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\models.py", line 47, in <module>
+    class entidade(models.Model):
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\models.py", line 87, in entidade
+    supervisor   = models.ForeignKey(entidade,null=True,error_messages=MENSAGENS_ERROS)
+NameError: name 'entidade' is not defined
+Performing system checks...
+
+Unhandled exception in thread started by <function wrapper at 0x04D1E2F0>
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\utils\autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\django\core\management\commands\runserver.py", line 116, in inner_run
+    self.check(display_num_errors=True)
+  File "C:\Python27\lib\site-packages\django\core\management\base.py", line 472, in check
+    raise SystemCheckError(msg)
+django.core.management.base.SystemCheckError: SystemCheckError: System check identified some issues:
+
+ERRORS:
+entidade.entidade.cosupervisor: (fields.E304) Reverse accessor for 'entidade.cosupervisor' clashes with reverse accessor for 'entidade.supervisor'.
+	HINT: Add or change a related_name argument to the definition for 'entidade.cosupervisor' or 'entidade.supervisor'.
+entidade.entidade.supervisor: (fields.E304) Reverse accessor for 'entidade.supervisor' clashes with reverse accessor for 'entidade.cosupervisor'.
+	HINT: Add or change a related_name argument to the definition for 'entidade.supervisor' or 'entidade.cosupervisor'.
+
+System check identified 2 issues (0 silenced).
+Performing system checks...
+
+Unhandled exception in thread started by <function wrapper at 0x0402E2F0>
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\utils\autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\django\core\management\commands\runserver.py", line 116, in inner_run
+    self.check(display_num_errors=True)
+  File "C:\Python27\lib\site-packages\django\core\management\base.py", line 472, in check
+    raise SystemCheckError(msg)
+django.core.management.base.SystemCheckError: SystemCheckError: System check identified some issues:
+
+ERRORS:
+entidade.entidade.responsavel_cliente: (fields.E304) Reverse accessor for 'entidade.responsavel_cliente' clashes with reverse accessor for 'entidade.supervisor_cliente'.
+	HINT: Add or change a related_name argument to the definition for 'entidade.responsavel_cliente' or 'entidade.supervisor_cliente'.
+entidade.entidade.supervisor_cliente: (fields.E304) Reverse accessor for 'entidade.supervisor_cliente' clashes with reverse accessor for 'entidade.responsavel_cliente'.
+	HINT: Add or change a related_name argument to the definition for 'entidade.supervisor_cliente' or 'entidade.responsavel_cliente'.
+
+System check identified 2 issues (0 silenced).
+Performing system checks...
+
+Unhandled exception in thread started by <function wrapper at 0x03F122F0>
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\utils\autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\django\core\management\commands\runserver.py", line 116, in inner_run
+    self.check(display_num_errors=True)
+  File "C:\Python27\lib\site-packages\django\core\management\base.py", line 472, in check
+    raise SystemCheckError(msg)
+django.core.management.base.SystemCheckError: SystemCheckError: System check identified some issues:
+
+ERRORS:
+entidade.entidade.responsavel_cliente: (fields.E304) Reverse accessor for 'entidade.responsavel_cliente' clashes with reverse accessor for 'entidade.supervisor_cliente'.
+	HINT: Add or change a related_name argument to the definition for 'entidade.responsavel_cliente' or 'entidade.supervisor_cliente'.
+entidade.entidade.responsavel_cliente: (fields.E305) Reverse query name for 'entidade.responsavel_cliente' clashes with reverse query name for 'entidade.supervisor_cliente'.
+	HINT: Add or change a related_name argument to the definition for 'entidade.responsavel_cliente' or 'entidade.supervisor_cliente'.
+entidade.entidade.supervisor_cliente: (fields.E304) Reverse accessor for 'entidade.supervisor_cliente' clashes with reverse accessor for 'entidade.responsavel_cliente'.
+	HINT: Add or change a related_name argument to the definition for 'entidade.supervisor_cliente' or 'entidade.responsavel_cliente'.
+entidade.entidade.supervisor_cliente: (fields.E305) Reverse query name for 'entidade.supervisor_cliente' clashes with reverse query name for 'entidade.responsavel_cliente'.
+	HINT: Add or change a related_name argument to the definition for 'entidade.supervisor_cliente' or 'entidade.responsavel_cliente'.
+
+System check identified 4 issues (0 silenced).
+Performing system checks...
+
+Unhandled exception in thread started by <function wrapper at 0x03CAA2F0>
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\utils\autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\django\core\management\commands\runserver.py", line 116, in inner_run
+    self.check(display_num_errors=True)
+  File "C:\Python27\lib\site-packages\django\core\management\base.py", line 472, in check
+    raise SystemCheckError(msg)
+django.core.management.base.SystemCheckError: SystemCheckError: System check identified some issues:
+
+ERRORS:
+entidade.entidade.responsavel_cliente: (fields.E302) Reverse accessor for 'entidade.responsavel_cliente' clashes with field name 'entidade.responsavel_cliente'.
+	HINT: Rename field 'entidade.responsavel_cliente', or add/change a related_name argument to the definition for field 'entidade.responsavel_cliente'.
+entidade.entidade.responsavel_cliente: (fields.E303) Reverse query name for 'entidade.responsavel_cliente' clashes with field name 'entidade.responsavel_cliente'.
+	HINT: Rename field 'entidade.responsavel_cliente', or add/change a related_name argument to the definition for field 'entidade.responsavel_cliente'.
+entidade.entidade.supervisor_cliente: (fields.E302) Reverse accessor for 'entidade.supervisor_cliente' clashes with field name 'entidade.supervisor_cliente'.
+	HINT: Rename field 'entidade.supervisor_cliente', or add/change a related_name argument to the definition for field 'entidade.supervisor_cliente'.
+entidade.entidade.supervisor_cliente: (fields.E303) Reverse query name for 'entidade.supervisor_cliente' clashes with field name 'entidade.supervisor_cliente'.
+	HINT: Rename field 'entidade.supervisor_cliente', or add/change a related_name argument to the definition for field 'entidade.supervisor_cliente'.
+
+System check identified 4 issues (0 silenced).
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 21, 2016 - 10:07:13
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 21, 2016 - 10:09:12
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 21, 2016 - 10:38:22
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 21, 2016 - 10:39:06
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[21/Dec/2016 10:40:02] "GET /entidade/adicionar/ HTTP/1.1" 200 271195
+[21/Dec/2016 10:40:04] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+Not Found: /consultar_cep/________
+Not Found: /consultar_cep/________
+[21/Dec/2016 10:41:33] "GET /consultar_cep/________ HTTP/1.1" 404 4705
+[21/Dec/2016 10:41:41] "GET /consultar_cep/29151260 HTTP/1.1" 301 0
+Nao achei na base de dados
+[21/Dec/2016 10:41:44] "GET /consultar_cep/29151260/ HTTP/1.1" 200 89
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 21, 2016 - 10:43:29
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 21, 2016 - 10:43:49
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 21, 2016 - 10:44:19
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 21, 2016 - 10:44:47
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[21/Dec/2016 10:44:49] "GET /entidade/adicionar/ HTTP/1.1" 200 271381
+Nao achei na base de dados
+[21/Dec/2016 10:46:00] "GET /consultar_cep/29151260/ HTTP/1.1" 200 89
+SALVANDO DADOS VEJA:
+<QueryDict: {u'nome_razao': [u'bruno pasti'], u'complemento': [u'casa'], u'notificacao_envio': [u'S'], u'supervisor_cliente': [u'2'], u'csrfmiddlewaretoken': [u'5V5NFkzRFUzFiwgjWzYxSREL7gpegKDJ'], u'atividade_economica': [u''], u'notificacao_responsavel': [u'BRUNO'], u'codigo_municipio': [u'3201308'], u'contatos': [u'+|CELULAR|(27) 99988-1254|undefined|PARTICULAR|brpasti@gmail.com#'], u'bairro': [u'ALTO LAJE'], u'observacoes': [u'CLIENTE ESPECIAL'], u'numero_endereco': [u'60'], u'cpf_cnpj': [u'12859855750'], u'cep': [u'29151260'], u'pais': [u'BRASIL'], u'nascimento_fundacao': [u'16/01/1991'], u'documentos': [u'+|ALVAR\xc1|ALVAR\xc1 DE FUNCIONAMENTO E LOCALIZA\xc7\xc3O|15/03/2018|#', u''], u'estado': [u'ES'], u'municipio': [u'CARIACICA'], u'apelido_fantasia': [u'bruno'], u'endereco': [u'RUA DEM\xd3STENES NUNES VIEIRA'], u'responsavel_cliente': [u'1'], u'notificacao_email': [u'brpasti@gmail.com']}>
+OLHA OS CAMPOS NA HORA DE CONSTRUIR O CONTATO: [u'+', u'CELULAR', u'(27) 99988-1254', u'', u'PARTICULAR', u'brpasti@gmail.com']
+Olha os documentos:  []
+Erro! Excecao: Erro! Exceção:UNIQUE constraint failed: entidade_entidade.cpf_cnpj
+[21/Dec/2016 10:47:05] "POST /entidade/adicionar/ HTTP/1.1" 200 272203
+SALVANDO DADOS VEJA:
+<QueryDict: {u'nome_razao': [u'bruno pasti'], u'complemento': [u'casa'], u'notificacao_envio': [u'S'], u'supervisor_cliente': [u'2'], u'csrfmiddlewaretoken': [u'5V5NFkzRFUzFiwgjWzYxSREL7gpegKDJ'], u'atividade_economica': [u''], u'notificacao_responsavel': [u'BRUNO'], u'codigo_municipio': [u'3201308'], u'contatos': [u'+|CELULAR|(27) 99988-1254|undefined|PARTICULAR|brpasti@gmail.com#'], u'bairro': [u'ALTO LAJE'], u'observacoes': [u'CLIENTE ESPECIAL'], u'numero_endereco': [u'60'], u'cpf_cnpj': [u'12859855759'], u'cep': [u'29151260'], u'pais': [u'BRASIL'], u'nascimento_fundacao': [u'16/01/1991'], u'documentos': [u'+|ALVAR\xc1|ALVAR\xc1 DE FUNCIONAMENTO E LOCALIZA\xc7\xc3O|15/03/2020|#', u''], u'estado': [u'ES'], u'municipio': [u'CARIACICA'], u'apelido_fantasia': [u'bruno'], u'endereco': [u'RUA DEM\xd3STENES NUNES VIEIRA'], u'responsavel_cliente': [u'1'], u'notificacao_email': [u'brpasti@gmail.com']}>
+OLHA OS CAMPOS NA HORA DE CONSTRUIR O CONTATO: [u'+', u'CELULAR', u'(27) 99988-1254', u'', u'PARTICULAR', u'brpasti@gmail.com']
+Olha os documentos:  []
+[21/Dec/2016 11:02:14] "POST /entidade/adicionar/ HTTP/1.1" 302 0
+[21/Dec/2016 11:02:14] "GET /entidade/cadastro HTTP/1.1" 301 0
+[21/Dec/2016 11:02:14] "GET /entidade/cadastro/ HTTP/1.1" 200 34417
+[21/Dec/2016 11:02:14] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[21/Dec/2016 11:02:15] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[21/Dec/2016 11:02:15] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[21/Dec/2016 11:02:15] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 21, 2016 - 11:04:51
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[21/Dec/2016 11:04:55] "GET /entidade/adicionar/ HTTP/1.1" 200 271381
+Nao achei na base de dados
+[21/Dec/2016 11:05:20] "GET /consultar_cep/29151260/ HTTP/1.1" 200 89
+SALVANDO DADOS VEJA:
+<QueryDict: {u'nome_razao': [u'helder pasti'], u'complemento': [u'casa'], u'notificacao_envio': [u'N'], u'supervisor_cliente': [u'2'], u'csrfmiddlewaretoken': [u'5V5NFkzRFUzFiwgjWzYxSREL7gpegKDJ'], u'atividade_economica': [u''], u'notificacao_responsavel': [u'HELDER'], u'codigo_municipio': [u'3201308'], u'contatos': [u'+|CELULAR|(27) 99223-0428|undefined|PARTICULAR|helderpasti@gmail.com#'], u'bairro': [u'ALTO LAJE'], u'observacoes': [u'cliente prospectado na conferencia de empresas de saude.'], u'numero_endereco': [u'60'], u'cpf_cnpj': [u'12859854533'], u'cep': [u'29151260'], u'pais': [u'BRASIL'], u'nascimento_fundacao': [u'30/03/1959'], u'documentos': [u'+|ALVAR\xc1|ALVAR\xc1 DE FUNCIONAMENTO E LOCALIZA\xc7\xc3O|22/08/2018|#', u''], u'estado': [u'ES'], u'municipio': [u'CARIACICA'], u'apelido_fantasia': [u'helder'], u'endereco': [u'RUA DEM\xd3STENES NUNES VIEIRA'], u'responsavel_cliente': [u'1'], u'notificacao_email': [u'helderpasti@gmail.com']}>
+OLHA OS CAMPOS NA HORA DE CONSTRUIR O CONTATO: [u'+', u'CELULAR', u'(27) 99223-0428', u'', u'PARTICULAR', u'helderpasti@gmail.com']
+Olha os documentos:  []
+[21/Dec/2016 11:07:41] "POST /entidade/adicionar/ HTTP/1.1" 302 0
+[21/Dec/2016 11:07:42] "GET /entidade/cadastro HTTP/1.1" 301 0
+[21/Dec/2016 11:07:42] "GET /entidade/cadastro/ HTTP/1.1" 200 35081
+[21/Dec/2016 11:07:42] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[21/Dec/2016 11:07:42] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[21/Dec/2016 11:07:42] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[21/Dec/2016 11:07:42] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 21, 2016 - 11:09:51
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 21, 2016 - 11:10:10
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[21/Dec/2016 11:10:12] "GET /entidade/adicionar/ HTTP/1.1" 200 271381
+[21/Dec/2016 11:10:54] "GET /consultar_cep/29210200 HTTP/1.1" 301 0
+Nao achei na base de dados
+[21/Dec/2016 11:10:55] "GET /consultar_cep/29210200/ HTTP/1.1" 200 79
+SALVANDO DADOS VEJA:
+<QueryDict: {u'nome_razao': [u'cesar cunha'], u'complemento': [u'casa'], u'notificacao_envio': [u'N'], u'supervisor_cliente': [u'2'], u'csrfmiddlewaretoken': [u'5V5NFkzRFUzFiwgjWzYxSREL7gpegKDJ'], u'atividade_economica': [u''], u'notificacao_responsavel': [u'CESAR'], u'codigo_municipio': [u'3202405'], u'contatos': [u'+|CELULAR|(27) 99943-1534|undefined|PARTICULAR|cesarcunha@gmail.com#'], u'bairro': [u'ITAPEBUSSU'], u'observacoes': [u'cliente indicado pelo helder pasti'], u'numero_endereco': [u'224'], u'cpf_cnpj': [u'11111111111'], u'cep': [u'29210200'], u'pais': [u'BRASIL'], u'nascimento_fundacao': [u'18/11/1965'], u'documentos': [u'+|ALVAR\xc1|ALVAR\xc1 AMBIENTAL|30/12/2016|#', u''], u'estado': [u'ES'], u'municipio': [u'GUARAPARI'], u'apelido_fantasia': [u'cesar'], u'endereco': [u'AVENIDA ANIZ HOMAIDAN'], u'responsavel_cliente': [u'1'], u'notificacao_email': [u'cesarcunha@gmail.com']}>
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 838, in adicionar_entidade
+    registro_entidade    = formulario.get_entidade(formulario)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\formularios.py", line 242, in get_object_entidade
+    registro.responsavel_cliente = formulario.cleaned_data['responsavel_cliente']
+  File "C:\Python27\lib\site-packages\django\db\models\fields\related_descriptors.py", line 207, in __set__
+    self.field.remote_field.model._meta.object_name,
+ValueError: Cannot assign "u'1'": "entidade.responsavel_cliente" must be a "entidade" instance.
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 838, in adicionar_entidade
+    registro_entidade    = formulario.get_entidade(formulario)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\formularios.py", line 242, in get_object_entidade
+    registro.responsavel_cliente = formulario.cleaned_data['responsavel_cliente']
+  File "C:\Python27\lib\site-packages\django\db\models\fields\related_descriptors.py", line 207, in __set__
+    self.field.remote_field.model._meta.object_name,
+ValueError: Cannot assign "u'1'": "entidade.responsavel_cliente" must be a "entidade" instance.
+[21/Dec/2016 11:13:39] "POST /entidade/adicionar/ HTTP/1.1" 500 78533
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 21, 2016 - 11:14:56
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 21, 2016 - 11:15:17
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[21/Dec/2016 11:18:23] "GET /entidade/adicionar/ HTTP/1.1" 200 271381
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 21, 2016 - 11:28:09
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+SALVANDO DADOS VEJA:
+<QueryDict: {u'nome_razao': [u'cesar cunha'], u'complemento': [u'casa'], u'notificacao_envio': [u'N'], u'supervisor_cliente': [u'2'], u'csrfmiddlewaretoken': [u'5V5NFkzRFUzFiwgjWzYxSREL7gpegKDJ'], u'atividade_economica': [u''], u'notificacao_responsavel': [u'CESAR'], u'codigo_municipio': [u'3202405'], u'contatos': [u'+|CELULAR|(27) 99943-1534|undefined|PARTICULAR|cesarcunha@gmail.com#'], u'bairro': [u'ITAPEBUSSU'], u'observacoes': [u'cliente indicado pelo helder pasti'], u'numero_endereco': [u'224'], u'cpf_cnpj': [u'11111111111'], u'cep': [u'29210200'], u'pais': [u'BRASIL'], u'nascimento_fundacao': [u'18/11/1965'], u'documentos': [u'+|ALVAR\xc1|ALVAR\xc1 AMBIENTAL|30/12/2016|#', u''], u'estado': [u'ES'], u'municipio': [u'GUARAPARI'], u'apelido_fantasia': [u'cesar'], u'endereco': [u'AVENIDA ANIZ HOMAIDAN'], u'responsavel_cliente': [u'1'], u'notificacao_email': [u'cesarcunha@gmail.com']}>
+olha oque veio como responsavel do cliente:  1
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 838, in adicionar_entidade
+    registro_entidade    = formulario.get_entidade(formulario)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\formularios.py", line 246, in get_object_entidade
+    registro.supervisor_cliente  = formulario.cleaned_data['supervisor_cliente']
+  File "C:\Python27\lib\site-packages\django\db\models\fields\related_descriptors.py", line 207, in __set__
+    self.field.remote_field.model._meta.object_name,
+ValueError: Cannot assign "u'2'": "entidade.supervisor_cliente" must be a "entidade" instance.
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 838, in adicionar_entidade
+    registro_entidade    = formulario.get_entidade(formulario)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\formularios.py", line 246, in get_object_entidade
+    registro.supervisor_cliente  = formulario.cleaned_data['supervisor_cliente']
+  File "C:\Python27\lib\site-packages\django\db\models\fields\related_descriptors.py", line 207, in __set__
+    self.field.remote_field.model._meta.object_name,
+ValueError: Cannot assign "u'2'": "entidade.supervisor_cliente" must be a "entidade" instance.
+[21/Dec/2016 11:28:14] "POST /entidade/adicionar/ HTTP/1.1" 500 78739
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 21, 2016 - 11:28:53
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+SALVANDO DADOS VEJA:
+<QueryDict: {u'nome_razao': [u'cesar cunha'], u'complemento': [u'casa'], u'notificacao_envio': [u'N'], u'supervisor_cliente': [u'2'], u'csrfmiddlewaretoken': [u'5V5NFkzRFUzFiwgjWzYxSREL7gpegKDJ'], u'atividade_economica': [u''], u'notificacao_responsavel': [u'CESAR'], u'codigo_municipio': [u'3202405'], u'contatos': [u'+|CELULAR|(27) 99943-1534|undefined|PARTICULAR|cesarcunha@gmail.com#'], u'bairro': [u'ITAPEBUSSU'], u'observacoes': [u'cliente indicado pelo helder pasti'], u'numero_endereco': [u'224'], u'cpf_cnpj': [u'11111111111'], u'cep': [u'29210200'], u'pais': [u'BRASIL'], u'nascimento_fundacao': [u'18/11/1965'], u'documentos': [u'+|ALVAR\xc1|ALVAR\xc1 AMBIENTAL|30/12/2016|#', u''], u'estado': [u'ES'], u'municipio': [u'GUARAPARI'], u'apelido_fantasia': [u'cesar'], u'endereco': [u'AVENIDA ANIZ HOMAIDAN'], u'responsavel_cliente': [u'1'], u'notificacao_email': [u'cesarcunha@gmail.com']}>
+olha oque veio como responsavel do cliente:  1
+olha o responvavel:  DIGITAR ASSESSORIA CONTABIL LTDA ME
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 838, in adicionar_entidade
+    registro_entidade    = formulario.get_entidade(formulario)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\formularios.py", line 247, in get_object_entidade
+    registro.supervisor_cliente  = formulario.cleaned_data['supervisor_cliente']
+  File "C:\Python27\lib\site-packages\django\db\models\fields\related_descriptors.py", line 207, in __set__
+    self.field.remote_field.model._meta.object_name,
+ValueError: Cannot assign "u'2'": "entidade.supervisor_cliente" must be a "entidade" instance.
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 838, in adicionar_entidade
+    registro_entidade    = formulario.get_entidade(formulario)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\formularios.py", line 247, in get_object_entidade
+    registro.supervisor_cliente  = formulario.cleaned_data['supervisor_cliente']
+  File "C:\Python27\lib\site-packages\django\db\models\fields\related_descriptors.py", line 207, in __set__
+    self.field.remote_field.model._meta.object_name,
+ValueError: Cannot assign "u'2'": "entidade.supervisor_cliente" must be a "entidade" instance.
+[21/Dec/2016 11:28:55] "POST /entidade/adicionar/ HTTP/1.1" 500 78724
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 21, 2016 - 11:29:53
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 21, 2016 - 11:30:37
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+SALVANDO DADOS VEJA:
+<QueryDict: {u'nome_razao': [u'cesar cunha'], u'complemento': [u'casa'], u'notificacao_envio': [u'N'], u'supervisor_cliente': [u'2'], u'csrfmiddlewaretoken': [u'5V5NFkzRFUzFiwgjWzYxSREL7gpegKDJ'], u'atividade_economica': [u''], u'notificacao_responsavel': [u'CESAR'], u'codigo_municipio': [u'3202405'], u'contatos': [u'+|CELULAR|(27) 99943-1534|undefined|PARTICULAR|cesarcunha@gmail.com#'], u'bairro': [u'ITAPEBUSSU'], u'observacoes': [u'cliente indicado pelo helder pasti'], u'numero_endereco': [u'224'], u'cpf_cnpj': [u'11111111111'], u'cep': [u'29210200'], u'pais': [u'BRASIL'], u'nascimento_fundacao': [u'18/11/1965'], u'documentos': [u'+|ALVAR\xc1|ALVAR\xc1 AMBIENTAL|30/12/2016|#', u''], u'estado': [u'ES'], u'municipio': [u'GUARAPARI'], u'apelido_fantasia': [u'cesar'], u'endereco': [u'AVENIDA ANIZ HOMAIDAN'], u'responsavel_cliente': [u'1'], u'notificacao_email': [u'cesarcunha@gmail.com']}>
+OLHA OS CAMPOS NA HORA DE CONSTRUIR O CONTATO: [u'+', u'CELULAR', u'(27) 99943-1534', u'', u'PARTICULAR', u'cesarcunha@gmail.com']
+Olha os documentos:  []
+OLHA O SUPERVISOR:  DIEGO PASTI
+[21/Dec/2016 11:30:43] "POST /entidade/adicionar/ HTTP/1.1" 302 0
+[21/Dec/2016 11:30:43] "GET /entidade/cadastro HTTP/1.1" 301 0
+[21/Dec/2016 11:30:43] "GET /entidade/cadastro/ HTTP/1.1" 200 35743
+[21/Dec/2016 11:30:43] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[21/Dec/2016 11:30:43] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[21/Dec/2016 11:30:43] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[21/Dec/2016 11:30:43] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[21/Dec/2016 11:30:43] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[21/Dec/2016 11:30:43] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[21/Dec/2016 11:30:43] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[21/Dec/2016 11:30:43] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[21/Dec/2016 11:30:43] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[21/Dec/2016 11:30:43] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[21/Dec/2016 11:30:44] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[21/Dec/2016 11:30:44] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[21/Dec/2016 11:30:44] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[21/Dec/2016 11:30:44] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[21/Dec/2016 11:30:44] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[21/Dec/2016 11:30:44] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[21/Dec/2016 11:30:44] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[21/Dec/2016 11:30:44] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[21/Dec/2016 11:30:44] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[21/Dec/2016 11:30:44] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[21/Dec/2016 11:30:44] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[21/Dec/2016 11:30:44] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[21/Dec/2016 11:30:44] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[21/Dec/2016 11:30:49] "GET /entidade/visualizar/5 HTTP/1.1" 301 0
+[21/Dec/2016 11:30:49] "GET /entidade/visualizar/5/ HTTP/1.1" 200 271975
+olha: 23/05/1996
+olha: 23/05/1996
+olha: 15/03/2020
+OLHA O REGISTRO: 1|ALVARÁ|ALVARÁ DE FUNCIONAMENTO E LOCALIZAÇÃO|15/03/2020|#
+olha: 31/07/2017
+OLHA O REGISTRO: 2|ALVARÁ|ALVARÁ VIGILÂNCIA SANITÁRIA|31/07/2017|#
+olha: 14/12/2016
+OLHA O REGISTRO: 3|ALVARÁ|ALVARÁ DOS BOMBEIROS|14/12/2016|#
+[21/Dec/2016 11:33:06] "GET /entidade/visualizar/3/ HTTP/1.1" 200 273568
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 21, 2016 - 11:47:49
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 21, 2016 - 12:01:40
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 21, 2016 - 12:10:22
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[21/Dec/2016 12:13:56] "GET /entidade/visualizar/5/ HTTP/1.1" 200 271975
+[21/Dec/2016 12:13:56] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:13:56] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[21/Dec/2016 12:13:56] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:13:56] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:13:56] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:13:56] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:13:56] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:13:56] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:13:56] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:13:56] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:13:56] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:13:56] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:13:57] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:13:57] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[21/Dec/2016 12:13:57] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:13:57] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:13:57] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[21/Dec/2016 12:13:57] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[21/Dec/2016 12:13:57] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:13:57] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:13:57] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[21/Dec/2016 12:13:57] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[21/Dec/2016 12:13:57] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[21/Dec/2016 12:13:57] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[21/Dec/2016 12:15:16] "POST /entidade/visualizar/5/ HTTP/1.1" 302 0
+Nao tem documentos pra monitorar
+[21/Dec/2016 12:15:16] "GET /entidade/cadastro HTTP/1.1" 301 0
+[21/Dec/2016 12:15:16] "GET /entidade/cadastro/ HTTP/1.1" 200 36138
+[21/Dec/2016 12:15:16] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[21/Dec/2016 12:15:16] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[21/Dec/2016 12:15:16] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[21/Dec/2016 12:15:20] "GET /entidade/visualizar/5/ HTTP/1.1" 200 271975
+[21/Dec/2016 12:15:29] "POST /entidade/visualizar/5/ HTTP/1.1" 302 0
+Nao tem documentos pra monitorar
+[21/Dec/2016 12:15:30] "GET /entidade/cadastro HTTP/1.1" 301 0
+[21/Dec/2016 12:15:30] "GET /entidade/cadastro/ HTTP/1.1" 200 36138
+[21/Dec/2016 12:15:30] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[21/Dec/2016 12:15:30] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[21/Dec/2016 12:15:30] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[21/Dec/2016 12:15:30] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[21/Dec/2016 12:15:33] "GET /entidade/visualizar/5/ HTTP/1.1" 200 271975
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 21, 2016 - 12:16:46
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[21/Dec/2016 12:16:49] "GET /entidade/visualizar/5/ HTTP/1.1" 200 271955
+[21/Dec/2016 12:16:49] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:16:49] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[21/Dec/2016 12:16:49] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:16:49] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:16:49] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:16:49] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:16:49] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:16:49] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:16:49] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:16:49] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:16:49] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:16:49] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:16:50] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:16:50] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[21/Dec/2016 12:16:50] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:16:50] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:16:50] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[21/Dec/2016 12:16:50] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[21/Dec/2016 12:16:50] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:16:50] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:16:50] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[21/Dec/2016 12:16:50] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[21/Dec/2016 12:16:50] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[21/Dec/2016 12:16:50] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 21, 2016 - 12:17:47
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+OLHA O ENVIO:  N
+[21/Dec/2016 12:18:03] "GET /entidade/visualizar/5/ HTTP/1.1" 200 271975
+[21/Dec/2016 12:18:03] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:18:03] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:18:03] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:18:03] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[21/Dec/2016 12:18:03] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:18:03] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:18:04] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:18:04] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:18:04] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:18:04] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:18:04] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:18:04] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:18:04] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:18:04] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[21/Dec/2016 12:18:04] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:18:04] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:18:04] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[21/Dec/2016 12:18:04] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[21/Dec/2016 12:18:04] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:18:04] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:18:04] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[21/Dec/2016 12:18:04] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[21/Dec/2016 12:18:04] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[21/Dec/2016 12:18:04] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+OLHA O ENVIO:  S
+[21/Dec/2016 12:18:31] "GET /entidade/visualizar/5/ HTTP/1.1" 200 271975
+[21/Dec/2016 12:18:31] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:18:31] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:18:31] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:18:31] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:18:31] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[21/Dec/2016 12:18:31] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:18:32] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:18:32] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:18:32] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:18:32] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:18:32] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:18:32] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:18:32] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[21/Dec/2016 12:18:32] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:18:32] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:18:32] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:18:32] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[21/Dec/2016 12:18:32] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[21/Dec/2016 12:18:32] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:18:32] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:18:32] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[21/Dec/2016 12:18:32] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[21/Dec/2016 12:18:32] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[21/Dec/2016 12:18:32] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 21, 2016 - 12:19:01
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[21/Dec/2016 12:19:03] "GET /entidade/visualizar/5/ HTTP/1.1" 200 271975
+[21/Dec/2016 12:19:03] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:19:03] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:19:03] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:19:03] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:19:03] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[21/Dec/2016 12:19:03] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:19:04] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:19:04] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:19:04] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:19:04] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:19:04] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:19:04] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:19:04] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:19:04] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[21/Dec/2016 12:19:04] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:19:04] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:19:04] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[21/Dec/2016 12:19:04] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[21/Dec/2016 12:19:04] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:19:04] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:19:04] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[21/Dec/2016 12:19:04] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[21/Dec/2016 12:19:04] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[21/Dec/2016 12:19:04] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 21, 2016 - 12:19:59
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[21/Dec/2016 12:19:59] "GET /entidade/visualizar/5/ HTTP/1.1" 200 271995
+[21/Dec/2016 12:19:59] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:19:59] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:19:59] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:19:59] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:19:59] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[21/Dec/2016 12:19:59] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:20:00] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:20:00] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:20:00] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:20:00] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:20:00] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:20:00] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:20:00] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:20:00] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[21/Dec/2016 12:20:00] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[21/Dec/2016 12:20:00] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:20:00] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[21/Dec/2016 12:20:00] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[21/Dec/2016 12:20:00] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:20:01] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[21/Dec/2016 12:20:01] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[21/Dec/2016 12:20:01] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[21/Dec/2016 12:20:01] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[21/Dec/2016 12:20:01] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 21, 2016 - 12:21:15
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.

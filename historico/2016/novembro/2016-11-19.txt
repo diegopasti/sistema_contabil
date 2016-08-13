@@ -1,0 +1,736 @@
+"C:\Program Files (x86)\JetBrains\PyCharm 2016.1.4\bin\runnerw.exe" C:\Python27\python.exe C:/Users/diego/OneDrive/Projetos/sistema_contabil/manage.py runserver localhost:8000
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 19, 2016 - 02:28:55
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[19/Nov/2016 02:28:59] "GET / HTTP/1.1" 200 14491
+[19/Nov/2016 02:29:01] "GET /arquivos_estaticos/icones/fonts/fontawesome-webfont.woff2?v=4.3.0 HTTP/1.1" 200 56780
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+[19/Nov/2016 02:29:01] "GET /favicon.ico HTTP/1.1" 404 4672
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+[19/Nov/2016 02:29:01] "GET /favicon.ico HTTP/1.1" 404 4672
+[19/Nov/2016 02:29:18] "GET /entidade/cadastro/ HTTP/1.1" 200 33725
+[19/Nov/2016 02:29:18] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 02:29:18] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 02:29:19] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[19/Nov/2016 02:29:19] "GET /arquivos_estaticos/bootstrap/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18028
+[19/Nov/2016 02:29:19] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 02:29:19] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 02:29:30] "GET /entidade/desativar/2?OI HTTP/1.1" 301 0
+Internal Server Error: /entidade/desativar/2/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: desativar_cliente() got an unexpected keyword argument 'cliente'
+Internal Server Error: /entidade/desativar/2/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: desativar_cliente() got an unexpected keyword argument 'cliente'
+[19/Nov/2016 02:29:30] "GET /entidade/desativar/2/?OI HTTP/1.1" 500 14375
+[19/Nov/2016 02:30:06] "GET /entidade/cadastro/ HTTP/1.1" 200 33725
+[19/Nov/2016 02:30:06] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 02:30:06] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 02:30:07] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 02:30:07] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 19, 2016 - 02:30:06
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Internal Server Error: /entidade/desativar/2/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: desativar_cliente() got an unexpected keyword argument 'cliente'
+Internal Server Error: /entidade/desativar/2/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: desativar_cliente() got an unexpected keyword argument 'cliente'
+[19/Nov/2016 02:30:10] "GET /entidade/desativar/2/?OI HTTP/1.1" 500 14375
+Unhandled exception in thread started by <function wrapper at 0x04A95330>
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\utils\autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\django\core\management\commands\runserver.py", line 137, in inner_run
+    ipv6=self.use_ipv6, threading=threading)
+  File "C:\Python27\lib\site-packages\django\core\servers\basehttp.py", line 198, in run
+    httpd.serve_forever()
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 19, 2016 - 02:30:42
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[19/Nov/2016 02:30:58] "GET /entidade/cadastro/ HTTP/1.1" 200 33725
+[19/Nov/2016 02:30:58] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[19/Nov/2016 02:30:58] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[19/Nov/2016 02:30:58] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[19/Nov/2016 02:30:58] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[19/Nov/2016 02:30:58] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[19/Nov/2016 02:30:58] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[19/Nov/2016 02:30:58] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[19/Nov/2016 02:30:58] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[19/Nov/2016 02:30:58] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[19/Nov/2016 02:30:58] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[19/Nov/2016 02:30:58] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[19/Nov/2016 02:30:59] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[19/Nov/2016 02:30:59] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[19/Nov/2016 02:30:59] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[19/Nov/2016 02:30:59] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[19/Nov/2016 02:30:59] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[19/Nov/2016 02:30:59] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[19/Nov/2016 02:30:59] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 02:30:59] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 02:30:59] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[19/Nov/2016 02:30:59] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+cheguei no ajax carai! <WSGIRequest: GET '/entidade/desativar/2/?OI'>
+Hora de tentar excluir essa parada
+Internal Server Error: /entidade/desativar/2/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 158, in get_response
+    % (callback.__module__, view_name))
+ValueError: The view entidade.views.desativar_cliente didn't return an HttpResponse object. It returned None instead.
+Internal Server Error: /entidade/desativar/2/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 158, in get_response
+    % (callback.__module__, view_name))
+ValueError: The view entidade.views.desativar_cliente didn't return an HttpResponse object. It returned None instead.
+[19/Nov/2016 02:31:02] "GET /entidade/desativar/2/?OI HTTP/1.1" 500 14266
+[19/Nov/2016 02:32:09] "GET /entidade/cadastro/ HTTP/1.1" 200 33726
+[19/Nov/2016 02:32:09] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 02:32:09] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 02:32:10] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 02:32:10] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+Internal Server Error: /entidade/desativar/2
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 123, in get_response
+    response = middleware_method(request)
+  File "C:\Python27\lib\site-packages\django\middleware\common.py", line 62, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "C:\Python27\lib\site-packages\django\middleware\common.py", line 100, in get_full_path_with_slash
+    'url': request.get_host() + new_path,
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/entidade/desativar/2/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+Internal Server Error: /entidade/desativar/2
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 123, in get_response
+    response = middleware_method(request)
+  File "C:\Python27\lib\site-packages\django\middleware\common.py", line 62, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "C:\Python27\lib\site-packages\django\middleware\common.py", line 100, in get_full_path_with_slash
+    'url': request.get_host() + new_path,
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/entidade/desativar/2/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+[19/Nov/2016 02:32:14] "POST /entidade/desativar/2 HTTP/1.1" 500 14948
+[19/Nov/2016 02:33:47] "GET /entidade/cadastro/ HTTP/1.1" 200 33765
+[19/Nov/2016 02:33:48] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 02:33:48] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 02:33:48] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 02:33:52] "GET /entidade/desativar/2?teste HTTP/1.1" 301 0
+cheguei no ajax carai! <WSGIRequest: GET '/entidade/desativar/2/?teste'>
+Hora de tentar excluir essa parada
+Internal Server Error: /entidade/desativar/2/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 158, in get_response
+    % (callback.__module__, view_name))
+ValueError: The view entidade.views.desativar_cliente didn't return an HttpResponse object. It returned None instead.
+Internal Server Error: /entidade/desativar/2/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 158, in get_response
+    % (callback.__module__, view_name))
+ValueError: The view entidade.views.desativar_cliente didn't return an HttpResponse object. It returned None instead.
+[19/Nov/2016 02:33:52] "GET /entidade/desativar/2/?teste HTTP/1.1" 500 14275
+[19/Nov/2016 02:40:15] "GET /entidade/cadastro/ HTTP/1.1" 200 33822
+[19/Nov/2016 02:40:15] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 02:40:15] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 02:40:16] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 02:40:16] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+olha o cliente:  DIEGO PASTI
+[19/Nov/2016 02:40:36] "POST /entidade/cadastro/ HTTP/1.1" 200 34220
+[19/Nov/2016 02:40:36] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 02:40:36] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 02:40:36] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 02:40:36] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 19, 2016 - 02:41:32
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[19/Nov/2016 02:41:32] "GET /entidade/cadastro/ HTTP/1.1" 200 33822
+[19/Nov/2016 02:41:32] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 02:41:32] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 02:41:33] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 02:41:33] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+olha o cliente:  DIEGO PASTI
+[19/Nov/2016 02:41:50] "POST /entidade/cadastro/ HTTP/1.1" 200 34220
+[19/Nov/2016 02:41:50] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 02:41:50] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 02:41:51] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 02:41:51] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 02:43:51] "GET /entidade/cadastro/ HTTP/1.1" 200 33699
+[19/Nov/2016 02:43:52] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 02:43:52] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 02:43:52] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 02:43:52] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 02:44:43] "GET /entidade/cadastro/ HTTP/1.1" 200 33722
+[19/Nov/2016 02:44:43] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 02:44:43] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 02:44:44] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 02:44:44] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 02:46:10] "GET /entidade/cadastro/ HTTP/1.1" 200 33512
+[19/Nov/2016 02:46:10] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 02:46:10] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 02:46:11] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 02:46:11] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 02:47:29] "GET /entidade/cadastro/ HTTP/1.1" 200 33754
+[19/Nov/2016 02:47:29] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 02:47:29] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 02:47:30] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 02:47:30] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 02:49:14] "GET /entidade/cadastro/ HTTP/1.1" 200 33793
+[19/Nov/2016 02:49:14] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 02:49:14] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 02:49:15] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 02:49:16] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 02:51:24] "GET /entidade/cadastro/ HTTP/1.1" 200 33795
+[19/Nov/2016 02:51:24] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 02:51:24] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 02:51:25] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 02:51:25] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 02:51:53] "GET /entidade/cadastro/ HTTP/1.1" 200 33804
+[19/Nov/2016 02:51:53] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 02:51:53] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 02:51:53] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 02:51:54] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 02:52:34] "GET /entidade/cadastro/ HTTP/1.1" 200 33803
+[19/Nov/2016 02:52:34] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 02:52:34] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 02:52:35] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 02:52:35] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 02:53:37] "GET /entidade/cadastro/ HTTP/1.1" 200 33821
+[19/Nov/2016 02:53:37] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[19/Nov/2016 02:53:37] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[19/Nov/2016 02:53:38] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[19/Nov/2016 02:53:38] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[19/Nov/2016 02:53:38] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[19/Nov/2016 02:53:38] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[19/Nov/2016 02:53:38] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[19/Nov/2016 02:53:38] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[19/Nov/2016 02:53:39] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[19/Nov/2016 02:53:39] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[19/Nov/2016 02:53:39] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[19/Nov/2016 02:53:39] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[19/Nov/2016 02:53:39] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[19/Nov/2016 02:53:39] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[19/Nov/2016 02:53:39] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[19/Nov/2016 02:53:39] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[19/Nov/2016 02:53:39] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[19/Nov/2016 02:53:39] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 02:53:39] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 02:53:39] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[19/Nov/2016 02:53:39] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[19/Nov/2016 02:53:40] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 02:53:40] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 02:55:24] "GET /entidade/cadastro/ HTTP/1.1" 200 33921
+[19/Nov/2016 02:55:24] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 02:55:24] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 02:55:25] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 02:55:25] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 02:55:38] "GET /entidade/desativar/2?cliente%20desisitiu HTTP/1.1" 301 0
+cheguei no ajax carai! <WSGIRequest: GET '/entidade/desativar/2/?cliente%20desisitiu'>
+Hora de tentar excluir essa parada
+Internal Server Error: /entidade/desativar/2/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 158, in get_response
+    % (callback.__module__, view_name))
+ValueError: The view entidade.views.desativar_cliente didn't return an HttpResponse object. It returned None instead.
+Internal Server Error: /entidade/desativar/2/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 158, in get_response
+    % (callback.__module__, view_name))
+ValueError: The view entidade.views.desativar_cliente didn't return an HttpResponse object. It returned None instead.
+[19/Nov/2016 02:55:39] "GET /entidade/desativar/2/?cliente%20desisitiu HTTP/1.1" 500 14315
+[19/Nov/2016 02:58:36] "GET /entidade/cadastro/ HTTP/1.1" 200 33996
+[19/Nov/2016 02:58:37] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 02:58:37] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 02:58:37] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 02:58:37] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+Unhandled exception in thread started by <function wrapper at 0x046E6330>
+Traceback (most recent call last):
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 19, 2016 - 03:00:19
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[19/Nov/2016 03:00:28] "GET /entidade/cadastro/ HTTP/1.1" 200 33996
+[19/Nov/2016 03:00:28] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:00:28] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:00:29] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:00:29] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:03:33] "GET /entidade/cadastro/ HTTP/1.1" 200 34054
+[19/Nov/2016 03:03:33] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:03:33] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:03:34] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:03:34] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:03:44] "GET /entidade/desativar/2?praga HTTP/1.1" 301 0
+cheguei no ajax carai! <WSGIRequest: GET '/entidade/desativar/2/?praga'>
+Hora de tentar excluir essa parada
+[19/Nov/2016 03:03:44] "GET /entidade/desativar/2/?praga HTTP/1.1" 200 45
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 19, 2016 - 03:05:05
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[19/Nov/2016 03:08:33] "GET /entidade/cadastro/ HTTP/1.1" 200 34009
+[19/Nov/2016 03:08:33] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:08:34] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:08:34] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:08:34] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+cheguei no ajax carai! <WSGIRequest: GET '/entidade/desativar/2/?praga'>
+Tentano excluir:  DIEGO PASTI
+[19/Nov/2016 03:08:43] "GET /entidade/desativar/2/?praga HTTP/1.1" 200 9
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 19, 2016 - 03:09:57
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[19/Nov/2016 03:10:08] "GET /entidade/cadastro/ HTTP/1.1" 200 34009
+[19/Nov/2016 03:10:08] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:10:08] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:10:09] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:10:09] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:10:23] "GET /entidade/desativar/2?cliente%20desistiu HTTP/1.1" 301 0
+cheguei no ajax carai! <WSGIRequest: GET '/entidade/desativar/2/?cliente%20desistiu'>
+Internal Server Error: /entidade/desativar/2/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 118, in desativar_cliente
+    operacao.descricao = "DESATIVAÃ‡ÃƒO DO CLIENTE"+cliente.nome_razao+"("+cliente.cpf_cnpj+") NO SISTEMA."
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xc3 in position 8: ordinal not in range(128)
+Internal Server Error: /entidade/desativar/2/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 118, in desativar_cliente
+    operacao.descricao = "DESATIVAÃ‡ÃƒO DO CLIENTE"+cliente.nome_razao+"("+cliente.cpf_cnpj+") NO SISTEMA."
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xc3 in position 8: ordinal not in range(128)
+[19/Nov/2016 03:10:23] "GET /entidade/desativar/2/?cliente%20desistiu HTTP/1.1" 500 14681
+[19/Nov/2016 03:11:06] "GET /entidade/cadastro/ HTTP/1.1" 200 34009
+[19/Nov/2016 03:11:06] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:11:06] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:11:07] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:11:07] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 19, 2016 - 03:11:05
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+cheguei no ajax carai! <WSGIRequest: GET '/entidade/desativar/2/?cliente%20desistiu'>
+[19/Nov/2016 03:11:16] "GET /entidade/desativar/2/?cliente%20desistiu HTTP/1.1" 200 9
+Tentano excluir:  DESATIVACAO DO CLIENTEDIEGO PASTI(12859855750) NO SISTEMA.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 19, 2016 - 03:11:39
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[19/Nov/2016 03:11:39] "GET /entidade/cadastro/ HTTP/1.1" 200 34009
+[19/Nov/2016 03:11:39] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:11:39] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:11:40] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:11:40] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:12:03] "GET /entidade/desativar/2?PORRA HTTP/1.1" 301 0
+cheguei no ajax carai! <WSGIRequest: GET '/entidade/desativar/2/?PORRA'>
+Internal Server Error: /entidade/desativar/2/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 118, in desativar_cliente
+    operacao.descricao = "DESATIVACÃƒO DO CLIENTE "+cliente.nome_razao+"("+cliente.cpf_cnpj+") NO SISTEMA."
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xc3 in position 9: ordinal not in range(128)
+Internal Server Error: /entidade/desativar/2/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 118, in desativar_cliente
+    operacao.descricao = "DESATIVACÃƒO DO CLIENTE "+cliente.nome_razao+"("+cliente.cpf_cnpj+") NO SISTEMA."
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xc3 in position 9: ordinal not in range(128)
+[19/Nov/2016 03:12:03] "GET /entidade/desativar/2/?PORRA HTTP/1.1" 500 14644
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 19, 2016 - 03:12:42
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[19/Nov/2016 03:13:36] "GET /entidade/cadastro/ HTTP/1.1" 200 34009
+[19/Nov/2016 03:13:37] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:13:37] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:13:38] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:13:38] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:13:43] "GET /entidade/desativar/2?desade HTTP/1.1" 301 0
+[19/Nov/2016 03:13:43] "GET /entidade/desativar/2/?desade HTTP/1.1" 200 9
+cheguei no ajax carai! <WSGIRequest: GET '/entidade/desativar/2/?desade'>
+Ve o user:  AnonymousUser
+Tentano excluir:  DESATIVACAO DO CLIENTE DIEGO PASTI(12859855750) NO SISTEMA.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 19, 2016 - 03:14:15
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[19/Nov/2016 03:16:19] "GET /entidade/cadastro/ HTTP/1.1" 200 34009
+[19/Nov/2016 03:16:19] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:16:19] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:16:20] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:16:20] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:16:27] "GET /entidade/desativar/2?porra HTTP/1.1" 301 0
+Internal Server Error: /entidade/desativar/2/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 113, in desativar_cliente
+    print "cheguei no ajax carai!",request.get
+AttributeError: 'WSGIRequest' object has no attribute 'get'
+Internal Server Error: /entidade/desativar/2/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 113, in desativar_cliente
+    print "cheguei no ajax carai!",request.get
+AttributeError: 'WSGIRequest' object has no attribute 'get'
+cheguei no ajax carai![19/Nov/2016 03:16:27] "GET /entidade/desativar/2/?porra HTTP/1.1" 500 14503
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 19, 2016 - 03:16:51
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[19/Nov/2016 03:16:52] "GET /entidade/cadastro/ HTTP/1.1" 200 34009
+[19/Nov/2016 03:16:52] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:16:52] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:16:53] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:16:53] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:16:59] "GET /entidade/desativar/2?poi HTTP/1.1" 301 0
+Internal Server Error: /entidade/desativar/2/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 120, in desativar_cliente
+    operacao.user = request.user
+  File "C:\Python27\lib\site-packages\django\db\models\fields\related_descriptors.py", line 207, in __set__
+    self.field.remote_field.model._meta.object_name,
+ValueError: Cannot assign "<SimpleLazyObject: <django.contrib.auth.models.AnonymousUser object at 0x06034570>>": "OperacaoRestrita.user" must be a "User" instance.
+Internal Server Error: /entidade/desativar/2/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 120, in desativar_cliente
+    operacao.user = request.user
+  File "C:\Python27\lib\site-packages\django\db\models\fields\related_descriptors.py", line 207, in __set__
+    self.field.remote_field.model._meta.object_name,
+ValueError: Cannot assign "<SimpleLazyObject: <django.contrib.auth.models.AnonymousUser object at 0x06034570>>": "OperacaoRestrita.user" must be a "User" instance.
+cheguei no ajax carai! <QueryDict: {u'poi': [u'']}>
+[19/Nov/2016 03:16:59] "GET /entidade/desativar/2/?poi HTTP/1.1" 500 14867
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 19, 2016 - 03:17:36
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[19/Nov/2016 03:19:10] "GET /entidade/cadastro/ HTTP/1.1" 200 34009
+[19/Nov/2016 03:19:11] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:19:11] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:19:11] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:19:11] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:19:19] "GET /entidade/desativar/2?pou HTTP/1.1" 301 0
+cheguei no ajax carai! <QueryDict: {u'pou': [u'']}>
+Tentano excluir:  DESATIVACAO DO CLIENTE DIEGO PASTI(12859855750) NO SISTEMA.
+[19/Nov/2016 03:19:20] "GET /entidade/desativar/2/?pou HTTP/1.1" 200 9
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 19, 2016 - 03:19:40
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[19/Nov/2016 03:20:11] "GET /entidade/cadastro/ HTTP/1.1" 200 34009
+[19/Nov/2016 03:20:12] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:20:12] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:20:12] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:20:13] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:20:17] "GET /entidade/desativar/2?dasdas HTTP/1.1" 301 0
+Internal Server Error: /entidade/desativar/2/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 113, in desativar_cliente
+    print "cheguei no ajax carai!",request.GET["data"]
+  File "C:\Python27\lib\site-packages\django\utils\datastructures.py", line 85, in __getitem__
+    raise MultiValueDictKeyError(repr(key))
+MultiValueDictKeyError: "'data'"
+Internal Server Error: /entidade/desativar/2/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 113, in desativar_cliente
+    print "cheguei no ajax carai!",request.GET["data"]
+  File "C:\Python27\lib\site-packages\django\utils\datastructures.py", line 85, in __getitem__
+    raise MultiValueDictKeyError(repr(key))
+MultiValueDictKeyError: "'data'"
+cheguei no ajax carai![19/Nov/2016 03:20:17] "GET /entidade/desativar/2/?dasdas HTTP/1.1" 500 14602
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 19, 2016 - 03:20:41
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[19/Nov/2016 03:20:42] "GET /entidade/cadastro/ HTTP/1.1" 200 34009
+[19/Nov/2016 03:20:42] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:20:42] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:20:43] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:20:43] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:20:47] "GET /entidade/desativar/2?1231231asd HTTP/1.1" 301 0
+[19/Nov/2016 03:20:47] "GET /entidade/desativar/2/?1231231asd HTTP/1.1" 200 9
+cheguei no ajax carai! [u'1231231asd']
+Tentano excluir:  DESATIVACAO DO CLIENTE DIEGO PASTI(12859855750) DO SISTEMA.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 19, 2016 - 03:21:14
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[19/Nov/2016 03:22:49] "GET /entidade/cadastro/ HTTP/1.1" 200 34009
+[19/Nov/2016 03:22:49] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:22:49] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:22:50] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:22:50] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+cheguei no ajax carai! [u'porra']
+Tentano excluir:  DESATIVACAO DO CLIENTE DIEGO PASTI(12859855750) DO SISTEMA. porra
+[19/Nov/2016 03:22:57] "GET /entidade/desativar/2/?porra HTTP/1.1" 200 9
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 19, 2016 - 03:24:15
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[19/Nov/2016 03:24:45] "GET /entidade/cadastro/ HTTP/1.1" 200 34009
+[19/Nov/2016 03:24:45] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:24:45] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:24:46] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:24:46] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:25:08] "GET /entidade/desativar/2?cliente%20encerrou%20o%20contrato%20o%20plano%20contratado. HTTP/1.1" 301 0
+cheguei no ajax carai! [u'cliente encerrou o contrato o plano contratado.']
+Tentano excluir:  DESATIVACAO DO CLIENTE DIEGO PASTI(12859855750) DO SISTEMA. cliente encerrou o contrato o plano contratado.
+[19/Nov/2016 03:25:08] "GET /entidade/desativar/2/?cliente%20encerrou%20o%20contrato%20o%20plano%20contratado. HTTP/1.1" 200 9
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 19, 2016 - 03:25:52
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[19/Nov/2016 03:26:09] "GET /entidade/cadastro/ HTTP/1.1" 200 34009
+[19/Nov/2016 03:26:09] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:26:09] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:26:10] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:26:10] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:26:27] "GET /entidade/desativar/2?encerra%C3%A7%C3%A3o%20do%20plano HTTP/1.1" 301 0
+[19/Nov/2016 03:26:27] "GET /entidade/desativar/2/?encerra%C3%A7%C3%A3o%20do%20plano HTTP/1.1" 200 9
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 19, 2016 - 03:27:02
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[19/Nov/2016 03:27:03] "GET /entidade/cadastro/ HTTP/1.1" 200 34009
+[19/Nov/2016 03:27:03] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:27:03] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:27:04] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:27:04] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:27:28] "GET /entidade/desativar/2?o%20cliente%20n%C3%A3o%20renovou%20o%20plano. HTTP/1.1" 301 0
+[19/Nov/2016 03:27:28] "GET /entidade/desativar/2/?o%20cliente%20n%C3%A3o%20renovou%20o%20plano. HTTP/1.1" 200 9
+[19/Nov/2016 03:35:00] "GET /entidade/cadastro/ HTTP/1.1" 200 34034
+[19/Nov/2016 03:35:00] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:35:00] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:35:01] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:35:27] "GET /entidade/desativar/2?cliente%20solicitou%20o%20cancelamento%20do%20plano%20segundo%20os%20termos%20acordados. HTTP/1.1" 301 0
+[19/Nov/2016 03:35:28] "GET /entidade/desativar/2/?cliente%20solicitou%20o%20cancelamento%20do%20plano%20segundo%20os%20termos%20acordados. HTTP/1.1" 200 9
+Not Found: /entidade/desativar/undefined
+Not Found: /entidade/desativar/undefined
+[19/Nov/2016 03:35:40] "GET /entidade/desativar/undefined?cliente%20solicitou%20o%20cancelamento%20do%20plano%20segundo%20os%20termos%20acordados. HTTP/1.1" 404 4812
+[19/Nov/2016 03:36:08] "GET /entidade/cadastro/ HTTP/1.1" 200 34034
+[19/Nov/2016 03:36:08] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:36:08] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:36:09] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:36:38] "GET /entidade/desativar/2?o%20cliente%20solicitou%20o%20cancelamento%20do%20plano. HTTP/1.1" 301 0
+[19/Nov/2016 03:36:39] "GET /entidade/desativar/2/?o%20cliente%20solicitou%20o%20cancelamento%20do%20plano. HTTP/1.1" 200 9
+Not Found: /entidade/desativar/undefined
+Not Found: /entidade/desativar/undefined
+[19/Nov/2016 03:37:16] "GET /entidade/desativar/undefined?o%20cliente%20solicitou%20o%20cancelamento%20do%20plano. HTTP/1.1" 404 4780
+Not Found: /entidade/desativar/undefined
+Not Found: /entidade/desativar/undefined
+[19/Nov/2016 03:37:20] "GET /entidade/desativar/undefined?o%20cliente%20solicitou%20o%20cancelamento%20do%20plano. HTTP/1.1" 404 4780
+[19/Nov/2016 03:37:47] "GET /entidade/cadastro/ HTTP/1.1" 200 34034
+[19/Nov/2016 03:37:47] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:37:47] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:37:47] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:37:47] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:38:57] "GET /entidade/cadastro/ HTTP/1.1" 200 34091
+[19/Nov/2016 03:38:57] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:38:57] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:38:57] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:38:58] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:39:03] "GET /entidade/desativar/2/?teste HTTP/1.1" 200 9
+[19/Nov/2016 03:39:14] "GET /entidade/cadastro/ HTTP/1.1" 200 34091
+[19/Nov/2016 03:39:14] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:39:14] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:39:15] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:39:15] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:39:26] "GET /entidade/desativar/2?dsa HTTP/1.1" 301 0
+[19/Nov/2016 03:39:26] "GET /entidade/desativar/2/?dsa HTTP/1.1" 200 9
+[19/Nov/2016 03:39:42] "GET /entidade/cadastro/ HTTP/1.1" 200 34144
+[19/Nov/2016 03:39:43] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:39:43] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:39:43] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:39:43] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:39:48] "GET /entidade/desativar/2?123 HTTP/1.1" 301 0
+[19/Nov/2016 03:39:48] "GET /entidade/desativar/2/?123 HTTP/1.1" 200 9
+[19/Nov/2016 03:42:17] "GET /entidade/cadastro/ HTTP/1.1" 200 34304
+[19/Nov/2016 03:42:17] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:42:17] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:42:18] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:42:18] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:42:25] "GET /entidade/desativar/2/?porra HTTP/1.1" 200 9
+[19/Nov/2016 03:47:57] "GET /entidade/cadastro/ HTTP/1.1" 200 34511
+[19/Nov/2016 03:47:57] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:47:57] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:47:57] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:47:58] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:48:42] "GET /entidade/cadastro/ HTTP/1.1" 200 34502
+[19/Nov/2016 03:48:42] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:48:42] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:48:44] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:48:44] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:49:03] "GET /entidade/desativar/2?cliente%20com%20pendencias%20a%20mais%20de%208%20meses%20de%20atraso HTTP/1.1" 301 0
+[19/Nov/2016 03:49:03] "GET /entidade/desativar/2/?cliente%20com%20pendencias%20a%20mais%20de%208%20meses%20de%20atraso HTTP/1.1" 200 9
+[19/Nov/2016 03:50:21] "GET /entidade/cadastro/ HTTP/1.1" 200 34452
+[19/Nov/2016 03:50:21] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:50:21] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:50:21] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:50:22] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:50:37] "GET /entidade/desativar/2?cliente%20enrrolado HTTP/1.1" 301 0
+[19/Nov/2016 03:50:37] "GET /entidade/desativar/2/?cliente%20enrrolado HTTP/1.1" 200 9
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 19, 2016 - 03:51:42
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[19/Nov/2016 03:51:44] "GET /entidade/cadastro/ HTTP/1.1" 200 34452
+[19/Nov/2016 03:51:44] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:51:44] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:51:45] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:51:45] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:54:59] "GET /entidade/desativar/2?o%20cliente%20solicitou%20o%20cancelamento%20do%20contrato%20segundo%20as%20clausulas%20contratuais. HTTP/1.1" 301 0
+[19/Nov/2016 03:54:59] "GET /entidade/desativar/2/?o%20cliente%20solicitou%20o%20cancelamento%20do%20contrato%20segundo%20as%20clausulas%20contratuais. HTTP/1.1" 200 9
+[19/Nov/2016 03:55:03] "GET /entidade/cadastro/ HTTP/1.1" 200 33790
+[19/Nov/2016 03:55:03] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:55:03] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:55:03] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:55:03] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 19, 2016 - 03:56:37
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[19/Nov/2016 03:57:33] "GET /entidade/cadastro/ HTTP/1.1" 200 34452
+[19/Nov/2016 03:57:33] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:57:34] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:57:34] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:57:34] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:58:14] "GET /entidade/adicionar HTTP/1.1" 301 0
+[19/Nov/2016 03:58:14] "GET /entidade/adicionar/ HTTP/1.1" 200 265057
+[19/Nov/2016 03:58:45] "GET /entidade/cadastro/ HTTP/1.1" 200 34452
+[19/Nov/2016 03:58:46] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:58:46] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:58:46] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 03:58:46] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 03:59:13] "GET /entidade/visualizar/2 HTTP/1.1" 301 0
+[19/Nov/2016 03:59:13] "GET /entidade/visualizar/2/ HTTP/1.1" 200 265559
+[19/Nov/2016 04:00:13] "GET /entidade/desativar/2?o%20cliente%20solicitou%20cancelamento%20do%20plano. HTTP/1.1" 301 0
+[19/Nov/2016 04:00:13] "GET /entidade/desativar/2/?o%20cliente%20solicitou%20cancelamento%20do%20plano. HTTP/1.1" 200 9
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 19, 2016 - 04:12:28
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[19/Nov/2016 04:12:34] "GET /entidade/cadastro/ HTTP/1.1" 200 33790
+[19/Nov/2016 04:12:34] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 04:12:34] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[19/Nov/2016 04:12:35] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[19/Nov/2016 04:12:35] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+
+Process finished with exit code 0

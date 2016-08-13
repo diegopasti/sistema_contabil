@@ -1,4 +1,4 @@
-function configurar_pagina(documento){
+/*function configurar_pagina(documento){
 	var destinatario = document.getElementById('entidade_destinatario');
 	if (destinatario.value == "") {
 		desabilitar_botao("#bt_novo_documento");
@@ -16,7 +16,7 @@ function configurar_pagina(documento){
 	if (liberado == -1){
 		desabilitar_botao($("#bt_gerar_protocolo"));
 	}
-}
+}*/
 
 function verifica_alteracao_campo(document,campo,botao_documento,botao_concluir){
 	//alert("estou vindo no script protocolo configurar o datatable??");

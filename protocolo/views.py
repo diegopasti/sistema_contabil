@@ -14,11 +14,13 @@ import time
 
 from django.contrib import messages
 from django.core import serializers
-from django.http.response import HttpResponse, Http404
+from django.core.exceptions import ValidationError
+from django.db.utils import IntegrityError
+from django.http.response import HttpResponse, Http404, HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
 
-from entidade.formularios import formulario_emitir_protocolo, formulario_confirmar_entrega
+from protocolo.formularios import formulario_emitir_protocolo, formulario_confirmar_entrega
 from entidade.models import entidade, contato, localizacao_simples  # , localizacao
 from entidade.views import verificar_erros_formulario
 from protocolo.formularios import formulario_gerar_relatorio, formulario_adicionar_documento
@@ -97,91 +99,6 @@ def excluir_documento(request, id):
 
 
 
-def visualizar_protocolo(request,protocolo_id):
-    #if request.is_ajax():
-    
-    documentos = item_protocolo.objects.filter(protocolo_id=protocolo_id)
-    p = protocolo.objects.get(pk=protocolo_id)
-    contatos = contato.objects.filter(entidade=p.destinatario)
-    
-    from django.template import Context# loader,Context, Template
-    path = os.path.join(BASE_DIR, "arquivos_estaticos\imagens\\")
-
-    if p.destinatario == None:
-        destinatario_nome = p.nome_avulso
-        destinatario_cpf_cnpj = formatar_cpf_cnpj(p.documento_avulso)
-        destinatario_complemento = ""
-
-        if p.endereco_avulso != None:
-            destinatario_endereco = p.endereco_avulso
-        else:
-            destinatario_endereco = ""
-
-        if p.contatos_avulso != None:
-            destinatario_contatos = p.contatos_avulso
-        else:
-            destinatario_contatos = ""
-
-    else:
-        destinatario_nome     = p.destinatario.nome_razao
-        destinatario_endereco = p.destinatario.endereco.get_endereco()
-        destinatario_cpf_cnpj = formatar_cpf_cnpj(p.destinatario.cpf_cnpj)
-        destinatario_contatos = contatos
-        destinatario_complemento = p.destinatario.endereco.complemento.title()
-
-    if p.doc_receptor != None:
-        documento_receptor = p.doc_receptor
-
-    else:
-        documento_receptor = ""
-
-    parametros = {
-                  'emissor_nome':p.emissor.nome_razao,
-                  'emissor_cpf_cnpj':formatar_cpf_cnpj(p.emissor.cpf_cnpj),
-                  'emissor_endereco':p.emissor.endereco_id,
-                  'emissor_contatos':"",
-                  
-                  'destinatario_nome':destinatario_nome,
-                  'destinatario_cpf_cnpj':destinatario_cpf_cnpj,
-                  'destinatario_endereco':destinatario_endereco,
-                  'destinatario_complemento':destinatario_complemento,
-                  'destinatario_contatos':destinatario_contatos,
-                  
-                  'codigo_protocolo':p.numeracao_destinatario,
-                  'emitido_por':p.emitido_por,
-                  'data_emissao':p.data_emissao,
-                  'hora_emissao':p.hora_emissao,
-                  
-                  
-                  'recebido_por':p.recebido_por,#recebido_por,
-                  'identificacao':documento_receptor,#identidade,
-                  'data_entrega':p.data_recebimento,#data_entrega,
-                  'hora_entrega':p.hora_recebimento,#hora_entrega,
-                  
-                  'documentos':documentos,
-                  #'documentos':[
-                  #                  ["33","IMPOSTO DE RENDA","2015","","R$ 285,50"],
-                  #                  ["8","EMISSAO DE CERTIFICADO DIGITAL","","31/12/2018","R$ 175,10"],
-                  #                  ["14","CONTRATO - PLANO COMPLETO","","31/12/2018","R$ 475,00"],
-                  #              ],
-                  #'formulario_protocolo':"Nada por enquanto",
-                  #'erro':"sem erros tambem",
-                  #'path':path,
-                  
-                  'path_imagens':path
-                   
-                }
-    
-    c = Context(parametros)
-    
-    # RENDERIZAR NORMAL
-    #return render_to_response('protocolo/imprimir_protocolo.html', c)
-    
-    # RENDERIZAR PDF
-    from django_xhtml2pdf.utils import generate_pdf
-    resp = HttpResponse(content_type='application/pdf')
-    result = generate_pdf('protocolo/imprimir_protocolo.html', file_object=resp,context=c)
-    return result
 
 
     
@@ -196,7 +113,14 @@ def get_detalhes_protocolo(request,protocolo_id):
     if documentos.count() != 0:
         lista =[]
         for item in documentos:
-            lista.append([item.documento,item.complemento,item.referencia,item.vencimento,item.valor])
+            if item.valor != "":
+                valor = "R$ "+item.valor.replace(".",",")
+
+            else:
+                valor = ""
+
+
+            lista.append([item.documento,item.complemento,item.referencia,item.vencimento,valor])
             
         resultado['data'] = lista
         resultado['emitido_por'] = p.emitido_por
@@ -284,72 +208,76 @@ def cadastro_protocolo(request):
                 
                 return gerar_relatorio_simples(request,resultado)
                 
-                
-            
         elif 'confirmar_protocolo' in request.POST:
             form_entrega = formulario_confirmar_entrega(request.POST)
             p = protocolo.objects.get(pk=int(form_entrega['protocolo_id'].value()))
-            
-            if form_entrega.is_valid(): 
-                p = protocolo.objects.get(pk=int(form_entrega['protocolo_id'].value()))
-                p.situacao = True
-                p.recebido_por = form_entrega['recebido_por'].value().upper()
-                
-                data = form_entrega['data_entrega'].value()
-                data = data.replace(" ","")
-                tempo = form_entrega['hora_entrega'].value()
-                
-                if data != "":
-                    dia = int(data[:2])
-                    mes = int(data[3:5])
-                    ano = int(data[6:])
-                    data_entrega = datetime.date(ano,mes,dia)
-                
-                    if tempo != "":
-                        tempo = tempo.split(':')
-                        hora = int(tempo[0])
-                        minuto = int(tempo[1])
-                        hora_entrega = datetime.time(hora,minuto)
-                        
-                        if validar_temporalidade(p.data_emissao,p.hora_emissao,data_entrega,hora_entrega):
-                            p.data_recebimento = data_entrega
-                            p.hora_recebimento = hora_entrega
-                            p.save()
-                        
+
+            if not p.situacao:
+                #messages.add_message(request, messages.SUCCESS, "Protocolo já foi confirmado!")
+                if form_entrega.is_valid():
+                    p = protocolo.objects.get(pk=int(form_entrega['protocolo_id'].value()))
+                    p.situacao = True
+                    p.recebido_por = form_entrega['recebido_por'].value().upper()
+                    p.doc_receptor = form_entrega['doc_receptor'].value()
+
+                    data = form_entrega['data_entrega'].value()
+                    data = data.replace(" ", "")
+                    tempo = form_entrega['hora_entrega'].value()
+
+                    if data != "":
+                        dia = int(data[:2])
+                        mes = int(data[3:5])
+                        ano = int(data[6:])
+                        data_entrega = datetime.date(ano, mes, dia)
+
+                        if tempo != "":
+                            tempo = tempo.split(':')
+                            hora = int(tempo[0])
+                            minuto = int(tempo[1])
+                            hora_entrega = datetime.time(hora, minuto)
+
+                            if validar_temporalidade(p.data_emissao, p.hora_emissao, data_entrega, hora_entrega):
+                                p.data_recebimento = data_entrega
+                                p.hora_recebimento = hora_entrega
+                                p.save()
+                                return HttpResponseRedirect('/protocolo')
+
+                            else:
+                                messages.add_message(request, messages.SUCCESS,"Erro! Horário da entrega não pode ser anterior a emissão.")
+                                erro = True
+
                         else:
-                            messages.add_message(request, messages.SUCCESS, "Erro! Horário da entrega não pode ser anterior a emissão.")
-                            erro = True
-                    
-                    else:
-                        print "foi informado somente o dia, que nao pode ser anterior ao da emissao"
-                
+                            print "foi informado somente o dia, que nao pode ser anterior ao da emissao"
+
+                else:
+                    msg = verificar_erros_formulario(form_entrega)
+                    messages.add_message(request, messages.SUCCESS, msg)
+                    erro = True
             else:
-                msg = verificar_erros_formulario(form_entrega)
-                print "olha o erro: ",msg
-                messages.add_message(request, messages.SUCCESS, msg)
-                erro = True
+                return HttpResponseRedirect('/protocolo')
             
-        
         else:
-            print "e uma requisicao mas sem name do form"
+            #print "e uma requisicao mas sem name do form"
+            return HttpResponseRedirect('protocolo/cadastro_protocolo.html')
+
     else:
         form_entrega = formulario_confirmar_entrega()
         form_relatorio = formulario_gerar_relatorio()
         
-    dados = list(protocolo.objects.all())#*50
+    dados = list(protocolo.objects.all())#*30
     clientes = entidade.objects.all()[1:]
     return render_to_response("protocolo/cadastro_protocolo.html",{"form_entrega":form_entrega,"form_relatorio":form_relatorio,'clientes':clientes,'dados':dados,'erro':erro},context_instance=RequestContext(request))
 
 """
 def imprimir_protocolo(request,emissor,destinatario,documentos,):
     from django.template import Context
-    path = os.path.join(BASE_DIR, "arquivos_estaticos\imagens")
+    path = os.path.join(BASE_DIR, "arquivos_estaticos/imagens")
 """
 
 def gerar_relatorio_simples(request,resultado):
     from django_xhtml2pdf.utils import generate_pdf
     from django.template import Context
-    path = os.path.join(BASE_DIR, "arquivos_estaticos\imagens\\")
+    path = os.path.join(BASE_DIR, "arquivos_estaticos/imagens/")
     
     print request.POST
     
@@ -362,7 +290,6 @@ def gerar_relatorio_simples(request,resultado):
     
     if request.POST['filtrar_por_cliente'] != '':
         cliente = entidade.objects.get(pk=request.POST['filtrar_por_cliente']).nome_razao
-        
         
         if request.POST['filtrar_por_status'] == 'ABERTOS':
             descricao_destinatario = descricao_destinatario +u"Relatório de Protocolos em aberto do cliente "+cliente
@@ -423,9 +350,31 @@ def gerar_relatorio_simples(request,resultado):
     return result
 
 
-def gerar_pdf(request, formulario,emissor, destinatario, protocolo):
+
+"""
+def formatar_valor_documentos(lista_documentos):
+    for item in lista_documentos:
+        item.valor = formatar_valor_tamanho_fixo(item.valor)
+    return lista_documentos
+
+def formatar_valor_tamanho_fixo(valor):
+    novo_valor = "R$"
+    if valor == None or valor == "":
+        novo_valor = "R$" + 13 * " " + "-"
+
+    elif len(valor) == 14:
+        novo_valor = novo_valor + valor
+
+    else:
+        espaco_extra = 14 - len(valor)
+        novo_valor = novo_valor + espaco_extra * " " + valor
+    print novo_valor
+    return novo_valor
+"""
+
+def gerar_pdf(request,emissor, destinatario, protocolo):
     from django.template import Context# loader,Context, Template
-    path = os.path.join(BASE_DIR, "arquivos_estaticos\imagens\\")
+    path = os.path.join(BASE_DIR, "arquivos_estaticos/imagens/")
     
     print protocolo.data_emissao, protocolo.hora_emissao
 
@@ -453,7 +402,8 @@ def gerar_pdf(request, formulario,emissor, destinatario, protocolo):
                   'data_entrega':"",#data_entrega,
                   'hora_entrega':"",#hora_entrega,
                   
-                  'documentos':formulario.temporarios,
+                  'documentos':"",#formulario.temporarios,
+
                   #'documentos':[
                   #                  ["33","IMPOSTO DE RENDA","2015","","R$ 285,50"],
                   #                  ["8","EMISSAO DE CERTIFICADO DIGITAL","","31/12/2018","R$ 175,10"],
@@ -481,7 +431,7 @@ def gerar_pdf(request, formulario,emissor, destinatario, protocolo):
 
 
 class ParametroProtocolo:
-    
+    entidade         = None
     nome             = None
     contatos         = None
     endereco         = None
@@ -489,18 +439,46 @@ class ParametroProtocolo:
     complemento      = None
     codigo_protocolo = None
     
-    
-    
-    
+
+def criar_parametro_entidade_para_protocolo(entidade_id):
+    pessoa = entidade.objects.get(pk=entidade_id)
+    localizacao = localizacao_simples.objects.get(pk=pessoa.endereco_id)
+    endereco = "%s, %s, %s, %s," % (localizacao.logradouro, localizacao.numero, localizacao.bairro, localizacao.municipio)
+    endereco = endereco.title()
+    endereco = endereco+" "+localizacao.estado+" - "+formatar_cep(localizacao.cep)
+
+
+    parametros = ParametroProtocolo()
+    parametros.entidade = pessoa
+    parametros.nome = pessoa.nome_razao
+    parametros.cpf_cnpj = pessoa.cpf_cnpj
+    parametros.endereco = endereco
+    parametros.complemento = localizacao.complemento.title()
+    #parametros.codigo_protocolo = "%05d"%(pessoa.numeracao_protocolo)
+
+
+    contatos = contato.objects.filter(entidade=pessoa)
+
+    telefones = []
+    for item in contatos:
+
+        if item.numero:
+
+            telefones.append(item.numero)
+            if len(telefones) == 2:
+                break
+
+    parametros.contatos = telefones
+    return parametros
 
 def criar_protocolo(request,formulario):
     emissor = entidade.objects.get(pk=1)
+    endereco = localizacao_simples.objects.get(pk=emissor.endereco_id)
+
     parametro_emissor = ParametroProtocolo()
-    
     parametro_emissor.nome = emissor.nome_razao
     parametro_emissor.cpf_cnpj = emissor.cpf_cnpj
-    
-    endereco = localizacao_simples.objects.get(pk=emissor.endereco_id)
+
     
     endereco = "%s, %s, %s, %s, %s - %s"%(endereco.logradouro,endereco.numero,endereco.bairro,endereco.municipio, endereco.estado, formatar_cep(endereco.cep))
     parametro_emissor.endereco = endereco
@@ -514,15 +492,12 @@ def criar_protocolo(request,formulario):
     
     if '|' in destinatario:
         campos = destinatario.split("|")
-        
         cliente_id = -1
-        
         destinatario             = ParametroProtocolo()
         destinatario.nome        = campos[0].upper()
         destinatario.cpf_cnpj    = formatar_cpf_cnpj(campos[1])
         destinatario.endereco    = campos[2].title()
         destinatario.complemento = ""
-        
         destinatario.codigo_protocolo = "AVULSO"
         
         if campos[3] == "":
@@ -549,12 +524,9 @@ def criar_protocolo(request,formulario):
         
         registro_endereco = localizacao_simples.objects.get(pk=registro.endereco_id)
         endereco = "%s, %s, %s, %s, %s - %s"%(registro_endereco.logradouro,registro_endereco.numero,registro_endereco.bairro,registro_endereco.municipio, registro_endereco.estado, formatar_cep(registro_endereco.cep))
-        
         destinatario.endereco    = endereco.title()
         destinatario.complemento = registro_endereco.complemento.title()
-        
         destinatario.codigo_protocolo = "%05d"%(registro.numeracao_protocolo)
-
         destinatario.contatos = []
         
         for item in contato.objects.filter(entidade=registro):
@@ -571,14 +543,225 @@ def criar_protocolo(request,formulario):
         registro.save()
     
     
-    for item in formulario.temporarios:
+    """for item in formulario.temporarios:
         item.protocolo_id = p.id
         
-        print item.documento,item.referencia,item.vencimento,item.valor,item.complemento
+        #print item.documentoooo,item.referencia,item.vencimento,item.valor,item.complemento
         item.save()
-    
+    """
     return parametro_emissor,destinatario,p
-         
+
+def novo_emitir_protocolo(request):
+    formulario_protocolo = formulario_emitir_protocolo()
+    clientes = entidade.objects.all().filter(ativo=True).exclude(id=1).order_by('-id')
+    documentos = documento.objects.all()
+    return render_to_response("protocolo/novo_emitir_protocolo.html",{'operador':'Marcelo Bourguignon','formulario_protocolo':formulario_protocolo,'destinatarios':clientes ,'documentos':documentos}, context_instance=RequestContext(request))
+
+def emitir_protocolo_identificado(request,operador):
+    formulario_protocolo = formulario_emitir_protocolo()
+    operador = operador.replace("_"," ").title()
+    clientes = entidade.objects.all().filter(ativo=True).exclude(id=1).order_by('-id')
+    documentos = documento.objects.all()
+    return render_to_response("protocolo/novo_emitir_protocolo.html",{'operador':operador,'formulario_protocolo':formulario_protocolo,'destinatarios':clientes ,'documentos':documentos}, context_instance=RequestContext(request))
+
+
+def visualizar_protocolo(request, protocolo_id):
+    from django.template import Context  # loader,Context, Template
+    path = os.path.join(BASE_DIR, "arquivos_estaticos/imagens/")
+
+    # if request.is_ajax():
+
+    parametros_emissor = criar_parametro_entidade_para_protocolo(1)
+    protocolo_selecionado = protocolo.objects.get(pk=protocolo_id)
+
+    documentos = item_protocolo.objects.filter(protocolo_id=protocolo_id)
+
+    # contatos = contato.objects.filter(entidade=p.destinatario)
+
+    if protocolo_selecionado.destinatario == None:
+        parametros_destinatario = ParametroProtocolo()
+        parametros_destinatario.entidade = None
+        parametros_destinatario.complemento = ''
+        parametros_destinatario.nome = protocolo_selecionado.nome_avulso
+        parametros_destinatario.cpf_cnpj = protocolo_selecionado.documento_avulso
+
+        if protocolo_selecionado.endereco_avulso != None:
+            parametros_destinatario.endereco = protocolo_selecionado.endereco_avulso.title()
+        else:
+            parametros_destinatario.endereco = ""
+
+        if protocolo_selecionado.contatos_avulso != None:
+            parametros_destinatario.contatos = [protocolo_selecionado.contatos_avulso]
+        else:
+            parametros_destinatario.contatos = []
+
+    else:
+        parametros_destinatario = criar_parametro_entidade_para_protocolo(protocolo_selecionado.destinatario_id)
+
+        """destinatario_nome = p.destinatario.nome_razao
+        destinatario_endereco = p.destinatario.endereco.get_endereco()
+        destinatario_cpf_cnpj = formatar_cpf_cnpj(p.destinatario.cpf_cnpj)
+        destinatario_contatos = contatos
+        destinatario_complemento = p.destinatario.endereco.complemento.title()"""
+
+    if protocolo_selecionado.doc_receptor != None:
+        documento_receptor = protocolo_selecionado.doc_receptor
+
+    else:
+        documento_receptor = ""
+
+    linhas_extras = [1] * (10 - len(documentos))
+
+    parametros = {'emissor_nome': parametros_emissor.nome,
+        'emissor_cpf_cnpj': formatar_cpf_cnpj(parametros_emissor.cpf_cnpj),
+        'emissor_endereco': parametros_emissor.endereco,
+        'emissor_complemento': parametros_emissor.complemento,
+        'emissor_contatos': parametros_emissor.contatos,
+        'destinatario_nome': parametros_destinatario.nome,
+        'destinatario_cpf_cnpj': formatar_cpf_cnpj(parametros_destinatario.cpf_cnpj),
+        'destinatario_endereco': parametros_destinatario.endereco,
+        'destinatario_complemento': parametros_destinatario.complemento,
+        'destinatario_contatos': parametros_destinatario.contatos,
+
+        'codigo_protocolo': protocolo_selecionado.numeracao_destinatario,
+        'emitido_por': protocolo_selecionado.emitido_por.title(),
+        'data_emissao': protocolo_selecionado.data_emissao,
+        'hora_emissao': protocolo_selecionado.hora_emissao,
+
+        'recebido_por': protocolo_selecionado.recebido_por,  # recebido_por,
+        'identificacao': protocolo_selecionado.doc_receptor if protocolo_selecionado.doc_receptor != None else "",
+    # identidade,
+        'data_entrega': protocolo_selecionado.data_recebimento,  # data_entrega,
+        'hora_entrega': protocolo_selecionado.hora_recebimento,  # hora_entrega,
+
+        'documentos': documentos,  # formulario.temporarios,
+        'linhas_extras': linhas_extras, # 'documentos':[
+        #                  ["33","IMPOSTO DE RENDA","2015","","R$ 285,50"],
+        #                  ["8","EMISSAO DE CERTIFICADO DIGITAL","","31/12/2018","R$ 175,10"],
+        #                  ["14","CONTRATO - PLANO COMPLETO","","31/12/2018","R$ 475,00"],
+        #              ],
+        # 'formulario_protocolo':"Nada por enquanto",
+        # 'erro':"sem erros tambem",
+        # 'path':path,
+
+        'path_imagens': path
+
+    }
+
+    c = Context(parametros)
+
+    # RENDERIZAR NORMAL
+    # return render_to_response('protocolo/imprimir_protocolo.html', c)
+
+    # RENDERIZAR PDF
+    from django_xhtml2pdf.utils import generate_pdf
+    resp = HttpResponse(content_type='application/pdf')
+    result = generate_pdf('protocolo/imprimir_protocolo.html', file_object=resp, context=c)
+    return result
+
+
+def salvar_protocolo(request):
+    #print "Tentando salvar o protocolo - DADOS:",request.POST
+    if request.is_ajax():
+        dados = request.POST.dict()
+        parametros_emissor = criar_parametro_entidade_para_protocolo(1)
+
+        #if "-" in dados['destinatario']:
+        # TEM QUE CRIAR MECANISMO DO PROTOCOLO AVULSO
+
+        if "#" in dados['destinatario']:
+            id_destinatario = dados['destinatario'].split("-")[0].replace(" ","")
+            id_destinatario = id_destinatario.replace("#", "")
+            parametros_destinatario = criar_parametro_entidade_para_protocolo(id_destinatario)
+            #print "TEM NO BANCO"
+
+        else:
+            #print "AVULSO"
+            parametros_destinatario = ParametroProtocolo()
+            parametros_destinatario.entidade = None
+            parametros_destinatario.nome = dados['destinatario'].upper()
+            parametros_destinatario.cpf_cnpj = dados['complemento_identificacao']
+            parametros_destinatario.contatos = [dados['complemento_contato'].upper()]
+            parametros_destinatario.endereco = dados['complemento_endereco'].upper()
+
+        novo_protocolo = protocolo()
+        novo_protocolo.emissor = parametros_emissor.entidade
+        novo_protocolo.emitido_por = dados['operador'].upper()
+        novo_protocolo.destinatario = parametros_destinatario.entidade
+
+        cliente = parametros_destinatario.entidade
+        if cliente != None:
+            novo_protocolo.numeracao_destinatario = "%05d"%(cliente.numeracao_protocolo)
+            cliente.numeracao_protocolo = cliente.numeracao_protocolo + 1
+            cliente.save()
+
+        else:
+            novo_protocolo.numeracao_destinatario = "AVULSO"
+            novo_protocolo.nome_avulso = parametros_destinatario.nome.upper()
+            novo_protocolo.contatos_avulso = parametros_destinatario.contatos[0]
+            novo_protocolo.endereco_avulso = parametros_destinatario.endereco
+            novo_protocolo.documento_avulso = parametros_destinatario.cpf_cnpj
+
+        novo_protocolo.save()
+
+
+        for index in xrange(int(dados['total_documentos'])):
+            prefixo = "documentos[" + str(index) + "]"
+            item = get_object_documento_from_dict(dados, prefixo)
+            item.protocolo = novo_protocolo
+            item.save()
+
+        #print "salvei tudo?"
+        #return gerar_pdf(request,parametros_emissor, parametros_destinatario, novo_protocolo)
+
+        response_dict = {}
+        response_dict['success'] = True
+        response_dict['message'] = "/protocolo/visualizar/"+str(novo_protocolo.id)+"/"
+        data = json.dumps(response_dict)
+        return HttpResponse(data, content_type='application/json')
+
+    else:
+        raise Http404
+
+def get_object_documento_from_dict(dados,prefixo):
+    item = item_protocolo()
+    item.documento = dados[prefixo + "[documento]"].upper()
+    item.complemento = dados[prefixo + "[complemento]"].upper()
+    item.referencia = dados[prefixo + "[referencia]"]
+    item.vencimento = dados[prefixo + "[vencimento]"]
+
+    item.valor = str(dados[prefixo + "[valor]"])
+    return item
+
+
+def validar_registro(registro):
+    msg = ""
+
+    try:
+        registro.full_clean()
+        msg = "SUCESSO"
+        #print "validacao ok"
+
+    except ValidationError as excecao:
+        msg = "Erro! " + excecao.message
+        #print "Olha o erro:"+str(excecao)
+
+    except IntegrityError as excecao:
+        if "cpf_cnpj" in excecao.message:
+            msg = "Erro! cpf ou cnpj já existe no cadastro!"
+
+        else:
+            msg = excecao.message
+
+        #print "Olha o erro:" + msg
+        return msg, ""
+
+    except Exception as excecao:
+        print "Ve esse erro ai qualquer", excecao.message
+
+    finally:
+        #print "Nao deu nada?"
+        return False, ""
 
 def emitir_protocolo(request,numero_item):
     numero_item = int(numero_item)
@@ -613,6 +796,8 @@ def emitir_protocolo(request,numero_item):
                 
                 formulario_protocolo  = formulario_emitir_protocolo({'entidade_destinatario':cliente})
                 formulario_protocolo.temporarios = temp
+
+                print "OLHA O CLIENTE: ",cliente,": DOCUMENTOS: ",temp
             
             else:
                 msg = verificar_erros_formulario(formulario_protocolo)
@@ -622,6 +807,7 @@ def emitir_protocolo(request,numero_item):
             
         elif 'gerar_protocolo' in request.POST:
             emissor, destinatario, protocolo = criar_protocolo(request, formulario_protocolo)
+            print "GERANDO:",destinatario," PROTOCOLO:",protocolo
             resposta_pdf = gerar_pdf(request,formulario_protocolo, emissor, destinatario, protocolo)
             return resposta_pdf
         
@@ -646,11 +832,7 @@ def salvar_itens_protocolos(protocolo,itens_protocolo):
         item.protocolo = protocolo
         item.save()
         
-        
-        
-        
-        
-        
+
 """
  
  COISAS QUE PODEM SER COLOCADAS EM OUTROS LUGARES
@@ -670,9 +852,8 @@ def formatar_cpf_cnpj(codigo):
         if len(codigo) == 11:
             codigo_formatado = codigo[:3]+"."+codigo[3:6]+"."+codigo[6:9]+"-"+codigo[9:]
         else:
-            codigo_formatado = codigo[:2]+"."+codigo[2:5]+"."+codigo[5:8]+"/"+codigo[9:13]+"-"+codigo[13:]
+            codigo_formatado = codigo[:2]+"."+codigo[2:5]+"."+codigo[5:8]+"/"+codigo[8:12]+"-"+codigo[12:]
         return codigo_formatado
 
     else:
         return ""
-

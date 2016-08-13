@@ -1,0 +1,1716 @@
+"C:\Program Files (x86)\JetBrains\PyCharm 2016.1.4\bin\runnerw.exe" C:\Python27\python.exe C:/Users/diego/OneDrive/Projetos/sistema_contabil/manage.py runserver localhost:8000
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 08:29:07
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[12/Dec/2016 08:29:11] "GET / HTTP/1.1" 200 14491
+[12/Dec/2016 08:30:54] "GET /entidade/cadastro HTTP/1.1" 301 0
+[12/Dec/2016 08:30:55] "GET /entidade/cadastro/ HTTP/1.1" 200 33755
+[12/Dec/2016 08:30:55] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[12/Dec/2016 08:30:55] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[12/Dec/2016 08:30:55] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[12/Dec/2016 08:30:55] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[12/Dec/2016 08:30:56] "GET /arquivos_estaticos/bootstrap/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18028
+[12/Dec/2016 08:31:09] "GET /entidade/cadastro/ HTTP/1.1" 200 33755
+[12/Dec/2016 08:31:10] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 200 23739
+[12/Dec/2016 08:31:10] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 36868
+[12/Dec/2016 08:31:10] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 121260
+[12/Dec/2016 08:31:10] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 200 89933
+[12/Dec/2016 08:31:10] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 200 85589
+[12/Dec/2016 08:31:10] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 200 470591
+[12/Dec/2016 08:31:11] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 200 3037
+[12/Dec/2016 08:31:11] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 200 4247
+[12/Dec/2016 08:31:11] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 200 3890
+[12/Dec/2016 08:31:11] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 200 34459
+[12/Dec/2016 08:31:11] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 200 1960
+[12/Dec/2016 08:31:11] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 200 3886
+[12/Dec/2016 08:31:11] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 200 82480
+[12/Dec/2016 08:31:11] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[12/Dec/2016 08:31:11] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[12/Dec/2016 08:31:11] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 200 3036
+[12/Dec/2016 08:31:11] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 200 10731
+[12/Dec/2016 08:31:11] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 200 3568
+[12/Dec/2016 08:31:11] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 200 9773
+[12/Dec/2016 08:31:11] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 200 8007
+[12/Dec/2016 08:31:11] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 200 30834
+[12/Dec/2016 08:31:11] "GET /arquivos_estaticos/bootstrap/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18028
+[12/Dec/2016 08:31:11] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[12/Dec/2016 08:31:11] "GET /arquivos_estaticos/icones/fonts/fontawesome-webfont.woff2?v=4.3.0 HTTP/1.1" 200 56780
+[12/Dec/2016 08:31:11] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 08:52:39
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 829, in adicionar_entidade
+    email = Email()
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 21, in __init__
+    super(Email, self).__init__()
+TypeError: super() argument 1 must be type, not classobj
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 829, in adicionar_entidade
+    email = Email()
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 21, in __init__
+    super(Email, self).__init__()
+TypeError: super() argument 1 must be type, not classobj
+[12/Dec/2016 09:21:19] "GET /entidade/adicionar/ HTTP/1.1" 500 66888
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 09:21:46
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 829, in adicionar_entidade
+    email = Email()
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 21, in __init__
+    super(self).__init__()
+TypeError: super() argument 1 must be type, not instance
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 829, in adicionar_entidade
+    email = Email()
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 21, in __init__
+    super(self).__init__()
+TypeError: super() argument 1 must be type, not instance
+[12/Dec/2016 09:21:47] "GET /entidade/adicionar/ HTTP/1.1" 500 67009
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 09:24:13
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 829, in adicionar_entidade
+    email = Email()
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 21, in __init__
+    super(self).__init__()
+TypeError: super() argument 1 must be type, not Email
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 829, in adicionar_entidade
+    email = Email()
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 21, in __init__
+    super(self).__init__()
+TypeError: super() argument 1 must be type, not Email
+[12/Dec/2016 09:24:14] "GET /entidade/adicionar/ HTTP/1.1" 500 66999
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 09:24:37
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+foi?
+[12/Dec/2016 09:24:38] "GET /entidade/adicionar/ HTTP/1.1" 200 268619
+[12/Dec/2016 09:24:38] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[12/Dec/2016 09:24:38] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 09:24:38] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[12/Dec/2016 09:24:38] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[12/Dec/2016 09:24:38] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 09:24:38] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[12/Dec/2016 09:24:38] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[12/Dec/2016 09:24:38] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[12/Dec/2016 09:24:38] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 09:24:38] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 09:24:38] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 09:24:38] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[12/Dec/2016 09:24:38] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 09:24:38] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 09:24:38] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[12/Dec/2016 09:24:38] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[12/Dec/2016 09:24:38] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 09:24:38] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[12/Dec/2016 09:24:39] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[12/Dec/2016 09:24:39] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[12/Dec/2016 09:24:39] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[12/Dec/2016 09:24:39] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[12/Dec/2016 09:24:39] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[12/Dec/2016 09:24:39] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 09:26:45
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+olha o tipo: From nobody Mon Dec 12 09:27:05 2016
+Content-Type: multipart/mixed; boundary="===============2097873177=="
+MIME-Version: 1.0
+
+--===============2097873177==
+
+--===============2097873177==--
+
+foi?
+[12/Dec/2016 09:27:05] "GET /entidade/adicionar/ HTTP/1.1" 200 268619
+[12/Dec/2016 09:27:05] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[12/Dec/2016 09:27:05] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[12/Dec/2016 09:27:06] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 09:27:06] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 09:27:06] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[12/Dec/2016 09:27:06] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[12/Dec/2016 09:27:06] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[12/Dec/2016 09:27:06] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 09:27:06] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 09:27:06] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 09:27:06] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[12/Dec/2016 09:27:06] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 09:27:07] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 09:27:07] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[12/Dec/2016 09:27:07] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[12/Dec/2016 09:27:07] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 09:27:07] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[12/Dec/2016 09:27:07] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[12/Dec/2016 09:27:08] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[12/Dec/2016 09:27:08] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[12/Dec/2016 09:27:08] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[12/Dec/2016 09:27:08] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[12/Dec/2016 09:27:08] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[12/Dec/2016 09:27:08] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 09:27:43
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "C:\Python27\lib\site-packages\django\utils\lru_cache.py", line 100, in wrapper
+    result = user_function(*args, **kwds)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 27, in <module>
+    from util.controle_email import ControleEmail, Email, EmailController
+ImportError: cannot import name ControleEmail
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "C:\Python27\lib\site-packages\django\utils\lru_cache.py", line 100, in wrapper
+    result = user_function(*args, **kwds)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 27, in <module>
+    from util.controle_email import ControleEmail, Email, EmailController
+ImportError: cannot import name ControleEmail
+[12/Dec/2016 10:53:33] "GET /entidade/adicionar/ HTTP/1.1" 500 94703
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 838, in adicionar_entidade
+    email.send()
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 78, in send
+    self.dispatcher.send(self)
+AttributeError: EmailController instance has no attribute 'send'
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 838, in adicionar_entidade
+    email.send()
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 78, in send
+    self.dispatcher.send(self)
+AttributeError: EmailController instance has no attribute 'send'
+[12/Dec/2016 10:55:16] "GET /entidade/adicionar/ HTTP/1.1" 500 67881
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 10:55:37
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 838, in adicionar_entidade
+    email.send()
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 78, in send
+    self.dispatcher.send_email(self)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 119, in send_email
+    raw = email.as_string()
+  File "C:\Python27\lib\email\message.py", line 137, in as_string
+    g.flatten(self, unixfrom=unixfrom)
+  File "C:\Python27\lib\email\generator.py", line 83, in flatten
+    self._write(msg)
+  File "C:\Python27\lib\email\generator.py", line 115, in _write
+    self._write_headers(msg)
+  File "C:\Python27\lib\email\generator.py", line 164, in _write_headers
+    v, maxlinelen=self._maxheaderlen, header_name=h).encode()
+  File "C:\Python27\lib\email\header.py", line 410, in encode
+    value = self._encode_chunks(newchunks, maxlinelen)
+  File "C:\Python27\lib\email\header.py", line 370, in _encode_chunks
+    _max_append(chunks, s, maxlinelen, extra)
+  File "C:\Python27\lib\email\quoprimime.py", line 97, in _max_append
+    L.append(s.lstrip())
+AttributeError: 'list' object has no attribute 'lstrip'
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 838, in adicionar_entidade
+    email.send()
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 78, in send
+    self.dispatcher.send_email(self)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 119, in send_email
+    raw = email.as_string()
+  File "C:\Python27\lib\email\message.py", line 137, in as_string
+    g.flatten(self, unixfrom=unixfrom)
+  File "C:\Python27\lib\email\generator.py", line 83, in flatten
+    self._write(msg)
+  File "C:\Python27\lib\email\generator.py", line 115, in _write
+    self._write_headers(msg)
+  File "C:\Python27\lib\email\generator.py", line 164, in _write_headers
+    v, maxlinelen=self._maxheaderlen, header_name=h).encode()
+  File "C:\Python27\lib\email\header.py", line 410, in encode
+    value = self._encode_chunks(newchunks, maxlinelen)
+  File "C:\Python27\lib\email\header.py", line 370, in _encode_chunks
+    _max_append(chunks, s, maxlinelen, extra)
+  File "C:\Python27\lib\email\quoprimime.py", line 97, in _max_append
+    L.append(s.lstrip())
+AttributeError: 'list' object has no attribute 'lstrip'
+[12/Dec/2016 10:55:41] "GET /entidade/adicionar/ HTTP/1.1" 500 100831
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 10:57:30
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 838, in adicionar_entidade
+    email.send()
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 81, in send
+    self.dispatcher.send_email(self)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 124, in send_email
+    self.smtp.sendmail(email.get_sender(), email.get_receivers(), raw)
+  File "C:\Python27\lib\smtplib.py", line 747, in sendmail
+    raise SMTPRecipientsRefused(senderrs)
+SMTPRecipientsRefused: {'': (555, '5.5.2 Syntax error. s41sm26255025qtc.39 - gsmtp')}
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 838, in adicionar_entidade
+    email.send()
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 81, in send
+    self.dispatcher.send_email(self)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 124, in send_email
+    self.smtp.sendmail(email.get_sender(), email.get_receivers(), raw)
+  File "C:\Python27\lib\smtplib.py", line 747, in sendmail
+    raise SMTPRecipientsRefused(senderrs)
+SMTPRecipientsRefused: {'': (555, '5.5.2 Syntax error. s41sm26255025qtc.39 - gsmtp')}
+[12/Dec/2016 10:58:58] "GET /entidade/adicionar/ HTTP/1.1" 500 77896
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 11:01:12
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Veja:  diegopasti@gmail.com  -  61109119di
+Olha ai: Diego Pasti
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 838, in adicionar_entidade
+    email.send()
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 81, in send
+    self.dispatcher.send_email(self)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 127, in send_email
+    self.smtp.sendmail(email.get_sender(), email.get_receivers(), raw)
+  File "C:\Python27\lib\smtplib.py", line 747, in sendmail
+    raise SMTPRecipientsRefused(senderrs)
+SMTPRecipientsRefused: {'': (555, '5.5.2 Syntax error. z7sm26381390qkz.7 - gsmtp')}
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 838, in adicionar_entidade
+    email.send()
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 81, in send
+    self.dispatcher.send_email(self)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 127, in send_email
+    self.smtp.sendmail(email.get_sender(), email.get_receivers(), raw)
+  File "C:\Python27\lib\smtplib.py", line 747, in sendmail
+    raise SMTPRecipientsRefused(senderrs)
+SMTPRecipientsRefused: {'': (555, '5.5.2 Syntax error. z7sm26381390qkz.7 - gsmtp')}
+[12/Dec/2016 11:01:19] "GET /entidade/adicionar/ HTTP/1.1" 500 77947
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 11:03:01
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Veja:  diegopasti@gmail.com  -  61109119di
+Olha ai: Diego Pasti -  !
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 838, in adicionar_entidade
+    email.send()
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 81, in send
+    self.dispatcher.send_email(self)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 127, in send_email
+    self.smtp.sendmail(email.get_sender(), email.get_receivers(), raw)
+  File "C:\Python27\lib\smtplib.py", line 747, in sendmail
+    raise SMTPRecipientsRefused(senderrs)
+SMTPRecipientsRefused: {'': (555, '5.5.2 Syntax error. v18sm26417251qkb.40 - gsmtp')}
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 838, in adicionar_entidade
+    email.send()
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 81, in send
+    self.dispatcher.send_email(self)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 127, in send_email
+    self.smtp.sendmail(email.get_sender(), email.get_receivers(), raw)
+  File "C:\Python27\lib\smtplib.py", line 747, in sendmail
+    raise SMTPRecipientsRefused(senderrs)
+SMTPRecipientsRefused: {'': (555, '5.5.2 Syntax error. v18sm26417251qkb.40 - gsmtp')}
+[12/Dec/2016 11:03:12] "GET /entidade/adicionar/ HTTP/1.1" 500 77988
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 11:05:29
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Veja:  diegopasti@gmail.com  -  61109119di
+Olha ai: Diego Pasti -  !
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 838, in adicionar_entidade
+    email.send()
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 83, in send
+    self.dispatcher.send_email(self)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 129, in send_email
+    self.smtp.sendmail(email.get_sender(), email.get_receivers(), raw)
+  File "C:\Python27\lib\smtplib.py", line 747, in sendmail
+    raise SMTPRecipientsRefused(senderrs)
+SMTPRecipientsRefused: {'': (555, '5.5.2 Syntax error. s41sm26269011qtc.39 - gsmtp')}
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 838, in adicionar_entidade
+    email.send()
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 83, in send
+    self.dispatcher.send_email(self)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 129, in send_email
+    self.smtp.sendmail(email.get_sender(), email.get_receivers(), raw)
+  File "C:\Python27\lib\smtplib.py", line 747, in sendmail
+    raise SMTPRecipientsRefused(senderrs)
+SMTPRecipientsRefused: {'': (555, '5.5.2 Syntax error. s41sm26269011qtc.39 - gsmtp')}
+[12/Dec/2016 11:06:02] "GET /entidade/adicionar/ HTTP/1.1" 500 77988
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 11:06:46
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Veja:  diegopasti@gmail.com  -  61109119di
+Olha ai: Diego Pasti - Ve isso:
+ !
+Ve isso:
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 838, in adicionar_entidade
+    email.send()
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 84, in send
+    self.dispatcher.send_email(self)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 130, in send_email
+    self.smtp.sendmail(email.get_sender(), email.get_receivers(), raw)
+  File "C:\Python27\lib\smtplib.py", line 747, in sendmail
+    raise SMTPRecipientsRefused(senderrs)
+SMTPRecipientsRefused: {'': (555, '5.5.2 Syntax error. 140sm1921725qkj.1 - gsmtp')}
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 838, in adicionar_entidade
+    email.send()
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 84, in send
+    self.dispatcher.send_email(self)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 130, in send_email
+    self.smtp.sendmail(email.get_sender(), email.get_receivers(), raw)
+  File "C:\Python27\lib\smtplib.py", line 747, in sendmail
+    raise SMTPRecipientsRefused(senderrs)
+SMTPRecipientsRefused: {'': (555, '5.5.2 Syntax error. 140sm1921725qkj.1 - gsmtp')}
+[12/Dec/2016 11:06:56] "GET /entidade/adicionar/ HTTP/1.1" 500 77974
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 11:07:23
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Veja:  diegopasti@gmail.com  -  61109119di
+Olha ai: Diego Pasti - Ve isso: Diego Pasti
+ !
+Ve isso: Diego Pasti
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 838, in adicionar_entidade
+    email.send()
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 84, in send
+    self.dispatcher.send_email(self)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 130, in send_email
+    self.smtp.sendmail(email.get_sender(), email.get_receivers(), raw)
+  File "C:\Python27\lib\smtplib.py", line 747, in sendmail
+    raise SMTPRecipientsRefused(senderrs)
+SMTPRecipientsRefused: {'': (555, '5.5.2 Syntax error. 5sm26473665qts.47 - gsmtp')}
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 838, in adicionar_entidade
+    email.send()
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 84, in send
+    self.dispatcher.send_email(self)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 130, in send_email
+    self.smtp.sendmail(email.get_sender(), email.get_receivers(), raw)
+  File "C:\Python27\lib\smtplib.py", line 747, in sendmail
+    raise SMTPRecipientsRefused(senderrs)
+SMTPRecipientsRefused: {'': (555, '5.5.2 Syntax error. 5sm26473665qts.47 - gsmtp')}
+[12/Dec/2016 11:07:27] "GET /entidade/adicionar/ HTTP/1.1" 500 77974
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 11:09:30
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+olha o receivER: diegopasti@gmail.com
+olha o join: diegopasti@gmail.com
+Veja:  diegopasti@gmail.com  -  61109119di
+Olha ai: Diego Pasti - Ve isso: Diego Pasti
+ !
+Ve isso: Diego Pasti
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 838, in adicionar_entidade
+    email.send()
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 88, in send
+    self.dispatcher.send_email(self)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 134, in send_email
+    self.smtp.sendmail(email.get_sender(), email.get_receivers(), raw)
+  File "C:\Python27\lib\smtplib.py", line 747, in sendmail
+    raise SMTPRecipientsRefused(senderrs)
+SMTPRecipientsRefused: {'': (555, '5.5.2 Syntax error. 53sm26423734qtm.5 - gsmtp')}
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 838, in adicionar_entidade
+    email.send()
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 88, in send
+    self.dispatcher.send_email(self)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 134, in send_email
+    self.smtp.sendmail(email.get_sender(), email.get_receivers(), raw)
+  File "C:\Python27\lib\smtplib.py", line 747, in sendmail
+    raise SMTPRecipientsRefused(senderrs)
+SMTPRecipientsRefused: {'': (555, '5.5.2 Syntax error. 53sm26423734qtm.5 - gsmtp')}
+[12/Dec/2016 11:10:14] "GET /entidade/adicionar/ HTTP/1.1" 500 77974
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 11:10:49
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+olha o receivER: diegopasti@gmail.com
+olha o join: diegopasti@gmail.com, thiago_bd@mail.com
+Veja:  diegopasti@gmail.com  -  61109119di
+Olha ai: Diego Pasti - Ve isso: Diego Pasti
+ !
+Ve isso: Diego Pasti
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 838, in adicionar_entidade
+    email.send()
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 88, in send
+    self.dispatcher.send_email(self)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 134, in send_email
+    self.smtp.sendmail(email.get_sender(), email.get_receivers(), raw)
+  File "C:\Python27\lib\smtplib.py", line 747, in sendmail
+    raise SMTPRecipientsRefused(senderrs)
+SMTPRecipientsRefused: {'': (555, '5.5.2 Syntax error. c76sm26436648qke.0 - gsmtp')}
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 838, in adicionar_entidade
+    email.send()
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 88, in send
+    self.dispatcher.send_email(self)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 134, in send_email
+    self.smtp.sendmail(email.get_sender(), email.get_receivers(), raw)
+  File "C:\Python27\lib\smtplib.py", line 747, in sendmail
+    raise SMTPRecipientsRefused(senderrs)
+SMTPRecipientsRefused: {'': (555, '5.5.2 Syntax error. c76sm26436648qke.0 - gsmtp')}
+[12/Dec/2016 11:10:52] "GET /entidade/adicionar/ HTTP/1.1" 500 78021
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 11:11:31
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+olha o receivER: diegopasti@gmail.com
+olha o join: diegopasti@gmail.com, thiago_bd@mail.com
+olha por ultimo:
+Veja:  diegopasti@gmail.com  -  61109119di
+Olha ai: Diego Pasti - Ve isso: Diego Pasti
+ !
+Ve isso: Diego Pasti
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 838, in adicionar_entidade
+    email.send()
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 89, in send
+    self.dispatcher.send_email(self)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 135, in send_email
+    self.smtp.sendmail(email.get_sender(), email.get_receivers(), raw)
+  File "C:\Python27\lib\smtplib.py", line 747, in sendmail
+    raise SMTPRecipientsRefused(senderrs)
+SMTPRecipientsRefused: {'': (555, '5.5.2 Syntax error. 33sm26426394qtq.1 - gsmtp')}
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 838, in adicionar_entidade
+    email.send()
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 89, in send
+    self.dispatcher.send_email(self)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\controle_email.py", line 135, in send_email
+    self.smtp.sendmail(email.get_sender(), email.get_receivers(), raw)
+  File "C:\Python27\lib\smtplib.py", line 747, in sendmail
+    raise SMTPRecipientsRefused(senderrs)
+SMTPRecipientsRefused: {'': (555, '5.5.2 Syntax error. 33sm26426394qtq.1 - gsmtp')}
+[12/Dec/2016 11:11:44] "GET /entidade/adicionar/ HTTP/1.1" 500 78014
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 11:13:09
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+olha o receivER: diegopasti@gmail.com
+olha o join: diegopasti@gmail.com, thiago_bd@mail.com
+olha por ultimo: diegopasti@gmail.com, thiago_bd@mail.com
+Veja:  diegopasti@gmail.com  -  61109119di
+Olha ai: Diego Pasti - Ve isso: Diego Pasti
+diegopasti@gmail.com, thiago_bd@mail.com !
+Ve isso: Diego Pasti
+foi?
+[12/Dec/2016 11:13:21] "GET /entidade/adicionar/ HTTP/1.1" 200 268619
+[12/Dec/2016 11:13:21] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:13:21] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:13:21] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[12/Dec/2016 11:13:21] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:13:21] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:13:21] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:13:21] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:13:21] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:13:21] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:13:21] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:13:21] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:13:21] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:13:21] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:13:22] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[12/Dec/2016 11:13:22] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[12/Dec/2016 11:13:22] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[12/Dec/2016 11:13:22] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:13:22] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:13:22] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:13:22] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:13:22] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[12/Dec/2016 11:13:22] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[12/Dec/2016 11:13:22] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[12/Dec/2016 11:13:22] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[12/Dec/2016 11:13:22] "GET /arquivos_estaticos/icones/fonts/fontawesome-webfont.woff2?v=4.3.0 HTTP/1.1" 200 56780
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 11:13:32
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Veja:  diegopasti@gmail.com  -  61109119di
+Olha ai: Diego Pasti - diegopasti@gmail.com !
+foi?
+[12/Dec/2016 11:18:56] "GET /entidade/adicionar/ HTTP/1.1" 200 268619
+[12/Dec/2016 11:18:56] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:18:56] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:18:56] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[12/Dec/2016 11:18:56] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:18:56] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:18:56] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:18:57] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:18:57] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:18:57] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:18:57] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:18:57] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:18:57] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:18:57] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:18:57] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[12/Dec/2016 11:18:57] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[12/Dec/2016 11:18:57] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[12/Dec/2016 11:18:57] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:18:57] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:18:57] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:18:58] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[12/Dec/2016 11:18:58] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:18:58] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[12/Dec/2016 11:18:58] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[12/Dec/2016 11:18:58] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 11:19:07
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+foi?
+[12/Dec/2016 11:21:11] "GET /entidade/adicionar/ HTTP/1.1" 200 268619
+[12/Dec/2016 11:21:11] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:21:11] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:21:11] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:21:11] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[12/Dec/2016 11:21:11] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:21:11] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:21:11] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:21:11] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:21:11] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:21:11] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:21:11] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:21:11] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:21:11] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:21:11] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[12/Dec/2016 11:21:11] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:21:12] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:21:12] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[12/Dec/2016 11:21:12] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[12/Dec/2016 11:21:12] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:21:12] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:21:12] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[12/Dec/2016 11:21:12] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[12/Dec/2016 11:21:12] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[12/Dec/2016 11:21:12] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+foi?
+[12/Dec/2016 11:25:42] "GET /entidade/adicionar/ HTTP/1.1" 200 268619
+[12/Dec/2016 11:25:42] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:25:42] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[12/Dec/2016 11:25:42] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:25:42] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:25:42] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:25:42] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:25:42] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:25:43] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:25:43] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:25:43] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:25:43] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:25:43] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:25:43] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:25:43] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:25:43] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:25:43] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[12/Dec/2016 11:25:43] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[12/Dec/2016 11:25:43] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[12/Dec/2016 11:25:43] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:25:44] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[12/Dec/2016 11:25:44] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:25:44] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[12/Dec/2016 11:25:44] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[12/Dec/2016 11:25:44] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 11:38:24
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+foi?
+[12/Dec/2016 11:38:33] "GET /entidade/adicionar/ HTTP/1.1" 200 268619
+[12/Dec/2016 11:38:34] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[12/Dec/2016 11:38:34] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:38:34] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:38:34] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:38:34] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:38:34] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:38:34] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:38:34] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:38:34] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:38:34] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:38:34] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:38:34] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:38:35] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:38:35] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[12/Dec/2016 11:38:35] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:38:35] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[12/Dec/2016 11:38:35] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:38:35] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[12/Dec/2016 11:38:35] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:38:35] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:38:35] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[12/Dec/2016 11:38:35] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[12/Dec/2016 11:38:36] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[12/Dec/2016 11:38:36] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 11:57:53
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+foi?
+[12/Dec/2016 11:58:01] "GET /entidade/adicionar/ HTTP/1.1" 200 268619
+[12/Dec/2016 11:58:01] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[12/Dec/2016 11:58:01] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:58:01] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:58:01] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:58:01] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:58:01] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:58:02] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:58:02] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:58:02] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:58:02] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:58:02] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:58:02] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:58:02] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[12/Dec/2016 11:58:02] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:58:02] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[12/Dec/2016 11:58:02] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:58:02] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[12/Dec/2016 11:58:02] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:58:02] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:58:03] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:58:03] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[12/Dec/2016 11:58:03] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[12/Dec/2016 11:58:03] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[12/Dec/2016 11:58:03] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 11:58:48
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+foi?
+[12/Dec/2016 11:58:56] "GET /entidade/adicionar/ HTTP/1.1" 200 268619
+[12/Dec/2016 11:58:57] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[12/Dec/2016 11:58:57] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:58:57] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:58:57] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:58:57] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:58:57] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:58:57] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:58:57] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:58:57] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:58:57] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:58:57] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:58:57] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:58:57] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:58:58] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[12/Dec/2016 11:58:58] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[12/Dec/2016 11:58:58] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[12/Dec/2016 11:58:58] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:58:58] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[12/Dec/2016 11:58:58] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:58:58] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[12/Dec/2016 11:58:58] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[12/Dec/2016 11:58:58] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[12/Dec/2016 11:58:58] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[12/Dec/2016 11:58:58] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 12:00:26
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+foi?
+[12/Dec/2016 12:00:30] "GET /entidade/adicionar/ HTTP/1.1" 200 268619
+[12/Dec/2016 12:00:30] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:00:30] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:00:30] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:00:30] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:00:30] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:00:30] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[12/Dec/2016 12:00:31] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:00:31] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:00:31] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:00:31] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:00:31] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:00:31] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:00:31] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:00:31] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[12/Dec/2016 12:00:31] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:00:31] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:00:31] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[12/Dec/2016 12:00:31] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[12/Dec/2016 12:00:31] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:00:31] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:00:31] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[12/Dec/2016 12:00:31] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[12/Dec/2016 12:00:31] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[12/Dec/2016 12:00:31] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 12:00:53
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+foi?
+[12/Dec/2016 12:01:00] "GET /entidade/adicionar/ HTTP/1.1" 200 268619
+[12/Dec/2016 12:01:00] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:01:00] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:01:00] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:01:00] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:01:00] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:01:00] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[12/Dec/2016 12:01:01] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:01:01] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:01:01] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:01:01] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:01:01] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:01:01] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:01:01] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:01:01] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[12/Dec/2016 12:01:01] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:01:01] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:01:01] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[12/Dec/2016 12:01:01] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[12/Dec/2016 12:01:01] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:01:01] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:01:01] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[12/Dec/2016 12:01:01] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[12/Dec/2016 12:01:02] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[12/Dec/2016 12:01:02] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 12:01:53
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+olha a lista de destinatarios: ['diegopasti@gmail.com']
+foi?
+[12/Dec/2016 12:02:47] "GET /entidade/adicionar/ HTTP/1.1" 200 268619
+[12/Dec/2016 12:02:47] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:02:47] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:02:47] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:02:47] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:02:47] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:02:47] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[12/Dec/2016 12:02:48] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:02:48] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:02:48] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:02:48] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:02:48] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:02:48] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:02:48] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:02:48] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[12/Dec/2016 12:02:48] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:02:48] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:02:48] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[12/Dec/2016 12:02:48] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[12/Dec/2016 12:02:48] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:02:48] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:02:48] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[12/Dec/2016 12:02:48] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[12/Dec/2016 12:02:49] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[12/Dec/2016 12:02:49] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 12:04:20
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+olha a lista de destinatarios: ['diegopasti@gmail.com']
+diegopasti@gmail.com <type 'str'>
+foi?
+[12/Dec/2016 12:09:05] "GET /entidade/adicionar/ HTTP/1.1" 200 268619
+[12/Dec/2016 12:09:05] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:09:05] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:09:05] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:09:05] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:09:05] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[12/Dec/2016 12:09:05] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:09:06] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:09:06] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:09:06] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:09:06] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:09:06] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:09:06] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:09:06] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[12/Dec/2016 12:09:06] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:09:06] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:09:06] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:09:06] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[12/Dec/2016 12:09:06] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[12/Dec/2016 12:09:06] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:09:06] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:09:06] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[12/Dec/2016 12:09:06] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[12/Dec/2016 12:09:06] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[12/Dec/2016 12:09:06] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 12:09:53
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+olha a lista de destinatarios: ['diegopasti@gmail.com']
+diegopasti@gmail.com <type 'str'>
+foi?
+[12/Dec/2016 12:09:59] "GET /entidade/adicionar/ HTTP/1.1" 200 268619
+[12/Dec/2016 12:09:59] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:09:59] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:09:59] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:09:59] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:09:59] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[12/Dec/2016 12:09:59] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:09:59] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:09:59] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:09:59] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:09:59] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:09:59] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:09:59] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:10:00] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:10:00] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[12/Dec/2016 12:10:00] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[12/Dec/2016 12:10:00] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:10:00] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[12/Dec/2016 12:10:00] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[12/Dec/2016 12:10:00] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:10:00] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[12/Dec/2016 12:10:00] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[12/Dec/2016 12:10:00] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[12/Dec/2016 12:10:00] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[12/Dec/2016 12:10:00] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 14:31:01
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+olha a lista de destinatarios: ['helder@pcns.com.br']
+helder@pcns.com.br <type 'str'>
+foi?
+[12/Dec/2016 14:31:15] "GET /entidade/adicionar/ HTTP/1.1" 200 268619
+[12/Dec/2016 14:31:15] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:31:15] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[12/Dec/2016 14:31:15] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:31:15] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:31:15] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:31:15] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:31:15] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:31:15] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:31:15] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:31:15] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:31:15] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:31:15] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:31:15] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:31:15] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[12/Dec/2016 14:31:15] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:31:15] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:31:15] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[12/Dec/2016 14:31:15] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[12/Dec/2016 14:31:15] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:31:15] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:31:15] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[12/Dec/2016 14:31:15] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[12/Dec/2016 14:31:15] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[12/Dec/2016 14:31:15] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 14:31:38
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+olha a lista de destinatarios: ['helder@pcns.com.br']
+helder@pcns.com.br <type 'str'>
+foi?
+[12/Dec/2016 14:31:44] "GET /entidade/adicionar/ HTTP/1.1" 200 268619
+[12/Dec/2016 14:31:44] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:31:44] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:31:44] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:31:44] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:31:44] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[12/Dec/2016 14:31:44] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:31:45] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:31:45] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:31:45] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:31:45] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:31:45] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:31:45] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:31:45] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:31:45] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[12/Dec/2016 14:31:45] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:31:45] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:31:45] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[12/Dec/2016 14:31:45] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[12/Dec/2016 14:31:46] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[12/Dec/2016 14:31:46] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:31:46] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[12/Dec/2016 14:31:46] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:31:46] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[12/Dec/2016 14:31:46] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 14:34:11
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+olha a lista de destinatarios: []
+helder@pcns.com.br <type 'str'>
+foi?
+[12/Dec/2016 14:34:15] "GET /entidade/adicionar/ HTTP/1.1" 200 268619
+[12/Dec/2016 14:34:15] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:34:15] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:34:15] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:34:15] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:34:15] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:34:15] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[12/Dec/2016 14:34:16] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:34:16] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:34:16] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:34:16] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:34:16] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:34:16] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:34:16] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:34:16] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[12/Dec/2016 14:34:16] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:34:16] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:34:16] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[12/Dec/2016 14:34:16] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[12/Dec/2016 14:34:17] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:34:17] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:34:17] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[12/Dec/2016 14:34:17] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[12/Dec/2016 14:34:17] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[12/Dec/2016 14:34:17] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 14:35:56
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+olha a lista de destinatarios: []
+helder@pcns.com.br,diegopasti@gmail.com <type 'str'>
+foi?
+[12/Dec/2016 14:36:06] "GET /entidade/adicionar/ HTTP/1.1" 200 268619
+[12/Dec/2016 14:36:06] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:36:06] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:36:06] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[12/Dec/2016 14:36:06] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:36:06] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:36:06] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:36:07] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:36:07] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:36:07] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:36:07] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:36:07] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:36:07] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:36:07] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:36:07] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[12/Dec/2016 14:36:07] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:36:07] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:36:07] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[12/Dec/2016 14:36:07] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[12/Dec/2016 14:36:07] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:36:08] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:36:08] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[12/Dec/2016 14:36:08] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[12/Dec/2016 14:36:08] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[12/Dec/2016 14:36:08] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 14:36:27
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+olha a lista de destinatarios: []
+diegopasti@gmail.com,helder@pcns.com.br <type 'str'>
+foi?
+[12/Dec/2016 14:38:17] "GET /entidade/adicionar/ HTTP/1.1" 200 268619
+[12/Dec/2016 14:38:17] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:38:17] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:38:17] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[12/Dec/2016 14:38:17] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:38:17] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:38:17] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:38:18] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:38:18] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:38:18] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:38:18] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:38:18] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:38:18] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:38:18] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[12/Dec/2016 14:38:18] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:38:18] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:38:18] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:38:18] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[12/Dec/2016 14:38:18] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[12/Dec/2016 14:38:19] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:38:19] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:38:19] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[12/Dec/2016 14:38:19] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[12/Dec/2016 14:38:19] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[12/Dec/2016 14:38:19] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 14:40:07
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+olha a lista de destinatarios: ['diegopasti@gmail.com', 'helder@pcns.com.br']
+diegopasti@gmail.com, helder@pcns.com.br <type 'str'>
+foi?
+[12/Dec/2016 14:40:23] "GET /entidade/adicionar/ HTTP/1.1" 200 268619
+[12/Dec/2016 14:40:23] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:40:23] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:40:23] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:40:23] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[12/Dec/2016 14:40:23] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:40:23] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:40:24] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:40:24] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:40:24] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:40:24] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:40:24] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:40:24] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:40:24] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:40:24] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:40:24] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[12/Dec/2016 14:40:24] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[12/Dec/2016 14:40:24] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:40:24] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[12/Dec/2016 14:40:24] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:40:25] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[12/Dec/2016 14:40:25] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:40:25] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[12/Dec/2016 14:40:25] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[12/Dec/2016 14:40:25] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 14:44:04
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+olha a lista de destinatarios: ['diegopasti@gmail.com', 'helder@pcns.com.br']
+diegopasti@gmail.com, helder@pcns.com.br <type 'str'>
+foi?
+[12/Dec/2016 14:54:43] "GET /entidade/adicionar/ HTTP/1.1" 200 268619
+[12/Dec/2016 14:54:43] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:54:43] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:54:43] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[12/Dec/2016 14:54:43] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:54:43] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:54:43] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:54:44] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:54:44] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:54:44] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:54:44] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:54:44] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:54:44] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:54:44] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:54:44] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[12/Dec/2016 14:54:44] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[12/Dec/2016 14:54:44] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[12/Dec/2016 14:54:44] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:54:44] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[12/Dec/2016 14:54:44] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:54:45] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[12/Dec/2016 14:54:45] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[12/Dec/2016 14:54:45] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[12/Dec/2016 14:54:45] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[12/Dec/2016 14:54:45] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 15:00:56
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+olha a lista de destinatarios: ['diegopasti@gmail.com', 'helder@pcns.com.br']
+diegopasti@gmail.com, helder@pcns.com.br <type 'str'>
+foi?
+[12/Dec/2016 15:01:04] "GET /entidade/adicionar/ HTTP/1.1" 200 268619
+[12/Dec/2016 15:01:04] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:01:04] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:01:04] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:01:04] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:01:04] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[12/Dec/2016 15:01:04] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:01:05] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:01:05] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:01:05] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:01:05] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:01:05] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:01:05] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:01:05] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[12/Dec/2016 15:01:05] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:01:05] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:01:05] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[12/Dec/2016 15:01:05] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:01:05] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[12/Dec/2016 15:01:06] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:01:06] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:01:06] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[12/Dec/2016 15:01:06] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[12/Dec/2016 15:01:06] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[12/Dec/2016 15:01:06] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 15:02:51
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+VEja o email que eu tenho que enviar:  olha a lista de destinatarios: ['diegopasti@gmail.com', 'helder@pcns.com.br']
+diegopasti@gmail.com, helder@pcns.com.br <type 'str'>
+diegopasti@gmail.com, helder@pcns.com.br
+olha a lista de destinatarios: ['diegopasti@gmail.com', 'helder@pcns.com.br']
+diegopasti@gmail.com, helder@pcns.com.br <type 'str'>
+foi?
+[12/Dec/2016 15:03:37] "GET /entidade/adicionar/ HTTP/1.1" 200 268619
+[12/Dec/2016 15:03:37] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[12/Dec/2016 15:03:37] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:03:37] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:03:37] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:03:37] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:03:37] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:03:38] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:03:38] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:03:38] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:03:38] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:03:38] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:03:38] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:03:38] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:03:38] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[12/Dec/2016 15:03:38] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:03:38] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:03:38] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[12/Dec/2016 15:03:38] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[12/Dec/2016 15:03:38] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:03:39] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:03:39] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[12/Dec/2016 15:03:39] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[12/Dec/2016 15:03:39] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[12/Dec/2016 15:03:39] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 15:04:58
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+VEja o email que eu tenho que enviar:  diegopasti@gmail.com, helder@pcns.com.br
+foi?
+[12/Dec/2016 15:05:06] "GET /entidade/adicionar/ HTTP/1.1" 200 268619
+[12/Dec/2016 15:05:06] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:05:06] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:05:06] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:05:06] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:05:06] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:05:06] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[12/Dec/2016 15:05:07] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:05:07] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:05:07] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:05:07] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:05:07] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:05:07] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:05:07] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:05:07] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[12/Dec/2016 15:05:07] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:05:07] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:05:07] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[12/Dec/2016 15:05:07] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[12/Dec/2016 15:05:07] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:05:07] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:05:07] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[12/Dec/2016 15:05:07] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[12/Dec/2016 15:05:08] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[12/Dec/2016 15:05:08] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 15:06:37
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+VEja o email que eu tenho que enviar:  diegopasti@gmail.com, helder@pcns.com.br
+foi?
+[12/Dec/2016 15:06:44] "GET /entidade/adicionar/ HTTP/1.1" 200 268619
+[12/Dec/2016 15:06:44] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:06:44] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:06:44] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:06:44] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:06:44] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:06:44] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[12/Dec/2016 15:06:45] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:06:45] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:06:45] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:06:45] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:06:45] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:06:45] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:06:45] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[12/Dec/2016 15:06:45] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:06:45] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:06:45] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:06:45] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[12/Dec/2016 15:06:45] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[12/Dec/2016 15:06:45] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:06:45] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:06:45] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[12/Dec/2016 15:06:45] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[12/Dec/2016 15:06:46] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[12/Dec/2016 15:06:46] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 15:12:48
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+VEja o email que eu tenho que enviar:  ['diegopasti@gmail.com', 'helder@pcns.com.br']
+foi?
+[12/Dec/2016 15:13:24] "GET /entidade/adicionar/ HTTP/1.1" 200 268619
+[12/Dec/2016 15:13:25] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:13:25] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:13:25] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:13:25] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[12/Dec/2016 15:13:25] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:13:25] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:13:25] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:13:25] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:13:25] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:13:25] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:13:25] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:13:25] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:13:25] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:13:26] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[12/Dec/2016 15:13:26] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:13:26] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:13:26] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[12/Dec/2016 15:13:26] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[12/Dec/2016 15:13:26] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:13:26] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:13:26] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[12/Dec/2016 15:13:26] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[12/Dec/2016 15:13:26] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[12/Dec/2016 15:13:26] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 15:15:45
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+VEja o email que eu tenho que enviar:  diegopasti@gmail.com, helder@pcns.com.br
+foi?
+[12/Dec/2016 15:16:09] "GET /entidade/adicionar/ HTTP/1.1" 200 268619
+[12/Dec/2016 15:16:09] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:16:09] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:16:09] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:16:09] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:16:09] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[12/Dec/2016 15:16:09] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:16:10] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:16:10] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:16:10] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:16:10] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:16:10] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:16:10] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:16:10] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[12/Dec/2016 15:16:10] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[12/Dec/2016 15:16:10] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:16:10] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:16:10] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:16:10] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[12/Dec/2016 15:16:10] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:16:10] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:16:10] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[12/Dec/2016 15:16:10] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[12/Dec/2016 15:16:11] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[12/Dec/2016 15:16:11] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 15:17:20
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+VEja o email que eu tenho que enviar:  diegopasti@gmail.com, helder@pcns.com.br
+foi?
+[12/Dec/2016 15:17:28] "GET /entidade/adicionar/ HTTP/1.1" 200 268619
+[12/Dec/2016 15:17:28] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:17:28] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:17:28] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[12/Dec/2016 15:17:28] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:17:28] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:17:28] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:17:29] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:17:29] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:17:29] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:17:29] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:17:29] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:17:29] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:17:29] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[12/Dec/2016 15:17:29] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:17:29] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:17:29] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[12/Dec/2016 15:17:29] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[12/Dec/2016 15:17:29] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:17:30] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:17:30] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[12/Dec/2016 15:17:30] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[12/Dec/2016 15:17:30] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:17:30] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[12/Dec/2016 15:17:30] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 15:17:50
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+VEja o email que eu tenho que enviar:  diegopasti@gmail.com
+foi?
+[12/Dec/2016 15:17:54] "GET /entidade/adicionar/ HTTP/1.1" 200 268619
+[12/Dec/2016 15:17:54] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:17:54] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:17:54] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:17:54] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:17:54] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:17:54] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[12/Dec/2016 15:17:55] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:17:55] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:17:55] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:17:55] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:17:55] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:17:55] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:17:55] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:17:56] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[12/Dec/2016 15:17:56] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[12/Dec/2016 15:17:56] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:17:56] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:17:56] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[12/Dec/2016 15:17:56] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:17:56] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[12/Dec/2016 15:17:56] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:17:56] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[12/Dec/2016 15:17:56] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[12/Dec/2016 15:17:56] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 15:18:50
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+VEja o email que eu tenho que enviar:  diegopasti@gmail.com,helder@pcns.com.br
+foi?
+[12/Dec/2016 15:18:57] "GET /entidade/adicionar/ HTTP/1.1" 200 268619
+[12/Dec/2016 15:18:57] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:18:57] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:18:57] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:18:57] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:18:57] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:18:57] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[12/Dec/2016 15:18:58] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:18:58] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:18:58] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:18:58] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:18:58] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:18:58] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:18:58] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:18:58] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[12/Dec/2016 15:18:58] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:18:58] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:18:58] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[12/Dec/2016 15:18:58] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[12/Dec/2016 15:18:58] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:18:58] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:18:58] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[12/Dec/2016 15:18:58] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[12/Dec/2016 15:18:59] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[12/Dec/2016 15:18:59] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 15:19:48
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+VEja o email que eu tenho que enviar:  diegopasti@gmail.com ,helder@pcns.com.br
+foi?
+[12/Dec/2016 15:20:09] "GET /entidade/adicionar/ HTTP/1.1" 200 268619
+[12/Dec/2016 15:20:09] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:20:09] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:20:09] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[12/Dec/2016 15:20:09] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:20:09] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:20:09] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:20:10] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:20:10] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:20:10] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:20:10] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:20:10] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:20:10] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:20:11] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:20:11] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[12/Dec/2016 15:20:11] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[12/Dec/2016 15:20:11] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:20:11] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[12/Dec/2016 15:20:11] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[12/Dec/2016 15:20:11] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:20:11] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[12/Dec/2016 15:20:11] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[12/Dec/2016 15:20:11] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[12/Dec/2016 15:20:11] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[12/Dec/2016 15:20:11] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 12, 2016 - 15:21:19
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[12/Dec/2016 16:04:15] "GET /entidade/adicionar/ HTTP/1.1" 200 268619
+
+Process finished with exit code 0

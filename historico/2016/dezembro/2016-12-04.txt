@@ -1,0 +1,1601 @@
+"C:\Program Files (x86)\JetBrains\PyCharm 2016.1.4\bin\runnerw.exe" C:\Python27\python.exe C:/Users/diego/OneDrive/Projetos/sistema_contabil/manage.py runserver localhost:8000
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 04, 2016 - 00:07:21
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[04/Dec/2016 00:07:25] "GET / HTTP/1.1" 200 14491
+[04/Dec/2016 00:27:33] "GET / HTTP/1.1" 200 14491
+[04/Dec/2016 00:41:02] "GET / HTTP/1.1" 200 14491
+[04/Dec/2016 00:59:12] "GET / HTTP/1.1" 200 14491
+[04/Dec/2016 01:14:51] "GET / HTTP/1.1" 200 14491
+[04/Dec/2016 01:14:54] "GET / HTTP/1.1" 200 14491
+[04/Dec/2016 01:28:32] "GET / HTTP/1.1" 200 14491
+[04/Dec/2016 01:46:41] "GET / HTTP/1.1" 200 14491
+[04/Dec/2016 01:51:23] "GET / HTTP/1.1" 200 14491
+[04/Dec/2016 01:57:55] "GET / HTTP/1.1" 200 14491
+[04/Dec/2016 02:06:18] "GET / HTTP/1.1" 200 14491
+[04/Dec/2016 02:07:26] "GET /favicon.ico HTTP/1.1" 404 4672
+[04/Dec/2016 02:07:30] "GET /entidade/adicionar/ HTTP/1.1" 200 267651
+[04/Dec/2016 02:07:31] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[04/Dec/2016 02:09:57] "GET /entidade/adicionar/ HTTP/1.1" 200 267623
+[04/Dec/2016 02:09:57] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:09:57] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[04/Dec/2016 02:09:57] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:09:57] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:09:57] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:09:57] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:09:57] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:09:57] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:09:57] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:09:57] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:09:57] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:09:57] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:09:57] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:09:57] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[04/Dec/2016 02:09:58] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:09:58] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:09:58] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[04/Dec/2016 02:09:58] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[04/Dec/2016 02:09:58] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:09:58] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:09:58] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[04/Dec/2016 02:09:58] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[04/Dec/2016 02:09:58] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[04/Dec/2016 02:09:58] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[04/Dec/2016 02:11:22] "GET /entidade/adicionar/ HTTP/1.1" 200 267565
+[04/Dec/2016 02:11:49] "GET /entidade/adicionar/ HTTP/1.1" 200 267085
+[04/Dec/2016 02:13:32] "GET /entidade/adicionar/ HTTP/1.1" 200 267579
+[04/Dec/2016 02:13:37] "GET /entidade/adicionar/ HTTP/1.1" 200 267579
+[04/Dec/2016 02:13:37] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:13:37] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[04/Dec/2016 02:13:37] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:13:38] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:13:38] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:13:38] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:13:38] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:13:38] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:13:38] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:13:38] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:13:38] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:13:38] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:13:38] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:13:38] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[04/Dec/2016 02:13:38] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:13:38] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:13:38] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[04/Dec/2016 02:13:38] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[04/Dec/2016 02:13:38] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:13:38] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:13:38] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[04/Dec/2016 02:13:38] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[04/Dec/2016 02:13:38] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[04/Dec/2016 02:13:38] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[04/Dec/2016 02:13:49] "GET /entidade/adicionar/ HTTP/1.1" 200 267579
+[04/Dec/2016 02:13:49] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:13:49] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[04/Dec/2016 02:13:49] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:13:49] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:13:49] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:13:49] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:13:49] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:13:50] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:13:50] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:13:50] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:13:50] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:13:50] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:13:50] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:13:50] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[04/Dec/2016 02:13:50] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:13:50] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:13:50] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[04/Dec/2016 02:13:50] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[04/Dec/2016 02:13:50] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:13:50] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:13:50] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[04/Dec/2016 02:13:50] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[04/Dec/2016 02:13:50] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[04/Dec/2016 02:13:50] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[04/Dec/2016 02:14:49] "GET /entidade/adicionar/ HTTP/1.1" 200 267579
+[04/Dec/2016 02:14:49] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:14:49] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[04/Dec/2016 02:14:50] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:14:50] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:14:50] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:14:50] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:14:51] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:14:51] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:14:51] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:14:51] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:14:51] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:14:51] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:14:51] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:14:52] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[04/Dec/2016 02:14:52] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:14:52] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:14:52] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[04/Dec/2016 02:14:52] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[04/Dec/2016 02:14:52] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:14:52] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:14:52] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[04/Dec/2016 02:14:53] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[04/Dec/2016 02:14:53] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[04/Dec/2016 02:14:53] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[04/Dec/2016 02:16:41] "GET /entidade/adicionar/ HTTP/1.1" 200 266953
+[04/Dec/2016 02:16:42] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:16:42] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[04/Dec/2016 02:16:42] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:16:42] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:16:42] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:16:42] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:16:42] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:16:42] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:16:42] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:16:42] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:16:42] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:16:42] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:16:42] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:16:42] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[04/Dec/2016 02:16:42] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:16:42] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:16:42] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[04/Dec/2016 02:16:42] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[04/Dec/2016 02:16:42] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:16:42] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:16:42] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[04/Dec/2016 02:16:42] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[04/Dec/2016 02:16:42] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[04/Dec/2016 02:16:43] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[04/Dec/2016 02:17:08] "GET /entidade/adicionar/ HTTP/1.1" 200 267085
+[04/Dec/2016 02:17:09] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:17:09] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[04/Dec/2016 02:17:09] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:17:09] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:17:09] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:17:09] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:17:09] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:17:09] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:17:09] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:17:09] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:17:09] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:17:09] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:17:09] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:17:09] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[04/Dec/2016 02:17:10] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:17:10] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:17:10] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[04/Dec/2016 02:17:10] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[04/Dec/2016 02:17:10] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:17:10] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:17:10] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[04/Dec/2016 02:17:10] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[04/Dec/2016 02:17:10] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[04/Dec/2016 02:17:10] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[04/Dec/2016 02:17:38] "GET /entidade/adicionar/ HTTP/1.1" 200 267679
+[04/Dec/2016 02:21:05] "GET /entidade/adicionar/ HTTP/1.1" 200 268071
+[04/Dec/2016 02:21:05] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:21:05] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[04/Dec/2016 02:21:05] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:21:06] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:21:06] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:21:06] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:21:06] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:21:06] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:21:06] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:21:06] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:21:06] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:21:06] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:21:06] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:21:06] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[04/Dec/2016 02:21:06] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:21:06] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:21:06] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[04/Dec/2016 02:21:06] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[04/Dec/2016 02:21:06] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:21:06] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:21:06] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[04/Dec/2016 02:21:06] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[04/Dec/2016 02:21:06] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[04/Dec/2016 02:21:07] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 04, 2016 - 02:23:12
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 04, 2016 - 02:25:37
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 04, 2016 - 02:25:53
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[04/Dec/2016 02:25:54] "GET /entidade/adicionar/ HTTP/1.1" 200 267760
+[04/Dec/2016 02:25:54] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:25:54] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[04/Dec/2016 02:25:54] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:25:54] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:25:54] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:25:54] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:25:54] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:25:54] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:25:54] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:25:54] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:25:54] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:25:54] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:25:54] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:25:54] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[04/Dec/2016 02:25:54] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:25:54] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:25:54] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[04/Dec/2016 02:25:54] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[04/Dec/2016 02:25:54] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:25:54] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:25:54] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[04/Dec/2016 02:25:54] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[04/Dec/2016 02:25:55] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[04/Dec/2016 02:25:55] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 04, 2016 - 02:26:26
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 04, 2016 - 02:26:36
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[04/Dec/2016 02:26:44] "GET /entidade/adicionar/ HTTP/1.1" 200 267762
+[04/Dec/2016 02:26:55] "GET /entidade/adicionar/ HTTP/1.1" 200 267762
+[04/Dec/2016 02:26:55] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:26:55] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[04/Dec/2016 02:26:55] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:26:56] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:26:56] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:26:56] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:26:56] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:26:56] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:26:56] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:26:56] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:26:56] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:26:57] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:26:57] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:26:57] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[04/Dec/2016 02:26:57] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:26:57] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:26:57] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[04/Dec/2016 02:26:57] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[04/Dec/2016 02:26:57] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:26:57] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:26:57] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[04/Dec/2016 02:26:57] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[04/Dec/2016 02:26:57] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[04/Dec/2016 02:26:57] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 04, 2016 - 02:27:15
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[04/Dec/2016 02:27:15] "GET /entidade/adicionar/ HTTP/1.1" 200 267762
+[04/Dec/2016 02:27:16] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:27:16] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[04/Dec/2016 02:27:16] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:27:16] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:27:16] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:27:16] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:27:16] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:27:16] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:27:16] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:27:16] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:27:17] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:27:17] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:27:17] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:27:17] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[04/Dec/2016 02:27:17] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:27:17] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:27:17] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[04/Dec/2016 02:27:17] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[04/Dec/2016 02:27:17] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:27:17] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:27:17] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[04/Dec/2016 02:27:17] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[04/Dec/2016 02:27:17] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[04/Dec/2016 02:27:17] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 04, 2016 - 02:48:12
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[04/Dec/2016 02:52:09] "GET /entidade/adicionar/ HTTP/1.1" 200 268331
+[04/Dec/2016 02:52:16] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/images/ui-icons_444444_256x240.png HTTP/1.1" 200 6992
+[04/Dec/2016 02:52:36] "GET /entidade/adicionar/ HTTP/1.1" 200 268339
+[04/Dec/2016 02:53:19] "GET /entidade/adicionar/ HTTP/1.1" 200 268345
+[04/Dec/2016 02:53:19] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:53:19] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:53:19] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:53:19] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:53:19] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:53:19] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[04/Dec/2016 02:53:20] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:53:20] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:53:21] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:53:21] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:53:21] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:53:21] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:53:21] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:53:21] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[04/Dec/2016 02:53:21] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:53:21] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:53:21] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[04/Dec/2016 02:53:21] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[04/Dec/2016 02:53:21] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:53:21] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:53:22] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[04/Dec/2016 02:53:22] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[04/Dec/2016 02:53:22] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[04/Dec/2016 02:53:22] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[04/Dec/2016 02:54:04] "GET /entidade/adicionar/ HTTP/1.1" 200 268264
+[04/Dec/2016 02:54:04] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:54:04] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:54:04] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:54:04] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:54:05] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[04/Dec/2016 02:54:05] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:54:06] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:54:06] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:54:06] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:54:06] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:54:06] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:54:06] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:54:06] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:54:06] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[04/Dec/2016 02:54:06] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[04/Dec/2016 02:54:06] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:54:06] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[04/Dec/2016 02:54:06] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[04/Dec/2016 02:54:07] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:54:07] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[04/Dec/2016 02:54:07] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[04/Dec/2016 02:54:07] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[04/Dec/2016 02:54:07] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[04/Dec/2016 02:54:07] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 04, 2016 - 02:55:44
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[04/Dec/2016 02:58:24] "GET /entidade/adicionar/ HTTP/1.1" 200 268539
+[04/Dec/2016 03:00:17] "GET /entidade/adicionar/ HTTP/1.1" 200 268560
+[04/Dec/2016 03:02:22] "GET /entidade/adicionar/ HTTP/1.1" 200 268560
+[04/Dec/2016 03:05:22] "GET /entidade/adicionar/ HTTP/1.1" 200 268679
+[04/Dec/2016 03:06:04] "GET /entidade/adicionar/ HTTP/1.1" 200 268797
+[04/Dec/2016 03:06:24] "GET /entidade/adicionar/ HTTP/1.1" 200 268606
+[04/Dec/2016 03:08:15] "GET /entidade/adicionar/ HTTP/1.1" 200 268658
+[04/Dec/2016 03:09:08] "GET /entidade/adicionar/ HTTP/1.1" 200 268699
+[04/Dec/2016 03:09:09] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:09:09] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[04/Dec/2016 03:09:09] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:09:09] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:09:09] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:09:10] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:09:10] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:09:10] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:09:10] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:09:11] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:09:11] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:09:11] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:09:11] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:09:11] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[04/Dec/2016 03:09:11] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:09:11] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:09:11] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[04/Dec/2016 03:09:11] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[04/Dec/2016 03:09:12] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:09:12] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:09:12] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[04/Dec/2016 03:09:12] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[04/Dec/2016 03:09:13] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[04/Dec/2016 03:09:13] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[04/Dec/2016 03:09:47] "GET /entidade/adicionar/ HTTP/1.1" 200 268699
+[04/Dec/2016 03:09:47] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:09:47] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:09:47] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:09:47] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:09:47] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[04/Dec/2016 03:09:47] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:09:48] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:09:48] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:09:48] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:09:48] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:09:49] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:09:49] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:09:49] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:09:49] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[04/Dec/2016 03:09:49] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[04/Dec/2016 03:09:49] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:09:49] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:09:49] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[04/Dec/2016 03:09:49] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:09:49] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:09:49] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[04/Dec/2016 03:09:50] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[04/Dec/2016 03:09:50] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[04/Dec/2016 03:09:50] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[04/Dec/2016 03:11:00] "GET /entidade/adicionar/ HTTP/1.1" 200 268513
+[04/Dec/2016 03:11:01] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:11:01] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[04/Dec/2016 03:11:01] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:11:01] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:11:01] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:11:01] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:11:01] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:11:01] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:11:01] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:11:02] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:11:02] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:11:02] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:11:02] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:11:02] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[04/Dec/2016 03:11:02] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:11:02] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:11:02] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[04/Dec/2016 03:11:02] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[04/Dec/2016 03:11:02] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:11:02] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:11:02] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[04/Dec/2016 03:11:02] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[04/Dec/2016 03:11:03] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[04/Dec/2016 03:11:03] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[04/Dec/2016 03:13:54] "GET /entidade/adicionar/ HTTP/1.1" 200 268494
+[04/Dec/2016 03:15:18] "GET /entidade/adicionar/ HTTP/1.1" 200 268599
+[04/Dec/2016 03:15:18] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:15:18] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[04/Dec/2016 03:15:18] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:15:18] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:15:18] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:15:18] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:15:18] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:15:18] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:15:18] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:15:18] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:15:18] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:15:18] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:15:18] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:15:18] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[04/Dec/2016 03:15:18] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:15:18] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:15:18] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[04/Dec/2016 03:15:18] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[04/Dec/2016 03:15:18] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:15:18] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:15:19] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[04/Dec/2016 03:15:19] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[04/Dec/2016 03:15:19] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[04/Dec/2016 03:15:19] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[04/Dec/2016 03:16:00] "GET /entidade/adicionar/ HTTP/1.1" 200 268628
+[04/Dec/2016 03:16:51] "GET /entidade/adicionar/ HTTP/1.1" 200 268547
+[04/Dec/2016 03:16:51] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:16:52] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:16:52] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[04/Dec/2016 03:16:52] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:16:52] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:16:52] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:16:52] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:16:52] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:16:52] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:16:53] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:16:53] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:16:53] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:16:53] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:16:53] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[04/Dec/2016 03:16:53] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:16:53] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:16:53] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[04/Dec/2016 03:16:53] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[04/Dec/2016 03:16:53] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:16:53] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:16:53] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[04/Dec/2016 03:16:53] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[04/Dec/2016 03:16:53] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[04/Dec/2016 03:16:53] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 04, 2016 - 03:19:12
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Unhandled exception in thread started by <function wrapper at 0x0495C330>
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\utils\autoreload.py", line 234, in wrapper
+    filename = traceback.extract_tb(tb)[-1][0]
+  File "C:\Python27\lib\traceback.py", line 101, in extract_tb
+    line = linecache.getline(filename, lineno, f.f_globals)
+  File "C:\Python27\lib\linecache.py", line 14, in getline
+    lines = getlines(filename, module_globals)
+  File "C:\Python27\lib\linecache.py", line 41, in getlines
+    return updatecache(filename, module_globals)
+  File "C:\Python27\lib\linecache.py", line 84, in updatecache
+    stat = os.stat(fullname)
+TypeError: 'NoneType' object is not callable
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 04, 2016 - 03:19:53
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 04, 2016 - 03:20:07
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 04, 2016 - 03:24:44
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[04/Dec/2016 03:25:13] "GET /entidade/cadastro/ HTTP/1.1" 200 33135
+[04/Dec/2016 03:25:14] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[04/Dec/2016 03:25:14] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[04/Dec/2016 03:25:14] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[04/Dec/2016 03:25:14] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[04/Dec/2016 03:25:16] "GET /entidade/adicionar/ HTTP/1.1" 200 268548
+[04/Dec/2016 03:25:43] "GET /consultar_cep/29151260 HTTP/1.1" 301 0
+Nao achei na base de dados
+[04/Dec/2016 03:25:45] "GET /consultar_cep/29151260/ HTTP/1.1" 200 89
+SALVANDO DADOS VEJA:
+<QueryDict: {u'notificacao_envio': [u'S'], u'complemento': [u'casa'], u'contatos': [u'+|CELULAR|(27) 99988-1254|undefined|particular|diegopasti@gmail.com#+|||undefined||suporte@sistemas.com.br#'], u'observacoes': [u''], u'notificacao_email': [u'suporte@sistemas.com.br'], u'bairro': [u'ALTO LAJE'], u'nome_razao': [u'diego pasti'], u'notificacao_responsavel': [u'DIEGO'], u'pais': [u'BRASIL'], u'atividade_economica': [u''], u'numero_endereco': [u'60'], u'apelido_fantasia': [u'diego'], u'cpf_cnpj': [u'12859855750'], u'cep': [u'29151260'], u'endereco': [u'RUA DEM\xd3STENES NUNES VIEIRA'], u'nascimento_fundacao': [u'16/01/1992'], u'documentos': [u'', u''], u'estado': [u'ES'], u'csrfmiddlewaretoken': [u'5IdIFGYwHxEz2biTn96x5KBiN8p89iMj'], u'municipio': [u'CARIACICA'], u'codigo_municipio': [u'3201308']}>
+OLHA OS CAMPOS NA HORA DE CONSTRUIR O CONTATO: [u'+', u'CELULAR', u'(27) 99988-1254', u'', u'particular', u'diegopasti@gmail.com']
+OLHA OS CAMPOS NA HORA DE CONSTRUIR O CONTATO: [u'+', u'', u'', u'', u'', u'suporte@sistemas.com.br']
+Olha os documentos:  []
+[04/Dec/2016 03:28:51] "POST /entidade/adicionar/ HTTP/1.1" 302 0
+[04/Dec/2016 03:28:51] "GET /entidade/cadastro HTTP/1.1" 301 0
+[04/Dec/2016 03:28:51] "GET /entidade/cadastro/ HTTP/1.1" 200 33755
+[04/Dec/2016 03:28:51] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[04/Dec/2016 03:28:51] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[04/Dec/2016 03:28:52] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[04/Dec/2016 03:28:52] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[04/Dec/2016 03:28:52] "GET /arquivos_estaticos/bootstrap/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18028
+[04/Dec/2016 03:34:01] "GET /entidade/visualizar/2 HTTP/1.1" 301 0
+[04/Dec/2016 03:34:02] "GET /entidade/visualizar/2/ HTTP/1.1" 200 269507
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 04, 2016 - 03:35:00
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[04/Dec/2016 03:35:01] "GET /entidade/visualizar/2/ HTTP/1.1" 200 269539
+[04/Dec/2016 03:35:01] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[04/Dec/2016 03:35:01] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:35:01] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:35:01] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:35:02] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:35:02] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:35:02] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:35:02] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:35:02] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:35:02] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:35:02] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:35:02] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:35:02] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:35:02] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[04/Dec/2016 03:35:02] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:35:02] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:35:02] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[04/Dec/2016 03:35:02] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[04/Dec/2016 03:35:02] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:35:02] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:35:02] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[04/Dec/2016 03:35:02] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[04/Dec/2016 03:35:02] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[04/Dec/2016 03:35:03] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+Unhandled exception in thread started by <function wrapper at 0x046FA2F0>
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\utils\autoreload.py", line 234, in wrapper
+    filename = traceback.extract_tb(tb)[-1][0]
+  File "C:\Python27\lib\traceback.py", line 101, in extract_tb
+    line = linecache.getline(filename, lineno, f.f_globals)
+  File "C:\Python27\lib\linecache.py", line 14, in getline
+    lines = getlines(filename, module_globals)
+  File "C:\Python27\lib\linecache.py", line 41, in getlines
+    return updatecache(filename, module_globals)
+  File "C:\Python27\lib\linecache.py", line 84, in updatecache
+    stat = os.stat(fullname)
+TypeError: 'NoneType' object is not callable
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 04, 2016 - 03:35:38
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[04/Dec/2016 03:35:39] "GET /entidade/visualizar/2/ HTTP/1.1" 200 269573
+[04/Dec/2016 03:35:39] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:35:39] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:35:39] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:35:39] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:35:39] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:35:39] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[04/Dec/2016 03:35:39] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:35:39] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:35:39] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:35:39] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:35:40] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:35:40] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:35:40] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:35:40] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[04/Dec/2016 03:35:40] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[04/Dec/2016 03:35:40] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:35:40] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[04/Dec/2016 03:35:40] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[04/Dec/2016 03:35:40] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:35:40] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[04/Dec/2016 03:35:40] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[04/Dec/2016 03:35:40] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[04/Dec/2016 03:35:40] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[04/Dec/2016 03:35:40] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[04/Dec/2016 03:36:25] "GET /entidade/visualizar/2/ HTTP/1.1" 200 269573
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 04, 2016 - 03:37:01
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[04/Dec/2016 03:37:01] "GET /entidade/cadastro/ HTTP/1.1" 200 33755
+[04/Dec/2016 03:37:01] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[04/Dec/2016 03:37:02] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[04/Dec/2016 03:37:02] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[04/Dec/2016 03:37:02] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 888, in adicionar_entidade
+    context_instance=RequestContext(request))
+  File "C:\Python27\lib\site-packages\django\shortcuts.py", line 45, in render_to_response
+    using=using)
+  File "C:\Python27\lib\site-packages\django\template\loader.py", line 114, in render_to_string
+    template_name, context, context_instance, dirs, dictionary)
+  File "C:\Python27\lib\site-packages\django\template\engine.py", line 244, in render_to_string
+    return t.render(context_instance)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 206, in render
+    return self._render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 959, in render_annotated
+    return self.render(context)
+  File "C:\Python27\lib\site-packages\django\template\loader_tags.py", line 173, in render
+    return compiled_parent._render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 959, in render_annotated
+    return self.render(context)
+  File "C:\Python27\lib\site-packages\django\template\loader_tags.py", line 69, in render
+    result = block.nodelist.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 959, in render_annotated
+    return self.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 1049, in render
+    return render_value_in_context(output, context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 1026, in render_value_in_context
+    value = force_text(value)
+  File "C:\Python27\lib\site-packages\django\utils\encoding.py", line 78, in force_text
+    s = six.text_type(s)
+  File "C:\Python27\lib\site-packages\django\utils\html.py", line 381, in <lambda>
+    klass.__unicode__ = lambda self: mark_safe(klass_unicode(self))
+  File "C:\Python27\lib\site-packages\django\forms\boundfield.py", line 43, in __str__
+    return self.as_widget()
+  File "C:\Python27\lib\site-packages\django\forms\boundfield.py", line 101, in as_widget
+    return force_text(widget.render(name, self.value(), attrs=attrs))
+  File "C:\Python27\lib\site-packages\django\forms\widgets.py", line 528, in render
+    options = self.render_options(choices, [value])
+  File "C:\Python27\lib\site-packages\django\forms\widgets.py", line 558, in render_options
+    output.append(self.render_option(selected_choices, *option))
+TypeError: render_option() takes exactly 4 arguments (3 given)
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 888, in adicionar_entidade
+    context_instance=RequestContext(request))
+  File "C:\Python27\lib\site-packages\django\shortcuts.py", line 45, in render_to_response
+    using=using)
+  File "C:\Python27\lib\site-packages\django\template\loader.py", line 114, in render_to_string
+    template_name, context, context_instance, dirs, dictionary)
+  File "C:\Python27\lib\site-packages\django\template\engine.py", line 244, in render_to_string
+    return t.render(context_instance)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 206, in render
+    return self._render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 959, in render_annotated
+    return self.render(context)
+  File "C:\Python27\lib\site-packages\django\template\loader_tags.py", line 173, in render
+    return compiled_parent._render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 959, in render_annotated
+    return self.render(context)
+  File "C:\Python27\lib\site-packages\django\template\loader_tags.py", line 69, in render
+    result = block.nodelist.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 959, in render_annotated
+    return self.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 1049, in render
+    return render_value_in_context(output, context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 1026, in render_value_in_context
+    value = force_text(value)
+  File "C:\Python27\lib\site-packages\django\utils\encoding.py", line 78, in force_text
+    s = six.text_type(s)
+  File "C:\Python27\lib\site-packages\django\utils\html.py", line 381, in <lambda>
+    klass.__unicode__ = lambda self: mark_safe(klass_unicode(self))
+  File "C:\Python27\lib\site-packages\django\forms\boundfield.py", line 43, in __str__
+    return self.as_widget()
+  File "C:\Python27\lib\site-packages\django\forms\boundfield.py", line 101, in as_widget
+    return force_text(widget.render(name, self.value(), attrs=attrs))
+  File "C:\Python27\lib\site-packages\django\forms\widgets.py", line 528, in render
+    options = self.render_options(choices, [value])
+  File "C:\Python27\lib\site-packages\django\forms\widgets.py", line 558, in render_options
+    output.append(self.render_option(selected_choices, *option))
+TypeError: render_option() takes exactly 4 arguments (3 given)
+[04/Dec/2016 03:37:05] "GET /entidade/adicionar/ HTTP/1.1" 500 205636
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 888, in adicionar_entidade
+    context_instance=RequestContext(request))
+  File "C:\Python27\lib\site-packages\django\shortcuts.py", line 45, in render_to_response
+    using=using)
+  File "C:\Python27\lib\site-packages\django\template\loader.py", line 114, in render_to_string
+    template_name, context, context_instance, dirs, dictionary)
+  File "C:\Python27\lib\site-packages\django\template\engine.py", line 244, in render_to_string
+    return t.render(context_instance)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 206, in render
+    return self._render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 959, in render_annotated
+    return self.render(context)
+  File "C:\Python27\lib\site-packages\django\template\loader_tags.py", line 173, in render
+    return compiled_parent._render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 959, in render_annotated
+    return self.render(context)
+  File "C:\Python27\lib\site-packages\django\template\loader_tags.py", line 69, in render
+    result = block.nodelist.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 959, in render_annotated
+    return self.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 1049, in render
+    return render_value_in_context(output, context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 1026, in render_value_in_context
+    value = force_text(value)
+  File "C:\Python27\lib\site-packages\django\utils\encoding.py", line 78, in force_text
+    s = six.text_type(s)
+  File "C:\Python27\lib\site-packages\django\utils\html.py", line 381, in <lambda>
+    klass.__unicode__ = lambda self: mark_safe(klass_unicode(self))
+  File "C:\Python27\lib\site-packages\django\forms\boundfield.py", line 43, in __str__
+    return self.as_widget()
+  File "C:\Python27\lib\site-packages\django\forms\boundfield.py", line 101, in as_widget
+    return force_text(widget.render(name, self.value(), attrs=attrs))
+  File "C:\Python27\lib\site-packages\django\forms\widgets.py", line 528, in render
+    options = self.render_options(choices, [value])
+  File "C:\Python27\lib\site-packages\django\forms\widgets.py", line 558, in render_options
+    output.append(self.render_option(selected_choices, *option))
+TypeError: render_option() takes exactly 4 arguments (3 given)
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 888, in adicionar_entidade
+    context_instance=RequestContext(request))
+  File "C:\Python27\lib\site-packages\django\shortcuts.py", line 45, in render_to_response
+    using=using)
+  File "C:\Python27\lib\site-packages\django\template\loader.py", line 114, in render_to_string
+    template_name, context, context_instance, dirs, dictionary)
+  File "C:\Python27\lib\site-packages\django\template\engine.py", line 244, in render_to_string
+    return t.render(context_instance)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 206, in render
+    return self._render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 959, in render_annotated
+    return self.render(context)
+  File "C:\Python27\lib\site-packages\django\template\loader_tags.py", line 173, in render
+    return compiled_parent._render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 959, in render_annotated
+    return self.render(context)
+  File "C:\Python27\lib\site-packages\django\template\loader_tags.py", line 69, in render
+    result = block.nodelist.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 959, in render_annotated
+    return self.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 1049, in render
+    return render_value_in_context(output, context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 1026, in render_value_in_context
+    value = force_text(value)
+  File "C:\Python27\lib\site-packages\django\utils\encoding.py", line 78, in force_text
+    s = six.text_type(s)
+  File "C:\Python27\lib\site-packages\django\utils\html.py", line 381, in <lambda>
+    klass.__unicode__ = lambda self: mark_safe(klass_unicode(self))
+  File "C:\Python27\lib\site-packages\django\forms\boundfield.py", line 43, in __str__
+    return self.as_widget()
+  File "C:\Python27\lib\site-packages\django\forms\boundfield.py", line 101, in as_widget
+    return force_text(widget.render(name, self.value(), attrs=attrs))
+  File "C:\Python27\lib\site-packages\django\forms\widgets.py", line 528, in render
+    options = self.render_options(choices, [value])
+  File "C:\Python27\lib\site-packages\django\forms\widgets.py", line 558, in render_options
+    output.append(self.render_option(selected_choices, *option))
+TypeError: render_option() takes exactly 4 arguments (3 given)
+[04/Dec/2016 03:37:16] "GET /entidade/adicionar/ HTTP/1.1" 500 205476
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 04, 2016 - 03:37:37
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 04, 2016 - 03:37:50
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[04/Dec/2016 03:37:51] "GET /entidade/adicionar/ HTTP/1.1" 200 268619
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 04, 2016 - 05:09:53
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "C:\Python27\lib\site-packages\django\utils\lru_cache.py", line 100, in wrapper
+    result = user_function(*args, **kwds)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 28, in <module>
+    from util.email import ControleEmail
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\email.py", line 5, in <module>
+    from email import encoders
+ImportError: cannot import name encoders
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "C:\Python27\lib\site-packages\django\utils\lru_cache.py", line 100, in wrapper
+    result = user_function(*args, **kwds)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 28, in <module>
+    from util.email import ControleEmail
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\email.py", line 5, in <module>
+    from email import encoders
+ImportError: cannot import name encoders
+[04/Dec/2016 05:13:51] "GET /entidade/adicionar/ HTTP/1.1" 500 103921
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "C:\Python27\lib\site-packages\django\utils\lru_cache.py", line 100, in wrapper
+    result = user_function(*args, **kwds)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 28, in <module>
+    from util.email import ControleEmail
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\email.py", line 5, in <module>
+    from email import Encoders
+ImportError: cannot import name Encoders
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "C:\Python27\lib\site-packages\django\utils\lru_cache.py", line 100, in wrapper
+    result = user_function(*args, **kwds)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 28, in <module>
+    from util.email import ControleEmail
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\email.py", line 5, in <module>
+    from email import Encoders
+ImportError: cannot import name Encoders
+[04/Dec/2016 05:16:17] "GET /entidade/adicionar/ HTTP/1.1" 500 103921
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "C:\Python27\lib\site-packages\django\utils\lru_cache.py", line 100, in wrapper
+    result = user_function(*args, **kwds)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 28, in <module>
+    from util.email import ControleEmail
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\email.py", line 5, in <module>
+    from email import Encoders
+ImportError: cannot import name Encoders
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "C:\Python27\lib\site-packages\django\utils\lru_cache.py", line 100, in wrapper
+    result = user_function(*args, **kwds)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 28, in <module>
+    from util.email import ControleEmail
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\email.py", line 5, in <module>
+    from email import Encoders
+ImportError: cannot import name Encoders
+[04/Dec/2016 05:16:45] "GET /entidade/adicionar/ HTTP/1.1" 500 104056
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "C:\Python27\lib\site-packages\django\utils\lru_cache.py", line 100, in wrapper
+    result = user_function(*args, **kwds)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 28, in <module>
+    from util.email import ControleEmail
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\email.py", line 5, in <module>
+    from email import encoders
+ImportError: cannot import name encoders
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "C:\Python27\lib\site-packages\django\utils\lru_cache.py", line 100, in wrapper
+    result = user_function(*args, **kwds)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 28, in <module>
+    from util.email import ControleEmail
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\email.py", line 5, in <module>
+    from email import encoders
+ImportError: cannot import name encoders
+[04/Dec/2016 05:25:02] "GET /entidade/adicionar/ HTTP/1.1" 500 104056
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "C:\Python27\lib\site-packages\django\utils\lru_cache.py", line 100, in wrapper
+    result = user_function(*args, **kwds)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 28, in <module>
+    from util.email import ControleEmail
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\email.py", line 5, in <module>
+    from email import encoders
+ImportError: cannot import name encoders
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "C:\Python27\lib\site-packages\django\utils\lru_cache.py", line 100, in wrapper
+    result = user_function(*args, **kwds)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 28, in <module>
+    from util.email import ControleEmail
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\email.py", line 5, in <module>
+    from email import encoders
+ImportError: cannot import name encoders
+[04/Dec/2016 05:26:33] "GET /entidade/adicionar/ HTTP/1.1" 500 104056
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "C:\Python27\lib\site-packages\django\utils\lru_cache.py", line 100, in wrapper
+    result = user_function(*args, **kwds)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 28, in <module>
+    from util.email import ControleEmail
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\email.py", line 5, in <module>
+    from email import encoders
+ImportError: cannot import name encoders
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "C:\Python27\lib\site-packages\django\utils\lru_cache.py", line 100, in wrapper
+    result = user_function(*args, **kwds)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 28, in <module>
+    from util.email import ControleEmail
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\email.py", line 5, in <module>
+    from email import encoders
+ImportError: cannot import name encoders
+[04/Dec/2016 05:26:36] "GET /entidade/adicionar/ HTTP/1.1" 500 104056
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "C:\Python27\lib\site-packages\django\utils\lru_cache.py", line 100, in wrapper
+    result = user_function(*args, **kwds)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 28, in <module>
+    from util.email import ControleEmail
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\email.py", line 5, in <module>
+    from email import encoders
+ImportError: cannot import name encoders
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "C:\Python27\lib\site-packages\django\utils\lru_cache.py", line 100, in wrapper
+    result = user_function(*args, **kwds)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 28, in <module>
+    from util.email import ControleEmail
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\email.py", line 5, in <module>
+    from email import encoders
+ImportError: cannot import name encoders
+[04/Dec/2016 05:26:38] "GET /entidade/adicionar/ HTTP/1.1" 500 103921
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "C:\Python27\lib\site-packages\django\utils\lru_cache.py", line 100, in wrapper
+    result = user_function(*args, **kwds)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 28, in <module>
+    from util.email import ControleEmail
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\email.py", line 6, in <module>
+    from email.mime.audio import MIMEAudio
+ImportError: No module named mime.audio
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "C:\Python27\lib\site-packages\django\utils\lru_cache.py", line 100, in wrapper
+    result = user_function(*args, **kwds)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 28, in <module>
+    from util.email import ControleEmail
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\email.py", line 6, in <module>
+    from email.mime.audio import MIMEAudio
+ImportError: No module named mime.audio
+[04/Dec/2016 05:26:55] "GET /entidade/adicionar/ HTTP/1.1" 500 104165
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "C:\Python27\lib\site-packages\django\utils\lru_cache.py", line 100, in wrapper
+    result = user_function(*args, **kwds)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 28, in <module>
+    from util.email import ControleEmail
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\email.py", line 5, in <module>
+    from email import encoders
+ImportError: cannot import name encoders
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "C:\Python27\lib\site-packages\django\utils\lru_cache.py", line 100, in wrapper
+    result = user_function(*args, **kwds)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 28, in <module>
+    from util.email import ControleEmail
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\email.py", line 5, in <module>
+    from email import encoders
+ImportError: cannot import name encoders
+[04/Dec/2016 05:29:51] "GET /entidade/adicionar/ HTTP/1.1" 500 104059
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "C:\Python27\lib\site-packages\django\utils\lru_cache.py", line 100, in wrapper
+    result = user_function(*args, **kwds)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 28, in <module>
+    from util.email import ControleEmail
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\email.py", line 5, in <module>
+    from email import encoders
+ImportError: cannot import name encoders
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "C:\Python27\lib\site-packages\django\utils\lru_cache.py", line 100, in wrapper
+    result = user_function(*args, **kwds)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 28, in <module>
+    from util.email import ControleEmail
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\email.py", line 5, in <module>
+    from email import encoders
+ImportError: cannot import name encoders
+[04/Dec/2016 05:30:48] "GET /entidade/adicionar/ HTTP/1.1" 500 104059
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "C:\Python27\lib\site-packages\django\utils\lru_cache.py", line 100, in wrapper
+    result = user_function(*args, **kwds)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 28, in <module>
+    from util.email import ControleEmail
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\email.py", line 5, in <module>
+    from email.mime.audio import MIMEAudio
+ImportError: No module named mime.audio
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "C:\Python27\lib\site-packages\django\utils\lru_cache.py", line 100, in wrapper
+    result = user_function(*args, **kwds)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 28, in <module>
+    from util.email import ControleEmail
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\email.py", line 5, in <module>
+    from email.mime.audio import MIMEAudio
+ImportError: No module named mime.audio
+[04/Dec/2016 05:32:23] "GET /entidade/adicionar/ HTTP/1.1" 500 104068
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "C:\Python27\lib\site-packages\django\utils\lru_cache.py", line 100, in wrapper
+    result = user_function(*args, **kwds)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 28, in <module>
+    from util.email import ControleEmail
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\email.py", line 7, in <module>
+    from email.mime.image import MIMEImage
+ImportError: No module named mime.image
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "C:\Python27\lib\site-packages\django\utils\lru_cache.py", line 100, in wrapper
+    result = user_function(*args, **kwds)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 28, in <module>
+    from util.email import ControleEmail
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\email.py", line 7, in <module>
+    from email.mime.image import MIMEImage
+ImportError: No module named mime.image
+[04/Dec/2016 05:32:38] "GET /entidade/adicionar/ HTTP/1.1" 500 104359
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "C:\Python27\lib\site-packages\django\utils\lru_cache.py", line 100, in wrapper
+    result = user_function(*args, **kwds)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 28, in <module>
+    from util.email import ControleEmail
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\email.py", line 11, in <module>
+    from email import encoders
+ImportError: cannot import name encoders
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "C:\Python27\lib\site-packages\django\utils\lru_cache.py", line 100, in wrapper
+    result = user_function(*args, **kwds)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 28, in <module>
+    from util.email import ControleEmail
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\email.py", line 11, in <module>
+    from email import encoders
+ImportError: cannot import name encoders
+[04/Dec/2016 05:32:44] "GET /entidade/adicionar/ HTTP/1.1" 500 104478
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "C:\Python27\lib\site-packages\django\utils\lru_cache.py", line 100, in wrapper
+    result = user_function(*args, **kwds)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 28, in <module>
+    from util.email import ControleEmail
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\email.py", line 11, in <module>
+    from email import Encoders
+ImportError: cannot import name Encoders
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "C:\Python27\lib\site-packages\django\utils\lru_cache.py", line 100, in wrapper
+    result = user_function(*args, **kwds)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 28, in <module>
+    from util.email import ControleEmail
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\email.py", line 11, in <module>
+    from email import Encoders
+ImportError: cannot import name Encoders
+[04/Dec/2016 05:32:56] "GET /entidade/adicionar/ HTTP/1.1" 500 104478
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "C:\Python27\lib\site-packages\django\utils\lru_cache.py", line 100, in wrapper
+    result = user_function(*args, **kwds)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 28, in <module>
+    from util.email import ControleEmail
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\email.py", line 11, in <module>
+    from email import encoders
+ImportError: cannot import name encoders
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "C:\Python27\lib\site-packages\django\utils\lru_cache.py", line 100, in wrapper
+    result = user_function(*args, **kwds)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 28, in <module>
+    from util.email import ControleEmail
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\email.py", line 11, in <module>
+    from email import encoders
+ImportError: cannot import name encoders
+[04/Dec/2016 05:33:37] "GET /entidade/adicionar/ HTTP/1.1" 500 104478
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "C:\Python27\lib\site-packages\django\utils\lru_cache.py", line 100, in wrapper
+    result = user_function(*args, **kwds)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 28, in <module>
+    from util.email import ControleEmail
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\email.py", line 10, in <module>
+    from email.mime.multipart import MIMEMultipart
+ImportError: No module named mime.multipart
+Internal Server Error: /entidade/adicionar/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "C:\Python27\lib\site-packages\django\utils\lru_cache.py", line 100, in wrapper
+    result = user_function(*args, **kwds)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 28, in <module>
+    from util.email import ControleEmail
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\util\email.py", line 10, in <module>
+    from email.mime.multipart import MIMEMultipart
+ImportError: No module named mime.multipart
+[04/Dec/2016 05:55:38] "GET /entidade/adicionar/ HTTP/1.1" 500 104404
+
+Process finished with exit code -1

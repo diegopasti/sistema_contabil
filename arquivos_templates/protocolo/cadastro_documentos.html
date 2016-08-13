@@ -7,6 +7,9 @@
 
 {% load staticfiles %}
 {% block recrusos_necessarios %}
+{% comment %} Reimportar a biblioteca bootstrap no arquivo filho corrige o problema de fonte turva {% endcomment %}
+<!-- BOOTSTRAP 3.3.6 -->
+<link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"/>
 
 <!-- DATATABLE -->
 <link rel="stylesheet" type="text/css" href="{% static 'datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css' %}"/>
@@ -80,84 +83,80 @@ label {
 </style>
 {% endblock %}
 
+{% block breadcrumb_title %}Cadastro de Documentos{% endblock %}
+
 {% block breadcrumb_block %}
-<li><a href="#"><i class="fa fa-dashboard"></i> Cadastros</a></li>
+<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
 <li class="active">Documentos</li>
 {% endblock %}
 
 {% block conteudo %}
 
-    <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
-        <div class="modal-dialog">
-            <!--  style="width: 90%"> -->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-                    <h3 id="myModalLabel">Novo Documento</h3>
-                </div>
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog">
+        <!--  style="width: 90%"> -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                <h3 id="myModalLabel">Novo Documento</h3>
+            </div>
 
 
-                <div class="modal-body" style="padding: 30px;">
-                    <form action="" method="post">
-                    {% csrf_token %}
-                        <div class="row" style="padding-left: 15px; padding-right: 15px">
-                            <div style='padding-left: 8px'>
-                                <sub>{{ formulario.documento.label }}</sub>
-                            </div>
-                            {{ formulario.documento }}
+            <div class="modal-body" style="padding: 30px;">
+                <form action="" method="post">
+                {% csrf_token %}
+                    <div class="row" style="padding-left: 15px; padding-right: 15px">
+                        <div style='padding-left: 8px'>
+                            <sub>{{ formulario.documento.label }}</sub>
                         </div>
+                        {{ formulario.documento }}
+                    </div>
 
-                        <div class="row" style="padding-left: 15px; padding-right: 15px">
-                            <div style='padding-left: 8px'>
-                                <sub>{{ formulario.descricao.label }}</sub>
-                            </div>
-                            {{ formulario.descricao }}
-
+                    <div class="row" style="padding-left: 15px; padding-right: 15px">
+                        <div style='padding-left: 8px'>
+                            <sub>{{ formulario.descricao.label }}</sub>
                         </div>
+                        {{ formulario.descricao }}
 
-                        <div class="row">
-                            <div class="col-lg-3 col-lg-push-9">
-                                <button type="submit" id="bt_submit_documento" class="btn btn-primary form-control" style="position: relative; margin-top: 20px"></button>
-                                <!-- <a href="#myModal" role="button" class="btn btn-primary form-control" data-toggle="modal" '  > Adicionar</a>  -->
-                            </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-3 col-lg-push-9">
+                            <button type="submit" id="bt_submit_documento" class="btn btn-primary form-control" style="position: relative; margin-top: 20px"></button>
+                            <!-- <a href="#myModal" role="button" class="btn btn-primary form-control" data-toggle="modal" '  > Adicionar</a>  -->
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+</div>
 
 <div class="row">
 	<div class="col-lg-12 col-md-12 col-xs-12">
-		<div class="panel panel-default" style="margin-top: 20px; margin-left: 0px; margin-right: 0px; ">
-			<div class="panel-heading">
-		
-				<div class="row" style="height:30px; line-height: 30px">
-					<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><!-- </div> col-md-7 col-sm-4 col-xs-2" > -->
-						<b>Documentos</b>
-					</div>
+		<div class="box box-default" style="margin-top: -15px;">
 
+            <div class="box-heading">
 
-					<div class="pull-right" style='margin-right: 8px;'><!--  col-lg-5 col-md-5 col-sm-8 col-xs-10"> -->
+                <div class="box-header with-border">
+                    <h5 class="box-title">Documentos</h5>
 
-						 <div class="btn-group" role="group" style='margin-top: -2px;' aria-label="...">
+                    <div class="pull-right">
+                         <a href="#" id='bt_adicionar' role="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus fa-1x" aria-hidden="true"></i> Novo Documento</a>
+						  <a href="#myModal" id='bt_alterar' role="button" class="btn btn-sm btn-default link_desabilitado"   data-toggle="modal" style='margin-left: 10px;'><i class="fa fa-file-text-o"></i> Alterar</a>
+						  <a href="#" role="button" class="btn btn-sm btn-default pull-right link_desabilitado" id="bt_excluir" onclick="return confirm('Deseja mesmo excluir esse documento?')" style="position: relative; margin-top: 0px;margin-right: 2px;margin-left: 10px;"><i class="fa fa-trash-o" aria-hidden="true"></i> Excluir</a>
 
-						  <a href="#" id='bt_adicionar' role="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus fa-1x" aria-hidden="true"></i> Novo Documento</a>
-						  <a href="#myModal" id='bt_alterar' role="button" class="btn btn-default link_desabilitado"   data-toggle="modal" style='margin-left: 10px;'><i class="fa fa-file-text-o"></i> Alterar</a>
-						  <a href="#" role="button" class="btn btn-default pull-right link_desabilitado" id="bt_excluir" onclick="return confirm('Deseja mesmo excluir esse documento?')" style="position: relative; margin-top: 0px;margin-right: 2px;margin-left: 10px;"><i class="fa fa-trash-o" aria-hidden="true"></i> Excluir</a>
-						</div>
-					</div>
-				</div>
+                    </div>
+                </div>
 			</div>
-			<!-- /.panel-heading -->
-		
-			<div class="panel-body" style="padding-bottom: -10px; margin-top: -5px;">
+
+			<div class="box-body" style="padding-bottom: -10px; margin-top: -5px;">
 				<div class="dataTable_wrapper">
 				
 					<div class='row'>
 						
 						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-							<table class="table compact table-bordered table-hover" id="datatable">
+							<table class="table table-condensed  table-striped table-bordered table-hover" id="datatable">
 				
 								<thead>
 									<tr class="linha_cabecalho">

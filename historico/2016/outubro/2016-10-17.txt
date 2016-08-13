@@ -1,0 +1,403 @@
+"C:\Program Files (x86)\JetBrains\PyCharm 2016.1.4\bin\runnerw.exe" C:\Python27\python.exe C:/Users/diego/OneDrive/Projetos/sistema_contabil/manage.py runserver localhost:8000
+Performing system checks...
+
+System check identified no issues (0 silenced).
+October 17, 2016 - 14:14:00
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[17/Oct/2016 14:14:11] "GET / HTTP/1.1" 200 14491
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+[17/Oct/2016 14:14:13] "GET /favicon.ico HTTP/1.1" 404 4528
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+[17/Oct/2016 14:14:13] "GET /favicon.ico HTTP/1.1" 404 4528
+[17/Oct/2016 14:14:34] "GET /entidade/adicionar/ HTTP/1.1" 200 261181
+[17/Oct/2016 14:14:35] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[17/Oct/2016 14:49:06] "GET /entidade/adicionar/ HTTP/1.1" 200 261181
+[17/Oct/2016 14:49:06] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[17/Oct/2016 14:49:06] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[17/Oct/2016 14:49:06] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[17/Oct/2016 14:49:06] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[17/Oct/2016 14:49:07] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[17/Oct/2016 14:49:07] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 14:49:07] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[17/Oct/2016 14:49:07] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 14:49:07] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 14:49:07] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 14:49:07] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[17/Oct/2016 14:49:07] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[17/Oct/2016 14:49:07] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[17/Oct/2016 14:49:07] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[17/Oct/2016 14:49:07] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[17/Oct/2016 14:49:07] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[17/Oct/2016 14:49:07] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[17/Oct/2016 14:49:07] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[17/Oct/2016 14:49:07] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[17/Oct/2016 14:49:08] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[17/Oct/2016 14:49:08] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[17/Oct/2016 14:49:08] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[17/Oct/2016 14:49:09] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[17/Oct/2016 14:49:09] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+Unhandled exception in thread started by <function wrapper at 0x03DFA0F0>
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\utils\autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\django\core\management\commands\runserver.py", line 137, in inner_run
+    ipv6=self.use_ipv6, threading=threading)
+  File "C:\Python27\lib\site-packages\django\core\servers\basehttp.py", line 198, in run
+    httpd.serve_forever()
+  File "C:\Python27\lib\SocketServer.py", line 230, in serve_forever
+    r, w, e = _eintr_retry(select.select, [self], [], [],
+AttributeError: 'NoneType' object has no attribute 'select'
+Performing system checks...
+
+System check identified no issues (0 silenced).
+October 17, 2016 - 14:51:23
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Internal Server Error: /entidade/cadastro/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "C:\Python27\lib\site-packages\django\utils\lru_cache.py", line 100, in wrapper
+    result = user_function(*args, **kwds)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 895
+    dados = entidade.objects.all()
+        ^
+IndentationError: expected an indented block
+Internal Server Error: /entidade/cadastro/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "C:\Python27\lib\site-packages\django\utils\lru_cache.py", line 100, in wrapper
+    result = user_function(*args, **kwds)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 895
+    dados = entidade.objects.all()
+        ^
+IndentationError: expected an indented block
+[17/Oct/2016 14:54:12] "GET /entidade/cadastro/ HTTP/1.1" 500 78635
+[17/Oct/2016 15:09:37] "GET /entidade/cadastro/ HTTP/1.1" 200 42507
+[17/Oct/2016 15:09:38] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:09:38] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[17/Oct/2016 15:09:38] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:09:38] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:09:38] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:09:38] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:09:38] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:09:38] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[17/Oct/2016 15:09:38] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:09:38] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:09:38] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:09:38] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:09:38] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:09:38] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:09:38] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:09:38] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[17/Oct/2016 15:09:39] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[17/Oct/2016 15:09:39] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[17/Oct/2016 15:09:40] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[17/Oct/2016 15:09:40] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[17/Oct/2016 15:09:40] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[17/Oct/2016 15:09:40] "GET /arquivos_estaticos/bootstrap/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 304 0
+[17/Oct/2016 15:09:40] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+Performing system checks...
+
+System check identified no issues (0 silenced).
+October 17, 2016 - 15:10:23
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[17/Oct/2016 15:10:38] "GET /entidade/cadastro/ HTTP/1.1" 200 41606
+[17/Oct/2016 15:10:38] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:10:38] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[17/Oct/2016 15:10:39] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:10:39] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:10:39] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:10:39] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:10:39] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:10:39] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[17/Oct/2016 15:10:39] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:10:39] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:10:40] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:10:40] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:10:40] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:10:40] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:10:40] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:10:40] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[17/Oct/2016 15:10:40] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[17/Oct/2016 15:10:40] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[17/Oct/2016 15:10:40] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[17/Oct/2016 15:10:40] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[17/Oct/2016 15:10:41] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[17/Oct/2016 15:10:41] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+Performing system checks...
+
+System check identified no issues (0 silenced).
+October 17, 2016 - 15:10:58
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[17/Oct/2016 15:12:18] "GET /entidade/cadastro/ HTTP/1.1" 200 42044
+[17/Oct/2016 15:12:18] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:12:18] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[17/Oct/2016 15:12:18] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:12:18] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:12:18] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:12:19] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:12:19] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:12:19] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[17/Oct/2016 15:12:19] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:12:19] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:12:19] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:12:19] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:12:20] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:12:20] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:12:20] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:12:20] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[17/Oct/2016 15:12:20] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[17/Oct/2016 15:12:20] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[17/Oct/2016 15:12:21] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[17/Oct/2016 15:12:21] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[17/Oct/2016 15:12:21] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[17/Oct/2016 15:12:22] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[17/Oct/2016 15:12:45] "GET /protocolo/emitir_protocolo HTTP/1.1" 301 0
+[17/Oct/2016 15:12:46] "GET /protocolo/emitir_protocolo/ HTTP/1.1" 200 31685
+[17/Oct/2016 15:12:47] "GET /arquivos_estaticos/jquery/jquery.maskMoney.js HTTP/1.1" 200 10578
+[17/Oct/2016 15:24:21] "GET /entidade/cadastro/ HTTP/1.1" 200 42044
+[17/Oct/2016 15:24:21] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[17/Oct/2016 15:24:21] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[17/Oct/2016 15:24:24] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[17/Oct/2016 15:24:25] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[17/Oct/2016 15:25:15] "GET /entidade/visualizar/5 HTTP/1.1" 301 0
+[17/Oct/2016 15:25:16] "GET /entidade/visualizar/5/ HTTP/1.1" 200 261770
+[17/Oct/2016 15:33:31] "GET /entidade/visualizar/5/ HTTP/1.1" 200 262315
+[17/Oct/2016 15:33:31] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:33:31] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[17/Oct/2016 15:33:31] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:33:31] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:33:31] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:33:32] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:33:32] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:33:32] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:33:32] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:33:32] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:33:32] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:33:32] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:33:32] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:33:32] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[17/Oct/2016 15:33:32] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:33:32] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:33:32] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[17/Oct/2016 15:33:32] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[17/Oct/2016 15:33:32] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:33:32] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:33:32] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[17/Oct/2016 15:33:33] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[17/Oct/2016 15:33:33] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[17/Oct/2016 15:33:33] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[17/Oct/2016 15:35:19] "GET /entidade/visualizar/5/ HTTP/1.1" 200 262301
+[17/Oct/2016 15:35:19] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:35:19] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:35:19] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:35:19] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:35:19] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:35:20] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[17/Oct/2016 15:35:20] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:35:20] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:35:20] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:35:20] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:35:20] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:35:21] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:35:21] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:35:21] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[17/Oct/2016 15:35:21] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:35:21] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:35:21] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[17/Oct/2016 15:35:21] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[17/Oct/2016 15:35:21] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:35:22] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:35:22] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[17/Oct/2016 15:35:22] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[17/Oct/2016 15:35:23] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[17/Oct/2016 15:35:23] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[17/Oct/2016 15:37:50] "GET /entidade/visualizar/5/ HTTP/1.1" 200 262525
+[17/Oct/2016 15:37:50] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:37:51] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[17/Oct/2016 15:37:51] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:37:51] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:37:51] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:37:51] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:37:51] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:37:51] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:37:51] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:37:51] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:37:51] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:37:51] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:37:51] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:37:51] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[17/Oct/2016 15:37:51] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:37:51] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:37:51] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[17/Oct/2016 15:37:51] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[17/Oct/2016 15:37:51] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:37:51] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:37:52] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[17/Oct/2016 15:37:52] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[17/Oct/2016 15:37:53] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[17/Oct/2016 15:37:53] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[17/Oct/2016 15:38:26] "GET /entidade/visualizar/5/ HTTP/1.1" 200 262486
+[17/Oct/2016 15:38:26] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:38:26] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:38:26] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:38:26] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:38:26] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[17/Oct/2016 15:38:26] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:38:26] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:38:26] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:38:26] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:38:26] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:38:26] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:38:27] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:38:27] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:38:27] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[17/Oct/2016 15:38:27] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:38:27] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:38:27] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[17/Oct/2016 15:38:27] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[17/Oct/2016 15:38:27] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:38:27] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:38:27] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[17/Oct/2016 15:38:27] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[17/Oct/2016 15:38:29] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[17/Oct/2016 15:38:29] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[17/Oct/2016 15:39:14] "GET /entidade/visualizar/5/ HTTP/1.1" 200 262699
+[17/Oct/2016 15:39:14] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:39:14] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:39:14] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:39:14] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:39:15] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:39:15] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[17/Oct/2016 15:39:15] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:39:15] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:39:15] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:39:15] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:39:15] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:39:16] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:39:16] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:39:16] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[17/Oct/2016 15:39:16] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:39:16] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:39:16] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[17/Oct/2016 15:39:16] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[17/Oct/2016 15:39:17] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:39:17] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:39:17] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[17/Oct/2016 15:39:17] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[17/Oct/2016 15:39:18] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[17/Oct/2016 15:39:18] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[17/Oct/2016 15:40:12] "GET /entidade/visualizar/5/ HTTP/1.1" 200 262713
+[17/Oct/2016 15:40:12] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[17/Oct/2016 15:40:12] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:40:12] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:40:13] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:40:13] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:40:13] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:40:13] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:40:13] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:40:13] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:40:13] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:40:13] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:40:13] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:40:14] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:40:14] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[17/Oct/2016 15:40:14] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:40:14] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:40:14] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[17/Oct/2016 15:40:14] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[17/Oct/2016 15:40:15] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:40:15] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:40:15] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[17/Oct/2016 15:40:15] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[17/Oct/2016 15:40:15] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[17/Oct/2016 15:40:16] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[17/Oct/2016 15:40:41] "GET /entidade/visualizar/5/ HTTP/1.1" 200 262697
+[17/Oct/2016 15:40:41] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:40:42] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[17/Oct/2016 15:40:42] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:40:42] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:40:42] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:40:42] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:40:43] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:40:43] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:40:43] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:40:43] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:40:43] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:40:44] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:40:44] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:40:44] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[17/Oct/2016 15:40:44] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:40:44] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:40:44] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[17/Oct/2016 15:40:44] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[17/Oct/2016 15:40:45] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:40:45] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:40:45] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[17/Oct/2016 15:40:45] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[17/Oct/2016 15:40:45] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+[17/Oct/2016 15:40:45] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[17/Oct/2016 15:58:31] "GET /entidade/visualizar/5/ HTTP/1.1" 200 263052
+[17/Oct/2016 15:58:31] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:58:31] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[17/Oct/2016 15:58:31] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:58:31] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:58:32] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:58:32] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:58:32] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:58:32] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:58:32] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:58:32] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:58:33] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:58:33] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:58:33] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:58:33] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 304 0
+[17/Oct/2016 15:58:33] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 304 0
+[17/Oct/2016 15:58:33] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:58:33] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 304 0
+[17/Oct/2016 15:58:33] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 304 0
+[17/Oct/2016 15:58:33] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:58:33] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[17/Oct/2016 15:58:34] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[17/Oct/2016 15:58:34] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 304 0
+[17/Oct/2016 15:58:34] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[17/Oct/2016 15:58:34] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+Traceback (most recent call last):
+  File "C:/Users/diego/OneDrive/Projetos/sistema_contabil/manage.py", line 10, in <module>
+    execute_from_command_line(sys.argv)
+  File "C:\Python27\lib\site-packages\django\core\management\__init__.py", line 353, in execute_from_command_line
+    utility.execute()
+
+
+Process finished with exit code 0

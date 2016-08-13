@@ -5,27 +5,17 @@
     <title>Digitar - Cadastro de Entidades</title>
 {% endblock %}
 
-{% block ArquivosEstaticos %}
+{% block recrusos_necessarios %}
 {% load staticfiles %}
 
-<!-- JQUERY -->
-<script type="text/javascript" src="{% static 'jquery/jquery-2.2.0.min.js' %}"></script>
-<script src="{% static 'jquery/jquery-ui-1.11.4/jquery-ui.js' %}"></script>
+{% comment %} Reimportar a biblioteca bootstrap no arquivo filho corrige o problema de fonte turva {% endcomment %}
+<!-- BOOTSTRAP 3.3.6 -->
 
-<!-- BOOTSTRAP -->
 <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"/>
-<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
 
 <!-- JQUERY UI DATAPICKER -->
 <link rel="stylesheet" href="{% static 'jquery/jquery-ui-1.11.4/jquery-ui.css' %}">
 <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css"> -->
-
-<!-- JQUERY STEPS
-<script src="{% static 'jquery/jquery-steps-1.1.0/jquery.steps.min.js' %}" />
-<link rel="stylesheet" href="{% static 'jquery/jquery-steps-1.1.0/jquery.steps.css' %}"/>
-    <link rel="stylesheet" href="{% static 'jquery/jquery-steps-1.1.0/content.css' %}"/>
- -->
-
 
 <!-- DATATABLE -->
 <link rel="stylesheet" type="text/css" href="{% static 'datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css' %}"/>
@@ -86,6 +76,23 @@
     top: 30px;
 }
 
+.titulo{
+    margin-left: 15px;
+    margin-top: -5px;
+}
+
+
+.box-title {
+    padding-left: 10px;
+    padding-top:  6px;
+}
+
+.desabilitado {
+     pointer-events: none;
+     cursor: not-allowed;
+     opacity: 0.6;
+}
+
 label {
     font-weight: normal !important;
 }
@@ -94,52 +101,88 @@ label {
 
 {% endblock %}
 
-{% block Principal %}
+{% block breadcrumb_title %}Cadastro de Clientes{% endblock %}
+
+{% block breadcrumb_block %}
+<li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+<li class="active">Clientes</li>
+{% endblock %}
+
+{% block conteudo %}
+
 <div class="row">
-	<div class="col-lg-12">
-		<div class="panel panel-default" style="margin-top: -15px; margin-left: 0px; margin-right: 0px; ">
-			<div class="panel-heading">
+	<div class="col-lg-12 col-md-12 col-xs-12">
+		<div class="box box-default" style="margin-top: -40px;">
 
-				<div class="row" style="height:30px; line-height: 30px">
-					<div class="col-lg-7" >
-						<b>Entidades</b>
-					</div>
+            <div class="box-heading">
+                <div class="box-header with-border">
+                    <h5 class="box-title">Clientes</h5>
 
-					<div class="col-lg-5">
-						<a href="#myModal" role="button" class="btn btn-primary pull-right" data-toggle="modal" style="position: relative; margin-top: -2px; margin-right: -6px;" ><i class="fa fa-plus fa-1x"></i> Adicionar</a>
-					</div>
+                    <div class="pull-right">
+                        <!--<a href="#myModal" role="button" class="btn btn-sm btn-primary pull-right" data-toggle="modal"><i class="fa fa-plus fa-1x"></i> Adicionar</a>-->
 
-					<!-- /.col-lg-6 -->
-				</div>
+                        <div class="btn-group" role="group" aria-label="...">
+                            <a href="/entidade/adicionar" role="button" class="btn btn-sm btn-primary pull-left"><i class="fa fa-plus fa-1x"></i> Adicionar Cliente</a>
 
-			</div>
-			<!-- /.panel-heading -->
+                            <a href="#" role="button" id="bt_consultar_cliente" class="btn btn-sm btn-default pull-left desabilitado" style='margin-left: 5px;'><i class="fa fa-search fa-1x"></i> Visualizar</a>
 
-			<div class="panel-body" style="padding-bottom: -10px; margin-top: 0px;">
+
+
+                            <div class="btn-group" role="group" style='margin-left: 5px;'>
+                                <button type="button" id='bt_outras_acoes' class="btn btn-sm btn-default dropdown-toggle desabilitado" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <!--<li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>-->
+                                <li><a href="#modal_justificativa" id="bt_desativar_cliente" data-toggle="modal"><i class="fa fa-trash-o"></i> Desativar</a></li>
+                            </ul>
+                          </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+			<div class="box-body" style="padding-bottom: -10px; margin-top: -5px;">
 				<div class="dataTable_wrapper">
-					<table class="table table-striped table-bordered table-hover" id="datatable">
+
+
+
+					<table class="table table-condensed table-striped table-bordered table-hover" id="datatable">
 
 						<thead>
 							<tr class="linha_cabecalho">
-								<th style="vertical-align: middle;"></th>
+                                <th style="vertical-align: middle"></th>
 								<th style="vertical-align: middle;">CNPJ</th>
 								<th style="vertical-align: middle;">Razão Social</th>
 								<th style="vertical-align: middle;">Nome Fantasia</th>
+                                <th style="vertical-align: middle;">Data Cadastro</th>
 							</tr>
 						</thead>
 
 						<tbody>
-							{% for item in dados %}
+							{% for item in dados %} <!-- reversed -->
 
-							<tr class="alinhado_meio clickable-row " data-href='/consultar_entidade/{{ item.id }}'>
-								<td style="cursor:pointer">{{ item.id }}</td>
-								<td style="cursor:pointer">{{ item.cpf_cnpj }}</td>
+							<tr class="alinhado_meio">
+								<!--<td style="cursor:pointer;text-align:center;">{ forloop.counter }}         class='clickable-row ' data-href='/entidade/visualizar/{ item.id }}'</td>-->
+                                <td style="cursor:pointer;text-align:center;">{{ item.id }}</td>
+                                {% if item.cpf_cnpj|length == 11 %}
+                                <td style="cursor:pointer">{{ item.cpf_cnpj|slice:":3" }}.{{ item.cpf_cnpj|slice:"3:6" }}.{{ item.cpf_cnpj|slice:"6:9" }}-{{ item.cpf_cnpj|slice:"9:" }}</td>
+                                {% else %}
+                                <td style="cursor:pointer">{{ item.cpf_cnpj|slice:":2" }}.{{ item.cpf_cnpj|slice:"2:5" }}.{{ item.cpf_cnpj|slice:"5:8" }}/{{ item.cpf_cnpj|slice:"8:12" }}-{{ item.cpf_cnpj|slice:"12:" }}</td>
+                                {% endif %}
+
 								<td align="left" style="cursor:pointer">{{ item.nome_razao }}</td>
 								<td align="left" style="cursor:pointer">{{ item.apelido_fantasia }}</td>
+                            <td align="center" style="cursor:pointer">{{ item.data_cadastro|date:"d/m/Y" }}</td>
 							</tr>
 
 							{% empty %}
-    							<tr><td colspan="4" style='text-align:center;'>Adicione uma nova Entidade.</td></tr>
+    							<tr><td colspan="5" style='text-align:center;'><a href="/entidade/adicionar">Adicione uma nova Entidade.</a></td></tr>
 							{% endfor %}
 						</tbody>
 					</table>
@@ -153,10 +196,11 @@ label {
 						"ordering": true,
 						"bAutoWidth": false,
 						"aoColumns": [
-					                  { "sWidth": "20px" },
-					                  { "sWidth": null },
-                                      { "sWidth": null },
-                                      { "sWidth": null }
+                                      {"sWidth": "20px"},
+					                  {"sWidth": "120px"},
+                                      {"sWidth": null},
+                                      {"sWidth": null},
+                                      {"sWidth": "110px"}
 					    		    ],
 
                         //"columnDefs": [ {
@@ -170,27 +214,35 @@ label {
 
 					});
 
-					var table = $('#datatable').DataTable();
-					$('#datatable'+' tbody').on('click', 'tr', function () {
 
-					     if ($(this).hasClass('selected') ) {
+					$('#datatable'+' tbody').on('click', 'tr', function () {
+                        var table = $('#datatable').DataTable();
+					     if ($(this).hasClass('selected')) {
+                             var id_cliente = table.cell('.selected', 0).data();
 					    	 $(this).removeClass('selected');
-							 //alert("desmarquei");
-					    	 desabilitar_botao('#bt_excluir');
-							 desabilitar_botao('#bt_alterar');
-					    	 $('#bt_excluir').addClass('link_desabilitado');
-							 $('#bt_alterar').addClass('link_desabilitado');
+                             document.getElementById("bt_consultar_cliente").href = "#";
+                             desabilitar("bt_consultar_cliente");
+                             desabilitar("bt_desativar_cliente");
+                             desabilitar("bt_outras_acoes");
+
+
+
 					     }
 					     else {
-							 //alert("marquei");
+
 					    	 table.$('tr.selected').removeClass('selected');
 					    	 $(this).addClass('selected');
-					    	 habilitar_botao('#bt_excluir');
-							 habilitar_botao('#bt_alterar');
-							 $('#bt_excluir').removeClass('link_desabilitado');
-							 $('#bt_alterar').removeClass('link_desabilitado');
+                             var id_cliente = table.cell('.selected', 0).data();
+					    	 habilitar('bt_consultar_cliente');
+                             habilitar('bt_desativar_cliente');
+                             habilitar('bt_outras_acoes');
+                             document.getElementById("bt_consultar_cliente").href = "/entidade/visualizar/"+id_cliente;
 
-					    	//alert("Quero procurar os detalhes de: "+table.cell('.selected', 0).data());
+
+
+
+
+
 					    	/*
 					    	$.ajax({
 								url: 'get_detalhes_protocolo/'+table.cell('.selected', 0).data(),
@@ -256,17 +308,16 @@ label {
 
                 <div class='row'>
 
-                    {% if dados %}
+                    {% if dados|length > 0 %}
 					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6" style='margin-top:-36px;'>
                     {% else %}
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6" style='margin-top:6px;'>
                     {% endif %}
-
-						<label id="label_buscar_por" class='left_align link_desabilitado'>
+						<label id="label_buscar_por" class='left_align desabilitado'>
                             <sub>Buscar por:</sub>
                         </label>
 
-                        <select id='buscar_por' class='form-control link_desabilitado '>
+                        <select id='buscar_por' class='form-control desabilitado'>
                              <option value="0">Código</option>
                              <option value="1" >Cpf ou Cnpj</option>
 						 	 <option value="2" selected>Nome ou Razão Social</option>
@@ -274,12 +325,12 @@ label {
 						</select>
 					</div>
 
-					{% if dados %}
+					{% if dados|length > 0 %}
 					<div class="col-lg-4 col-md-4 col-sm-5 col-xs-6" style='margin-left:-20px;margin-top: -11px;'>
                     {% else %}
                     <div class="col-lg-4 col-md-4 col-sm-5 col-xs-6" style='margin-left:-20px;margin-top: 31px;'>
                     {% endif %}
-						<input type="text" id="search" class="form-control link_desabilitado" placeholder="Consultar..">
+						<input type="text" id="search" class="form-control desabilitado" placeholder="Consultar..">
 					</div>
 
 				</div>
@@ -296,213 +347,59 @@ label {
     </div>
 </div>
 
-
-<div id="myModal" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
-  <div class="modal-dialog" style="width: 90%">
+<div id="modal_justificativa" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+  <div class="modal-dialog" style="width: 60%">
     <div class="modal-content">
       <div class="modal-header"><!-- style="height: 48px;"> -->
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h4 id="myModalLabel">Nova Entidade</h4>
+        <h4 id="myModalLabel">Desativar Cliente</h4>
       </div>
 
-      <form action="" method="post">  <!-- <button type='submit' name='elevar_indice_categoria' value='{{ item.codigo }}  -->
-	  	{% csrf_token %}
-        <div class="modal-body">
+      <!-- <button type='submit' name='elevar_indice_categoria' value='{ item.codigo }}
+	  	    % csrf_token %}-->
+            <div class="modal-body">
 
-            <div style="margin-top: 0px;">
-                <ul class="nav nav-tabs">
-                  <li class="active"><a data-toggle="tab" href="#informacoes_basicas">Informações Básicas</a></li>
-                  <li><a data-toggle="tab" href="#menu1">Informações Complementares</a></li>
-                  <li><a data-toggle="tab" href="#menu2">Informações Administrativas</a></li>
-                </ul>
+                <div style="margin-top: 0px;">
+                    <div class="row">
+                        <div class="col-md-12">
+                            {{ form_desativar.operacao }}
+                            {{ form_desativar.tabela }}
+                            {{ form_desativar.user }}
+                            {{ form_desativar.cliente }}
+                            {{ form_desativar.descricao }}
+                            <sub><label style="padding-left: 8px;">Descrição da Operação:</label></sub>
+                            <p id="texto_operacao_descricao" style="padding-left: 12px;">
 
-
-                <div class="tab-content" style="padding: 15px;padding-top:25px;">
-                  <div id="informacoes_basicas" class="tab-pane fade in active">
-                    <div>
-                        <div class="row better_col_spacings_first_chield better_col_middle_spacings better_col_spacings_last_chield">
-
-                        <div class="col-lg-2">
-                            <div style='padding-left: 8px'>
-                                <sub>
-                                    <label id="lb_cpf_cnpj">{{ formulario.cpf_cnpj.label.upper }}</label>
-                                </sub>
-                            </div>
-                            {{ formulario.cpf_cnpj }}
-                        </div>
-
-                        <div class="col-lg-5">
-                            <div style='padding-left: 8px'>
-                                <sub>
-                                    <label id="lb_nome_razao">
-                                        {{ formulario.nome_razao.label }}
-                                    </label>
-                                </sub>
-                            </div>
-                            {{ formulario.nome_razao }}
-                        </div>
-
-                        <div class="col-lg-3">
-                            <div style='padding-left: 8px'>
-                                <sub>
-                                    <label id="lb_apelido_fantasia">{{ formulario.apelido_fantasia.label }}</label>
-                                </sub>
-                            </div>
-                            {{ formulario.apelido_fantasia }}
-                        </div>
-
-                        <div class="col-lg-2">
-                            <div style='padding-left: 8px'>
-                                <sub> {{ formulario.tipo_registro.label }} </sub>
-                            </div>
-                            {{ formulario.tipo_registro }}
-                        </div>
-
-                    </div>
-
-                        <div class="row better_col_spacings_first_chield better_col_middle_spacings better_col_spacings_last_chield">
-
-                            <div class="col-lg-2">
-                                <div style='padding-left: 8px'>
-                                    <sub>
-                                        <label id="lb_nascimento_fundacao">{{ formulario.nascimento_fundacao.label }}</label>
-                                    </sub>
-                                </div>
-                                {{ formulario.nascimento_fundacao }}
-                            </div>
-
-                            <div class="col-lg-1">
-                                <div style='padding-left: 8px'>
-                                    <sub> {{ formulario.cep.label }} </sub>
-                                </div>
-                                {{ formulario.cep }}
-                            </div>
-
-                            <div class="col-lg-6">
-                                <div style='padding-left: 8px'>
-                                    <sub> {{ formulario.endereco.label }} </sub>
-                                </div>
-                                {{ formulario.endereco }}
-                            </div>
-
-                            <div class="col-lg-1">
-                                <div style='padding-left: 8px'>
-                                    <sub> {{ formulario.numero_endereco.label }} </sub>
-                                </div>
-                                {{ formulario.numero_endereco }}
-                            </div>
-
-                            <div class="col-lg-2">
-                                <div style='padding-left: 8px'>
-                                    <sub> {{ formulario.complemento.label }} </sub>
-                                </div>
-                                {{ formulario.complemento }}
-                            </div>
-
-                        </div>
-
-                        <div class="row better_col_spacings_first_chield better_col_middle_spacings better_col_spacings_last_chield">
-
-                            <div class="col-lg-3">
-                                <div style='padding-left: 8px'>
-                                    <sub> {{ formulario.bairro.label }} </sub>
-                                </div>
-                                {{ formulario.bairro }}
-                            </div>
-
-                            <div class="col-lg-4">
-                                <div style='padding-left: 8px'>
-                                    <sub> {{ formulario.municipio.label }} </sub>
-                                </div>
-                                {{ formulario.municipio }}
-                            </div>
-
-                            <div class="col-lg-2">
-                                <div style='padding-left: 8px'>
-                                    <sub> {{ formulario.codigo_municipio.label }} </sub>
-                                </div>
-                                {{ formulario.codigo_municipio }}
-                            </div>
-
-                            <div class="col-lg-2">
-                                <div style='padding-left: 8px'>
-                                    <sub> {{ formulario.estado.label }} </sub>
-                                </div>
-                                {{ formulario.estado }}
-                            </div>
-
-                            <div class="col-lg-1">
-                                <div style='padding-left: 8px'>
-                                    <sub> {{ formulario.pais.label }} </sub>
-                                </div>
-                                {{ formulario.pais }}
-                            </div>
-
-                        </div>
-
-                        <div class="row better_col_spacings_first_chield better_col_middle_spacings better_col_spacings_last_chield">
-
-                        </div>
-
-                        <div class="row better_col_spacings_first_chield better_col_middle_spacings better_col_spacings_last_chield">
-                            <div class="col-lg-2">
-                                <div style='padding-left: 8px'>
-                                    <sub> {{ formulario.tipo_contato.label }} </sub>
-                                </div>
-                                {{ formulario.tipo_contato }}
-                            </div>
-
-                            <div class="col-lg-2">
-                                <div style='padding-left: 8px'>
-                                    <sub> {{ formulario.numero_contato.label }} </sub>
-                                </div>
-                                {{ formulario.numero_contato }}
-                            </div>
-
-                            <div class="col-lg-3">
-                                <div style='padding-left: 8px'>
-                                    <sub> {{ formulario.cargo_setor.label }} </sub>
-                                </div>
-                                {{ formulario.cargo_setor }}
-                            </div>
-
-                            <div class="col-lg-5">
-                                <div style='padding-left: 8px'>
-                                    <sub> {{ formulario.email.label }} </sub>
-                                </div>
-                                {{ formulario.email }}
-                            </div>
+                            </p>
                         </div>
                     </div>
-                  </div>
 
-                  <div id="menu1" class="tab-pane fade">
-                    <h3>Menu 1</h3>
-                    <p>Some content in menu 1.</p>
-                  </div>
-                  <div id="menu2" class="tab-pane fade">
-                    <h3>Menu 2</h3>
-                    <p>Some content in menu 2.</p>
-                  </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div style='padding-left: 8px'>
+                                <sub>
+                                    <label>{{ form_desativar.justificativa.label }}</label>
+                                </sub>
+                            </div>
+                            {{ form_desativar.justificativa }}
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
 
 
-
-
-
-        </div>
-
-        <div class="modal-footer">
-            <div class="form-group">
-                <button type="submit" id="bt_formulario" class="btn btn-success pull-right">Enviar</button>
+            <div class="modal-footer">
+                <div class="form-group">
+                    <a role="button" id="bt_confirmar_desativacao" class="btn btn-danger pull-right">Desativar</a>
 
                 <!--  <p class="help-block pull-left text-danger hide" id="form-error">&nbsp;{{ message }}</p></div>  -->
 
-            <!-- <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button> -->
+                <!-- <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button> -->
+                </div>
             </div>
-          </div>
-	  </form>
+
     </div>
   </div>
 </div>
@@ -510,8 +407,9 @@ label {
 {% include "componentes/mensagem.html" with messages=messages %}
 {% endblock %}
 
-{% block ArquivosScripts %}
+{% block recursos_complementares %}
 {% load staticfiles %}
+    <script type="text/javascript" src="{% static 'scripts/padrao/controle_componentes.js' %}"></script>
 <script type="text/javascript" src="{% static 'scripts/mask.js' %}"></script>
 
 <script type="text/javascript">
@@ -588,16 +486,17 @@ $('.modal').on('hidden.bs.modal', function(){
             table.columns(campo).search($('#search').val()).draw();
     });
 
-    {% if dados %}
-        $('#buscar_por').removeClass('link_desabilitado');
-        $('#search').removeClass('link_desabilitado');
-        $('#label_buscar_por').removeClass('link_desabilitado');
+    {% if dados|length > 0 %}
+        $('#buscar_por').removeClass('desabilitado');
+        $('#search').removeClass('desabilitado');
+        $('#label_buscar_por').removeClass('desabilitado');
         document.getElementById("search").focus();
-
     {% else  %}
-        $('#buscar_por').addClass('link_desabilitado');
-        $('#search').addClass('link_desabilitado');
+        $('#buscar_por').addClass('desabilitado');
+        $('#search').addClass('desabilitado');
     {% endif %}
+
+
 </script>
 
 
@@ -707,6 +606,53 @@ jQuery(document).ready(function($) {
 
 $(".alert").fadeOut(4000 );
 
+
+
+</script>
+
+<script>
+$("#bt_desativar_cliente").click(function() {
+    var table = $('#datatable').DataTable();
+    var id_cliente = table.cell('.selected', 0).data();
+    var documento_cliente = table.cell('.selected', 1).data();
+    var nome_cliente = table.cell('.selected', 2).data();
+
+    $('#operacao').val("DEL");
+    $('#operacao_tabela').val("ENTIDADE");
+    $('#operacao_user').val("1");
+    $('#operacao_cliente').val(id_cliente);
+    $('#operacao_descricao').val("DESATIVAR CLIENTE "+nome_cliente+" ("+documento_cliente+") DO SISTEMA.");
+    $("#texto_operacao_descricao").text("DESATIVAR CLIENTE "+nome_cliente+" ("+documento_cliente+") DO SISTEMA.");
+
+
+});
+
+$("#bt_confirmar_desativacao").click(function() {
+    var table = $('#datatable').DataTable();
+    var id_cliente = table.cell('.selected', 0).data();
+    var justificativa = $('#operacao_justificativa').val();
+
+    if (window.confirm('Tem certeza que deseja desativar esse cliente?')){
+        $.ajax({
+            url: '/entidade/desativar/'+id_cliente,
+            type: 'get', //this is the default though, you don't actually need to always mention it
+            data: justificativa,
+            success: function (data) {
+                    table.row('.selected').remove().draw(false);
+                    //$("#modal_justificativa").modal().hide()
+                    $("#modal_justificativa").removeClass("in");
+                    $(".modal-backdrop").remove();
+                    $("#modal_justificativa").hide();
+                },
+            error: function (data) {
+                alert("Erro! Não foi possivel desativar esse registro.");
+            },
+        });
+    }
+    else{
+        return false;
+    }
+});
 </script>
 
 {% endblock %}

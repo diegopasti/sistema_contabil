@@ -1,0 +1,291 @@
+"C:\Program Files (x86)\JetBrains\PyCharm 2016.1.4\bin\runnerw.exe" C:\Python27\python.exe C:/Users/diego/OneDrive/Projetos/sistema_contabil/manage.py runserver localhost:8000
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 16, 2016 - 02:45:05
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[16/Nov/2016 02:45:08] "GET / HTTP/1.1" 302 0
+[16/Nov/2016 02:45:09] "GET /cadastrar_empresa HTTP/1.1" 200 18312
+[16/Nov/2016 02:45:09] "GET /arquivos_estaticos/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1748
+[16/Nov/2016 02:45:09] "GET /arquivos_estaticos/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1748
+[16/Nov/2016 02:45:11] "GET /arquivos_estaticos/creative/jquery.fittext.js HTTP/1.1" 200 1074
+[16/Nov/2016 02:45:11] "GET /arquivos_estaticos/creative/creative.js HTTP/1.1" 200 1271
+[16/Nov/2016 02:45:11] "GET /arquivos_estaticos/creative/creative.css HTTP/1.1" 200 9729
+[16/Nov/2016 02:45:11] "GET /arquivos_estaticos/creative/animate.min.css HTTP/1.1" 200 53593
+[16/Nov/2016 02:45:11] "GET /arquivos_estaticos/creative/wow.min.js HTTP/1.1" 200 8182
+[16/Nov/2016 02:45:11] "GET /arquivos_estaticos/imagens/creative/header.jpg HTTP/1.1" 200 125976
+[16/Nov/2016 02:50:25] "GET /cadastrar_empresa HTTP/1.1" 200 18312
+[16/Nov/2016 02:50:25] "GET /arquivos_estaticos/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1748
+[16/Nov/2016 02:50:25] "GET /arquivos_estaticos/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1748
+[16/Nov/2016 02:50:29] "GET / HTTP/1.1" 302 0
+[16/Nov/2016 02:50:29] "GET /cadastrar_empresa HTTP/1.1" 200 18312
+[16/Nov/2016 02:50:29] "GET /arquivos_estaticos/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1748
+[16/Nov/2016 02:50:33] "GET / HTTP/1.1" 302 0
+[16/Nov/2016 02:50:33] "GET /cadastrar_empresa HTTP/1.1" 200 18312
+[16/Nov/2016 02:50:33] "GET /arquivos_estaticos/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1748
+[16/Nov/2016 02:50:33] "GET /arquivos_estaticos/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1748
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 16, 2016 - 02:51:14
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[16/Nov/2016 02:51:15] "GET / HTTP/1.1" 302 0
+[16/Nov/2016 02:51:15] "GET /cadastrar_empresa HTTP/1.1" 200 18312
+[16/Nov/2016 02:51:15] "GET /arquivos_estaticos/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1748
+[16/Nov/2016 02:51:16] "GET /arquivos_estaticos/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1748
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 16, 2016 - 02:51:47
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[16/Nov/2016 02:51:47] "GET / HTTP/1.1" 302 0
+[16/Nov/2016 02:51:48] "GET /cadastrar_empresa HTTP/1.1" 200 18312
+[16/Nov/2016 02:51:48] "GET /arquivos_estaticos/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1748
+[16/Nov/2016 02:51:48] "GET /arquivos_estaticos/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1748
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 16, 2016 - 02:55:26
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 44, in index
+    if verificar_cadastro_empresa():
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 35, in verificar_cadastro_empresa
+    entidade.precarregar_dados_digitar()
+TypeError: unbound method precarregar_dados_digitar() must be called with entidade instance as first argument (got nothing instead)
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 44, in index
+    if verificar_cadastro_empresa():
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 35, in verificar_cadastro_empresa
+    entidade.precarregar_dados_digitar()
+TypeError: unbound method precarregar_dados_digitar() must be called with entidade instance as first argument (got nothing instead)
+[16/Nov/2016 02:56:37] "GET / HTTP/1.1" 500 66786
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 16, 2016 - 02:57:33
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 44, in index
+    if verificar_cadastro_empresa():
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 35, in verificar_cadastro_empresa
+    entidade.precarregar_dados_digitar()
+AttributeError: type object 'entidade' has no attribute 'precarregar_dados_digitar'
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 44, in index
+    if verificar_cadastro_empresa():
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\views.py", line 35, in verificar_cadastro_empresa
+    entidade.precarregar_dados_digitar()
+AttributeError: type object 'entidade' has no attribute 'precarregar_dados_digitar'
+[16/Nov/2016 02:57:35] "GET / HTTP/1.1" 500 66640
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 16, 2016 - 02:58:13
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Hora de tentar salvar..
+Temos que pre carregar os dados..
+[16/Nov/2016 02:58:35] "GET / HTTP/1.1" 200 14491
+[16/Nov/2016 02:58:35] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 304 0
+[16/Nov/2016 02:58:35] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+[16/Nov/2016 02:58:35] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 304 0
+[16/Nov/2016 02:58:35] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+[16/Nov/2016 02:58:35] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 304 0
+[16/Nov/2016 02:58:35] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 304 0
+[16/Nov/2016 02:58:35] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 304 0
+[16/Nov/2016 02:58:36] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 304 0
+[16/Nov/2016 02:58:36] "GET /arquivos_estaticos/icones/fonts/fontawesome-webfont.woff2?v=4.3.0 HTTP/1.1" 304 0
+[16/Nov/2016 02:58:36] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 304 0
+[16/Nov/2016 02:58:36] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 16, 2016 - 03:00:45
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Hora de tentar salvar..
+Temos que pre carregar os dados..
+[16/Nov/2016 03:00:45] "GET / HTTP/1.1" 302 0
+[16/Nov/2016 03:00:45] "GET /cadastrar_empresa HTTP/1.1" 200 18312
+[16/Nov/2016 03:00:45] "GET /arquivos_estaticos/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1748
+[16/Nov/2016 03:00:46] "GET /arquivos_estaticos/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1748
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 16, 2016 - 03:01:40
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 16, 2016 - 03:02:59
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 16, 2016 - 03:03:39
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 16, 2016 - 03:04:22
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 16, 2016 - 03:05:12
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 16, 2016 - 03:06:19
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Unhandled exception in thread started by <function wrapper at 0x054A43B0>
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\utils\autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\django\core\management\commands\runserver.py", line 137, in inner_run
+    ipv6=self.use_ipv6, threading=threading)
+  File "C:\Python27\lib\site-packages\django\core\servers\basehttp.py", line 198, in run
+    httpd.serve_forever()
+  File "C:\Python27\lib\SocketServer.py", line 230, in serve_forever
+    r, w, e = _eintr_retry(select.select, [self], [], [],
+AttributeError: 'NoneType' object has no attribute 'select'
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 16, 2016 - 03:06:45
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 16, 2016 - 03:07:17
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 16, 2016 - 03:07:47
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 16, 2016 - 03:08:15
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 16, 2016 - 03:08:44
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 16, 2016 - 03:09:09
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 16, 2016 - 03:10:02
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+SALVEI?
+Temos que pre carregar os dados..
+[16/Nov/2016 03:10:05] "GET / HTTP/1.1" 302 0
+[16/Nov/2016 03:10:06] "GET /cadastrar_empresa HTTP/1.1" 200 18312
+[16/Nov/2016 03:10:06] "GET /arquivos_estaticos/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1748
+[16/Nov/2016 03:10:06] "GET /arquivos_estaticos/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1748
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 16, 2016 - 03:11:38
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Empresa ja cadastrada
+[16/Nov/2016 03:11:39] "GET / HTTP/1.1" 200 14491
+to vindo no cadastro
+[16/Nov/2016 03:11:42] "GET /entidade/cadastro/ HTTP/1.1" 302 0
+[16/Nov/2016 03:11:42] "GET /cadastrar_empresa HTTP/1.1" 200 18312
+[16/Nov/2016 03:11:42] "GET /arquivos_estaticos/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1748
+[16/Nov/2016 03:11:43] "GET /arquivos_estaticos/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1748
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 16, 2016 - 03:13:26
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+Empresa ja cadastrada
+[16/Nov/2016 03:13:26] "GET / HTTP/1.1" 200 14491
+[16/Nov/2016 03:13:35] "GET /protocolo HTTP/1.1" 301 0
+[16/Nov/2016 03:13:36] "GET /protocolo/ HTTP/1.1" 200 38948
+[16/Nov/2016 03:14:10] "GET /entidade/cadastro/ HTTP/1.1" 200 39692
+[16/Nov/2016 03:14:10] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[16/Nov/2016 03:14:10] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[16/Nov/2016 03:14:10] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[16/Nov/2016 03:14:10] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[16/Nov/2016 03:14:10] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[16/Nov/2016 03:14:31] "GET /entidade/cadastro/ HTTP/1.1" 200 39692
+[16/Nov/2016 03:14:31] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[16/Nov/2016 03:14:31] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[16/Nov/2016 03:14:32] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[16/Nov/2016 03:14:32] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[16/Nov/2016 03:25:51] "GET /protocolo/ HTTP/1.1" 200 38948
+
+Process finished with exit code -1

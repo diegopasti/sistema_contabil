@@ -23,6 +23,7 @@ def consultar_codigo_postal(cep):
         bairro = resultado['bairro'][0].upper()
         cidade = resultado['cidade'][0].upper()
         uf     = resultado['uf'][0].upper()
+        print "olha o cep c tem pais:",resultado
         resultado = [Endereco,bairro,cidade,uf,]
         
     elif resultado['resultado'][0] == '2':
@@ -34,3 +35,6 @@ def consultar_codigo_postal(cep):
         resultado = None
         
     return resultado
+
+def enviar_email():
+    

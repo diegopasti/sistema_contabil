@@ -1,0 +1,21 @@
+##
+## PEGUEI O NOVO SERVIDOR PARA FORMATAR E REINSTALAR O SISTEMA
+##
+
+[31/Mar/2017 14:05:02] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755
+[31/Mar/2017 14:22:09] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755
+[31/Mar/2017 14:48:22] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755
+[31/Mar/2017 14:57:11] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755
+[31/Mar/2017 15:23:55] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755
+[31/Mar/2017 15:42:23] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755
+[31/Mar/2017 15:58:02] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755
+[31/Mar/2017 16:08:09] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755
+[31/Mar/2017 16:24:44] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755
+[31/Mar/2017 16:43:51] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755
+[31/Mar/2017 16:55:23] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755
+[31/Mar/2017 16:59:13] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755
+[31/Mar/2017 17:23:44] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755
+[31/Mar/2017 17:41:56] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755
+[31/Mar/2017 17:56:11] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755
+[31/Mar/2017 18:14:58] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755
+[31/Mar/2017 18:23:49] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755

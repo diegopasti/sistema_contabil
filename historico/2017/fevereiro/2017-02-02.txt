@@ -1,0 +1,108 @@
+"C:\Program Files (x86)\JetBrains\PyCharm 2016.1.4\bin\runnerw.exe" C:\Python27\python.exe C:/Users/diego/OneDrive/Projetos/sistema_contabil/manage.py runserver localhost:8000
+Performing system checks...
+
+System check identified no issues (0 silenced).
+February 02, 2017 - 16:37:45
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[02/Feb/2017 16:37:46] "GET / HTTP/1.1" 200 14921
+[02/Feb/2017 16:37:49] "GET /entidade/adicionar HTTP/1.1" 301 0
+[02/Feb/2017 16:37:49] "GET /entidade/adicionar/ HTTP/1.1" 200 282432
+[02/Feb/2017 16:37:49] "GET /arquivos_estaticos/scripts/entidade/validar_cpf_cnpj.js HTTP/1.1" 304 0
+[02/Feb/2017 16:52:28] "GET /protocolo/emitir_protocolo/ HTTP/1.1" 200 52744
+Tentando salvar o protocolo - DADOS: <QueryDict: {u'documentos[3][valor]': [u''], u'documentos[9][documento]': [u'DARF 2172 COFINS'], u'documentos[8][selecionado]': [u''], u'documentos[9][vencimento]': [u''], u'documentos[3][$$hashKey]': [u'object:18'], u'documentos[3][referencia]': [u'01/2017'], u'documentos[1][referencia]': [u'01/2017'], u'documentos[4][valor]': [u''], u'documentos[5][$$hashKey]': [u'object:22'], u'documentos[6][complemento]': [u'GILMAR'], u'documentos[2][valor]': [u''], u'documentos[0][$$hashKey]': [u'object:12'], u'documentos[0][referencia]': [u'01/2017'], u'documentos[4][vencimento]': [u''], u'csrfmiddlewaretoken': [u'5V5NFkzRFUzFiwgjWzYxSREL7gpegKDJ'], u'documentos[6][referencia]': [u'03/2017'], u'documentos[5][selecionado]': [u''], u'destinatario': [u'4 - OFTALMOLOGIA COA - LTDA ME - SANTA MARIA DE JETIB'], u'documentos[8][referencia]': [u''], u'documentos[7][documento]': [u'CIRCULAR'], u'documentos[3][vencimento]': [u''], u'documentos[2][$$hashKey]': [u'object:16'], u'documentos[1][complemento]': [u'GILMAR'], u'total_documentos': [u'10'], u'documentos[9][$$hashKey]': [u'object:37'], u'documentos[4][$$hashKey]': [u'object:20'], u'documentos[0][documento]': [u'RECIBO DE PAGAMENTO DE PR\xd3-LABORE'], u'documentos[1][$$hashKey]': [u'object:14'], u'documentos[2][documento]': [u'DARF 8109 PIS'], u'documentos[5][documento]': [u'DARF 2372 CSLL'], u'documentos[0][selecionado]': [u''], u'documentos[7][selecionado]': [u''], u'documentos[0][vencimento]': [u''], u'documentos[7][vencimento]': [u''], u'documentos[6][vencimento]': [u''], u'documentos[1][selecionado]': [u''], u'documentos[5][complemento]': [u'GILMAR'], u'documentos[1][documento]': [u'DASN'], u'documentos[7][$$hashKey]': [u'object:26'], u'documentos[2][selecionado]': [u''], u'documentos[4][selecionado]': [u''], u'documentos[4][referencia]': [u'01/2017'], u'documentos[1][vencimento]': [u''], u'documentos[1][valor]': [u''], u'documentos[8][valor]': [u''], u'documentos[9][complemento]': [u'GILMAR'], u'documentos[8][$$hashKey]': [u'object:28'], u'documentos[9][valor]': [u''], u'documentos[4][documento]': [u'DARF 2089 IRPJ'], u'documentos[3][complemento]': [u'GILMAR'], u'documentos[8][vencimento]': [u''], u'documentos[7][referencia]': [u'03/2017'], u'documentos[6][$$hashKey]': [u'object:24'], u'documentos[5][vencimento]': [u''], u'documentos[2][vencimento]': [u''], u'documentos[7][complemento]': [u'GILMAR'], u'documentos[2][referencia]': [u'01/2017'], u'documentos[2][complemento]': [u'GILMAR'], u'documentos[6][valor]': [u''], u'documentos[9][selecionado]': [u''], u'documentos[8][documento]': [u'RECIBO DE PAGAMENTO DE SAL\xc1RIO MENSAL'], u'documentos[6][documento]': [u'BALANCETE'], u'documentos[5][referencia]': [u'01/2017'], u'documentos[3][selecionado]': [u''], u'documentos[8][complemento]': [u'GILMAR'], u'documentos[5][valor]': [u''], u'documentos[9][referencia]': [u'01/2017'], u'documentos[7][valor]': [u''], u'documentos[6][selecionado]': [u''], u'documentos[4][complemento]': [u'GILMAR'], u'documentos[0][valor]': [u''], u'documentos[3][documento]': [u'ISS SOBRE FATURAMENTO'], u'documentos[0][complemento]': [u'GILMAR']}>
+PORRA, QUERO COLOCAR O 1 <type 'int'>
+NA PORCARIA DO CAMPO: None <type 'NoneType'>
+Foi? adicionei? 1
+(False, '')
+[02/Feb/2017 17:09:49] "POST /api/protocolo/salvar HTTP/1.1" 200 57
+No handlers could be found for logger "xhtml2pdf"
+[02/Feb/2017 17:09:50] "GET /protocolo/emitir_protocolo/ HTTP/1.1" 200 52744
+[02/Feb/2017 17:09:50] "GET /protocolo/visualizar/10/ HTTP/1.1" 200 62866
+[02/Feb/2017 17:11:11] "GET /protocolo/visualizar/10/ HTTP/1.1" 200 62947
+Tentando salvar o protocolo - DADOS: <QueryDict: {u'documentos[0][selecionado]': [u''], u'total_documentos': [u'1'], u'documentos[0][documento]': [u'RECIBO DE PAGAMENTO DE SAL\xc1RIO MENSAL'], u'documentos[0][complemento]': [u''], u'documentos[0][$$hashKey]': [u'object:12'], u'documentos[0][referencia]': [u''], u'csrfmiddlewaretoken': [u'5V5NFkzRFUzFiwgjWzYxSREL7gpegKDJ'], u'documentos[0][valor]': [u'347.589,23'], u'documentos[0][vencimento]': [u''], u'destinatario': [u'2 - CLINICA DO RITMO LTDA - EPP']}>
+PORRA, QUERO COLOCAR O 1 <type 'int'>
+NA PORCARIA DO CAMPO: None <type 'NoneType'>
+Foi? adicionei? 1
+(False, '')
+[02/Feb/2017 17:12:14] "POST /api/protocolo/salvar HTTP/1.1" 200 57
+[02/Feb/2017 17:12:15] "GET /protocolo/visualizar/11/ HTTP/1.1" 200 62425
+[02/Feb/2017 17:12:15] "GET /protocolo/emitir_protocolo/ HTTP/1.1" 200 52744
+Tentando salvar o protocolo - DADOS: <QueryDict: {u'documentos[3][valor]': [u'2.313,42'], u'documentos[3][$$hashKey]': [u'object:21'], u'documentos[3][referencia]': [u''], u'documentos[1][referencia]': [u''], u'documentos[2][valor]': [u'323.245,21'], u'documentos[0][$$hashKey]': [u'object:12'], u'documentos[0][referencia]': [u''], u'destinatario': [u'5 - MEDES SERVICOS MEDICOS LTDA - ME'], u'documentos[3][vencimento]': [u''], u'documentos[2][$$hashKey]': [u'object:18'], u'documentos[1][complemento]': [u''], u'total_documentos': [u'4'], u'documentos[0][documento]': [u'RECIBO DE PAGAMENTO DE SAL\xc1RIO MENSAL'], u'documentos[1][$$hashKey]': [u'object:15'], u'documentos[2][documento]': [u'RECIBO PAGAMENTO 13\xba SAL\xc1RIO'], u'csrfmiddlewaretoken': [u'5V5NFkzRFUzFiwgjWzYxSREL7gpegKDJ'], u'documentos[0][selecionado]': [u''], u'documentos[0][vencimento]': [u''], u'documentos[1][selecionado]': [u''], u'documentos[1][documento]': [u'DARF 2372 CSLL'], u'documentos[2][selecionado]': [u''], u'documentos[1][vencimento]': [u''], u'documentos[1][valor]': [u'234,21'], u'documentos[3][complemento]': [u''], u'documentos[2][vencimento]': [u''], u'documentos[2][referencia]': [u''], u'documentos[2][complemento]': [u''], u'documentos[3][selecionado]': [u''], u'documentos[0][valor]': [u'3.325,51'], u'documentos[3][documento]': [u'DARF 0211 - CARN\xca LE\xc3O'], u'documentos[0][complemento]': [u'']}>
+PORRA, QUERO COLOCAR O 1 <type 'int'>
+NA PORCARIA DO CAMPO: None <type 'NoneType'>
+Foi? adicionei? 1
+(False, '')
+[02/Feb/2017 17:13:18] "POST /api/protocolo/salvar HTTP/1.1" 200 57
+[02/Feb/2017 17:13:19] "GET /protocolo/visualizar/12/ HTTP/1.1" 200 62632
+[02/Feb/2017 17:13:19] "GET /protocolo/emitir_protocolo/ HTTP/1.1" 200 52744
+[02/Feb/2017 17:14:35] "GET /protocolo/visualizar/10/ HTTP/1.1" 200 62941
+[02/Feb/2017 17:14:58] "GET /protocolo/visualizar/10/ HTTP/1.1" 200 62945
+[02/Feb/2017 17:15:29] "GET /protocolo/visualizar/10/ HTTP/1.1" 200 62944
+[02/Feb/2017 17:15:46] "GET /protocolo/visualizar/10/ HTTP/1.1" 200 62942
+[02/Feb/2017 17:17:01] "GET /protocolo/visualizar/10/ HTTP/1.1" 200 62989
+[02/Feb/2017 17:17:11] "GET /protocolo/visualizar/11/ HTTP/1.1" 200 62467
+[02/Feb/2017 17:18:10] "GET /protocolo/visualizar/11/ HTTP/1.1" 200 62589
+[02/Feb/2017 17:18:19] "GET /protocolo/visualizar/12/ HTTP/1.1" 200 63104
+[02/Feb/2017 17:18:25] "GET /protocolo/visualizar/10/ HTTP/1.1" 200 64004
+[02/Feb/2017 17:19:34] "GET /protocolo/visualizar/10/ HTTP/1.1" 200 64005
+[02/Feb/2017 17:19:58] "GET /protocolo/visualizar/10/ HTTP/1.1" 200 63835
+[02/Feb/2017 17:20:17] "GET /protocolo/visualizar/11/ HTTP/1.1" 200 62589
+[02/Feb/2017 17:20:39] "GET /protocolo/visualizar/11/ HTTP/1.1" 200 62821
+[02/Feb/2017 17:29:51] "GET /protocolo/visualizar/11/ HTTP/1.1" 200 62827
+[02/Feb/2017 17:30:06] "GET /protocolo/visualizar/12/ HTTP/1.1" 200 63107
+[02/Feb/2017 17:31:21] "GET /protocolo/visualizar/12/ HTTP/1.1" 200 63246
+[02/Feb/2017 17:32:05] "GET /protocolo/visualizar/10/ HTTP/1.1" 200 63816
+[02/Feb/2017 17:32:40] "GET /protocolo/visualizar/10/ HTTP/1.1" 200 63850
+[02/Feb/2017 17:33:25] "GET /protocolo/visualizar/10/ HTTP/1.1" 200 64109
+[02/Feb/2017 17:34:10] "GET /protocolo/visualizar/10/ HTTP/1.1" 200 64129
+[02/Feb/2017 17:34:51] "GET /protocolo/visualizar/10/ HTTP/1.1" 200 63859
+[02/Feb/2017 17:35:33] "GET /protocolo/visualizar/10/ HTTP/1.1" 200 64027
+[02/Feb/2017 17:36:47] "GET /protocolo/visualizar/10/ HTTP/1.1" 200 64116
+[02/Feb/2017 17:37:36] "GET /protocolo/visualizar/10/ HTTP/1.1" 200 64045
+[02/Feb/2017 17:38:30] "GET /protocolo/visualizar/10/ HTTP/1.1" 200 64044
+[02/Feb/2017 17:39:37] "GET /protocolo/visualizar/10/ HTTP/1.1" 200 64296
+[02/Feb/2017 17:39:58] "GET /protocolo/visualizar/10/ HTTP/1.1" 200 64239
+[02/Feb/2017 17:43:39] "GET /protocolo/visualizar/10/ HTTP/1.1" 200 64274
+[02/Feb/2017 17:43:59] "GET /protocolo/visualizar/10/ HTTP/1.1" 200 64276
+[02/Feb/2017 17:45:15] "GET /protocolo/visualizar/10/ HTTP/1.1" 200 64276
+[02/Feb/2017 17:46:01] "GET /protocolo/visualizar/10/ HTTP/1.1" 200 64260
+[02/Feb/2017 17:46:10] "GET /protocolo/visualizar/11/ HTTP/1.1" 200 62849
+[02/Feb/2017 17:46:57] "GET /protocolo/visualizar/11/ HTTP/1.1" 200 62855
+[02/Feb/2017 17:47:46] "GET /protocolo/visualizar/11/ HTTP/1.1" 200 62854
+[02/Feb/2017 17:47:54] "GET /protocolo/visualizar/11/ HTTP/1.1" 200 62855
+[02/Feb/2017 17:48:38] "GET /protocolo/visualizar/11/ HTTP/1.1" 200 62855
+[02/Feb/2017 17:48:56] "GET /protocolo/visualizar/11/ HTTP/1.1" 200 62857
+[02/Feb/2017 17:49:04] "GET /protocolo/visualizar/11/ HTTP/1.1" 200 62856
+[02/Feb/2017 17:49:12] "GET /protocolo/visualizar/11/ HTTP/1.1" 200 62859
+[02/Feb/2017 17:49:19] "GET /protocolo/visualizar/11/ HTTP/1.1" 200 62857
+[02/Feb/2017 17:49:36] "GET /protocolo/visualizar/11/ HTTP/1.1" 200 62856
+[02/Feb/2017 17:49:41] "GET /protocolo/visualizar/11/ HTTP/1.1" 200 62851
+[02/Feb/2017 17:49:47] "GET /protocolo/visualizar/11/ HTTP/1.1" 200 62855
+[02/Feb/2017 17:49:56] "GET /protocolo/visualizar/11/ HTTP/1.1" 200 62852
+[02/Feb/2017 17:50:09] "GET /protocolo/visualizar/11/ HTTP/1.1" 200 62937
+[02/Feb/2017 17:50:17] "GET /protocolo/visualizar/11/ HTTP/1.1" 200 62931
+[02/Feb/2017 17:50:43] "GET /protocolo/visualizar/10/ HTTP/1.1" 200 62920
+[02/Feb/2017 17:50:55] "GET /protocolo/visualizar/11/ HTTP/1.1" 200 62931
+[02/Feb/2017 17:51:16] "GET /protocolo/visualizar/10/ HTTP/1.1" 200 64267
+[02/Feb/2017 17:51:36] "GET /protocolo/visualizar/10/ HTTP/1.1" 200 64266
+[02/Feb/2017 17:52:06] "GET /protocolo/visualizar/10/ HTTP/1.1" 200 62991
+[02/Feb/2017 17:53:10] "GET /protocolo/visualizar/10/ HTTP/1.1" 200 62991
+[02/Feb/2017 17:53:17] "GET /protocolo/visualizar/11/ HTTP/1.1" 200 62959
+[02/Feb/2017 17:53:41] "GET /protocolo/visualizar/11/ HTTP/1.1" 200 62937
+[02/Feb/2017 17:54:21] "GET /protocolo/visualizar/12/ HTTP/1.1" 200 63507
+[02/Feb/2017 17:54:52] "GET /protocolo/visualizar/12/ HTTP/1.1" 200 63566
+[02/Feb/2017 17:55:09] "GET /protocolo/visualizar/12/ HTTP/1.1" 200 63610
+[02/Feb/2017 17:55:18] "GET /protocolo/visualizar/12/ HTTP/1.1" 200 63610
+[02/Feb/2017 17:55:36] "GET /protocolo/visualizar/12/ HTTP/1.1" 200 63615
+[02/Feb/2017 17:56:37] "GET /protocolo/visualizar/12/ HTTP/1.1" 200 63590
+[02/Feb/2017 17:56:51] "GET /protocolo/visualizar/12/ HTTP/1.1" 200 63589
+[02/Feb/2017 17:57:07] "GET /protocolo/visualizar/12/ HTTP/1.1" 200 63592
+[02/Feb/2017 23:54:53] "GET /protocolo/visualizar/12/ HTTP/1.1" 200 63592
+[02/Feb/2017 23:55:08] "GET /protocolo/visualizar/12/ HTTP/1.1" 200 63546
+[02/Feb/2017 23:55:28] "GET /protocolo/visualizar/12/ HTTP/1.1" 200 63591
+[02/Feb/2017 23:55:37] "GET /protocolo/visualizar/12/ HTTP/1.1" 200 63580
+[02/Feb/2017 23:56:11] "GET /protocolo/visualizar/12/ HTTP/1.1" 200 63591
+[02/Feb/2017 23:56:19] "GET /protocolo/visualizar/12/ HTTP/1.1" 200 63567
+[02/Feb/2017 23:56:55] "GET /protocolo/visualizar/12/ HTTP/1.1" 200 63566

@@ -1,0 +1,82 @@
+Comecei as 21:10
+
+"C:\Program Files (x86)\JetBrains\PyCharm 2016.1.4\bin\runnerw.exe" C:\Python27\python.exe C:/Users/diego/OneDrive/Projetos/sistema_contabil/manage.py runserver localhost:8000
+Performing system checks...
+
+System check identified no issues (0 silenced).
+January 24, 2017 - 03:40:05
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[24/Jan/2017 03:40:08] "GET / HTTP/1.1" 200 14921
+[24/Jan/2017 03:40:09] "GET /arquivos_estaticos/icones/css/font-awesome.min.css HTTP/1.1" 200 23739
+[24/Jan/2017 03:40:09] "GET /arquivos_estaticos/adminlte/css/AdminLTE.min.css HTTP/1.1" 200 89933
+[24/Jan/2017 03:40:09] "GET /arquivos_estaticos/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 121260
+[24/Jan/2017 03:40:09] "GET /arquivos_estaticos/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 36868
+[24/Jan/2017 03:40:09] "GET /arquivos_estaticos/adminlte/css/skins/skin-blue.min.css HTTP/1.1" 200 3037
+[24/Jan/2017 03:40:09] "GET /arquivos_estaticos/jquery/jquery-2.2.0.min.js HTTP/1.1" 200 85589
+[24/Jan/2017 03:40:09] "GET /arquivos_estaticos/adminlte/js/app.min.js HTTP/1.1" 200 9773
+[24/Jan/2017 03:40:09] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.js HTTP/1.1" 200 470591
+[24/Jan/2017 03:40:09] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 200 30834
+[24/Jan/2017 03:40:09] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 200 8007
+[24/Jan/2017 03:40:09] "GET /arquivos_estaticos/icones/fonts/fontawesome-webfont.woff2?v=4.3.0 HTTP/1.1" 200 56780
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+[24/Jan/2017 03:40:09] "GET /favicon.ico HTTP/1.1" 404 5031
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+[24/Jan/2017 03:40:09] "GET /favicon.ico HTTP/1.1" 404 5031
+[24/Jan/2017 03:40:12] "GET /protocolo/emitir_protocolo HTTP/1.1" 301 0
+[24/Jan/2017 03:40:13] "GET /protocolo/emitir_protocolo/ HTTP/1.1" 200 31452
+[24/Jan/2017 03:40:13] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css HTTP/1.1" 200 4247
+[24/Jan/2017 03:40:13] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css HTTP/1.1" 200 3890
+[24/Jan/2017 03:40:13] "GET /arquivos_estaticos/datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css HTTP/1.1" 200 3886
+[24/Jan/2017 03:40:13] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.css HTTP/1.1" 200 1160
+[24/Jan/2017 03:40:13] "GET /arquivos_estaticos/datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js HTTP/1.1" 200 10731
+[24/Jan/2017 03:40:13] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/jquery.dataTables.min.js HTTP/1.1" 200 82480
+[24/Jan/2017 03:40:13] "GET /arquivos_estaticos/jquery/jquery-editable-select/jquery.editable-select.min.js HTTP/1.1" 200 3386
+[24/Jan/2017 03:40:13] "GET /arquivos_estaticos/scripts/padrao/controle_botoes.js HTTP/1.1" 200 159
+[24/Jan/2017 03:40:13] "GET /arquivos_estaticos/scripts/protocolo/protocolo.js HTTP/1.1" 200 2620
+[24/Jan/2017 03:40:13] "GET /arquivos_estaticos/scripts/mask.js HTTP/1.1" 200 3568
+[24/Jan/2017 03:40:13] "GET /arquivos_estaticos/jquery/jquery.maskMoney.js HTTP/1.1" 200 10578
+[24/Jan/2017 03:40:19] "POST /protocolo/emitir_protocolo/ HTTP/1.1" 200 31763
+CONTRA CHEQUE
+2017-01-24 03:40:23.991000
+[24/Jan/2017 03:40:28] "GET /protocolo/emitir_protocolo/ HTTP/1.1" 200 31452
+No handlers could be found for logger "xhtml2pdf"
+[24/Jan/2017 03:40:30] "POST /protocolo/emitir_protocolo/ HTTP/1.1" 200 62439
+[24/Jan/2017 03:43:32] "GET /sistema/servicos HTTP/1.1" 301 0
+[24/Jan/2017 03:43:32] "GET /sistema/servicos/ HTTP/1.1" 200 41075
+[24/Jan/2017 03:43:32] "GET /arquivos_estaticos/angular-1.5.8/angular.min.js HTTP/1.1" 200 160366
+[24/Jan/2017 03:43:32] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 200 1960
+[24/Jan/2017 03:43:32] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 200 34459
+[24/Jan/2017 03:43:33] "GET /api/servico/ HTTP/1.1" 200 446
+Performing system checks...
+
+System check identified no issues (0 silenced).
+January 24, 2017 - 03:47:20
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[24/Jan/2017 03:47:23] "GET /protocolo/emitir_protocolo/ HTTP/1.1" 200 31452
+[24/Jan/2017 03:47:29] "POST /protocolo/emitir_protocolo/ HTTP/1.1" 200 31783
+CONTRA CHEQUE
+2017-01-24 03:47:32.146000
+[24/Jan/2017 03:47:33] "GET /protocolo/emitir_protocolo/ HTTP/1.1" 200 31452
+No handlers could be found for logger "xhtml2pdf"
+[24/Jan/2017 03:47:34] "POST /protocolo/emitir_protocolo/ HTTP/1.1" 200 62470
+[24/Jan/2017 19:56:21] "GET / HTTP/1.1" 200 14921
+[24/Jan/2017 19:56:21] "GET /arquivos_estaticos/imagens/logo.png HTTP/1.1" 200 30834
+[24/Jan/2017 19:56:21] "GET /arquivos_estaticos/imagens/avatar5.png HTTP/1.1" 200 8007
+[24/Jan/2017 19:56:22] "GET /arquivos_estaticos/icones/fonts/fontawesome-webfont.woff2?v=4.3.0 HTTP/1.1" 200 56780
+[24/Jan/2017 19:57:03] "GET / HTTP/1.1" 200 14921
+[24/Jan/2017 19:57:07] "GET /entidade/cadastro HTTP/1.1" 301 0
+[24/Jan/2017 19:57:07] "GET /entidade/cadastro/ HTTP/1.1" 200 34937
+[24/Jan/2017 19:57:07] "GET /arquivos_estaticos/jquery/jquery-ui-1.11.4/jquery-ui.css HTTP/1.1" 200 34459
+[24/Jan/2017 19:57:07] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[24/Jan/2017 19:57:07] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[24/Jan/2017 19:57:08] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 200 3036
+[24/Jan/2017 19:57:08] "GET /arquivos_estaticos/datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js HTTP/1.1" 200 1960
+[24/Jan/2017 19:57:08] "GET /arquivos_estaticos/bootstrap/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18028
+[24/Jan/2017 19:57:08] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[24/Jan/2017 19:57:09] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877

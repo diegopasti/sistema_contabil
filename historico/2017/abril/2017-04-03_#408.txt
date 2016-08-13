@@ -1,0 +1,27 @@
+##
+## IMPLANTACAO E CONFIGURACAO DO SERVIDOR NA INFRAESTRUTURA
+##
+
+[01/Apr/2017 08:10:11] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755
+[01/Apr/2017 08:22:09] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755
+[01/Apr/2017 08:48:22] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755
+[01/Apr/2017 08:57:11] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755
+[01/Apr/2017 09:23:55] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755
+[01/Apr/2017 09:42:23] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755
+[01/Apr/2017 09:58:02] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755
+[01/Apr/2017 12:48:09] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755
+[01/Apr/2017 12:54:44] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755
+[01/Apr/2017 13:03:51] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755
+[01/Apr/2017 13:15:23] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755
+[01/Apr/2017 13:39:56] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755
+[01/Apr/2017 13:51:13] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755
+[01/Apr/2017 14:12:55] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755
+[01/Apr/2017 14:33:34] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755
+[01/Apr/2017 14:49:05] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755
+[01/Apr/2017 14:52:49] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755
+[01/Apr/2017 14:59:04] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755
+[01/Apr/2017 15:16:12] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755
+[01/Apr/2017 15:34:23] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755
+[01/Apr/2017 15:47:49] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755
+[01/Apr/2017 15:58:47] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755
+[01/Apr/2017 16:20:39] "GET /entidade/visualizar/2/ HTTP/1.1" 200 284755

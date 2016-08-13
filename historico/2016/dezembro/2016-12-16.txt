@@ -1,0 +1,119 @@
+"C:\Program Files (x86)\JetBrains\PyCharm 2016.1.4\bin\runnerw.exe" C:\Python27\python.exe C:/Users/diego/OneDrive/Projetos/sistema_contabil/manage.py runserver localhost:8000
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 16, 2016 - 17:36:01
+Django version 1.9.7, using settings 'sistema_contabil.settings'
+Starting development server at http://localhost:8000/
+Quit the server with CTRL-BREAK.
+[16/Dec/2016 17:36:04] "GET / HTTP/1.1" 200 14491
+[16/Dec/2016 17:36:05] "GET /arquivos_estaticos/icones/fonts/fontawesome-webfont.woff2?v=4.3.0 HTTP/1.1" 200 56780
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+[16/Dec/2016 17:36:05] "GET /favicon.ico HTTP/1.1" 404 4672
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+[16/Dec/2016 17:36:05] "GET /favicon.ico HTTP/1.1" 404 4672
+[16/Dec/2016 17:37:04] "GET /entidade/adicionar HTTP/1.1" 301 0
+[16/Dec/2016 17:37:04] "GET /entidade/adicionar/ HTTP/1.1" 200 268619
+[16/Dec/2016 17:37:04] "GET /arquivos_estaticos/scripts/padrao/controle_componentes.js HTTP/1.1" 304 0
+[16/Dec/2016 17:39:21] "GET /entidade/cadastro HTTP/1.1" 301 0
+[16/Dec/2016 17:39:21] "GET /entidade/cadastro/ HTTP/1.1" 200 33755
+[16/Dec/2016 17:39:21] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[16/Dec/2016 17:39:21] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+[16/Dec/2016 17:39:22] "GET /arquivos_estaticos/datatable/datatables/media/js/jquery.dataTables.min.js HTTP/1.1" 404 1799
+[16/Dec/2016 17:39:22] "GET /arquivos_estaticos/datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js HTTP/1.1" 404 1877
+Unhandled exception in thread started by <function wrapper at 0x0458AC30>
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\utils\autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\django\core\management\commands\runserver.py", line 109, in inner_run
+    autoreload.raise_last_exception()
+  File "C:\Python27\lib\site-packages\django\utils\autoreload.py", line 249, in raise_last_exception
+    six.reraise(*_exception)
+  File "C:\Python27\lib\site-packages\django\utils\autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\django\__init__.py", line 18, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "C:\Python27\lib\site-packages\django\apps\registry.py", line 108, in populate
+    app_config.import_models(all_models)
+  File "C:\Python27\lib\site-packages\django\apps\config.py", line 202, in import_models
+    self.models_module = import_module(models_module_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\models.py", line 47, in <module>
+    class entidade(models.Model):
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\models.py", line 87, in entidade
+    supervisor   = models.ForeignKey(entidade,default=0)
+NameError: name 'entidade' is not defined
+Unhandled exception in thread started by <function wrapper at 0x0471EC30>
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\utils\autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\django\core\management\commands\runserver.py", line 109, in inner_run
+    autoreload.raise_last_exception()
+  File "C:\Python27\lib\site-packages\django\utils\autoreload.py", line 249, in raise_last_exception
+    six.reraise(*_exception)
+  File "C:\Python27\lib\site-packages\django\utils\autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\django\__init__.py", line 18, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "C:\Python27\lib\site-packages\django\apps\registry.py", line 108, in populate
+    app_config.import_models(all_models)
+  File "C:\Python27\lib\site-packages\django\apps\config.py", line 202, in import_models
+    self.models_module = import_module(models_module_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\models.py", line 47, in <module>
+    class entidade(models.Model):
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\models.py", line 87, in entidade
+    supervisor   = models.ForeignKey(entidade,null=True)
+NameError: name 'entidade' is not defined
+Unhandled exception in thread started by <function wrapper at 0x04AB8C30>
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\utils\autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\django\core\management\commands\runserver.py", line 109, in inner_run
+    autoreload.raise_last_exception()
+  File "C:\Python27\lib\site-packages\django\utils\autoreload.py", line 249, in raise_last_exception
+    six.reraise(*_exception)
+  File "C:\Python27\lib\site-packages\django\utils\autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\django\__init__.py", line 18, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "C:\Python27\lib\site-packages\django\apps\registry.py", line 108, in populate
+    app_config.import_models(all_models)
+  File "C:\Python27\lib\site-packages\django\apps\config.py", line 202, in import_models
+    self.models_module = import_module(models_module_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\models.py", line 47, in <module>
+    class entidade(models.Model):
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\models.py", line 87, in entidade
+    supervisor   = models.ForeignKey(entidade,null=True,error_messages=MENSAGENS_ERROS)
+NameError: name 'entidade' is not defined
+Unhandled exception in thread started by <function wrapper at 0x04050630>
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\utils\autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\django\core\management\commands\runserver.py", line 109, in inner_run
+    autoreload.raise_last_exception()
+  File "C:\Python27\lib\site-packages\django\utils\autoreload.py", line 249, in raise_last_exception
+    six.reraise(*_exception)
+  File "C:\Python27\lib\site-packages\django\utils\autoreload.py", line 226, in wrapper
+    fn(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\django\__init__.py", line 18, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "C:\Python27\lib\site-packages\django\apps\registry.py", line 108, in populate
+    app_config.import_models(all_models)
+  File "C:\Python27\lib\site-packages\django\apps\config.py", line 202, in import_models
+    self.models_module = import_module(models_module_name)
+  File "C:\Python27\lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\models.py", line 47, in <module>
+    class entidade(models.Model):
+  File "C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\models.py", line 88, in entidade
+    supervisor   = models.ForeignKey(entidade,null=True,error_messages=MENSAGENS_ERROS)
+  File "C:\Python27\lib\site-packages\django\db\models\fields\related.py", line 754, in __init__
+    RECURSIVE_RELATIONSHIP_CONSTANT,
+AssertionError: ForeignKey(<module 'entidade' from 'C:\Users\diego\OneDrive\Projetos\sistema_contabil\entidade\__init__.pyc'>) is invalid. First parameter to ForeignKey must be either a model, a model name, or the string u'self'

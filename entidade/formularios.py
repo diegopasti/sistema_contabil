@@ -9,99 +9,17 @@ import datetime
 
 from django import forms
 
-from entidade.models import entidade
-
+from entidade.models import entidade, localizacao_simples, AtividadeEconomica, contato, Documento
+from entidade.utilitarios import remover_simbolos
+from nucleo.models import estados_brasileiros
+#from preferencias.models import Contrato
 
 MENSAGENS_ERROS={'required': 'Precisa ser Informado!',
                  'invalid' : 'Formato Inválido!'
                 }
 
 
-class formulario_confirmar_entrega(forms.Form):
-    
-    protocolo_id = forms.CharField(label="Protocolo: ",max_length=5,required=True,error_messages=MENSAGENS_ERROS,widget=forms.TextInput(attrs={'class':'form-control uppercase' ,'id':'protocolo_id', 'readonly':True,'type':"hidden"})) #, 
-        
-    data_entrega          = forms.DateField(
-                                label="Data da Entrega:",initial=datetime.date.today,required=False,
-                                widget= forms.DateInput(attrs={'class':"form-control" ,'id':'data_entrega'},format = '%d/%m/%Y'), 
-                                input_formats=('%d/%m/%Y',)
-                                ) 
-    
-    hora_entrega = forms.TimeField(
-                                label="Hora da Entrega:",initial=datetime.date.today,required=False,
-                                widget= forms.TimeInput(attrs={'class':"form-control" ,'id':'hora_entrega'}),#,format='%H:%M'), 
-                                input_formats=(['%H:%M'])
-                                ) 
-    #forms.DateField(initial=datetime.date.today,)
-    #                                        widget=forms.DateInput(attrs={"class":"form-control"}))
-    recebido_por = forms.CharField(label="Recebido por: ",required=True,error_messages=MENSAGENS_ERROS,widget=forms.TextInput(attrs={'class':'form-control uppercase' ,'id':'recebido_por' }))
-    doc_receptor     = forms.CharField(label="Documento:",required=False,error_messages=MENSAGENS_ERROS,widget=forms.TextInput(attrs={'class':'form-control uppercase' ,'id':'documento' }))
-    
-    observacao_entrega = forms.CharField(label="Observação:",required=False,error_messages=MENSAGENS_ERROS,widget=forms.Textarea(attrs={'class':'form-control uppercase' ,'id':'observacao_entrega' }))
-    
 
-    
-    
-class formulario_emitir_protocolo(forms.Form):
-    
-    #labels = [(obj.nome_razao) for obj in entidade.objects.all()]
-    
-    #entidade_destinatario = forms.ModelChoiceField(label="Cliente: ",queryset=entidade.objects.all(),empty_label="",
-    #                                               widget=forms.Select(attrs={"class":"form-control"}),
-    #                                               )
-                                                   
-    entidade_destinatario = forms.CharField(label="Cliente: ",max_length=100,required=True,error_messages=MENSAGENS_ERROS,widget=forms.TextInput(attrs={'class':'form-control uppercase' ,'id':'entidade_destinatario', 'readonly':True,'type':"hidden" })) #  
-        
-    #data_emissao          = forms.DateField(initial=datetime.date.today,
-    #                                        widget=forms.DateInput(attrs={"class":"form-control"}))
-    
-    
-    documento    = forms.CharField(label="Documento: ",max_length=100,required=True,error_messages=MENSAGENS_ERROS,widget=forms.TextInput(attrs={'class':"form-control uppercase", 'id':'item' }),)
-    referencia   = forms.DateField(label="Referência:",required=False,
-                                            widget= forms.DateInput(attrs={'class':"form-control" ,'id':'referencia'},format = '%m/%Y'), 
-                                            input_formats=('%m/%Y',)
-                                            )
-    vencimento   = forms.DateField(label="Vencimento:",required=False,
-                                            widget= forms.DateInput(attrs={'class':"form-control" ,'id':'vencimento'},format = '%d/%m/%Y'), 
-                                            input_formats=('%d/%m/%Y',)
-                                            )
-    
-    valor        = forms.CharField(label="Valor: ",required=False,
-                               widget = forms.TextInput(attrs={'class':"form-control" ,'id':'valor'}))
-    
-    complemento  = forms.CharField(label="Complemento: ",max_length=500,required=False,error_messages=MENSAGENS_ERROS,widget=forms.TextInput(attrs={'class':"form-control uppercase", 'id':'complemento' }))
-    
-    excluir_item = forms.CharField(required=False)
-    
-    temporarios = []
-    
-    
-    #temporarios  = forms.CharField(label="Complemento: ",widget = forms.HiddenInput(), required = False,)
-    
-    #temporarios  = forms.CharField(required=False,widget=forms.TextInput(attrs={'class':'form-control uppercase' ,'id':'temporarios' })
-    
-    ###temporarios  = forms.CharField(max_length=1500,required=False,widget=forms.TextInput(attrs={'class':'form-control uppercase' ,'id':'temporarios','readonly':True}))
-    
-    def limpar_temporarios(self):
-        formulario_emitir_protocolo.temporarios = []
-    
-    
-class formulario_adicionar_item_protocolo(forms.Form):
-    documento       = forms.CharField(label="Documento: ",max_length=100,required=True,error_messages=MENSAGENS_ERROS,widget=forms.TextInput(attrs={'class':"form-control", 'id':'item' }),)
-    referencia = forms.DateField(label="Referência:",required=False,
-                                            widget= forms.DateInput(attrs={'class':"form-control" ,'id':'referencia'},format = '%m/%Y'), 
-                                            input_formats=('%m/%Y',)
-                                            )
-    vencimento = forms.DateField(label="Vencimento:",required=False,
-                                            widget= forms.DateInput(attrs={'class':"form-control" ,'id':'vencimento'},format = '%d/%m/%Y'), 
-                                            input_formats=('%d/%m/%Y',)
-                                            )
-    
-    valor = forms.DecimalField(label="Valor: ",max_digits=10, decimal_places=2,required=False,
-                               widget = forms.TextInput(attrs={'class':"form-control" ,'id':'valor'}))
-    
-    complemento = forms.CharField(label="Complemento: ",max_length=500,required=False,error_messages=MENSAGENS_ERROS,widget=forms.TextInput(attrs={'class':"form-control uppercase", 'id':'complemento' }))
-    temporarios = []
     
 
 class formulario_cadastro_entidade_observacao(forms.Form):
@@ -110,119 +28,227 @@ class formulario_cadastro_entidade_observacao(forms.Form):
     titulo    = forms.CharField(label="Título: ",max_length=100,required=True,error_messages=MENSAGENS_ERROS,widget=forms.TextInput(attrs={'class':"form-control", 'id':'titulo' }),)
     descricao = forms.CharField(label="Descrição: ",max_length=500,required=True,error_messages=MENSAGENS_ERROS,widget=forms.Textarea(attrs={'class':"form-control", 'id':'descricao' }),)
 
+
+
+def get_object_localizacao(argumentos,formulario):
+    """if endereco == None:
+        print "criando entidade"
+
+    else:
+        print "carregando.."
+        registro = endereco"""
+
+    registro = localizacao_simples()
+    registro.cep=remover_simbolos(formulario['cep'].value())
+    registro.numero=str(formulario.cleaned_data['numero_endereco'])
+    registro.complemento=formulario.cleaned_data['complemento'].upper()
+    registro.logradouro=formulario.cleaned_data['endereco'].upper()
+    registro.bairro=formulario.cleaned_data['bairro'].upper()
+    registro.codigo_ibge=formulario.cleaned_data['codigo_municipio'].upper()
+    registro.municipio=formulario.cleaned_data['municipio'].upper()
+    registro.estado=formulario.cleaned_data['estado'].upper()
+    registro.pais=formulario.cleaned_data['pais'].upper()
+
+    return registro
+
+def get_object_contatos(argumentos,formulario, registro_entidade):
+    contatos = formulario.cleaned_data['contatos']
+    contatos = contatos.split("#")
+    registros = []
+    for item in contatos:
+        item = item.replace("undefined","")
+        if "|" in item:
+            dados = item.split("|")
+            registro = contato(
+                nome_contato = registro_entidade.nome_razao,
+                tipo_contato = dados[1],
+                numero = dados[2],#remover_simbolos(),
+                cargo_setor = dados[4],
+                email = dados[5]
+            )
+            registros.append(registro)
+
+    return registros
+
+def get_object_cnae(argumentos,formulario):
+
+    atividades = formulario.cleaned_data['atividade_economica']
+    registros = []
+    #print "olha o que veio do formulario: ",atividades
+    if atividades != "":
+        atividades = atividades.split("#")
+        for item in atividades:
+            item = item.replace("undefined", "")
+            dados = item.split("|")
+            if "|" in item:
+                registro = AtividadeEconomica()
+                registro.atividade = dados[1]
+
+                try:
+                    registro.desde = datetime.datetime.strptime(dados[2], "%d/%m/%Y").date()
+                except:
+                    registro.desde = None
+                registros.append(registro)
+        return registros
+    else:
+        return []
+
+def get_object_documentos(argumentos,formulario):
+
+    documentos = formulario.cleaned_data['tabela_documentos']
+    registros = []
+
+    if documentos != "":
+        documentos = documentos.split("#")
+        for item in documentos:
+            item = item.replace("undefined", "")
+            dados = item.split("|")
+            if "|" in item:
+                registro = Documento()
+                print "DOCUMENTOS: "
+                print "     TIPO:",dados[1]
+                print "     NOME:", dados[2]
+                print "     VENC:", dados[3]
+                print "     PASS:", dados[4]
+
+                registro.tipo = dados[1]
+                registro.nome = dados[2]
+
+                try:
+                    registro.vencimento = datetime.datetime.strptime(dados[3], "%d/%m/%Y").date()
+                except:
+                    registro.desde = None
+
+                registro.senha = dados[4]
+
+                registros.append(registro)
+        return registros
+    else:
+        return []
+
+def get_object_entidade(argumentos,formulario):
+    #if cliente == None:
+    #    print "criando entidade"
+    registro = entidade()
+    #else:
+    #    print "carregando.."
+    #    registro = cliente
+
+    registro.cpf_cnpj = remover_simbolos(formulario.cleaned_data['cpf_cnpj'])
+    registro.nome_razao = formulario.cleaned_data['nome_razao'].upper()
+    registro.apelido_fantasia = formulario.cleaned_data['apelido_fantasia'].upper()
+    registro.tipo_registro = "C"
+    registro.nascimento_fundacao = formulario.cleaned_data['nascimento_fundacao']
+    registro.registro_geral      = formulario.cleaned_data['registro_geral']
+
+    registro.inscricao_estadual  = formulario.cleaned_data['inscricao_estadual']
+    registro.inscricao_municipal = formulario.cleaned_data['inscricao_municipal']
+    registro.inscricao_produtor_rural  = formulario.cleaned_data['inscricao_produtor_rural']
+    registro.inscricao_imovel_rural     = formulario.cleaned_data['inscricao_imovel_rural']
+
+    registro.nome_filial     = formulario.cleaned_data['nome_filial'].upper()
+    registro.natureza_juridica  = formulario.cleaned_data['natureza_juridica']
+    registro.regime_apuracao    = formulario.cleaned_data['regime_apuracao']
+    registro.regime_desde       = formulario.cleaned_data['regime_desde']
+    registro.tipo_vencimento_iss = formulario.cleaned_data['tipo_vencimento']
+    registro.data_vencimento_iss = formulario.cleaned_data['data_vencimento_iss']
+    registro.dia_vencimento_iss  = formulario.cleaned_data['dia_vencimento_iss']
+    registro.taxa_iss            = formulario.cleaned_data['taxa_iss']
+
+    registro.responsavel_cliente = entidade.objects.get(pk=int(formulario.cleaned_data['responsavel_cliente']))
+    registro.supervisor_cliente  = entidade.objects.get(pk=int(formulario.cleaned_data['supervisor_cliente']))
+
+    registro.notificacao_email = formulario.cleaned_data['notificacao_email']
+    registro.notificacao_responsavel = formulario.cleaned_data['notificacao_responsavel']
+    registro.notificacao_envio = formulario.cleaned_data['notificacao_envio']
+
+
+    registro.observacoes = formulario.cleaned_data['observacoes']
+    return registro
+
+def get_object_contrato(argumentos,formulario):
+    """registro = Contrato()
+
+    registro.vigencia_inicio = formulario.cleaned_data['contrato_inicio']
+    registro.vigencia_fim = formulario.cleaned_data['contrato_fim']
+
+    registro.tipo_cliente = ""
+    registro.tipo_contrato = 0
+
+    registro.taxa_honorario = 0
+    registro.valor_honorario = 0
+    registro.dia_vencimento = 5
+
+    registro.desconto_temporario = 0
+    registro.desconto_inicio = None
+    registro.desconto_fim = None
+
+    registro.desconto_indicacoes = None
+    registro.cadastrado_por = 1
+    registro.alterado_por = 1
+
+    return registro"""
+
+
+
 class formulario_cadastro_entidade_completo(forms.Form):
     opcoes_tipos_registros = (
-                            
+
         ('C', 'CLIENTE'),
         ('F', 'FORNECEDOR'),
         ('U', 'FUNCIONÁRIO'),
         ('O', 'OUTRO')
     )
-    
-    #print "Type: ",type(opco)
-    
-    cpf_cnpj              = forms.CharField(label="Cpf / Cnpj:",max_length=14,required=True,error_messages=MENSAGENS_ERROS,
+
+    cpf_cnpj              = forms.CharField(label="Cnpj:",max_length=14,required=True,error_messages=MENSAGENS_ERROS,
                                             widget=forms.TextInput(attrs={'class':"form-control numbersOnly", 'id':'cpf_cnpj'}),
                                             )
+
     nome_razao            = forms.CharField(label="Razão Social:",max_length=100,required=True,error_messages=MENSAGENS_ERROS,
-                                            widget=forms.TextInput(attrs={'class':"form-control uppercase", 'id':'nome_razao'})
-                                            )
+                                            widget=forms.TextInput(attrs={'class':"form-control uppercase", 'id':'nome_razao'}))
     
     apelido_fantasia      = forms.CharField(label="Nome Fantasia:",max_length=50,required=False,error_messages=MENSAGENS_ERROS,
-                                            widget=forms.TextInput(attrs={'class':"form-control uppercase" ,'id':'apelido_fantasia'})
-                                            )
+                                            widget=forms.TextInput(attrs={'class':"form-control uppercase" ,'id':'apelido_fantasia'}))
+
     tipo_registro         = forms.ChoiceField(label="Tipo Registro:",choices=opcoes_tipos_registros,required=False,error_messages=MENSAGENS_ERROS, #choices=opcoes_tipos_registros, default='C',
-                                            widget=forms.Select(attrs={'class':"form-control" ,'id':'tipo_registro'})
-                                            )
+                                            widget=forms.Select(attrs={'class':"form-control" ,'id':'tipo_registro'}))
     
     registro_geral        = forms.CharField(label="Inscrição Estadual:",max_length=12,required=False,error_messages=MENSAGENS_ERROS,
-                                            widget=forms.TextInput(attrs={'class':"form-control" ,'id':'registro_geral'})
-                                            )
+                                            widget=forms.TextInput(attrs={'class':"form-control" ,'id':'registro_geral'}))
     
     nascimento_fundacao   = forms.DateField(label="Fundação:",required=False,
                                             widget= forms.DateInput(attrs={'class':"form-control" ,'id':'nascimento_fundacao'},format = '%d/%m/%Y'),
-                                            input_formats=('%d/%m/%Y',)
-                                            )
+                                            input_formats=('%d/%m/%Y',))
     
-    cep          = forms.CharField(label="Código Postal:",max_length=15,required=True,error_messages=MENSAGENS_ERROS,
-                                            widget=forms.TextInput(attrs={'class':"form-control" ,'id':'codigo_postal'})
-                                            )
+    cep          = forms.CharField(label="Código Postal:",max_length=15,required=False,error_messages=MENSAGENS_ERROS,
+                                            widget=forms.TextInput(attrs={'class':"form-control" ,'id':'codigo_postal'}))
                                    
     numero_endereco       = forms.CharField(label="Número:",max_length=5,required=False,error_messages=MENSAGENS_ERROS,
-                                            widget=forms.TextInput(attrs={'class':"form-control" ,'id':'numero_endereco'})
-                                            )
+                                            widget=forms.TextInput(attrs={'class':"form-control" ,'id':'numero_endereco'}))
+
     complemento  = forms.CharField(label="Complemento:",max_length=100,required=False,error_messages=MENSAGENS_ERROS,
-                                            widget=forms.TextInput(attrs={'class':"form-control uppercase" ,'id':'complemento'})
-                                            )
+                                            widget=forms.TextInput(attrs={'class':"form-control uppercase" ,'id':'complemento'}))
     
     endereco    = forms.CharField(label="Endereço:",max_length=100,required=True,error_messages=MENSAGENS_ERROS,
-                                  widget=forms.TextInput(attrs={'class':"form-control uppercase" ,'id':'endereco'})
-                          )
+                                  widget=forms.TextInput(attrs={'class':"form-control uppercase" ,'id':'endereco'}))
+
     bairro      = forms.CharField(label="Bairro:",max_length=100,required=True,error_messages=MENSAGENS_ERROS,
-                                  widget=forms.TextInput(attrs={'class':"form-control uppercase" ,'id':'bairro'})
-                                  )
+                                  widget=forms.TextInput(attrs={'class':"form-control uppercase" ,'id':'bairro'}))
     
-    codigo_municipio = forms.CharField(label="Código Município:",max_length=10,required=True,error_messages=MENSAGENS_ERROS,
-                                       widget=forms.TextInput(attrs={'class':"form-control uppercase" ,'id':'codigo_municipio'})
-                                  )
+    codigo_municipio = forms.CharField(label="Código Município:",max_length=10,required=False,error_messages=MENSAGENS_ERROS,
+                                       widget=forms.TextInput(attrs={'class':"form-control uppercase" ,'id':'codigo_municipio'}))
+
     municipio = forms.CharField(label="Município:",max_length=100,required=True,error_messages=MENSAGENS_ERROS,
-                                       widget=forms.TextInput(attrs={'class':"form-control uppercase" ,'id':'municipio'})
-                                  )
+                                       widget=forms.TextInput(attrs={'class':"form-control uppercase" ,'id':'municipio'}))
     
-    opcoes_estados = (
-                            
-        ('AC', 'ACRE'),
-        ('AL', 'ALAGOAS'),
-        ('AM', 'AMAZONAS'),
-        ('AP', 'AMAPÁ'),
-        ('BA', 'BAHIA'),
-        ('CE', 'CEARÁ'),
-        ('DF', 'DESTRITO FEDERAL'),
-        ('ES', 'ESPIRÍTO SANTO'),
-        ('GO', 'GOIÁS'),
-        ('MA', 'MARANHÃO'),
-        ('MG', 'MINAS GERAIS'),
-        ('MS', 'MATO GROSSO DO SUL'),
-        ('MT', 'MATO GROSSO'),
-        ('PA', 'PARÁ'),
-        ('PB', 'PARAÍBA'),
-        ('PE', 'PERNAMBUCO'),
-        ('PI', 'PIAUÍ'),
-        ('PR', 'PARANÁ'),
-        ('RJ', 'RIO DE JANEIRO'),
-        
-        ('RN', 'RIO GRANDE DO NORTE'),
-        ('RO', 'RONDÔNIA'),
-        ('RR', 'RORAIMA'),
-        ('RS', 'RIO GRANDE DO SUL'),
-        ('SC', 'SANTA CATARINA'),
-        ('SE', 'SERGIPE'),
-        ('SP', 'SÃO PAULO'),
-        ('TO', 'TOCANTIS'),
-        
-    )
-    
-    estado       = forms.ChoiceField(label="Estado:",choices=opcoes_estados,required=True,error_messages=MENSAGENS_ERROS,
-                                         widget=forms.Select(attrs={'class':"form-control uppercase" ,'id':'estado'})
-                  )
+    estado       = forms.ChoiceField(label="Estado:",choices=estados_brasileiros.lista_estados,required=True,error_messages=MENSAGENS_ERROS,
+                                         widget=forms.Select(attrs={'class':"form-control uppercase" ,'id':'estado'}))
 
     pais       = forms.CharField(label="País:",required=True,error_messages=MENSAGENS_ERROS,
-                                       widget=forms.TextInput(attrs={'class':"form-control uppercase" ,'id':'pais'})
-                              )
-    
-    opcoes_tipos_contatos = (
-                            
-        ('C', 'CELULAR'),
-        ('F', 'COMERCIAL'),
-        ('R', 'RESIDENCIAL'),
-        ('O', 'OUTROS'),
-    )
-    
-    tipo_contato  = forms.ChoiceField(label="Tipo:",choices=opcoes_tipos_contatos,required=True,error_messages=MENSAGENS_ERROS, # choices=opcoes_tipos_contatos,default='C',)
-                                    widget=forms.Select(attrs={'class':"form-control" ,'id':'tipo_contato'})
-                                    )
-    
-    numero_contato        = forms.CharField(label="Telefone:",max_length=15,required=True,error_messages=MENSAGENS_ERROS,
+                                 widget=forms.TextInput(attrs={'class':"form-control uppercase" ,'id':'pais'})                              )
+
+    """
+    numero_contato        = forms.CharField(label="Telefone:",max_length=15,required=False,error_messages=MENSAGENS_ERROS,
                                     widget=forms.TextInput(attrs={'class':"form-control" ,'id':'numero_contato'})
                                     )
     cargo_setor   = forms.CharField(label="Cargo ou Setor:",max_length=50,required=False,error_messages=MENSAGENS_ERROS,
@@ -231,148 +257,123 @@ class formulario_cadastro_entidade_completo(forms.Form):
     email         = forms.EmailField(label="Email:",max_length=100,required=False,error_messages=MENSAGENS_ERROS,
                                      widget=forms.TextInput(attrs={'class':"form-control lowercase" ,'id':'email'})
                                     )
-    
-    
     """
-    1. Administração Pública
-    101-5 - Órgão Público do Poder Executivo Federal
-    102-3 - Órgão Público do Poder Executivo Estadual ou do Distrito Federal
-    103-1 - Órgão Público do Poder Executivo Municipal
-    104-0 - Órgão Público do Poder Legislativo Federal
-    105-8 - Órgão Público do Poder Legislativo Estadual ou do Distrito Federal
-    106-6 - Órgão Público do Poder Legislativo Municipal
-    107-4 - Órgão Público do Poder Judiciário Federal
-    108-2 - Órgão Público do Poder Judiciário Estadual
-    110-4 - Autarquia Federal
-    111-2 - Autarquia Estadual ou do Distrito Federal
-    112-0 - Autarquia Municipal
-    113-9 - Fundação Pública de Direito Público Federal
-    114-7 - Fundação Pública de Direito Público Estadual ou do Distrito Federal
-    115-5 - Fundação Pública de Direito Público Municipal
-    116-3 - Órgão Público Autônomo Federal
-    117-1 - Órgão Público Autônomo Estadual ou do Distrito Federal
-    118-0 - Órgão Público Autônomo Municipal
-    119-8 - Comissão Polinacional
-    120-1 - Fundo Público
-    121-0 - Consórcio Público de Direito Público (Associação Pública)
-    122-8 - Consórcio Público de Direito Privado
-    123-6 - Estado ou Distrito Federal
-    124-4 - Município
-    125-2 - Fundação Pública de Direito Privado Federal
-    126-0 - Fundação Pública de Direito Privado Estadual ou do Distrito Federal
-    127-9 - Fundação Pública de Direito Privado Municipal
-    
-    2. Entidades Empresariais
-    201-1 - Empresa Pública
-    203-8 - Sociedade de Economia Mista
-    204-6 - Sociedade Anônima Aberta
-    205-4 - Sociedade Anônima Fechada
-    206-2 - Sociedade Empresária Limitada
-    207-0 - Sociedade Empresária em Nome Coletivo
-    208-9 - Sociedade Empresária em Comandita Simples
-    209-7 - Sociedade Empresária em Comandita por Ações
-    212-7 - Sociedade em Conta de Participação
-    213-5 - Empresário (Individual)
-    214-3 - Cooperativa
-    215-1 - Consórcio de Sociedades
-    216-0 - Grupo de Sociedades
-    217-8 - Estabelecimento, no Brasil, de Sociedade Estrangeira
-    219-4 - Estabelecimento, no Brasil, de Empresa Binacional Argentino-Brasileira
-    221-6 - Empresa Domiciliada no Exterior
-    222-4 - Clube/Fundo de Investimento
-    223-2 - Sociedade Simples Pura
-    224-0 - Sociedade Simples Limitada
-    225-9 - Sociedade Simples em Nome Coletivo
-    226-7 - Sociedade Simples em Comandita Simples
-    227-5 - Empresa Binacional
-    228-3 - Consórcio de Empregadores
-    229-1 - Consórcio Simples
-    230-5 - Empresa Individual de Responsabilidade Limitada (de Natureza Empresária)
-    231-3 - Empresa Individual de Responsabilidade Limitada (de Natureza Simples)
-    
-     
-    
-    3. Entidades sem Fins Lucrativos
-    303-4 - Serviço Notarial e Registral (Cartório)
-    306-9 - Fundação Privada
-    307-7 - Serviço Social Autônomo
-    308-5 - Condomínio Edilício
-    310-7 - Comissão de Conciliação Prévia
-    311-5 - Entidade de Mediação e Arbitragem
-    313-1 - Entidade Sindical
-    320-4 - Estabelecimento, no Brasil, de Fundação ou Associação Estrangeiras
-    321-2 - Fundação ou Associação Domiciliada no Exterior
-    322-0 - Organização Religiosa
-    323-9 - Comunidade Indígena
-    324-7 - Fundo Privado
-    325-5 - Órgão de Direção Nacional de Partido Político
-    326-3 - Órgão de Direção Regional de Partido Político
-    327-1 - Órgão de Direção Local de Partido Político
-    328-0 - Comitê Financeiro de Partido Político
-    329-8 - Frente Plebiscitária ou Referendária
-    330-1 - Organização Social (OS)
-    399-9 - Associação Privada
-    
-    4. Pessoas Físicas
-    401-4 - Empresa Individual Imobiliária
-    402-2 - Segurado Especial
-    408-1 - Contribuinte individual
-    409-0 - Candidato a Cargo Político Eletivo
-    411-1 - Leiloeiro
-    412-0 - Produtor Rural (Pessoa Física)
-    
-    5.Organizações Internacionais e Outras Instituições Extraterritoriais
-    501-0 - Organização Internacional
-    502-9 - Representação Diplomática Estrangeira
-    503-7 - Outras Instituições Extraterritoriais
+    contatos = forms.CharField(label="Contatos:",required=True,error_messages=MENSAGENS_ERROS,
+                                     widget=forms.TextInput(attrs={'id':'contatos','readonly':True,'type':"hidden"})
+                                    )
 
-    """
-    
-    
-    
-    codigo_natureza_juridica = forms.CharField(label="Código:",max_length=50,required=False,error_messages=MENSAGENS_ERROS,
-                                    widget=forms.TextInput(attrs={'class':"form-control" ,'id':'codigo_natureza_juridica'})
-                                    )
-    
-    natureza_juridica = forms.CharField(label="Natureza Jurídica:",max_length=50,required=False,error_messages=MENSAGENS_ERROS,
-                                    widget=forms.TextInput(attrs={'class':"form-control" ,'id':'natureza_juridica'})
-                                    )
-    
-    codigo_atividade_economica = forms.CharField(label="Código de Atividade:",max_length=50,required=False,error_messages=MENSAGENS_ERROS,
-                                    widget=forms.TextInput(attrs={'class':"form-control" ,'id':'codigo_atividade_economica'})
-                                    )
-    
-    atividade_economica = forms.CharField(label="Atividade Econômica:",max_length=50,required=False,error_messages=MENSAGENS_ERROS,
-                                    widget=forms.TextInput(attrs={'class':"form-control" ,'id':'atividade_economica'})
-                                    )
-    
     """ Tentar utilizar o campo do estado pra definir automaticamente a mascara da inscricao estadual para o estado definido """
-    inscricao_estadual = forms.CharField(label="Inscrição Estadual:",max_length=50,required=False,initial="ISENTO",error_messages=MENSAGENS_ERROS,
-                              widget=forms.TextInput(attrs={'class':"form-control" ,'id':'inscricao_estadual'})
-                                    )
-    codigo_estado_inscricao = forms.CharField(label="Código do Estado:",max_length=50,required=False,error_messages=MENSAGENS_ERROS,
-                                    widget=forms.TextInput(attrs={'class':"form-control" ,'id':'codigo_estado_inscricao'})
-                                    )
-    
-    
-    inscricao_municipal = forms.CharField(label="Inscrição Municipal:",max_length=50,required=False,error_messages=MENSAGENS_ERROS,
-                                    widget=forms.TextInput(attrs={'class':"form-control" ,'id':'inscricao_municipal'})
-                                    )
-    
-    codigo_municipio_inscricao = forms.CharField(label="Código do Município:",max_length=50,required=False,error_messages=MENSAGENS_ERROS,
-                                    widget=forms.TextInput(attrs={'class':"form-control" ,'id':'codigo_municipio_inscricao'})
+    inscricao_estadual = forms.CharField(label="Inscrição Estadual:", max_length=9, required=False, initial="ISENTO",error_messages=MENSAGENS_ERROS,
+                                         widget=forms.TextInput(attrs={'class': "form-control", 'id': 'inscricao_estadual'}))
+
+    inscricao_municipal = forms.CharField(label="Inscrição Municipal:", max_length=20, initial="ISENTO",required=False,
+                                          error_messages=MENSAGENS_ERROS, widget=forms.TextInput(
+                                          attrs={'class': "form-control", 'id': 'inscricao_municipal'})
+                                          )
+
+    inscricao_produtor_rural = forms.CharField(label="INCRA:", max_length=20, required=False,
+                                       error_messages=MENSAGENS_ERROS, widget=forms.TextInput(
+                                       attrs={'class': "form-control", 'id': 'inscricao_produtor_rural'})
+                                       )
+
+    inscricao_imovel_rural = forms.CharField(label="NIRF:", max_length=20, required=False,
+                                       error_messages=MENSAGENS_ERROS, widget=forms.TextInput(
+                                       attrs={'class': "form-control", 'id': 'inscricao_imovel_rural'})
+                                       )
+
+    inscricao_junta_comercial = forms.CharField(label="Inscrição em Orgão:", max_length=20, required=False,
+                                               error_messages=MENSAGENS_ERROS, widget=forms.TextInput(
+            attrs={'class': "form-control", 'id': 'inscricao_junta_comercial'}))
+
+    nome_filial = forms.CharField(label="Identificação de Filial:",max_length=20, required=False,
+                                        error_messages=MENSAGENS_ERROS,
+                                        widget=forms.TextInput(attrs={'class': "form-control uppercase", 'id': 'nome_filial'}))
+
+    natureza_juridica = forms.CharField(label="Natureza Jurídica:",max_length=100,required=False,error_messages=MENSAGENS_ERROS,
+                                    widget=forms.TextInput(attrs={'class':"form-control" ,'id':'natureza_juridica','list':"naturezas_juridicas",'name':"natureza_juridica"})
                                     )
 
-    inscricao_produtor_rural = forms.CharField(label="Inscrição Rural:",max_length=50,required=False,error_messages=MENSAGENS_ERROS,
-                                    widget=forms.TextInput(attrs={'class':"form-control" ,'id':'inscricao_produtor_rural'})
+    opcoes_regime = (
+        ('SIMPLES_NACIONAL','SIMPLES NACIONAL'),
+        ('LUCRO_PRESUMIDO','LUCRO PRESUMIDO'),
+        ('LUCRO_REAL','LUCRO REAL'),
+		('IMUNE','IMUNE'),
+		('ISENTO','ISENTO')
+    )
+
+    regime_apuracao = forms.ChoiceField(label="Regime Tributário:", choices=opcoes_regime, required=False,
+                                 error_messages=MENSAGENS_ERROS,  # choices=opcoes_tipos_contatos,default='C',)
+                                 widget=forms.Select(attrs={'class': "form-control", 'id': 'regime_apuracao'}))
+
+    regime_desde = forms.DateField(label="Desde:", required=False, error_messages=MENSAGENS_ERROS,
+                    widget=forms.DateInput(attrs={'class': "form-control", 'id': 'regime_desde'},format='%d/%m/%Y'), input_formats=('%d/%m/%Y',))
+
+    #forms.CharField(label="Desde:", max_length=50, required=False,
+    #                                  error_messages=MENSAGENS_ERROS, widget=forms.TextInput(attrs={'class': "form-control", 'id': 'regime_desde'}))
+
+
+
+    atividade_economica = forms.CharField(label="Atividade Econômica:",required=False,error_messages=MENSAGENS_ERROS,
+                                    widget=forms.TextInput(attrs={'class':"form-control" ,'id':'atividade_economica','readonly':True,'type':"hidden"})
                                     )
-    
-    inscricao_imovel_rural = forms.CharField(label="Inscrição Imóvel Rural:",max_length=50,required=False,error_messages=MENSAGENS_ERROS,
-                                    widget=forms.TextInput(attrs={'class':"form-control" ,'id':'inscricao_imovel_rural'})
+
+    atividade_desde = forms.DateField(label="Desde:", required=False, error_messages=MENSAGENS_ERROS,
+                                   widget=forms.DateInput(attrs={'class': "form-control", 'id': 'atividade_desde', "ng-model":"atividade_desde"},
+                                                          format='%d/%m/%Y'), input_formats=('%d/%m/%Y',))
+
+    #contribuinte_iss = forms.BooleanField()
+
+    opcoes_tipo_vencimento = (
+        ('FIXO', 'FIXO'), ('VARIAVEL', 'VARIAVEL'))
+
+    tipo_vencimento = forms.ChoiceField(label="Modalidade do ISS:", choices=opcoes_tipo_vencimento, required=False,
+                                        error_messages=MENSAGENS_ERROS, #default='fixo',  # choices=opcoes_tipos_contatos,,)
+                                        widget=forms.Select(attrs={'class': "form-control", 'id': 'tipo_vencimento'}))
+
+    data_vencimento_iss = forms.DateField(label="Vencimento (Anual):",required=False,error_messages=MENSAGENS_ERROS,
+                                          widget=forms.TextInput(attrs={'class': "form-control", 'id': 'data_vencimento_iss'}))
+
+    dia_vencimento_iss = forms.IntegerField(label="Vencimento (Mensal):",required=False,error_messages=MENSAGENS_ERROS,
+                                          widget=forms.TextInput(attrs={'class': "form-control", 'id': 'dia_vencimento_iss'}))
+    taxa_iss = forms.DecimalField("Taxa:",max_digits=5, decimal_places=2,required=False,
+                                  widget=forms.TextInput(attrs={'class': "form-control", 'id': 'taxa_iss'}))
+
+    opcoes_responsaveis = (('1', 'MARCELO BORGUINGNON'), ('2', 'DIEGO PASTI'))
+
+    responsavel_cliente = forms.ChoiceField(label="Responsável:", required=False, choices=opcoes_responsaveis,
+                                   widget=forms.Select(attrs={
+                                       'class': "form-control uppercase",
+                                       'id': 'responsavel_cliente'
+                                   }))
+
+    supervisor_cliente = forms.ChoiceField(label="Supervisor:", required=False,choices=opcoes_responsaveis,
+                                     widget=forms.Select(attrs={
+                                         'class': "form-control uppercase",
+                                         'id': 'supervisor_cliente'
+                                     }))
+
+
+
+    opcoes_notificacao_envio = (
+        ('N', 'NÃO'), ('S', 'SIM'))
+
+    notificacao_envio = forms.ChoiceField(label="Notificações Automáticas:", choices=opcoes_notificacao_envio, required=False,
+                                        error_messages=MENSAGENS_ERROS, #default='fixo',  # choices=opcoes_tipos_contatos,,)
+                                        widget=forms.Select(attrs={'class': "form-control", 'id': 'notificacao_envio'}))
+
+    notificacao_email = forms.EmailField(label="Email:",max_length=100,required=False,error_messages=MENSAGENS_ERROS,
+                                     widget=forms.TextInput(attrs={'class':"form-control lowercase" ,'id':'notificacao_email','list':"sugestao_email"})
                                     )
-    
-    
-    
+    notificacao_responsavel = forms.CharField(label="Nome do Destinatário:",max_length=100,required=False,error_messages=MENSAGENS_ERROS,
+                                    widget=forms.TextInput(attrs={'class':"form-control uppercase" ,'id':'notificacao_responsavel','list':"sugestao_responsavel"})
+                                    )
+
+
+    #observacoes = forms("Observações Administrativas", required=False)
+    observacoes = forms.CharField(label="Observações Administrativas:", required=False, error_messages=MENSAGENS_ERROS,
+                                         widget=forms.Textarea(attrs={'class': 'form-control uppercase', 'id': 'observacoes'}))
+
+
     #inscricao_estadual    = forms.BooleanField("Inscrição Estadual:",null=False,default=False,error_messages=MENSAGENS_ERROS)
     #inscricao_municipal   = forms.BooleanField("Inscrição Municipal:",null=False,default=False,error_messages=MENSAGENS_ERROS)
     #inscricao_rural       = forms.BooleanField("Inscrição Rural:",null=False,default=False,error_messages=MENSAGENS_ERROS)
@@ -380,3 +381,50 @@ class formulario_cadastro_entidade_completo(forms.Form):
     #desabilitado          = forms.BooleanField(default=False)    
 
     #entidade = forms.ForeignKey(entidade)
+
+    tabela_documentos = forms.CharField(label="documentos:", required=False, error_messages=MENSAGENS_ERROS,
+                    widget=forms.TextInput(attrs={
+                        'id': 'tabela_documentos',
+                        'name':'tabela_documentos',
+                        'reay':True,
+                        'type': "hidden"})) #
+
+    get_localizacao = get_object_localizacao
+    get_contatos    = get_object_contatos
+    get_cnae        = get_object_cnae
+    get_entidade    = get_object_entidade
+    get_documentos  = get_object_documentos
+
+    get_contrato    = get_object_contrato
+
+class formulario_justificar_operacao(forms.Form):
+
+    operacao = forms.CharField(
+        label="Operação:",
+        max_length=3,
+        required=True,
+        error_messages=MENSAGENS_ERROS,
+        widget=forms.TextInput(attrs={'class': "form-control", 'id': 'operacao','readonly': True, 'type': "hidden"
+                 }))
+
+    justificativa = forms.CharField(
+        label="Justificativa:",
+        required=True,
+        error_messages=MENSAGENS_ERROS,
+        widget=forms.Textarea(attrs={'class': 'form-control uppercase', 'id': 'operacao_justificativa'})
+    )
+
+    descricao = forms.CharField(label="Descrição:", required=True, error_messages=MENSAGENS_ERROS,
+        widget=forms.TextInput(attrs={'class': 'form-control uppercase', 'id': 'operacao_descricao','readonly': True, 'type': "hidden"}))
+
+    tabela = forms.CharField(label="Tabela:", max_length=50, required=False, error_messages=MENSAGENS_ERROS,
+                              widget=forms.TextInput(attrs={'class': "form-control", 'id': 'operacao_tabela','readonly': True, 'type': "hidden"}))
+
+    cliente = forms.CharField(label="Cliente:", max_length=6, required=False, error_messages=MENSAGENS_ERROS,
+        widget=forms.TextInput(attrs={'class': "form-control", 'id': 'operacao_cliente', 'readonly': True, 'type': "hidden"})) #, 'readonly': True, 'type': "hidden"
+
+    user = forms.CharField(label="Usuário:", max_length=6, required=False, error_messages=MENSAGENS_ERROS,
+                                 widget=forms.TextInput(
+                                     attrs={'class': "form-control", 'id': 'operacao_user','readonly': True, 'type': "hidden"}))
+
+

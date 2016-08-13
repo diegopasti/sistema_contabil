@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base_page.html' %}
 
 {% block Titulo %}
 	<meta charset="utf-8">
@@ -25,7 +25,7 @@
 <script src="{% static 'datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js' %}"></script>
 
 <!-- JQUERY AUTOCOMPLETE EDITABLE -->
-<link rel="stylesheet" type="text/css" href="{% static 'jquery/jquery-editable-select/jquery.editable-select.min.css' %}"></link>
+<link rel="stylesheet" type="text/css" href="{% static 'jquery/jquery-editable-select/jquery.editable-select.min.css' %}" />
 <script src="{% static 'jquery/jquery-editable-select/jquery.editable-select.min.js' %}"></script>
 
 <!-- JQUERY UI DATAPICKER -->
@@ -102,10 +102,25 @@
 
 .ui-autocomplete { z-index:2147483647; }
 
+.box-title {
+    padding-left: 10px;
+    padding-top:  6px;
+}
+
+
 </style>
 
-{% endblock %} 
-{% block Principal %}
+{% endblock %}
+
+{% block breadcrumb_title %}Controle de Protocolos{% endblock %}
+
+{% block breadcrumb_block %}
+<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+<li><a href="#"> Protocolo</a></li>
+<li class="active">Novo Protocolo</li>
+{% endblock %}
+
+{% block conteudo %}
 
 <!-- <form action="" method="post" id="form_protocolo_informacoes_complementares">  
 	{% csrf_token %}-->
@@ -178,12 +193,12 @@
 							<sub>{{ formulario_protocolo.documento.label }}</sub>
 						</div>
 
-                        {{ formulario_protocolo.documento }}
-                          <datalist id="lista_documentos">
-                            {% for item in documentos %}
-                              <option value="{{ item.nome }}">
-                            {% endfor %}
-                          </datalist>
+						{{ formulario_protocolo.documento }}
+							<datalist id="lista_documentos">
+								{% for item in documentos %}
+									<option value="{{ item.nome }}">
+								{% endfor %}
+							</datalist>
 
     				</div>
 
@@ -235,14 +250,12 @@
 
 	<div class="row">
 		<div class="col-lg-12">
-			<div class="panel panel-default" style="margin-top: -15px; margin-left: 0px; margin-right: 0px;">
-				<div class="panel-heading">
-					<div class="row" style="height: 30px; line-height: 30px">
-						<div class="col-lg-7">
-							<b>Destinatário</b>
-						</div>
-					</div>
-				</div>
+			<div class="box box-default" style="margin-top: -15px; margin-left: 0px; margin-right: 0px;">
+				<div class="box-heading">
+                    <div class="box-header with-border">
+                        <h5 class="box-title">Destinatário</h5>
+                    </div>
+                </div>
 	
 				<div class="panel-body"	style="padding-bottom: 18px; margin-top: 1px;">
 					<div class="row">
@@ -253,7 +266,17 @@
 							
 							<select class='form-control uppercase' id="select_destinatarios" onblur="conferir_destinatario()">
 								{% for item in destinatarios %}
-								<option value='{{ item.id }}'>{{ item.id }} - {{ item.nome_razao }}</option>
+                                {% if item.nome_filial %}
+                                    <option value='{{ item.id }}'>{{ item.id }} - {{ item.nome_razao|upper }} - {{ item.nome_filial|upper }}</option>
+                                {% else %}
+                                    <option value='{{ item.id }}'>{{ item.id }} - {{ item.nome_razao|upper }}</option>
+                                {% endif %}
+
+								<!--<option value='{ item.id }}'>{ item.id }} - { item.nome_razao|upper }}
+                                % if item.nome_filial %}
+                                - { item.nome_filial|upper }}
+                                % endif %}
+                                </option>-->
 								{% endfor %}
 															
 							</select>
@@ -279,39 +302,37 @@
 	
 	<div class="row">
 		<div class="col-lg-12">
-			<div class="panel panel-default"
-				style="margin-top: -15px; margin-left: 0px; margin-right: 0px;">
+			<div class="box box-default" style="margin-top: -15px; margin-left: 0px; margin-right: 0px;">
 	
-				<div class="panel-heading">
-	
-					<div class="row" style="height: 30px; line-height: 30px">
-						<div class="col-lg-9">
-							<b>Documentos</b>
-						</div>
-						
-						<div class="col-lg-3 ">
-						
-							<div class = "btn-toolbar" role = "toolbar">
-								<div class="btn-group pull-right" role="group">			
-									<button type="submit" name='excluir_item' value='-1' id="bt_apagar" class="confirm btn btn-default " style="position: relative; margin-top: -2px;margin-right: -8px;">Apagar</button>
-								</div>
-							
-								<div class="btn-group pull-right" role="group">
-                                    <div id="tooltip_documento" style="display: inline-block;" tooltip="My Tooltip">
-                                        <button type="button" id="bt_novo_documento" class="btn btn-default" data-toggle="modal" data-target="#myModal" style="position: relative; margin-top: -2px;margin-right: 2px;">Novo Documento</button> <!--  -->
-                                    </div>
-                                </div>
+				<div class="box-heading">
 
-							</div>
-						</div>
-					</div>
-				</div>
+                    <div class="box-heading">
+
+                    <div class="box-header with-border">
+                        <h5 class="box-title">Documentos</h5>
+
+                        <div class="pull-right">
+
+
+
+                            <div id="tooltip_documento" style="display: inline-block;" tooltip="My Tooltip">
+                                <button type="button" id="bt_novo_documento" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal" style="position: relative;margin-right: 2px;">Novo Documento</button> <!--  -->
+                            </div>
+
+                            <button type="submit" name='excluir_item' value='-1' id="bt_apagar" class="confirm btn btn-sm btn-default " style="position: relative;">Apagar</button>
+
+                            <!--<a href="/protocolo/emitir_protocolo" role="button" class="btn btn-sm btn-primary"><i class="fa fa-plus fa-1x" aria-hidden="true"></i> Novo Protocolo</a>
+                            <a href="#modal_relatorio" id='bt_relatorio' role="button" class="btn btn-sm btn-default" data-toggle="modal" style='margin-left: 10px;'><i class="fa fa-file-text-o"></i> Gerar Relatório</a>
+                            <a href="#" role="button" class="btn btn-sm btn-default pull-right link_desabilitado" id="bt_confirmar_entrega" data-toggle="modal" data-target="#myModal" style="position: relative; margin-top: 0px;margin-right: 2px;margin-left: 10px;"><i class="fa fa-check" aria-hidden="true"></i> Confirmar Recebimento</a>-->
+
 	
-				<div class="panel-body" style="padding-bottom: -10px; margin-top: -5px;">
+
+	
+				<div class="box-body" style="padding-bottom: -10px; margin-top: -5px;">
 					
 					<div class="dataTable_wrapper" style="padding-top: -5px">
 					
-						<table class="table table-striped table-bordered table-hover bordas_padrao" id="datatable" style="border-color:#CCC;">
+						<table class="table table-condensed table-bordered table-hover bordas_padrao" id="datatable" style="border-color:#CCC;">
 	
 							<thead>
 								<tr class="text-right">
@@ -325,7 +346,8 @@
 							{% if dados %}
 								<tbody>
 									{% for item in dados %}
-		
+
+
 									<tr>
 										{% if item.complemento %}
 										<td style="cursor: pointer;">{{ item.documento }} - {{ item.complemento }}</td> 
@@ -333,7 +355,7 @@
 											<td style="cursor: pointer;">{{ item.documento }}</td> 
 										{% endif %}
 		
-										<td align="center" style="cursor: pointer;">{{	item.referencia }}</td>
+										<td align="center" style="cursor: pointer;">{{ item.referencia }}</td>
 										<td align="center" style="cursor: pointer;">{{ item.vencimento }}</td>
 										
 										{% if item.valor %}
@@ -389,7 +411,7 @@ jQuery(document).ready(function(){
 	$('#valor').maskMoney({showSymbol:false, symbol:"R$", decimal:",", thousands:"."});
 
 
-    {% if dados|length > 1 %}
+    {% if dados|length >= 10 %}
     $('#bt_novo_documento').addClass('link_desabilitado');
     $('#tooltip_documento').tooltip({title: "Permitido apenas 10 documentos por protocolo!", animation: true, delay:{show: 200, hide: 200}, placement: "top"});
 
@@ -474,8 +496,8 @@ $('#select_destinatarios').editableSelect({
 
 <script type="text/javascript">
 	function conferir_destinatario(){
-		
-		var destinatario = $('#select_destinatarios').val();
+        var destinatario = $('#select_destinatarios').val();
+
 		if (destinatario == ''){
 			desabilitar_botao("#bt_novo_documento");
 			desabilitar_botao("#bt_gerar_protocolo");
@@ -489,7 +511,7 @@ $('#select_destinatarios').editableSelect({
 			$('#bt_resetar').removeClass('link_desabilitado');
 			
 			if(destinatario.contains("-")) {
-				$("#entidade_destinatario").val(destinatario);   
+				$("#entidade_destinatario").val(destinatario);
 				desabilitar_botao("#select_destinatarios");
 			}
 			

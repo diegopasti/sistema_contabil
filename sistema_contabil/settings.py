@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
+import sys
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -54,7 +56,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'sistema_contabil','entidade','protocolo','servico'
+    'sistema_contabil','entidade','protocolo','servico','preferencias'
 )
 
 
@@ -100,23 +102,25 @@ DATABASES = {
     }
 }
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
 LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'UTC'
+# NA MAQUINA DE DESENVOLVIMEMTO WINDWOS O HORARIO CORRETO DEVE UTILIZAR:
+#TIME_ZONE = 'UTC'
+
+# NO SERVIDOR LINUX DE PRODUCAO O HORARIO CORRETO DEVE UTILIZAR:
+TIME_ZONE='America/Sao_Paulo'
 
 USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+#USE_TZ = True - Quando eu coloco isso a hora esta vindo com 3 horas a mais.
 
 TIME_INPUT_FORMATS = [ '%H:%M', ]
-
-
+USE_THOUSAND_SEPARATOR = True
 # Static files (CSS, JavaScript, Images)
 
 
@@ -184,9 +188,6 @@ STATICFILES_DIRS = (
     ("imagens", os.path.join(BASE_DIR, "/arquivos_estaticos/imagens")),
     
 )
-                    
-
-
 
 """
 #FUNCIONAVA ANTIGAMENTE
@@ -214,3 +215,21 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "/arquivos_estaticos"),
 )
 """
+
+
+WORKING_CONFIGURATION = os.path.join(BASE_DIR, 'conf/working.json')
+WORKING_SERVER = "http://192.168.1.112:8010"
+from nucleo.working_api import WorkingManager
+
+try:
+    if "runserver" in sys.argv:
+        WorkingManager().register_programming_backend()
+
+    elif "test" in sys.argv:
+        WorkingManager().register_test_backend()
+
+    else:
+        pass
+
+except:
+    pass

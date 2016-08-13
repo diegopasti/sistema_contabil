@@ -62,23 +62,32 @@ class documento(models.Model):
     nome      = models.CharField("Nome:", max_length=100, null=True, error_messages=MENSAGENS_ERROS)
     descricao = models.TextField("Descrição:",max_length=500,null=True,error_messages=MENSAGENS_ERROS)
 
+    def precarregar_dados_digitar(self):
+        from nucleo.initial_data import protocolo
+        for item in protocolo.referencias_documentos:
+            print "Olha a referencia:",item
+            #novo_documento = documento()
+            #novo_documento.nome = item
+
+
+
 class protocolo(models.Model):
     emissor      = models.ForeignKey(entidade,related_name='entidade_emissora')
-    emitido_por  = models.CharField("Recebido por:",max_length=100,null=True,error_messages=MENSAGENS_ERROS)
+    emitido_por  = models.CharField("Emitido por:",max_length=100,null=True,error_messages=MENSAGENS_ERROS)
     destinatario = models.ForeignKey(entidade,null=True,related_name='entidade_destinatario')
     data_emissao = models.DateField(auto_now_add=True)
     hora_emissao = models.TimeField(auto_now_add=True)
     numeracao_destinatario = models.CharField(max_length=5,null=True)
     
-    nome_avulso      = models.CharField(max_length=100,null=True)
-    endereco_avulso  = models.CharField(max_length=500,null=True)
-    documento_avulso = models.CharField(max_length=30,null=True)
-    contatos_avulso  = models.CharField(max_length=50,null=True)
+    nome_avulso      = models.CharField(max_length=100,null=True,blank=True)
+    endereco_avulso  = models.CharField(max_length=500,null=True,blank=True)
+    documento_avulso = models.CharField(max_length=30,null=True,blank=True)
+    contatos_avulso  = models.CharField(max_length=50,null=True,blank=True)
     
     data_recebimento = models.DateField(null=True,blank=True)
     hora_recebimento = models.TimeField(null=True,blank=True)
-    recebido_por     = models.CharField("Recebido por:",max_length=100,null=True,error_messages=MENSAGENS_ERROS)
-    doc_receptor     = models.CharField("Identidade:",max_length=20,null=True,error_messages=MENSAGENS_ERROS)
+    recebido_por     = models.CharField("Recebido por:",max_length=100,null=True,blank=True,error_messages=MENSAGENS_ERROS)
+    doc_receptor     = models.CharField("Identidade:",max_length=20,null=True,blank=True,error_messages=MENSAGENS_ERROS)
     situacao         = models.BooleanField(default=False)
      
     

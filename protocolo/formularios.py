@@ -57,59 +57,29 @@ class formulario_gerar_relatorio(forms.Form):
                                 label="Até:",initial=datetime.date.today,required=False,
                                 widget= forms.DateInput(attrs={'class':"form-control" ,'id':'filtrar_ate'},format = '%d/%m/%Y'), 
                                 input_formats=('%d/%m/%Y',)
-                                ) 
-    
+                                )
 
-    
-    
 
-    
-    
 class formulario_emitir_protocolo(forms.Form):
-    
-    #labels = [(obj.nome_razao) for obj in entidade.objects.all()]
-    
-    #entidade_destinatario = forms.ModelChoiceField(label="Cliente: ",queryset=entidade.objects.all(),empty_label="",
-    #                                               widget=forms.Select(attrs={"class":"form-control"}),
-    #                                               )
-                                                   
-    entidade_destinatario = forms.CharField(label="Cliente: ",max_length=100,required=True,error_messages=MENSAGENS_ERROS,widget=forms.TextInput(attrs={'class':'form-control uppercase' ,'id':'entidade_destinatario', 'readonly':True,'type':"hidden"})) #
-        
-    #data_emissao          = forms.DateField(initial=datetime.date.today,
-    #                                        widget=forms.DateInput(attrs={"class":"form-control"}))
-    
-    
-    documento    = forms.CharField(label="Documento: ",max_length=100,required=True,error_messages=MENSAGENS_ERROS,widget=forms.TextInput(attrs={'class':"form-control uppercase", 'id':'item'}),)
-    referencia   = forms.DateField(label="Referência:",required=False,
-                                            widget= forms.DateInput(attrs={'class':"form-control" ,'id':'referencia'},format = '%m/%Y'), 
-                                            input_formats=('%m/%Y',)
-                                            )
-    vencimento   = forms.DateField(label="Vencimento:",required=False,
-                                            widget= forms.DateInput(attrs={'class':"form-control" ,'id':'vencimento'},format = '%d/%m/%Y'), 
-                                            input_formats=('%d/%m/%Y',)
-                                            )
-    
-    valor        = forms.CharField(label="Valor: ",required=False,
-                               widget = forms.TextInput(attrs={'class':"form-control" ,'id':'valor'}))
-    
-    complemento  = forms.CharField(label="Complemento: ",max_length=500,required=False,error_messages=MENSAGENS_ERROS,widget=forms.TextInput(attrs={'class':"form-control uppercase", 'id':'complemento' }))
-    
-    excluir_item = forms.CharField(required=False)
-    
-    temporarios = []
+    documento = forms.CharField(label="Documento: ", max_length=100, required=True, error_messages=MENSAGENS_ERROS,
+                                widget=forms.TextInput(attrs={'class': "form-control uppercase", 'id': 'item', "ng-model":"documento",'':'definir_documento(this)'}), )
+
+    referencia = forms.DateField(label="Referência:", required=False,
+                                 widget=forms.DateInput(attrs={'class': "form-control", 'id': 'referencia',"ng-model":"referencia"},
+                                                        format='%m/%Y'), input_formats=('%m/%Y',))
+    vencimento = forms.DateField(label="Vencimento:", required=False,
+                                 widget=forms.DateInput(attrs={'class': "form-control", 'id': 'vencimento', "ng-model":"vencimento"},
+                                                        format='%d/%m/%Y'), input_formats=('%d/%m/%Y',))
+
+    valor = forms.CharField(label="Valor (R$): ", required=False,
+                            widget=forms.TextInput(attrs={'class': "form-control", 'id': 'valor',"ng-model":"valor"}))
+
+    complemento = forms.CharField(label="Complemento: ", max_length=500, required=False, error_messages=MENSAGENS_ERROS,
+                                  widget=forms.TextInput(attrs={'class': "form-control uppercase", 'id': 'complemento',"ng-model":"complemento"}))
+
     
     
-    #temporarios  = forms.CharField(label="Complemento: ",widget = forms.HiddenInput(), required = False,)
-    
-    #temporarios  = forms.CharField(required=False,widget=forms.TextInput(attrs={'class':'form-control uppercase' ,'id':'temporarios' })
-    
-    ###temporarios  = forms.CharField(max_length=1500,required=False,widget=forms.TextInput(attrs={'class':'form-control uppercase' ,'id':'temporarios','readonly':True}))
-    
-    def limpar_temporarios(self):
-        formulario_emitir_protocolo.temporarios = []
-    
-    
-class formulario_adicionar_item_protocolo(forms.Form):
+"""class formulario_adicionar_item_protocolo(forms.Form):
     documento       = forms.CharField(label="Documento: ",max_length=100,required=True,error_messages=MENSAGENS_ERROS,widget=forms.TextInput(attrs={'class':"form-control", 'id':'item' }),)
     referencia = forms.DateField(label="Referência:",required=False,
                                             widget= forms.DateInput(attrs={'class':"form-control" ,'id':'referencia'},format = '%m/%Y'), 
@@ -120,12 +90,39 @@ class formulario_adicionar_item_protocolo(forms.Form):
                                             input_formats=('%d/%m/%Y',)
                                             )
     
-    valor = forms.DecimalField(label="Valor: ",max_digits=10, decimal_places=2,required=False,
+    valor = forms.DecimalField(label="Valor (R$): ",max_digits=10, decimal_places=2,required=False,
                                widget = forms.TextInput(attrs={'class':"form-control" ,'id':'valor'}))
     
     complemento = forms.CharField(label="Complemento: ",max_length=500,required=False,error_messages=MENSAGENS_ERROS,widget=forms.TextInput(attrs={'class':"form-control uppercase", 'id':'complemento' }))
     temporarios = []
-    
+"""
+
+
+class formulario_confirmar_entrega(forms.Form):
+    protocolo_id = forms.CharField(label="Protocolo: ", max_length=5, required=True, error_messages=MENSAGENS_ERROS,
+                                   widget=forms.TextInput(
+                                       attrs={'class': 'form-control uppercase', 'id': 'protocolo_id', 'readonly': True,
+                                              'type': "hidden"}))  # ,
+
+    data_entrega = forms.DateField(label="Data da Entrega:", initial=datetime.date.today, required=False,
+        widget=forms.DateInput(attrs={'class': "form-control", 'id': 'data_entrega'}, format='%d/%m/%Y'),
+        input_formats=('%d/%m/%Y',))
+
+    hora_entrega = forms.TimeField(label="Hora da Entrega:", initial=datetime.date.today, required=False,
+                                   widget=forms.TimeInput(attrs={'class': "form-control", 'id': 'hora_entrega'}),
+                                   # ,format='%H:%M'),
+        input_formats=(['%H:%M']))
+    # forms.DateField(initial=datetime.date.today,)
+    #                                        widget=forms.DateInput(attrs={"class":"form-control"}))
+    recebido_por = forms.CharField(label="Recebido por: ", required=True, error_messages=MENSAGENS_ERROS,
+                                   widget=forms.TextInput(
+                                       attrs={'class': 'form-control uppercase', 'id': 'recebido_por'}))
+    doc_receptor = forms.CharField(label="Documento:", required=False, error_messages=MENSAGENS_ERROS,
+                                   widget=forms.TextInput(attrs={'class': 'form-control uppercase', 'id': 'documento'}))
+
+    observacao_entrega = forms.CharField(label="Observação:", required=False, error_messages=MENSAGENS_ERROS,
+                                         widget=forms.Textarea(
+                                             attrs={'class': 'form-control uppercase', 'id': 'observacao_entrega'}))
 
 class formulario_cadastro_entidade_observacao(forms.Form):
     
