@@ -8,6 +8,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+
   {% block Titulo %}
     <title>Digitar Acessoria Contábil</title>
   {% endblock %}
@@ -20,7 +21,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script type="text/javascript" src="{% static 'jquery/jquery-2.2.0.min.js' %}"></script>
   <script src="{% static 'jquery/jquery-ui-1.11.4/jquery-ui.js' %}"></script>
 
-  <!-- BOOTSTRAP 3.3.6 -->
+  <!-- BOOTSTRAP -->
   <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"/>
   <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
 
@@ -56,7 +57,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <style>
     .content-wrapper, .right-side {
-        background-color: #ffffff;
+        background-color: #ecf0f5;
     }
 </style>
 
@@ -302,6 +303,7 @@ desired effect
           </a>
           <ul class="treeview-menu">
             <li><a href="/entidade/cadastro">Cadastro de Clientes</a></li>
+              <li><a href="/entidade/adicionar">Adicionar Cliente</a></li>
             <li><a href="/protocolo/documentos">Cadastro de Documentos</a></li>
           </ul>
         </li>
@@ -329,17 +331,21 @@ desired effect
     <!-- Content Header (Page header) -->
     <section class="content-header">
 
+      <h1>
+      {% block breadcrumb_title %}
+
+      {% endblock %}
+      </h1>
+
       <ol class="breadcrumb">
           {% block breadcrumb_block %}
 
           {% endblock %}
-        <!--<li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-        <li class="active">Here</li>-->
       </ol>
     </section>
 
     <!-- Main content -->
-    <section class="content">
+    <section class="content" style="margin-top:30px;">
     {% block conteudo %}
 
 
@@ -349,15 +355,16 @@ desired effect
   </div>
   <!-- /.content-wrapper -->
 
-  <!-- Main Footer -->
+  <!-- Main Footer
   <footer class="main-footer">
-    <!-- To the right -->
+    <!-- To the right
     <div class="pull-right hidden-xs">
       Anything you want
     </div>
-    <!-- Default to the left -->
+    <!-- Default to the left
     <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
   </footer>
+   -->
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">

@@ -232,7 +232,9 @@ class formulario_cadastro_entidade_completo(forms.Form):
                                      widget=forms.TextInput(attrs={'class':"form-control lowercase" ,'id':'email'})
                                     )
     
-    
+
+
+
     """
     1. Administração Pública
     101-5 - Órgão Público do Poder Executivo Federal
@@ -347,7 +349,7 @@ class formulario_cadastro_entidade_completo(forms.Form):
                                     )
     
     """ Tentar utilizar o campo do estado pra definir automaticamente a mascara da inscricao estadual para o estado definido """
-    inscricao_estadual = forms.CharField(label="Inscrição Estadual:",max_length=50,required=False,initial="ISENTO",error_messages=MENSAGENS_ERROS,
+    inscricao_estadual = forms.CharField(label="Inscrição Estadual:",max_length=9,required=False,initial="ISENTO",error_messages=MENSAGENS_ERROS,
                               widget=forms.TextInput(attrs={'class':"form-control" ,'id':'inscricao_estadual'})
                                     )
     codigo_estado_inscricao = forms.CharField(label="Código do Estado:",max_length=50,required=False,error_messages=MENSAGENS_ERROS,
@@ -355,7 +357,7 @@ class formulario_cadastro_entidade_completo(forms.Form):
                                     )
     
     
-    inscricao_municipal = forms.CharField(label="Inscrição Municipal:",max_length=50,required=False,error_messages=MENSAGENS_ERROS,
+    inscricao_municipal = forms.CharField(label="Inscrição Municipal:",max_length=15,required=False,error_messages=MENSAGENS_ERROS,
                                     widget=forms.TextInput(attrs={'class':"form-control" ,'id':'inscricao_municipal'})
                                     )
     

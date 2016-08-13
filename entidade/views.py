@@ -29,7 +29,7 @@ from protocolo.models import item_protocolo
 def index(request):
     dados = entidade.objects.all()
     if len(dados) != 0:
-        return render_to_response("base_page.html")
+        return render_to_response("blank.html")
     else:
         return HttpResponseRedirect('/cadastrar_empresa')   
         
@@ -90,7 +90,6 @@ def adicionar_item_protocolo(request):
 
 
 def buscar_entidades(request):
-    print "to vindo aqui"
     resultado = entidade.objects.all()
     
     results = []
@@ -197,7 +196,7 @@ def emitir_protocolo(request,numero_item):
         
         formulario_protocolo = formulario_emitir_protocolo(request.POST)
             
-        print "O que que tem nos temporarios: ",formulario_protocolo.temporarios
+        #print "O que que tem nos temporarios: ",formulario_protocolo.temporarios
         
         if 'adicionar_item' in request.POST:
             
@@ -862,5 +861,5 @@ def adicionar_entidade_antigo(request):
         
     return render_to_response("adicionar_entidade.html",{'dados':dados,'formulario':formulario},context_instance=RequestContext(request))
         
-    #return render_to_response("adicionar_entidade.html",{'formulario_entidade':formulario_entidade,'formulario_contato':formulario_contato},context_instance=RequestContext(request))   
+    #return render_to_response("adicionar_entidade.html",{'formulario_entidade':formulario_entidade,'formulario_contato':formulario_contato},context_instance=RequestContext(request))
         

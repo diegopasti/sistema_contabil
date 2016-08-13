@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base_page.html' %}
 
 {% block Titulo %}
 	<meta charset="utf-8">
@@ -7,22 +7,13 @@
 
 {% block recrusos_necessarios %}
 {% load staticfiles %}
-
-<!-- JQUERY -->
-<script type="text/javascript" src="{% static 'jquery/jquery-2.2.0.min.js' %}"></script>
-<script src="{% static 'jquery/jquery-ui-1.11.4/jquery-ui.js' %}"></script>
-
-<!-- BOOTSTRAP -->
+<!-- BOOTSTRAP 3.3.6 -->
 <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"/>
-<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
 
 <!-- DATATABLE -->
 <link rel="stylesheet" type="text/css" href="{% static 'datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css' %}"/>
-
-
 <link rel="stylesheet" type="text/css" href="{% static 'datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css' %}"/>
 <link rel="stylesheet" type="text/css" href="{% static 'datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css' %}"/>
-
 <script src="{% static 'datatable/DataTables-1.10.11/js/jquery.dataTables.min.js' %}"></script>
 <script src="{% static 'datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js' %}"></script>
 <script src="{% static 'datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js' %}"></script>
@@ -41,24 +32,24 @@
 <script src="{% static 'scripts/protocolo/protocolo.js' %}"></script>
 
 <style type="text/css">
-.uppercase{ 
+.uppercase{
     text-transform: uppercase;
 }
 
-.lowercase{ 
+.lowercase{
     text-transform: uppercase;
 }
 
-.center_align{ 
+.center_align{
     text-align: center;
 }
 
-.left_align{ 
+.left_align{
 	padding-left: 8px;
     text-align: left;
 }
 
-.right_align{ 
+.right_align{
     text-align: right;
 }
 
@@ -86,13 +77,23 @@ label {
     font-weight: normal !important;
 }
 
+.box-title {
+    padding-left: 10px;
+    padding-top:  6px;
+}
+
 
 </style>
 {% endblock %}
 
+{% block breadcrumb_title %}Controle de Protocolos{% endblock %}
 
-{% block Principal %}
+{% block breadcrumb_block %}
+<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+<li class="active">Protocolo</li>
+{% endblock %}
 
+{% block conteudo %}
 <div id="modal_relatorio" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
 	<div class="modal-dialog" style="width: 40%">
 		<div class="modal-content">
@@ -103,25 +104,25 @@ label {
 			</div>
 
 
-			<div class="modal-body" style="padding: 30px;">	
+			<div class="modal-body" style="padding: 30px;">
 				<form action="" method="post" target="_blank" onsubmit="setTimeout(function () { window.location.replace('/protocolo') }, 2)">
 				{% csrf_token %}
 					<div class="row">
-					
+
 						<div class='col-lg-8'>
 							<div style='margin-left: 8px'>
 								<sub><label style=''>Filtrar por Cliente:</label></sub>
 							</div>
-							
+
 							<select id="select_filtrar_por_cliente" class='form-control uppercase'  onblur="selecionar_filtro_cliente()">
 								<option value='' selected></option>
 								{% for item in clientes %}
 									<option value='{{ item.id }}'>{{ item.id }} - {{ item.nome_razao }}</option>
-								{% endfor %}					
+								{% endfor %}
 							</select>
 							{{ form_relatorio.filtrar_por_cliente }}
 						</div>
-					
+
 						<div class='col-lg-4'>
 							<div style='padding-left: 8px'>
 								<sub>{{ form_relatorio.filtrar_por_status.label }}</sub>
@@ -129,9 +130,9 @@ label {
 							{{ form_relatorio.filtrar_por_status }}
 						</div>
 					</div>
-					
+
 					<div class="row">
-					
+
 						<div class='col-lg-6'>
 							<div>
 								<div style='padding-left: 8px'>
@@ -140,7 +141,7 @@ label {
 								{{ form_relatorio.filtrar_por_operacao }}
 							</div>
 						</div>
-						
+
 						<div class='col-lg-3'>
 							<div>
 								<div style='padding-left: 8px'>
@@ -149,7 +150,7 @@ label {
 								{{ form_relatorio.filtrar_desde }}
 							</div>
 						</div>
-						
+
 						<div class='col-lg-3'>
 							<div>
 								<div style='padding-left: 8px'>
@@ -159,7 +160,7 @@ label {
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="row">
 						<div class="col-lg-3 col-lg-push-9">
 							<button type="submit" id="bt_gerar_relatorio" class="btn btn-primary form-control" name='gerar_relatorio'  value='value_gerar_relatorio' style="position: relative; margin-top: 20px">Gerar</button>
@@ -172,7 +173,6 @@ label {
 	</div>
 </div>
 
-
 <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
 	<div class="modal-dialog">
 		<!--  style="width: 90%"> -->
@@ -184,7 +184,7 @@ label {
 			</div>
 
 
-			<div class="modal-body" style="padding: 30px;">	
+			<div class="modal-body" style="padding: 30px;">
 				<form action="" method="post" id="form_confirma_entrega">
 				{% csrf_token %}
 					<div class="row" style="padding-left: 15px; padding-right: 15px">
@@ -192,11 +192,11 @@ label {
 							<sub>{{ form_entrega.recebido_por.label }}</sub>
 						</div>
 						{{ form_entrega.recebido_por }}
-							
+
 					</div>
-					
+
 					<div class="row" style="padding-left: 15px; padding-right: 15px">
-						
+
 						<table>
 							<tr>
 								<td>
@@ -205,7 +205,7 @@ label {
 									</div>
 									{{ form_entrega.doc_receptor }}
 								</td>
-								
+
 								<td>
 									<div style='padding-left: 10px'>
 										<div style='padding-left: 8px'>
@@ -215,7 +215,7 @@ label {
 
 									</div>
 								</td>
-								
+
 								<td>
 									<div style='padding-left: 10px'>
 										<div style='padding-left: 8px'>
@@ -224,30 +224,30 @@ label {
 										{{ form_entrega.hora_entrega }}
 									</div>
 								</td>
-								
-								
+
+
 								<td>
-									 
+
 									<div style='padding-left: 10px'>
 										{{ form_entrega.protocolo_id }}
 									</div>
-									
+
 								</td>
-								
+
 							</tr>
-							
+
 						</table>
-													
+
 					</div>
-					
+
 					<div class="row" style="padding-left: 15px; padding-right: 15px">
 						<div style='padding-left: 8px'>
 							<sub>{{ form_entrega.observacao_entrega.label }}</sub>
 						</div>
 						{{ form_entrega.observacao_entrega }}
-							
+
 					</div>
-					
+
 					<div class="row">
 						<div class="col-lg-3 col-lg-push-9">
 							<button type="submit" class="btn btn-primary form-control" name='confirmar_protocolo' style="position: relative; margin-top: 20px">Confirmar</button>
@@ -260,116 +260,101 @@ label {
 	</div>
 </div>
 
-
-
-
 <div class="row">
 	<div class="col-lg-12 col-md-12 col-xs-12">
-		<div class="panel panel-default" style="margin-top: -15px; margin-left: 0px; margin-right: 0px; ">
-			<div class="panel-heading">
-		
-				<div class="row" style="height:30px; line-height: 30px">
-					<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><!-- </div> col-md-7 col-sm-4 col-xs-2" > -->
-						<b>Protocolos</b>
-					</div>
+		<div class="box box-default" style="margin-top: -20px;">
 
-					
-					<div class="pull-right" style='margin-right: 8px;'><!--  col-lg-5 col-md-5 col-sm-8 col-xs-10"> -->
+            <div class="box-heading">
 
-						 <div class="btn-group" role="group" style='margin-top: -2px;' aria-label="...">
-						  
-						  <a href="/protocolo/emitir_protocolo" role="button" class="btn btn-primary"><i class="fa fa-plus fa-1x" aria-hidden="true"></i> Novo Protocolo</a>
-						  <a href="#modal_relatorio" id='bt_relatorio' role="button" class="btn btn-default" data-toggle="modal" style='margin-left: 10px;'><i class="fa fa-file-text-o"></i> Gerar Relatório</a>
-                          <div id="tooltip_confirmar" style="display: inline-block;" tooltip="My Tooltip">
-                             <a href="#" role="button" class="btn btn-default pull-right link_desabilitado" id="bt_confirmar_entrega" data-toggle="modal" data-target="#myModal" style="position: relative; margin-top: 0px;margin-right: 2px;margin-left: 10px;"><i class="fa fa-check" aria-hidden="true"></i> Confirmar Recebimento</a>
-                          </div>
-						</div>
-						
-						
-					</div>
-				</div>
+                <div class="box-header with-border">
+                    <h5 class="box-title">Protocolos Emitidos</h5>
+
+                    <div class="pull-right">
+                        <a href="/protocolo/emitir_protocolo" role="button" class="btn btn-sm btn-primary"><i class="fa fa-plus fa-1x" aria-hidden="true"></i> Novo Protocolo</a>
+                        <a href="#modal_relatorio" id='bt_relatorio' role="button" class="btn btn-sm btn-default" data-toggle="modal" style='margin-left: 10px;'><i class="fa fa-file-text-o"></i> Gerar Relatório</a>
+                        <a href="#" role="button" class="btn btn-sm btn-default pull-right link_desabilitado" id="bt_confirmar_entrega" data-toggle="modal" data-target="#myModal" style="position: relative; margin-top: 0px;margin-right: 2px;margin-left: 10px;"><i class="fa fa-check" aria-hidden="true"></i> Confirmar Recebimento</a>
+                    </div>
+                </div>
 			</div>
 			<!-- /.panel-heading -->
-		
+
 			<div class="panel-body" style="padding-bottom: -10px; margin-top: -5px;">
 				<div class="dataTable_wrapper">
-				
 					<div class='row'>
-						
 						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-							<table class="table compact table-bordered table-hover" id="datatable">
-				
-								<thead>
-									<tr class="linha_cabecalho">
-										<th style="vertical-align: middle;"></th>
-										<th style="text-align: center;vertical-align: middle;">Código</th>
-										<th style="text-align: center;vertical-align: middle;">Destinatário</th>
-										<th style="text-align: center;vertical-align: middle;">Data Emissão</th>
-										<th style="text-align: center;vertical-align: middle;">Data Entrega</th>
-										<th style="text-align: center;vertical-align: middle;">Recebido por</th>
-										<th style="text-align: center;vertical-align: middle;">Confirmardo</th>
-									</tr>
-								</thead>
-				
-								<tbody>		
-									{% for item in dados %}
-									
-									<tr class=''><!--  class="alinhado_meio clickable-row " data-href='/consultar_entidade/{{ item.id }}'> -->
-										<td style="text-align: center;cursor:pointer">{{ item.id }}</td>
-										
-										{% if item.numeracao_destinatario == 'AVULSO' %}
-										<td style="text-align: center;cursor:pointer">-</td>
-										{% else %}
-										<td style="text-align: center;cursor:pointer">{{ item.numeracao_destinatario }}</td>
-										{% endif %}
-										
-										
-										{% if item.destinatario %}
-										<td class='left_align' style="cursor:pointer">{{ item.destinatario.id }} - {{ item.destinatario }}</td>
-										{% else %}
-										<td class='left_align' style="cursor:pointer">{{ item.nome_avulso }}</td>
-										{% endif %}
-										
-										<td style="text-align: center;cursor:pointer">{{ item.data_emissao|date:"d/m/Y" }} às {{ item.hora_emissao }}</td>
-										{% if item.data_recebimento %}
-										<td style="text-align: center;cursor:pointer">{{ item.data_recebimento|date:"d/m/Y" }} às {{ item.hora_recebimento }}</td>
-										{% else %}
-										<td style="text-align: center;cursor:pointer">-</td>
-										{% endif %}
-										
-										{% if item.recebido_por %}
-										<td class='left_align' style="cursor:pointer">{{ item.recebido_por }}</td>
-										{% else %}
-										<td style="text-align: center;cursor:pointer">-</td>
-										{% endif %}
-										
-										{% if item.situacao %}
-											<td align="left" style="text-align: center;cursor:pointer"><font color='green'>SIM</font></td>
-										{% else %}
-											<td align="left" style="text-align: center;cursor:pointer"><font color='red'>NÃO</font></td>
-										{% endif %}
-									</tr>
-									
-									
-									{% empty %}
-		    							<tr><td style="text-align: center;" colspan="7">Nenhum protocolo emitido</td></tr>
-									{% endfor %}
-								</tbody>
-							</table>
+                            <table class="table table-condensed table-bordered table-hover" id="datatable">
+
+                                <thead>
+                                    <tr class="linha_cabecalho">
+                                        <th style="vertical-align: middle;"></th>
+                                        <th style="text-align: center;vertical-align: middle;">Cód</th>
+                                        <th style="text-align: center;vertical-align: middle;">Destinatário</th>
+                                        <th style="text-align: center;vertical-align: middle;">Emissão</th>
+                                        <th style="text-align: center;vertical-align: middle;">Entrega</th>
+                                        <th style="text-align: center;vertical-align: middle;">Recebido por</th>
+                                        <th style="text-align: center;vertical-align: middle;">Confirmardo</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    {% for item in dados %}
+
+                                    <tr class=''><!--  class="alinhado_meio clickable-row " data-href='/consultar_entidade/{{ item.id }}'> -->
+                                        <td style="text-align: center;cursor:pointer">{{ item.id }}</td>
+
+                                        {% if item.numeracao_destinatario == 'AVULSO' %}
+                                        <td style="text-align: center;cursor:pointer">-</td>
+                                        {% else %}
+                                        <td style="text-align: center;cursor:pointer">{{ item.numeracao_destinatario }}</td>
+                                        {% endif %}
+
+
+                                        {% if item.destinatario %}
+                                        <td class='left_align' style="cursor:pointer">{{ item.destinatario }}</td><!-- Pra colocar o id do destinatario na tela e possibilitar a busca{ item.destinatario.id }} -->
+                                        {% else %}
+                                        <td class='left_align' style="cursor:pointer">{{ item.nome_avulso }}</td>
+                                        {% endif %}
+
+                                        <td style="text-align: center;cursor:pointer">{{ item.data_emissao|date:"d/m/Y" }}</td>
+                                        {% if item.data_recebimento %}
+                                        <td style="text-align: center;cursor:pointer">{{ item.data_recebimento|date:"d/m/Y" }}</td><!-- às { item.hora_recebimento }}</td> -->
+                                        {% else %}
+                                        <td style="text-align: center;cursor:pointer">-</td>
+                                        {% endif %}
+
+                                        {% if item.recebido_por %}
+                                        <td class='left_align' style="cursor:pointer">{{ item.recebido_por }}</td>
+                                        {% else %}
+                                        <td style="text-align: center;cursor:pointer">-</td>
+                                        {% endif %}
+
+                                        {% if item.situacao %}
+                                            <td align="left" style="text-align: center;cursor:pointer"><span class="label label-success">SIM</span></td>
+                                        {% else %}
+                                            <td align="left" style="text-align: center;cursor:pointer"><span class="label label-danger">NÃO</span></td>
+                                        {% endif %}
+                                    </tr>
+
+
+                                    {% empty %}
+                                        <tr><td style="text-align: center;" colspan="7">Nenhum protocolo emitido</td></tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
 						</div>
 					</div>
 				</div>
-				
-				<script>	
+
+				<script>
 					$('#datatable').DataTable({
-						
+
 						"pagingType": "simple_numbers",
 						"lengthMenu": [[10, 100, -1], [10, 100, "All"]],
 						"dom": '<"top">rt"<"rightcolumn"><"clear">p',
 						"bSort": true,
 						"ordering": true,
 						"bAutoWidth": false
-						
+
 						//"columnDefs": [ {
 						      //"targets": 0,
 						      ///"data": null,
@@ -377,23 +362,23 @@ label {
 						      //"className": 'details-control',
 						      //"defaultContent": '<button><i class="fa fa-plus" aria-hidden="true"></i> oi</button>'
 						    //} ]
-					
+
 						//"aoColumns": [
-					    //                { "sWidth": "1px" }, // 1st column width 
+					    //                { "sWidth": "1px" }, // 1st column width
 					    //                { "sWidth": "30px" }, // 2th column width
-					    //                { "sWidth": "30px"}, // 3st column width 
+					    //                { "sWidth": "30px"}, // 3st column width
 					    //                { "sWidth": "30px" }, // 2th column width
 					    //                { "sWidth": "30px"}, // 3st column width
 					    //                { "sWidth": "30px"}, // 3st column width
 					    //                { "sWidth": "40px"} // 4st column width
 					    //                ],
 						//
-						
-					});	
-					
+
+					});
+
 					var table = $('#datatable').DataTable();
 					$('#datatable'+' tbody').on('click', 'tr', function () {
-						 
+
 					     if ($(this).hasClass('selected') ) {
 					    	 $(this).removeClass('selected');
 					    	 desabilitar_botao('#bt_confirmar_entrega');
@@ -422,51 +407,51 @@ label {
 					    	 $('#visualizar_protocolo').removeClass('link_desabilitado');
 
 					    	 $('#painel_detalhes').removeClass('div_desabilitado');
-					    	 
-					    	 
+
+
 					    	 //alert("Quero procurar os detalhes de: "+table.cell('.selected', 0).data());
-					    	 
+
 					    	 $.ajax({
 					    			url: 'get_detalhes_protocolo/'+table.cell('.selected', 0).data(),
 					    		    type: 'get', //this is the default though, you don't actually need to always mention it
 					    		    success: function(data) {
 					    		    	///alert(data['data']);
-					    				
+
 					    		    	$('#lb_emitido_por').text(data['emitido_por']);
 					    		    	var table_detalhes = $('#datatable_detalhes').DataTable();
 					    		    	table_detalhes.rows().remove();
 					    		        table_detalhes.rows.add(data['data']).draw();
-					    		        
-					    		        
+
+
 					    		        $("#datatable_detalhes tbody tr td").addClass("center_align");
 					    		        $("#datatable_detalhes tbody tr td:first-child").removeClass("centralizado").addClass("left_align");
-					    		        
-					    		        
+
+
 					    		    	//alert("consegui?");
-					    		      
+
 					    		    },
-					    		    failure: function(data) { 
+					    		    failure: function(data) {
 					    		        alert('Got an error dude');
 					    		    }
-					    		}); 
-					    	 
+					    		});
+
 					     }
-					     
+
 					     $('#bt_confirmar_entrega').click( function () {
 					         //table.row('.selected').remove().draw( false );
 					         //alert("Vamos confirmar.. "+table.cell('.selected', 0).data());
 					         $("#protocolo_id").val(table.cell('.selected', 0).data());
 					         //alert("Vamos confirmar.. "+table.cell('.selected', 0).data());
 					     } );
-							
+
 					});
-					
+
 					$('#datatable tbody').on( 'click', 'button', function () {
 					    var data = table.row( $(this).parents('tr') ).data();
 					    alert( data[0] +"'s salary is: "+ data[ 5 ] );
 					} );
 				</script>
-				
+
 				<div class='row'>
 
                     {% if dados %}
@@ -481,8 +466,8 @@ label {
 						 	<option value="5">Nome do Recebedor</option>
 						 	<option value="1">Código Protocolo</option>
 						 	<option value="3">Data Emissão</option>
-						 	<option value="4">Data Entrega</option>								  	
-						</select> 
+						 	<option value="4">Data Entrega</option>
+						</select>
 					</div>
 
                     {% if dados %}
@@ -492,14 +477,14 @@ label {
                     {% endif %}
 
 
-					
+
 						<label class='left_align'><sub>Filtrar por:</sub></label>
 						 <select id='filtrar_por' class='form-control'>
 						 	<option value="emitidos" selected>Protocolos Emitidos</option>
 						 	<option value="abertos" >Protocolos em Aberto</option>
 						 	<option value="recebidos">Protocolos Confirmados</option>
-						 	<option value="avulsos">Protocolos Avulsos</option>					  	
-						</select> 
+						 	<option value="avulsos">Protocolos Avulsos</option>
+						</select>
 					</div>
 
                 {% if dados %}
@@ -510,12 +495,12 @@ label {
 
 						<input type="text" id="search" class="form-control" autofocus placeholder="Consultar..">
 					</div>
-				
+
 				</div>
-				
-				
-				
-				
+
+
+
+
 
 			</div>
 		</div>
@@ -528,48 +513,50 @@ label {
 
 <div class="row div_desabilitado" id='painel_detalhes'>
 	<div class="col-lg-12">
-		<div class="panel panel-default" style="margin-top: -15px; margin-left: 0px; margin-right: 0px; ">
-			<div class="panel-heading">
-		
-				<div class="row" style="height:30px; line-height: 30px">
-					<div class="col-lg-7" >
-						<b>Documentos Entregues </b>(Emitido por: <font id="lb_emitido_por"></font>)
-					</div>
-					
-					<div class="col-lg-5">
-						
-						<a href='/protocolo' role="button" class="pull-right" id="visualizar_protocolo" target="_blank" style="position: relative; margin-top: 0px;">Visualizar Protocolo</a>
-																
-					</div>
-				</div>
+		<div class="box box-default" style="margin-top: 0px; margin-left: 0px; margin-right: 0px; ">
+			<div class="box-heading">
+
+                <div class="box-header with-border">
+                  <h5 class="box-title">Documentos Entregues (Emitido por: <label id="lb_emitido_por"></label>)</h5>
+
+                    <div class="pull-right">
+                        <a href='/protocolo' role="button" class="btn btn-sm btn-primary pull-right" id="visualizar_protocolo" target="_blank" style="position: relative; margin-top: 0px;"><i class="fa fa-search fa-1x" aria-hidden="true"></i> Visualizar Protocolo</a>
+                    </div>
+
+                </div>
+
+
+
+
 			</div>
 			<!-- /.panel-heading -->
-			
+
 			<div class="panel-body" style="padding-bottom: -10px; margin-top: -5px;">
-				
-				
+
+
 				<div class="dataTable_wrapper">
-					<table class="display compact table-bordered" cellspacing="0" width="100%"  id="datatable_detalhes">
-						
-						
+					<table class="table table-condensed table-bordered" cellspacing="0" width="100%"  id="datatable_detalhes">
+
+
 						<thead>
 							<tr class="linha_cabecalho">
-								<th style="text-align: center;vertical-align: middle;">DOCUMENTO</th>
-								<th style="text-align: center;vertical-align: middle;">CODIGO</th>
-								<th style="text-align: center;vertical-align: middle;">DESCRICAO</th>
+								<th style="text-align: center;vertical-align: middle;">Documento</th>
+								<th style="text-align: center;vertical-align: middle;">Referência</th>
+								<th style="text-align: center;vertical-align: middle;">Vencimento</th>
+                                <th style="text-align: center;vertical-align: middle;">Valor</th>
 							</tr>
 						</thead>
-						
-						<tbody>	
-						
-							
+
+						<tbody>
+
+
 						</tbody>
-						
-						
+
+
 					</table>
 					<!-- /.table-responsive -->
 				</div>
-			
+
 			</div>
 		</div>
 	</div>
@@ -583,7 +570,7 @@ label {
 
 {% endblock %}
 
-{% block ArquivosScripts %}
+{% block recursos_complementares %}
 {% load staticfiles %}
 <script type="text/javascript" src="{% static 'scripts/mask.js' %}"></script>
 
@@ -601,66 +588,66 @@ jQuery(document).ready(function(){
 	var table = $('#datatable').DataTable();
 	var campo = $('#buscar_por').val();
 	var filtro = $('#filtrar_por').val();
-	
+
 	if (filtro == 'emitidos'){
 		table.columns(campo).search(this.value).draw();
 		//alert('aqui?');
 	}
-	
+
 	else if (filtro == 'abertos'){
 		table.columns(campo).search(this.value).column(6).search('Não').draw();
 	}
-	
+
 	else if (filtro == 'recebidos'){
 		table.columns(campo).search(this.value).column(6).search('Sim').draw();
 	}
-	
+
 	else if (filtro == 'avulsos'){
 		table.columns(campo).search(this.value).column(1).search('-').draw();
 	}
-	
+
 	else{
 		//table.columns(campo).search(this.value).draw();
 		alert('ou aqui?');
 	}
-	
-	
+
+
 	//table.search( this.value ).search(this.value).draw();              // GERAL
 } );
 </script>
 
 <script>
-$('#filtrar_por').change(function() { 
+$('#filtrar_por').change(function() {
  		var table = $('#datatable').DataTable();
  		var filtro = $('#filtrar_por').val();
- 		
+
  		table.search('').columns().search( '' ).draw(); // reseta a pesquisa
- 		
+
  		if (filtro == 'abertos'){
  			table.column(6).search('Não').draw();
  		}
- 		
+
  		else if (filtro == 'recebidos'){
  			table.column(6).search('Sim').draw();
  		}
- 		
+
  		else if (filtro == 'avulsos'){
  			table.column(1).search('-').draw();
  		}
 });
 
-$('#buscar_por').change(function() { 
+$('#buscar_por').change(function() {
 		var table = $('#datatable').DataTable();
 		var filtro = $('#buscar_por').val();
 		var campo = $('#buscar_por').val();
-		
+
 		table.search('').columns().search( '' ).draw();
 		table.columns(campo).search($('#search').val()).draw();
 });
 </script>
 
 
- 
+
 
 
 
@@ -684,17 +671,17 @@ $('.modal').on('hidden.bs.modal', function(){
 
 <script>
 $(document).ready(function() {
-	
+
 	$('#bt_confirmar_entrega').addClass('link_desabilitado');
 	$('#visualizar_protocolo').addClass('link_desabilitado');
-	
-	
+
+
 	{% if erro %}
     	$('#myModal').modal('show');
     	BootstrapDialog.show({
 	        message: $("Tentando")
 	    });
-    
+
     {% else %}
 		$('#myModal').modal('hide');
 	{% endif %}
@@ -710,12 +697,12 @@ $(document).ready(function() {
 //	{% if dados %}
 		//alert("vim configurar a exclusao e tenho dados..");
 //		configurar_datatable_selecionavel("#datatable","#bt_apagar","{{ dados|length }}");
-		
+
 //	{% else %}
 		//alert("vim configurar a exclusaom mas nao tenho dados..");
 //		configurar_datatable_selecionavel("#datatable","#bt_apagar","{{ dados|length }}");
 //		desabilitar_botao("#bt_gerar_protocolo");
-//	{% endif %}	
+//	{% endif %}
 //});
 </script>
 
@@ -735,7 +722,7 @@ $('#visualizar_protocolo').click( function () {
 	//window.location.href = '/protocolo/visualizar/'+table.cell('.selected', 0).data();
 	//window.location.reload();
 	//setTimeout(function () {  }, 3);
-	
+
  });
 </script>
 
@@ -746,19 +733,19 @@ $('#visualizar_protocolo').click( function () {
 
 	  //  var link = document.getElementById("visualizar_protocolo");
 	  //  alert("cliquei pra visualizar protocolo"+table.cell('.selected', 0).data());
-	   	
+
 	 //   document.getElementById('visualizar_protocolo').href='/protocolo/visualizar/'+table.cell('.selected', 0).data());
 	 //   window.location.href = ('/protocolo/visualizar/'+table.cell('.selected', 0).data());
-	    
-	    
-		
-		
+
+
+
+
 		//$("#protocolo_id").val(table.cell('.selected', 0).data());
 		//document.getElementById('visualizar_protocolo').href='/protocolo/visualizar/'+table.cell('.selected', 0).data())';
 		//setTimeout(function(){ window.location.href = ('/protocolo/visualizar/'+table.cell('.selected', 0).data()); }, 1000);
-		
+
 	//}
-	
+
 </script>
 
 
@@ -806,11 +793,11 @@ $('#codigo_postal').blur(function(){
 	        $('#numero_endereco').focus();
 	      //alert(data);
 	    },
-	    failure: function(data) { 
+	    failure: function(data) {
 	        alert('Got an error dude');
 	    }
-	}); 
-}); 
+	});
+});
 </script>
 
 <script>
@@ -821,7 +808,7 @@ $('#datatable_detalhes').DataTable({
 	"bSort": false,
 	"ordering": false,
 	"bAutoWidth": false
-});	
+});
 
 //alert("defini o detalhe");
 
@@ -829,10 +816,10 @@ $('#datatable_detalhes').DataTable({
 
 <script type="text/javascript">
 function selecionar_filtro_cliente(){
-	
+
 	var destinatario = $('#select_filtrar_por_cliente').val();
 	$("#filtrar_por_cliente").val(destinatario);
-	
+
 }
 </script>
 

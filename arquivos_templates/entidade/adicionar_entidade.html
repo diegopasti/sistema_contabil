@@ -1,31 +1,15 @@
-{% extends 'base.html' %}
+{% extends 'base_page.html' %}
 
 {% block Titulo %}
-<meta charset="utf-8">
-    <title>Digitar - Cadastro de Entidades</title>
+	<meta charset="utf-8">
+    <title>Digitar - Adicionar Entidade</title>
 {% endblock %}
 
-{% block ArquivosEstaticos %}
 {% load staticfiles %}
-
-<!-- JQUERY -->
-<script type="text/javascript" src="{% static 'jquery/jquery-2.2.0.min.js' %}"></script>
-<script src="{% static 'jquery/jquery-ui-1.11.4/jquery-ui.js' %}"></script>
-
-<!-- BOOTSTRAP -->
+{% block recrusos_necessarios %}
+{% comment %} Reimportar a biblioteca bootstrap no arquivo filho corrige o problema de fonte turva {% endcomment %}
+<!-- BOOTSTRAP 3.3.6 -->
 <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"/>
-<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
-
-<!-- JQUERY UI DATAPICKER -->
-<link rel="stylesheet" href="{% static 'jquery/jquery-ui-1.11.4/jquery-ui.css' %}">
-<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css"> -->
-
-<!-- JQUERY STEPS
-<script src="{% static 'jquery/jquery-steps-1.1.0/jquery.steps.min.js' %}" />
-<link rel="stylesheet" href="{% static 'jquery/jquery-steps-1.1.0/jquery.steps.css' %}"/>
-    <link rel="stylesheet" href="{% static 'jquery/jquery-steps-1.1.0/content.css' %}"/>
- -->
-
 
 <!-- DATATABLE -->
 <link rel="stylesheet" type="text/css" href="{% static 'datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css' %}"/>
@@ -36,30 +20,28 @@
 <script src="{% static 'datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js' %}"></script>
 <script src="{% static 'datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js' %}"></script>
 
+<!-- JQUERY UI DATAPICKER -->
+<link rel="stylesheet" href="{% static 'jquery/jquery-ui-1.11.4/jquery-ui.css' %}">
+<!--<link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+
+<!-- JQUERY AUTOCOMPLETE EDITABLE -->
+<link rel="stylesheet" type="text/css" href="{% static 'jquery/jquery-editable-select/jquery.editable-select.min.css' %}" />
+<script src="{% static 'jquery/jquery-editable-select/jquery.editable-select.min.js' %}"></script>
+
+<!-- CUSTOM -->
+<!-- <link href="{% static 'styles/menu_simples_responsivo.css' %}" rel="stylesheet"/> -->
+<script src="{% static 'scripts/padrao/controle_botoes.js' %}"></script>
+<script src="{% static 'scripts/protocolo/protocolo.js' %}"></script>
+
+
+
 <style type="text/css">
-
-.row.better_col_spacings_first_chield [class*='col-']:first-child {
-	padding-right:5px;
-	padding-bottom:15px;
-}
-
-.row.better_col_spacings_last_chield [class*='col-']:last-child {
-	padding-left:5px;
-	padding-bottom:15px;
-}
-
-.row.better_col_middle_spacings [class*='col-']:not(:first-child):not(:last-child) {
-  padding-right:5px;
-  padding-left:5px;
-  padding-bottom:15px;
-}
-
-.uppercase{ 
+.uppercase{
     text-transform: uppercase;
 }
 
-.lowercase{ 
-    text-transform: lowercase;
+.lowercase{
+    text-transform: uppercase;
 }
 
 .center_align{
@@ -75,10 +57,19 @@
     text-align: right;
 }
 
-.scrollable {
-    height: 100px;
-    overflow-y: scroll;
-  }
+.link_desabilitado {
+     pointer-events: none;
+     cursor: default;
+     opacity: 0.6;
+}
+
+.div_desabilitado {
+	display: none;
+    z-index: 1000;
+    background-color: lightgrey;
+    opacity: 0.6;
+    pointer-events: none;
+}
 
 .dataTables_paginate {
 	position: relative;
@@ -86,441 +77,152 @@
     top: 30px;
 }
 
+li > a{
+    color: #999;
+}
+
+li > a .{
+    color: #555;
+}
+
 label {
     font-weight: normal !important;
+    margin-left: 10px;
 }
+
+
 </style>
-
-
 {% endblock %}
 
-{% block Principal %}
-    <div class="panel panel-default" style="margin-top: 30px;">
-        <div class="panel-body">
+{% block breadcrumb_title %}Novo Registro{% endblock %}
 
-                <form action="" method="post">  <!-- <button type='submit' name='elevar_indice_categoria' value='{{ item.codigo }}  -->
-                    {% csrf_token %}
+{% block breadcrumb_block %}
+<li><a href="#"><i class="fa fa-dashboard"></i> Cadastros</a></li>
+<li class="active">Entidades</li>
+<li class="active">Novo Registro</li>
+{% endblock %}
 
+{% block conteudo %}
+<div class="panel panel-default" style="margin-top: 20px;">
 
-                    <div style="margin-top: -57px;">
-                        <ul class="nav nav-tabs">
-                          <li class="active"><a data-toggle="tab" href="#informacoes_basicas">Informações Básicas</a></li>
-                          <li><a data-toggle="tab" href="#menu1">Informações Complementares</a></li>
-                          <li><a data-toggle="tab" href="#menu2">Informações Administrativas</a></li>
-                        </ul>
+    <div class="panel-body">
 
+        <div style="margin-top: -57px;">
 
-                        <div class="tab-content" style="padding: 15px;padding-top:25px;">
-                          <div id="informacoes_basicas" class="tab-pane fade in active">
-                            <div>
-                                <div class="row better_col_spacings_first_chield better_col_middle_spacings better_col_spacings_last_chield">
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#identificacao"><i class="fa fa-user" aria-hidden="true"></i> Identificação</a></li>
+                <li><a data-toggle="tab" href="#servicos"><i class="fa fa-suitcase" aria-hidden="true"></i> Serviços</a></li>
+                <li><a data-toggle="tab" href="#administrativo"><i class="fa fa-cog" aria-hidden="true"></i> Administrativas</a></li>
+            </ul>
+            <br>
 
-                                <div class="col-lg-2">
-                                    <div style='padding-left: 8px'>
-                                        <sub>
-                                            <label id="lb_cpf_cnpj">{{ formulario.cpf_cnpj.label.upper }}</label>
-                                        </sub>
-                                    </div>
-                                    {{ formulario.cpf_cnpj }}
-                                </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-xs-12">
 
-                                <div class="col-lg-5">
-                                    <div style='padding-left: 8px'>
-                                        <sub>
-                                            <label id="lb_nome_razao">
-                                                {{ formulario.nome_razao.label }}
-                                            </label>
-                                        </sub>
-                                    </div>
-                                    {{ formulario.nome_razao }}
-                                </div>
+                    <div class="tab-content" style="padding: 15px;">
+                        <div id="identificacao" class="tab-pane fade in active">
 
-                                <div class="col-lg-3">
-                                    <div style='padding-left: 8px'>
-                                        <sub>
-                                            <label id="lb_apelido_fantasia">{{ formulario.apelido_fantasia.label }}</label>
-                                        </sub>
-                                    </div>
-                                    {{ formulario.apelido_fantasia }}
-                                </div>
-
-                                <div class="col-lg-2">
-                                    <div style='padding-left: 8px'>
-                                        <sub> {{ formulario.tipo_registro.label }} </sub>
-                                    </div>
-                                    {{ formulario.tipo_registro }}
-                                </div>
-
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Identificação</h3>
                             </div>
 
-                                <div class="row better_col_spacings_first_chield better_col_middle_spacings better_col_spacings_last_chield">
+                            <form role="form">
+                                <div class="box-body">
+                                    <div class="row">
 
-                                    <div class="col-lg-2">
-                                        <div style='padding-left: 8px'>
-                                            <sub>
-                                                <label id="lb_nascimento_fundacao">{{ formulario.nascimento_fundacao.label }}</label>
-                                            </sub>
+                                        <div class="col-lg-2">
+                                            <div class="form-group">
+                                                <sub><label id="lb_cpf_cnpj" for="cpf_cnpj">{{ formulario.cpf_cnpj.label|upper }}</label></sub>
+                                                {{ formulario.cpf_cnpj }}
+                                            </div>
                                         </div>
-                                        {{ formulario.nascimento_fundacao }}
+
+                                        <div class="col-lg-7">
+                                            <div class="form-group">
+                                                <sub><label id="lb_nome_razao" for="nome_razao">{{ formulario.nome_razao.label }}</label></sub>
+                                                {{ formulario.nome_razao }}
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-3">
+                                            <div class="form-group">
+                                                <sub><label id="lb_apelido_fantasia" for="apelido_fantasia">{{ formulario.apelido_fantasia.label }}</label></sub>
+                                                {{ formulario.apelido_fantasia }}
+                                            </div>
+                                        </div>
+
                                     </div>
 
-                                    <div class="col-lg-1">
-                                        <div style='padding-left: 8px'>
-                                            <sub> {{ formulario.cep.label }} </sub>
+                                    <div class="row">
+
+                                        <div class="col-lg-2">
+                                            <div class="form-group">
+                                                <sub><label id="lb_tipo_registro" for="tipo_registro">{{ formulario.tipo_registro.label }}</label></sub>
+                                                {{ formulario.tipo_registro }}
+                                            </div>
                                         </div>
-                                        {{ formulario.cep }}
-                                    </div>
 
-                                    <div class="col-lg-6">
-                                        <div style='padding-left: 8px'>
-                                            <sub> {{ formulario.endereco.label }} </sub>
+                                        <div class="col-lg-2">
+                                            <div class="form-group">
+                                                <sub><label id="lb_nascimento_fundacao" for="nascimento_fundacao">{{ formulario.nascimento_fundacao.label }}</label></sub>
+                                                {{ formulario.nascimento_fundacao }}
+                                            </div>
                                         </div>
-                                        {{ formulario.endereco }}
-                                    </div>
 
-                                    <div class="col-lg-1">
-                                        <div style='padding-left: 8px'>
-                                            <sub> {{ formulario.numero_endereco.label }} </sub>
+                                        <!--
+                                        <div class="col-lg-2">
+                                            <div class="form-group">
+                                                <sub><label id="lb_cep" for="cep">{ formulario.cep.label }}</label></sub>
+                                                { formulario.cep }}
+                                            </div>
                                         </div>
-                                        {{ formulario.numero_endereco }}
-                                    </div>
+                                        -->
 
-                                    <div class="col-lg-2">
-                                        <div style='padding-left: 8px'>
-                                            <sub> {{ formulario.complemento.label }} </sub>
+                                        <div class="col-lg-3">
+                                            <div class="form-group">
+                                                <sub><label id="lb_inscricao_estadual" for="inscricao_estadual">{{ formulario.inscricao_estadual.label }}</label></sub>
+                                                {{ formulario.inscricao_estadual }}
+                                            </div>
                                         </div>
-                                        {{ formulario.complemento }}
-                                    </div>
 
-                                </div>
-
-                                <div class="row better_col_spacings_first_chield better_col_middle_spacings better_col_spacings_last_chield">
-
-                                    <div class="col-lg-3">
-                                        <div style='padding-left: 8px'>
-                                            <sub> {{ formulario.bairro.label }} </sub>
+                                        <div class="col-lg-3">
+                                            <div class="form-group">
+                                                <sub><label id="lb_inscricao_municipal" for="inscricao_municipal">{{ formulario.inscricao_municipal.label }}</label></sub>
+                                                {{ formulario.inscricao_municipal }}
+                                            </div>
                                         </div>
-                                        {{ formulario.bairro }}
-                                    </div>
 
-                                    <div class="col-lg-4">
-                                        <div style='padding-left: 8px'>
-                                            <sub> {{ formulario.municipio.label }} </sub>
-                                        </div>
-                                        {{ formulario.municipio }}
-                                    </div>
-
-                                    <div class="col-lg-2">
-                                        <div style='padding-left: 8px'>
-                                            <sub> {{ formulario.codigo_municipio.label }} </sub>
-                                        </div>
-                                        {{ formulario.codigo_municipio }}
-                                    </div>
-
-                                    <div class="col-lg-2">
-                                        <div style='padding-left: 8px'>
-                                            <sub> {{ formulario.estado.label }} </sub>
-                                        </div>
-                                        {{ formulario.estado }}
-                                    </div>
-
-                                    <div class="col-lg-1">
-                                        <div style='padding-left: 8px'>
-                                            <sub> {{ formulario.pais.label }} </sub>
-                                        </div>
-                                        {{ formulario.pais }}
                                     </div>
 
                                 </div>
 
-                                <div class="row better_col_spacings_first_chield better_col_middle_spacings better_col_spacings_last_chield">
-
+                                <div class="box-footer">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
+                            </form>
 
-                                <div class="row better_col_spacings_first_chield better_col_middle_spacings better_col_spacings_last_chield">
-                                    <div class="col-lg-2">
-                                        <div style='padding-left: 8px'>
-                                            <sub> {{ formulario.tipo_contato.label }} </sub>
-                                        </div>
-                                        {{ formulario.tipo_contato }}
-                                    </div>
-
-                                    <div class="col-lg-2">
-                                        <div style='padding-left: 8px'>
-                                            <sub> {{ formulario.numero_contato.label }} </sub>
-                                        </div>
-                                        {{ formulario.numero_contato }}
-                                    </div>
-
-                                    <div class="col-lg-3">
-                                        <div style='padding-left: 8px'>
-                                            <sub> {{ formulario.cargo_setor.label }} </sub>
-                                        </div>
-                                        {{ formulario.cargo_setor }}
-                                    </div>
-
-                                    <div class="col-lg-5">
-                                        <div style='padding-left: 8px'>
-                                            <sub> {{ formulario.email.label }} </sub>
-                                        </div>
-                                        {{ formulario.email }}
-                                    </div>
-                                </div>
-                            </div>
-                          </div>
-
-                          <div id="menu1" class="tab-pane fade">
-                            <h3>Menu 1</h3>
-                            <p>Some content in menu 1.</p>
-                          </div>
-                          <div id="menu2" class="tab-pane fade">
-                            <h3>Menu 2</h3>
-                            <p>Some content in menu 2.</p>
-                          </div>
                         </div>
+
+                        <div id="servicos" class="tab-pane fade in active">
+
+                        </div>
+
+                        <div id="administrativo" class="tab-pane fade in active">
+
+                        </div>
+
+
                     </div>
-                </form>
-	        </div>
-    </div>
-
-<div class="row">
-	<div class="col-lg-12">
-
-		<div class="panel panel-default" style="margin-top: -15px; margin-left: 0px; margin-right: 0px; ">
-			<div class="panel-heading">
-
-				<div class="row" style="height:30px; line-height: 30px">
-
-					<div class="col-lg-12">
-						<!--<a href="#myModal" role="button" class="btn btn-primary pull-right" data-toggle="modal" style="position: relative; margin-top: -2px; margin-right: -6px;" ><i class="fa fa-plus fa-1x"></i> Adicionar</a>-->
-                        <button type="submit" id="bt_formulario" class=" btn btn-primary pull-right" style="position: relative; margin-top: -2px;margin-right: -6px;">Enviar</button>
-					</div>
-
-					<!-- /.col-lg-6 -->
-				</div>
-
-			</div>
-			<!-- /.panel-heading -->
-
-
+                </div>
+            </div>
         </div>
     </div>
-</div>
-
-
-<div id="myModal" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
-  <div class="modal-dialog" style="width: 90%">
-    <div class="modal-content">
-      <div class="modal-header"><!-- style="height: 48px;"> -->
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h4 id="myModalLabel">Nova Entidade</h4>
-      </div>
-
-
-    </div>
-  </div>
 </div>
 
 {% include "componentes/mensagem.html" with messages=messages %}
 {% endblock %}
 
-{% block ArquivosScripts %}
-{% load staticfiles %}
-<script type="text/javascript" src="{% static 'scripts/mask.js' %}"></script>
-
-<script type="text/javascript">
-$(".alert").fadeOut(6000);
-</script>
-
-
-<script type="text/javascript">
-    $("#example-tabs").steps({
-        headerTag: "h3",
-        bodyTag: "section",
-        transitionEffect: "slideLeft",
-        enableFinishButton: false,
-        enablePagination: false,
-        enableAllSteps: true,
-        titleTemplate: "#title#",
-        cssClass: "tabcontrol"
-    });
-</script>
-
-
-<script type="text/javascript">
-$(function() {
-	$("#nascimento_fundacao").datepicker({
-		  dayNames: [ "Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado" ],
-		  monthNames: [ "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho","Agosto","Setembro","Outubro","Novembro","Dezembro" ],
-		  dayNamesMin: [ "D", "S", "T", "Q", "Q", "S", "S" ],
-		  dateFormat: 'dd/mm/yy'
-	});
-});
-</script>
-<script type="text/javascript">
-$('#codigo_postal').blur(function(){
-	$.ajax({
-		url: '/consultar_cep/'+$('#codigo_postal').val(),
-	    type: 'get', //this is the default though, you don't actually need to always mention it
-	    success: function(data) {
-	    	$('#endereco').val(data[0]);
-	    	$('#bairro').val(data[1]);
-	    	$('#municipio').val(data[2]);
-	    	$('#codigo_municipio').val(data[3]);
-	    	$('#estado').val(data[4]);
-	    	$('#pais').val(data[5]);
-	        $('#numero_endereco').focus();
-	      //alert(data);
-	    },
-	    failure: function(data) { 
-	        alert('Got an error dude');
-	    }
-	}); 
-}); 
-</script>
-
-<script>
-$('.modal').on('hidden.bs.modal', function(){
-	$(this).find('form')[0].reset();
-});
-</script>
-
-
-<script>
-     $('#search').on( 'keyup', function () {
-        var table = $('#datatable').DataTable();
-        var campo = $('#buscar_por').val();
-        table.search('').columns().search( '' ).draw(); // reseta a pesquisa
-        table.columns(campo).search($('#search').val()).draw();
-        //table.search( this.value ).search(this.value).draw(); // Busca em todas as colunas
-    });
-
-    $('#buscar_por').change(function() {
-            var table = $('#datatable').DataTable();
-            var campo = $('#buscar_por').val();
-            table.search('').columns().search( '' ).draw(); // reseta a pesquisa
-            table.columns(campo).search($('#search').val()).draw();
-    });
-
-    {% if dados %}
-        $('#buscar_por').removeClass('link_desabilitado');
-        $('#search').removeClass('link_desabilitado');
-        $('#label_buscar_por').removeClass('link_desabilitado');
-        document.getElementById("search").focus();
-
-    {% else  %}
-        $('#buscar_por').addClass('link_desabilitado');
-        $('#search').addClass('link_desabilitado');
-    {% endif %}
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script type="text/javascript">
-$('#tipo_contato').blur(function(){
-	var campo_telefone = document.getElementById('tipo_contato');
-	if (campo_telefone.value == 'C') {
-		$("#numero_contato").mask("(99) 99999-9999");
-	} else {		
-		if (campo_telefone.value == 'F') {
-			$("#numero_contato").mask("(99) 9999-9999");
-		} else {
-			$("#numero_contato").unmask();
-		}
-	} 
-}); 
-</script>
-
-<script>
-jQuery(document).ready(function(){
-	//$("#cpf_cnpj").mask("99999999999999");
-    $('#cpf_cnpj').tooltip({title: "Preencha somente os numeros!", animation: true, delay:{show: 200, hide: 200}, placement: "top"});
-   	$("#nascimento_fundacao").mask("99/99/9999");
-   	$("#numero_contato").mask("(99) 99999-9999");
-   	$("#codigo_postal").mask("99999999");
-});
-
-$('#cpf_cnpj').blur(function(){
-	var texto = $('#cpf_cnpj').val();
-    if (texto.length == 11){
-        $("#lb_cpf_cnpj").text("CPF:");
-        $("#lb_nome_razao").text("Nome Completo:");
-        $("#lb_apelido_fantasia").text("Apelido:");
-        $("#lb_nascimento_fundacao").text("Nascimento:");
-    }
-    else{
-        $("#lb_cpf_cnpj").text("CNPJ:");
-        $("#lb_nome_razao").text("Razão Social:");
-        $("#lb_apelido_fantasia").text("Nome Fantasia:");
-        $("#lb_nascimento_fundacao").text("Fundação:");
-    }
-});
-
-$('.numbersOnly').keyup(function () {
-    if (this.value != this.value.replace(/[^0-9\.]/g, '')) {
-       this.value = this.value.replace(/[^0-9\.]/g, '');
-
-    }
-});
-
-</script>
-
-
-<script>
-$('.modal').on('hidden.bs.modal', function(){
-    $(this).find('form')[0].reset();
-});
-</script>
-
-
-<script>
-$(document).ready(function() {
-	
-	{% if erro %}
-    	$('#myModal').modal('show');
-    	BootstrapDialog.show({
-	        message: $("Tentando")
-	    });
-    
-    {% else %}
-		$('#myModal').modal('hide');
-	{% endif %}
-});
-
-</script>
-
-<meta charset="utf-8">
-{% load staticfiles %}
-<!-- DataTables JavaScript -->
-
-<script	src="{% static 'datatable/datatables/media/js/jquery.dataTables.min.js' %}"></script>
-<script src="{% static 'datatable/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js' %}"></script>
-<!-- Page-Level Demo Scripts - Tables - Use for reference -->
- 
-
-<script>
-jQuery(document).ready(function($) {
-    $(".clickable-row").click(function() {
-        window.document.location = $(this).data("href");
-    });
-});
-
-
-
-
-
-$(".alert").fadeOut(4000 );
-
-</script>
-
+{% block recursos_complementares %}
+    {% load staticfiles %}
+    <script type="text/javascript" src="{% static 'scripts/mask.js' %}"></script>
 {% endblock %}

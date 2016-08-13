@@ -5,27 +5,17 @@
     <title>Digitar - Cadastro de Entidades</title>
 {% endblock %}
 
-{% block ArquivosEstaticos %}
+{% block recrusos_necessarios %}
 {% load staticfiles %}
 
-<!-- JQUERY -->
-<script type="text/javascript" src="{% static 'jquery/jquery-2.2.0.min.js' %}"></script>
-<script src="{% static 'jquery/jquery-ui-1.11.4/jquery-ui.js' %}"></script>
+{% comment %} Reimportar a biblioteca bootstrap no arquivo filho corrige o problema de fonte turva {% endcomment %}
+<!-- BOOTSTRAP 3.3.6 -->
 
-<!-- BOOTSTRAP -->
 <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"/>
-<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
 
 <!-- JQUERY UI DATAPICKER -->
 <link rel="stylesheet" href="{% static 'jquery/jquery-ui-1.11.4/jquery-ui.css' %}">
 <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css"> -->
-
-<!-- JQUERY STEPS
-<script src="{% static 'jquery/jquery-steps-1.1.0/jquery.steps.min.js' %}" />
-<link rel="stylesheet" href="{% static 'jquery/jquery-steps-1.1.0/jquery.steps.css' %}"/>
-    <link rel="stylesheet" href="{% static 'jquery/jquery-steps-1.1.0/content.css' %}"/>
- -->
-
 
 <!-- DATATABLE -->
 <link rel="stylesheet" type="text/css" href="{% static 'datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css' %}"/>
@@ -86,6 +76,11 @@
     top: 30px;
 }
 
+.titulo{
+    margin-left: 15px;
+    margin-top: -5px;
+}
+
 label {
     font-weight: normal !important;
 }
@@ -94,15 +89,21 @@ label {
 
 {% endblock %}
 
-{% block Principal %}
+{% block breadcrumb_block %}
+<li><a href="#"><i class="fa fa-home"></i> Cadastros</a></li>
+<li class="active">Clientes</li>
+{% endblock %}
+
+{% block conteudo %}
+    <!--<h4 class="titulo">Cadastro de Clientes</h4>-->
 <div class="row">
 	<div class="col-lg-12">
-		<div class="panel panel-default" style="margin-top: -15px; margin-left: 0px; margin-right: 0px; ">
+		<div class="panel panel-default" style="margin-top: 0px; margin-left: 0px; margin-right: 0px; ">
 			<div class="panel-heading">
 
 				<div class="row" style="height:30px; line-height: 30px">
 					<div class="col-lg-7" >
-						<b>Entidades</b>
+						<b>Clientes</b>
 					</div>
 
 					<div class="col-lg-5">
@@ -510,7 +511,7 @@ label {
 {% include "componentes/mensagem.html" with messages=messages %}
 {% endblock %}
 
-{% block ArquivosScripts %}
+{% block recursos_complementares %}
 {% load staticfiles %}
 <script type="text/javascript" src="{% static 'scripts/mask.js' %}"></script>
 

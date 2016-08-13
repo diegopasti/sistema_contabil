@@ -49,7 +49,7 @@ urlpatterns = [
     
     #url(r'^consultar_cep/(?P<cep>\d+\.\d+-\d+)/$', "entidade.views.consultar_cep"),
     url(r'^entidade/cadastro/$', "entidade.views.cadastro_entidades"),
-    url(r'^adicionar_entidades/$', "entidade.views.adicionar_entidade"),
+    url(r'^entidade/adicionar/$', "entidade.views.adicionar_entidade"),
     
     #url(r'^protocolo/$', "entidade.views.protocolo"),
     
