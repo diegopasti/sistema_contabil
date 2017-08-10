@@ -9,7 +9,7 @@ import datetime
 
 from django import forms
 
-from entidade.models import entidade, localizacao_simples, AtividadeEconomica, contato, Documento
+from entidade.models import entidade, localizacao_simples, contato, Documento, AtividadeEconomica
 from entidade.utilitarios import remover_simbolos
 from nucleo.models import estados_brasileiros
 #from preferencias.models import Contrato
