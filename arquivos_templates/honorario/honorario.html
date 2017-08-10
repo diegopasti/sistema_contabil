@@ -478,7 +478,8 @@ color:blue;
 <script type="text/javascript" src="{% static 'scripts/padrao/controle_componentes.js' %}"></script>
 <script type="text/javascript" src="{% static 'honorario/honorarioController.js' %}"></script>
 <script type="text/javascript" src="{% static 'honorario/honorario.js' %}"></script>
-
+<script type="text/javascript" src="{% static 'scripts/mask.js' %}"></script>
+<script type="text/javascript" src="{% static 'jquery/jquery.maskMoney.js' %}"></script>
 
 <script>
 	$(document).ready(function() {
@@ -486,4 +487,15 @@ color:blue;
 		configurar_formulario()
 	});
 </script>
+    <script>
+     jQuery(document).ready(function(){
+         $("#contrato_inicio").mask("99/99/9999");
+         $("#contrato_fim").mask("99/99/9999");
+         $("#data_vencimento_contrato").mask("99/99/9999");
+         $("#desconto_fim").mask("99/99/9999");
+         $("#desconto_inicio").mask("99/99/9999");
+         $("#valor_base").maskMoney({showSymbol:false, symbol:"R$", decimal:",", thousands:"."});
+         $("#valor_honorario").maskMoney({showSymbol:false, symbol:"R$", decimal:",", thousands:"."});
+      });
+    </script>
 {% endblock %}
