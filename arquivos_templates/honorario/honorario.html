@@ -1,0 +1,489 @@
+{% extends 'base_page.html' %}
+
+{% block Titulo %}
+<meta charset="utf-8">
+<title>Digitar - Honorários</title>
+{% endblock %}
+
+{% load staticfiles %}
+{% block recrusos_necessarios %}
+{% comment %} Reimportar a biblioteca bootstrap no arquivo filho corrige o problema de fonte turva {% endcomment %}
+<!-- BOOTSTRAP 3.3.6 -->
+<link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"/>
+
+<!-- DATATABLE -->
+<!--<link rel="stylesheet" type="text/css" href="% static 'datatable/DataTables-1.10.11/css/dataTables.bootstrap.min.css' %}"/>
+<link rel="stylesheet" type="text/css" href="% static 'datatable/plugins/responsivo/Responsive-2.0.2/css/responsive.bootstrap.min.css' %}"/
+<link rel="stylesheet" type="text/css" href="% static 'datatable/plugins/select/Select-1.1.2/css/select.bootstrap.min.css' %}"/>
+
+<script src="% static 'datatable/DataTables-1.10.11/js/jquery.dataTables.min.js' %}"></script>
+<script src="% static 'datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js' %}"></script>
+<script src="% static 'datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js' %}"></script>-->
+
+<!-- JQUERY UI DATAPICKER
+<link rel="stylesheet" href="% static 'jquery/jquery-ui-1.11.4/jquery-ui.css' %}">-->
+<!--<link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+
+<!-- JQUERY AUTOCOMPLETE EDITABLE
+<link rel="stylesheet" type="text/css" href="% static 'jquery/jquery-editable-select/jquery.editable-select.min.css' %}" />
+<script src="% static 'jquery/jquery-editable-select/jquery.editable-select.min.js' %}"></script> -->
+
+<!-- CUSTOM -->
+<!-- <link href="% static 'styles/menu_simples_responsivo.css' %}" rel="stylesheet"/> -->
+<script src="{% static 'scripts/padrao/controle_botoes.js' %}"></script>
+<script src="{% static 'scripts/protocolo/protocolo.js' %}"></script>
+
+<script src="{% static 'angular-1.5.8/angular.min.js'%}"></script>
+<script src="{% static 'angular-1.5.8/dirPagination.js'%}"></script>
+<link href="{% static 'styles/servico/servico.css' %}" rel="stylesheet"/>
+
+
+<style type="text/css">
+.uppercase{
+    text-transform: uppercase;
+}
+
+.lowercase{
+    text-transform: uppercase;
+}
+
+.center{
+    text-align: center;
+}
+
+.left{
+	padding-left: 8px;
+	text-align: left;
+}
+
+.right{
+    text-align: right;
+}
+
+.link_desabilitado {
+     pointer-events: none;
+     cursor: default;
+     opacity: 0.6;
+}
+
+.div_desabilitado {
+	display: none;
+    z-index: 1000;
+    background-color: lightgrey;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.dataTables_paginate {
+	position: relative;
+    display: block;
+    top: 30px;
+}
+
+label {
+    font-weight: normal !important;
+}
+
+.form-group label{
+	margin-left: 8px;
+}
+
+.linha_cabecalho th{
+	cursor: pointer;
+}
+
+ /* unvisited link */
+.linha_cabecalho a {
+    color: #666;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* visited link */
+.linha_cabecalho a:visited {
+    color: #666;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* mouse over link */
+.linha_cabecalho a:hover {
+    color: #222;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* selected link */
+.linha_cabecalho a:active {
+    color: #111;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.no-gutter > [class*='col-'] {
+    padding-right:3px;
+    padding-left:3px;
+}
+
+.caret_one, .caret_two{
+color:#ccc;
+}
+
+.caret_one:hover, .caret_two:hover{
+color:blue;
+}
+
+.wrong{
+	border: 1px solid #CE5454;
+}
+
+.clean{
+	border: 0px;
+}
+
+.field.bad .alert {
+  top: 0px;
+  left: 0;
+  opacity: 1;
+}
+.field .alert {
+  padding: 2px;
+  text-align: right;
+  color: #CE5454;
+  font-size: 80%;
+  width: 100%;
+  position: relative;
+  opacity: 0;
+  z-index: 1;
+  transition: .15s ease-out;
+}
+
+
+</style>
+{% endblock %}
+
+{% block breadcrumb_title %}Honorários{% endblock %}
+
+{% block breadcrumb_block %}
+<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+<li class="active">Honorários</li>
+{% endblock %}
+
+{% block conteudo %}
+<div id="controle_angular" ng-app="app" ng-controller="MeuController">
+
+	<div id="modal_adicionar_contrato" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+		<div class="modal-dialog" style="width: 70%">
+			<!--  > -->
+			<form id="form_adicionar_contrato" novalidate autocomplete="off" ng-submit="esta_adicionando? adicionar_contrato() : alterar_contrato()">
+				<div class="modal-content">
+
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						<h5 id="titulo_modal_adicionar_contrato" style="font-weight: bold">Definir Contrato</h5>
+					</div>
+
+					<div class="modal-body" style="padding: 30px;padding-top: 20px;">
+						<div class="row no-gutter">
+
+							<div class="col-md-3">
+								<div class="row no-gutter">
+								</div>
+							</div>
+
+							<div class="col-md-9">
+							</div>
+						</div>
+
+						<div class="row no-gutter">
+							<div class="col-md-3">
+								<div class="form-group">
+									<sub><label>{{ formulario_contrato.tipo_contrato.label }}</label></sub>
+									<div id="select_tipo_contrato" style="border-radius: 4px;">
+										{{ formulario_contrato.tipo_contrato }}
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-4">
+								<div class="form-group">
+									<sub><label>{{ formulario_contrato.plano.label }}</label></sub>
+									{{ formulario_contrato.plano }}
+								</div>
+							</div>
+
+							<div class="col-md-5">
+								<div class="form-group">
+									<sub>
+									serviços para empresas na primeira faixa do simples nacional com menos de cinco funcionários.
+										</sub>
+								</div>
+							</div>
+
+
+
+						</div>
+
+						<div class="row no-gutter">
+							<div class="col-md-2">
+								<div class="form-group">
+									<sub><label>{{ formulario_contrato.contrato_inicio.label }}</label></sub>
+									{{ formulario_contrato.contrato_inicio }}
+									<!--<input id="check_tipo_vencimento" data-toggle="toggle" data-width="120" data-on="Variável" data-off="Fixo" type="checkbox">-->
+								</div>
+							</div>
+
+							<div class="col-md-2">
+								<div class="form-group">
+									<sub><label>{{ formulario_contrato.contrato_fim.label }}</label></sub>
+									{{ formulario_contrato.contrato_fim }}
+									<!--<input id="check_tipo_vencimento" data-toggle="toggle" data-width="120" data-on="Variável" data-off="Fixo" type="checkbox">-->
+								</div>
+							</div>
+
+							<div class="col-md-2">
+								<div class="form-group">
+									<sub><label>{{ formulario_contrato.tipo_vencimento.label }}</label></sub>
+									{{ formulario_contrato.tipo_vencimento }}
+								</div>
+							</div>
+
+							<div class="col-md-2">
+								<div class="form-group">
+									<sub><label>{{ formulario_contrato.dia_vencimento.label }}</label></sub>
+									{{ formulario_contrato.dia_vencimento }}
+									<!--<input id="check_tipo_vencimento" data-toggle="toggle" data-width="120" data-on="Variável" data-off="Fixo" type="checkbox">-->
+								</div>
+							</div>
+
+							<div class="col-md-2">
+								<div class="form-group">
+									<sub><label>{{ formulario_contrato.data_vencimento.label }}</label></sub>
+									{{ formulario_contrato.data_vencimento }}
+									<!--<input id="check_tipo_vencimento" data-toggle="toggle" data-width="120" data-on="Variável" data-off="Fixo" type="checkbox">-->
+								</div>
+							</div>
+
+							<div class="col-md-2">
+								<div class="form-group">
+									<sub><label>{{ formulario_contrato.tipo_honorario.label }}</label></sub>
+									{{ formulario_contrato.tipo_honorario }}
+									<!--<input id="check_tipo_vencimento" data-toggle="toggle" data-width="120" data-on="Variável" data-off="Fixo" type="checkbox">-->
+								</div>
+							</div>
+						</div>
+
+						<div class="row no-gutter">
+							<div class="col-md-2">
+								<div class="form-group" id="form-group-taxa-salario">
+									<sub><label>{{ formulario_contrato.taxa_honorario.label }}</label></sub>
+									{{ formulario_contrato.taxa_honorario }}
+								</div>
+							</div>
+
+							<div class="col-md-2">
+								<div class="form-group">
+									<sub><label>{{ formulario_contrato.valor_base.label }}</label></sub>
+									{{ formulario_contrato.valor_base }}
+								</div>
+							</div>
+
+							<div class="col-md-2">
+								<div class="form-group">
+									<sub><label>{{ formulario_contrato.desconto_inicio.label }}</label></sub>
+									{{ formulario_contrato.desconto_inicio }}
+									<!--<input id="check_tipo_vencimento" data-toggle="toggle" data-width="120" data-on="Variável" data-off="Fixo" type="checkbox">-->
+								</div>
+							</div>
+
+							<div class="col-md-2">
+								<div class="form-group">
+									<sub><label>{{ formulario_contrato.desconto_fim.label }}</label></sub>
+									{{ formulario_contrato.desconto_fim }}
+									<!--<input id="check_tipo_vencimento" data-toggle="toggle" data-width="120" data-on="Variável" data-off="Fixo" type="checkbox">-->
+								</div>
+							</div>
+
+							<div class="col-md-2">
+								<div class="form-group">
+									<sub><label>{{ formulario_contrato.desconto_temporario.label }}</label></sub>
+									{{ formulario_contrato.desconto_temporario }}
+									<!--<input id="check_tipo_vencimento" data-toggle="toggle" data-width="120" data-on="Variável" data-off="Fixo" type="checkbox">-->
+								</div>
+							</div>
+
+							<div class="col-md-2">
+								<div class="form-group">
+									<sub><label>{{ formulario_contrato.valor_honorario.label }}</label></sub>
+									{{ formulario_contrato.valor_honorario }}
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="modal-footer">
+						<div class="row">
+							<div class="col-md-2 col-md-push-10">
+								<button type="submit" id="bt_submit_servico" class="btn btn-sm btn-primary form-control" data-toggle="modal" data-target="#modal_adicionar_documento">Salvar</button>
+								<!-- <a href="#modal_adicionar_documento" role="button"            ng-class="{'desabilitado': modal_servico == ''}"                            class="btn btn-primary form-control" data-toggle="modal" '  > Adicionar</a>  -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-xs-12">
+			<div class="box box-default" style="margin-top: -25px;">
+
+				<div class="box-heading">
+
+					<div class="box-header with-border">
+						<h5 class="box-title">Contratos</h5>
+
+						<div class="pull-right">
+
+							<div class="btn-group" role="group" aria-label="...">
+								<a href="#" id='bt_adicionar' role="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_adicionar_contrato" ng-click="configurar_inclusao_servico();esta_adicionando = true">Novo contrato</a>
+								<!--<a href="#" role="button" id="bt_consultar_cliente" class="btn btn-sm btn-default pull-left desabilitado" style='margin-left: 5px;'><i class="fa fa-pencil-square-o fa-1x"></i> Editar</a>-->
+								<a href="#" role="button" id="bt_indicacoes" class="btn btn-sm btn-default pull-left desabilitado" style='margin-left: 5px;'> Indicações</a>
+
+
+
+								<div class="btn-group" role="group" style='margin-left: 5px;'>
+									<button type="button" id='bt_outras_acoes' class="btn btn-sm btn-default dropdown-toggle desabilitado" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu dropdown-menu-right">
+											<li><a href="#">Action</a></li>
+											<li><a href="#">Another action</a></li>
+											<li><a href="#">Something else here</a></li>
+											<li role="separator" class="divider"></li>
+											<li><a href="#modal_justificativa" id="bt_desativar_cliente" data-toggle="modal"><i class="fa fa-trash-o"></i> Desativar</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="box-body" style="padding-bottom: -10px; margin-top: 0px;">
+					<div class="dataTable_wrapper">
+						<div class='row'>
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								<table class="table table-condensed  table-striped table-bordered table-hover" id="datatable">
+									<thead>
+									<tr class="linha_cabecalho">
+										<th class='center' style="width: 40px;" ng-click="sortType = 'id'; sortReverse = !sortReverse"></th>
+
+										<th class='center' ng-click="sortType = 'cliente'; sortReverse = !sortReverse">Cliente</th>
+
+										<th class="center" ng-click="sortType = 'plano'; sortReverse = !sortReverse">Plano</th>
+
+										<th class='center' ng-click="sortType = 'inicio'; sortReverse = !sortReverse">Início</th>
+
+										<th class='center' ng-click="sortType = 'termino'; sortReverse = !sortReverse">Término</th>
+
+										<th class='center' ng-click="sortType = 'honorario'; sortReverse = !sortReverse">Honorário (R$)</th>
+
+										<th class='center' ng-click="sortType = 'descontos'; sortReverse = !sortReverse">Descontos (%)</th>
+
+										<th class='center' ng-click="sortType = 'plano'; sortReverse = !sortReverse" >Total (R$)</th>
+									</tr>
+									</thead>
+
+									<tbody>
+
+									{% verbatim %}
+									<tr ng-if="(servicos|filter:filterIds()).length == 0">
+										<td colspan="3" class="center">Nenhum Cliente Cadastrado!</td>
+									</tr>
+
+									<tr ng-cloak class="angular-repeat linha_selecionavel {{ servico.selecionado }}" ng-click="selecionar_linha(servico)" pagination-id="paginate_servicos" dir-paginate="servico in servicos | filter: get_filter_column() | itemsPerPage:10 | orderBy:sortType:sortReverse as resultado" >
+										<td class='center' style="width: 30px;">{{ servico.id }}</td>
+										<td class="left" style="padding-left: 10px;">HOSPITAL SANTA MONICA</td>
+										<td class="left" style="padding-left: 10px;">BASICO</td>
+										<td class='center' style="width: 100px;">01/01/2015</td>
+										<td class='center' style="width: 100px;">01/01/2018</td>
+										<td class='right' style="width: 130px;">1.000,00</td>
+										<td class='center' style="width: 130px;">10</td>
+										<td class='right' style="width: 130px;">900,00</td>
+									</tr>
+
+									<tr ng-if="resultado.length === 0 && (servicos|filter:filterIds()).length > 0">
+										<td colspan="3" class='center'>Nenhum resultado Encontrado</td>
+									</tr>
+
+									{% endverbatim %}
+
+
+
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+						<div class="row">
+
+						</div>
+					</div>
+
+					<div class='row'>
+
+						{% verbatim %}
+
+						<div class="col-md-2 col-sm-2 col-xs-12" style='margin-top:6px;'>
+							<label id="label_buscar_por" class='left {{ desabilitar }}'><sub>Buscar por:</sub></label>
+							<select id='buscar_por' class='form-control {{ desabilitar }}' ng-model="filter_by" ng-change="select_filter_by()">
+								<option value="0">Código</option>
+								<option value="1" selected>Cliente</option>
+								<option value="2">Plano</option>
+							</select>
+						</div>
+
+						<div class="col-md-4 col-sm-5 col-xs-12" style='margin-left:-20px;margin-top: 31px;'>
+							<input type="text" id="search" ng-model='search' class="form-control {{ desabilitar }}" placeholder="Consultar..">
+						</div>
+
+						<div class="col-md-offset-3 col-md-4 col-xs-12 mt-xs-0 pull-right" >
+							<span class="pull-right" style="margin-top:-54px;margin-bottom: -30px;margin-right: 0px;">
+
+									<dir-pagination-controls pagination-id="paginate_servicos" max-size="4" auto-hide="false" boundary-links="false" direction-links="true">
+
+									</dir-pagination-controls>
+							</span>
+						</div>
+
+
+
+						{% endverbatim %}
+
+
+					</div>
+				</div>
+			</div>
+			<!-- /.panel -->
+		</div>
+		<!-- /.row -->
+	</div>
+</div>
+<br>
+{% include "componentes/mensagem.html" with messages=messages %}
+{% endblock %}
+
+{% block recursos_complementares %}
+{% load staticfiles %}
+<script type="text/javascript" src="{% static 'scripts/padrao/controle_componentes.js' %}"></script>
+<script type="text/javascript" src="{% static 'honorario/honorarioController.js' %}"></script>
+<script type="text/javascript" src="{% static 'honorario/honorario.js' %}"></script>
+
+
+<script>
+	$(document).ready(function() {
+		angular.element(document.getElementById('controle_angular')).scope().carregar_servicos_cadastrados();
+		configurar_formulario()
+	});
+</script>
+{% endblock %}
