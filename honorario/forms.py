@@ -21,7 +21,7 @@ class FormContrato(forms.Form):
         label="Início do Contrato", required=False, error_messages=MENSAGENS_ERROS,
         widget=forms.TextInput(
             attrs={
-                'id': 'vigencia_inicio', 'class': "form-control", 'ng-model':'vigencia_inicio'
+                'id': 'vigencia_inicio', 'class': "form-control", 'ng-model':'vigencia_inicio', 'onchange':'validate_data_vigencia()'
             }
         )
     )
@@ -51,7 +51,7 @@ class FormContrato(forms.Form):
         label="Salário Minímo",max_length=30,required=False,error_messages=MENSAGENS_ERROS,
         widget=forms.TextInput(
             attrs={
-                'class':"form-control uppercase", 'id':'salario_vigente','ng-model':'salario_vigente'
+                'class':"form-control uppercase", 'id':'salario_vigente','ng-model':'salario_vigente',
             }
         )
     )
@@ -60,7 +60,7 @@ class FormContrato(forms.Form):
         label="Honorário*", max_length=30, required=True, error_messages=MENSAGENS_ERROS,
         widget=forms.TextInput(
             attrs={
-                'class': "form-control uppercase", 'id': 'honorario', 'ng-model': 'honorario'
+                'class': "form-control uppercase", 'id': 'honorario', 'ng-model': 'honorario',
             }
         )
     )
@@ -71,7 +71,7 @@ class FormContrato(forms.Form):
         label="Tipo do Honorário", choices=opcoes_tipos_honorario, initial='VARIAVEL',
         required=False,error_messages=MENSAGENS_ERROS,
         widget=forms.Select(
-            attrs={'id': 'tipo_honorario', 'class': "form-control", 'ng-model':'tipo_honorario'}
+            attrs={'id': 'tipo_honorario', 'class': "form-control", 'ng-model':'tipo_honorario', 'onchange':'verificar_tipo_honorario()'}
         )
     )
 
@@ -80,7 +80,7 @@ class FormContrato(forms.Form):
         widget=forms.TextInput(
             attrs={
                 'id': 'taxa_honorario','class': "form-control decimal", 'ng-model':'taxa_honorario',
-                'ng-blur':'calcular_valor_base()'
+                'ng-blur':'calcular_valor_base()', 'onkeyup':'calcular_honorario()'
             }
         )
     )
@@ -100,17 +100,17 @@ class FormContrato(forms.Form):
         label="Tipo do Vencimento", choices=opcoes_tipos_vencimento,
         required=False, error_messages=MENSAGENS_ERROS,
         widget=forms.Select(
-            attrs={'id': 'tipo_vencimento', 'class': "form-control", 'ng-model': 'tipo_vencimento'}
+            attrs={'id': 'tipo_vencimento', 'class': "form-control", 'ng-model': 'tipo_vencimento', 'onchange':'verificar_tipo_vencimento()'}
         )
     )
 
-    opcoes_dias = (('5', 'DIA 05'), ('10', 'DIA 10'), ('15', 'DIA 15'), ('20', 'DIA 20'), ('25', 'DIA 25'))
+    opcoes_dias = (('',''),('5', 'DIA 05'), ('10', 'DIA 10'), ('15', 'DIA 15'), ('20', 'DIA 20'), ('25', 'DIA 25'))
 
     dia_vencimento = forms.ChoiceField(
         label="Dia do Vencimento", required=False, error_messages=MENSAGENS_ERROS,choices=opcoes_dias,
         widget=forms.Select(
             attrs={
-                'id': 'dia_vencimento_contrato','class': "form-control decimal", 'ng-model':'dia_vencimento_contrato'
+                'id': 'dia_vencimento_contrato','class': "form-control decimal", 'ng-model':'dia_vencimento_contrato',
             }
         )
     )
