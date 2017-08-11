@@ -549,9 +549,6 @@ color:blue;
 								</dir-pagination-controls>
 							</span>
 						</div>
-
-
-
 						{% endverbatim %}
 
 
@@ -571,34 +568,25 @@ color:blue;
 {% block recursos_complementares %}
 {% load staticfiles %}
 <script type="text/javascript" src="{% static 'scripts/padrao/controle_componentes.js' %}"></script>
-<script type="text/javascript" src="{% static 'honorario/honorario.js' %}"></script>
-<script type="text/javascript" src="{% static 'sistema/core/base_api.js' %}"></script>
 <script type="text/javascript" src="{% static 'honorario/honorarioController.js' %}"></script>
-<script type="text/javascript" src="{% static 'scripts/mask.js' %}"></script>
+<script type="text/javascript" src="{% static 'honorario/honorario.js' %}"></script>
+
 <script type="text/javascript" src="{% static 'jquery/jquery.maskMoney.js' %}"></script>
+<script type="text/javascript" src="{% static 'sistema/core/base_api.js' %}"></script>
+<script type="text/javascript" src="{% static 'scripts/mask.js' %}"></script>
+
 
 <script>
 	$(document).ready(function() {
-    $("#divCarregando").show();
-    $(window).load(function () {
-        // Quando a página estiver totalmente carregada, remove o id
-        $('#divCarregando').fadeOut('slow');
-    });
+		$("#divCarregando").show();
+		$(window).load(function () {
+				// Quando a página estiver totalmente carregada, remove o id
+				$('#divCarregando').fadeOut('slow');
+		});
 
 		angular.element(document.getElementById('controle_angular')).scope().carregar_clientes();
 		configurar_formulario_padrao()
 		NProgress.done();
 	});
 </script>
-    <script>
-     jQuery(document).ready(function(){
-         $("#contrato_inicio").mask("99/99/9999");
-         $("#contrato_fim").mask("99/99/9999");
-         $("#data_vencimento_contrato").mask("99/99/9999");
-         $("#desconto_fim").mask("99/99/9999");
-         $("#desconto_inicio").mask("99/99/9999");
-         $("#valor_base").maskMoney({showSymbol:false, symbol:"R$", decimal:",", thousands:"."});
-         $("#valor_honorario").maskMoney({showSymbol:false, symbol:"R$", decimal:",", thousands:"."});
-      });
-    </script>
 {% endblock %}
