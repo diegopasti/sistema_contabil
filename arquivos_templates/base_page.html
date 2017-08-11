@@ -16,6 +16,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
   {% load staticfiles %}
+
+  <!-- NProgress -->
+  <script src="{% static 'nprogress/nprogress.js' %}"></script>
+  <link href="{% static 'nprogress/nprogress.css' %}" rel="stylesheet">
+
+
+  <script>
+    NProgress.start();
+  </script>
+
   <!-- JQUERY 2.2.3 -->
   <script type="text/javascript" src="{% static 'jquery/jquery-2.2.0.min.js' %}"></script>
   <script src="{% static 'jquery/jquery-ui-1.11.4/jquery-ui.js' %}"></script>
@@ -84,6 +94,8 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
+
+<div class="clearfix"></div>
 <body class="hold-transition skin-blue sidebar-mini sidebar-collapse">
 
 <div class="wrapper">
@@ -262,6 +274,7 @@ desired effect
     </nav>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
+  <div class="clearfix"></div>
   <aside class="main-sidebar">
 
     <!-- sidebar: style can be found in sidebar.less -->
@@ -319,7 +332,7 @@ desired effect
           <ul class="treeview-menu">
             <li><a href="/protocolo">Controle de Protocolos</a></li>
             <li><a href="/protocolo/emitir_protocolo">Emitir Protocolo</a></li>
-            <li><a href="/preferencias/protocolo/documentos">Cadastro de Documentos</a></li>
+            <li><a href="/preferencias/protocolo/documentos">Documentos</a></li>
           </ul>
         </li>
 
@@ -331,7 +344,6 @@ desired effect
           </a>
           <ul class="treeview-menu">
             <li><a href="/honorario">Contratos</a></li>
-            <li><a href="/honorario/contrato">Novo contrato</a></li>
             <li><a href="/planos">Planos</a></li>
             <li><a href="/preferencias/servicos">Serviços</a></li>
           </ul>
@@ -356,6 +368,7 @@ desired effect
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
+  <div class="clearfix"></div>
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -474,7 +487,7 @@ desired effect
 <!-- ./wrapper -->
 
 
-
+<div class="clearfix"></div>
 <!-- AdminLTE App -->
 <script type="text/javascript" src="{% static 'adminlte/js/app.min.js' %}"></script>
 <!-- PNotify -->

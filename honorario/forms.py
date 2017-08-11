@@ -1,5 +1,6 @@
 # -*- encoding: utf-8 -*-
 from entidade.formularios import MENSAGENS_ERROS
+from honorario.models import Contrato
 from servico.models import Plano
 from django import forms
 
@@ -7,7 +8,7 @@ from django import forms
 class FormContrato(forms.Form):
     opcoes_tipos_contratos = (('PF', 'PESSOA FÍSICA'), ('PJ', 'PESSOA JURÍDICA'))
 
-    tipo_contrato = forms.ChoiceField(
+    tipo_cliente = forms.ChoiceField(
         label="Tipo de Contrato*", choices=opcoes_tipos_contratos, required=True,error_messages=MENSAGENS_ERROS,
         widget=forms.Select(
             attrs={
@@ -16,20 +17,20 @@ class FormContrato(forms.Form):
         )
     )
 
-    contrato_inicio = forms.DateField(
+    vigencia_inicio = forms.DateField(
         label="Início do Contrato", required=False, error_messages=MENSAGENS_ERROS,
         widget=forms.TextInput(
             attrs={
-                'id': 'contrato_inicio', 'class': "form-control", 'ng-model':'contrato_inicio'
+                'id': 'vigencia_inicio', 'class': "form-control", 'ng-model':'vigencia_inicio'
             }
         )
     )
 
-    contrato_fim = forms.DateField(
+    vigencia_fim = forms.DateField(
         label="Fim do Contrato", required=False, error_messages=MENSAGENS_ERROS,
         widget=forms.TextInput(
             attrs={
-                'class': "form-control", 'id': 'contrato_fim', 'ng-model':'contrato_fim'
+                'class': "form-control", 'id': 'vigencia_fim', 'ng-model':'vigencia_fim'
             }
         )
     )
@@ -55,11 +56,11 @@ class FormContrato(forms.Form):
         )
     )
 
-    valor_base = forms.CharField(
+    honorario = forms.CharField(
         label="Honorário*", max_length=30, required=True, error_messages=MENSAGENS_ERROS,
         widget=forms.TextInput(
             attrs={
-                'class': "form-control uppercase", 'id': 'valor_base', 'ng-model': 'valor_base'
+                'class': "form-control uppercase", 'id': 'honorario', 'ng-model': 'honorario'
             }
         )
     )
@@ -84,11 +85,11 @@ class FormContrato(forms.Form):
         )
     )
 
-    valor_honorario = forms.DecimalField(
+    total = forms.DecimalField(
         label="Total (R$)", max_digits=6, decimal_places=2, required=False, error_messages=MENSAGENS_ERROS,
         widget=forms.TextInput(
             attrs={
-                'id': 'valor_honorario','class': "form-control", 'ng-model':'valor_honorario'
+                'id': 'total','class': "form-control", 'ng-model':'total'
             }
         )
     )
@@ -124,7 +125,7 @@ class FormContrato(forms.Form):
     )
 
     desconto_temporario = forms.DecimalField(
-        label="Desconto Temporário (%)", max_digits=5, decimal_places=2, error_messages=MENSAGENS_ERROS,
+        label="Desconto Temporário (%)", required=False, max_digits=5, decimal_places=2, error_messages=MENSAGENS_ERROS,
         widget=forms.TextInput(
             attrs={
                 'id': 'desconto_temporario', 'class': "form-control decimal", 'ng-model':'desconto_temporario'
@@ -135,7 +136,7 @@ class FormContrato(forms.Form):
     desconto_inicio = forms.DateField(
         label="Início do Desconto", required=False, error_messages=MENSAGENS_ERROS,
         widget=forms.TextInput(
-            attrs={'id': 'desconto_inicio', 'class': "form-control", 'ng-model':'tipo_cliente'}
+            attrs={'id': 'desconto_inicio', 'class': "form-control", 'ng-model':'desconto_inicio'}
         )
     )
 
@@ -143,7 +144,7 @@ class FormContrato(forms.Form):
         label="Término do Desconto", required=False, error_messages=MENSAGENS_ERROS,
         widget=forms.TextInput(
             attrs={
-                'id': 'desconto_fim', 'class': "form-control", 'ng-model':'tipo_cliente'
+                'id': 'desconto_fim', 'class': "form-control", 'ng-model':'desconto_fim'
             }
         )
     )
@@ -164,7 +165,37 @@ class FormContrato(forms.Form):
     def clean(self):
         form_data = self.cleaned_data
         if len(self.cleaned_data) == len(self.fields):
-            if form_data['contrato_fim'] < form_data['contrato_inicio']:
-                self._errors["contrato_fim"] = ["Fim do Contrato: Data não pode ser anterior ao inicio do contrato."]  # Will raise a error message
-                del form_data['contrato_fim']
+            result = self.validar_inicio_fim_contrato()
+            result = self.validar_inicio_fim_desconto()
+        else:
+            print("ERRORS:",self.errors)
+            print("VALORES: ",self.data)
         return form_data
+
+    def validar_inicio_fim_contrato(self):
+        form_data = self.cleaned_data
+        if form_data['desconto_fim'] != None and form_data['desconto_inicio'] != None:
+            if form_data['contrato_fim'] < form_data['contrato_inicio']:
+                self._errors["contrato_fim"] = ["Encerramento do contrato não pode ser anterior ao inicio do contrato."]  # Will raise a error message
+                del form_data['contrato_fim']
+                return False
+        return True
+
+    def validar_inicio_fim_desconto(self):
+        form_data = self.cleaned_data
+        if form_data['desconto_fim'] != None and form_data['desconto_inicio'] != None:
+            if form_data['desconto_fim'] < form_data['desconto_inicio']:
+                self._errors["desconto_fim"] = ["Data de encerramento do desconto não pode ser anterior à data de inicio do desconto."]  # Will raise a error message
+                del form_data['contrato_fim']
+                return False
+        return True
+
+    def form_to_object(self):
+        contrato = Contrato()
+        for item in self.fields:
+            contrato.__dict__[item] = self.cleaned_data[item]
+        return contrato
+        #contrato.tipo_contrato = self.cleaned_data['tipo_contrato']
+
+
+

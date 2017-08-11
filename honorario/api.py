@@ -1,9 +1,11 @@
 # -*- encoding: utf-8 -*-
 from django.shortcuts import render_to_response
 from django.http import HttpResponse, Http404
+
+from entidade.models import entidade
 from honorario.forms import FormContrato
+from honorario.models import Contrato
 from sistema_contabil import settings
-from servico.models import Contrato
 from django.core import serializers
 import json
 
@@ -44,24 +46,83 @@ def response_format(result,message,object,list_fields):
 
 
 def get_lista_contratos(request):
-    lista_contratos = Contrato.objects.all()
-    filter_request(request)
-    response_dict = {}#response_format_success_message(None, )
-    print("VEJA OS CONTRATOS: ",lista_contratos)
+    lista_clientes = entidade.objects.all()
+    response_dict = []
+    for item in lista_clientes:
+
+        response_cliente = {}
+        response_cliente['cliente_id'] = item.id
+        response_cliente['cliente_nome'] = item.nome_razao
+        response_cliente['selecionado'] = False
+        contrato = Contrato.objects.filter(cliente=item.id)
+
+        if len(contrato) != 0:
+            contrato = contrato[0]
+            response_cliente['contrato'] = {}
+            response_cliente['plano'] = contrato.plano.nome
+            response_cliente['contrato']['tipo_cliente'] = contrato.tipo_cliente
+
+            if(contrato.vigencia_inicio): response_cliente['contrato']['vigencia_inicio'] = str(contrato.vigencia_inicio.strftime('%d/%m/%Y'))
+            if (contrato.vigencia_fim): response_cliente['contrato']['vigencia_fim'] = str(contrato.vigencia_fim.strftime('%d/%m/%Y'))
+            response_cliente['contrato']['taxa_honorario'] = contrato.taxa_honorario
+
+            if (contrato.taxa_honorario): response_cliente['contrato']['taxa_honorario'] = float(contrato.taxa_honorario)
+            if (contrato.valor_honorario): response_cliente['contrato']['valor_honorario'] = float(contrato.valor_honorario)
+
+            response_cliente['contrato']['dia_vencimento'] = contrato.dia_vencimento
+            response_cliente['contrato']['desconto_temporario'] = float(contrato.desconto_temporario)
+            if (contrato.desconto_inicio): response_cliente['contrato']['desconto_inicio'] = str(contrato.desconto_inicio.strftime('%d/%m/%Y'))
+            if (contrato.desconto_fim): response_cliente['contrato']['desconto_fim'] = str(contrato.desconto_fim.strftime('%d/%m/%Y'))
+            if (contrato.desconto_indicacoes):  response_cliente['contrato']['desconto_indicacoes'] = float(contrato.desconto_indicacoes)
+            response_cliente['contrato']['cadastrado_por'] = contrato.cadastrado_por.nome_razao
+            response_cliente['contrato']['data_cadastro'] = str(contrato.data_cadastro.strftime('%d/%m/%Y'))
+            response_cliente['contrato']['ultima_alteracao'] = str(contrato.ultima_alteracao.strftime('%d/%m/%Y'))
+            response_cliente['contrato']['alterado_por'] = contrato.alterado_por.nome_razao
+
+        else:
+            response_cliente['contrato'] = {}
+            response_cliente['plano'] = None
+            response_cliente['contrato']['tipo_cliente'] = None
+            response_cliente['contrato']['vigencia_inicio'] = None
+            response_cliente['contrato']['vigencia_fim'] = None
+            response_cliente['contrato']['taxa_honorario'] = None
+
+            response_cliente['contrato']['taxa_honorario'] = None
+            response_cliente['contrato']['valor_honorario'] = None
+            response_cliente['contrato']['dia_vencimento'] = None
+            response_cliente['contrato']['desconto_temporario'] = None
+            response_cliente['contrato']['desconto_inicio'] = None
+            response_cliente['contrato']['desconto_fim'] = None
+            response_cliente['contrato']['desconto_indicacoes'] = None
+            response_cliente['contrato']['cadastrado_por'] = None
+            response_cliente['contrato']['data_cadastro'] = None
+            response_cliente['contrato']['ultima_alteracao'] = None
+            response_cliente['contrato']['alterado_por'] = None
+
+        response_dict.append(response_cliente)
+        #print("CLIENTE: "+item.nome_razao+" - CONTRATO: ",contrato)
+
+    #print("VEJA OS CONTRATOS: ",lista_clientes)
     # response_dict = response_format_error("Formulário com dados inválidos.")
     return HttpResponse(json.dumps(response_dict))
 
 def salvar_contrato(request):
-    print("VEJA O REQUEST: ",request.POST)
-    filter_request(request)
-    response_dict = {}  # response_format_success_message(None, )
-    # response_dict = response_format_error("Formulário com dados inválidos.")
+    print("SALVAR: ",request.POST)
+    result, form = filter_request(request,FormContrato)
+    if result:
+        contrato = form.form_to_object()
+        cliente = entidade.objects.get(pk=int(request.POST['cliente']))
+        contrato.cliente = cliente
+        contrato.save()
+        response_dict = response_format_success_message(contrato,[])
+    else:
+        response_dict = response_format_error_message("Formulário com dados inválidos.")
+
     return HttpResponse(json.dumps(response_dict))
 
+
+
 """
-
-
-
 class ContratoAPI:
 
     def get_lista_contratos(request):

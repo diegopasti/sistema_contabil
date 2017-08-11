@@ -72,7 +72,8 @@ urlpatterns = [
 
     url(r'^honorario/$', "honorario.views.honorario_page"),
     url(r'^honorario/contrato$', "honorario.views.contrato_page"),
-    url(r'^api/honorario/lista_contratos$', "honorario.views.get_lista_contratos"),
+    url(r'^api/honorario/lista_contratos$', "honorario.api.get_lista_contratos"),
+    url(r'^api/honorario/salvar_contrato', "honorario.api.salvar_contrato"),
 
 
     #url(r'^api/preferencias/alterar_salario/(?P<id>\d+)/$', "preferencias.views.alterar_salario"),

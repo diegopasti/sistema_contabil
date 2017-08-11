@@ -2,29 +2,32 @@ var app = angular.module('app', ['angularUtils.directives.dirPagination']);
 
 app.controller('MeuController', ['$scope', function($scope) {
 
-	$scope.sortType           = 'id';    // set the default sort type
+	$scope.sortType           = 'codigo';    // set the default sort type
 	$scope.sortReverse        = false;  // set the default sort order
 	$scope.filter_by          = '1';
 	$scope.filter_by_index    = parseInt($scope.filter_by);
 	$scope.filter_by_options  = ["codigo","cliente", "plano"];
 	$scope.search             = '';     // set the default search/filter term
+	$scope.minimal_quantity_rows = [1,2,3,4,5,6,7,8,9]
 
 	$scope.opcao_desabilitada = "desabilitado";
 	$scope.registro_selecionado = null;
 	$scope.esta_adicionando     = null;
 
 	// Carrega os dados ja cadastrados
-	$scope.carregar_servicos_cadastrados = function() {
+	$scope.carregar_clientes = function() {
 		$.ajax({
 			type: "GET",
-				url: "/api/preferencias/servicos/",
+				url: "/api/honorario/lista_contratos",
 				success: function (data) {
-					$scope.servicos = data;//Object.keys(data).map(function(_) { return data[_]; }) //_(data).toArray();
-					$scope.verificar_servicos();
+					$scope.contratos = JSON.parse(data);//Object.keys(data).map(function(_) { return data[_]; }) //_(data).toArray();
+					//$scope.verificar_contratos();
+					$scope.contratos_carregados = true;
 					$scope.$apply();
+
 				},
 				failure: function (data) {
-					$scope.servicos = [];
+					$scope.contratos = [];
 					$scope.desabilitar = 'link_desabilitado';
 					alert('Erro! Não foi possivel carregar a lista de serviços');
 				}
@@ -32,58 +35,81 @@ app.controller('MeuController', ['$scope', function($scope) {
 	}
 
 	$scope.adicionar_contrato = function() {
-		var tipo_contrato = $('#tipo_contrato').val()
-		var plano = $('#plano').val() //.toUpperCase();
-		var valor_honorario = $('#valor_honorario').val()//.toUpperCase();
 
+		var tipo_cliente = $('#select_tipo_cliente option:selected').val()
+		alert("VEJA O TIPO: "+tipo_cliente)
+		var plano = $('#select_plano option:selected').val()
+		var honorario = $('#honorario').val()
 
+		var vigencia_inicio = $("#vigencia_inicio").val()
+		var vigencia_fim = $("#vigencia_fim").val()
 
-		if(tipo_contrato && plano && valor_honorario){
-			alert('ok')
-			/*$.ajax({
-				type: "POST",
-				url: "/api/preferencias/novo_servico",
-				data: {
-					servico: servico,
-					descricao: descricao,
-					csrfmiddlewaretoken: '{{ csrf_token }}'
-				},
+		var tipo_vencimento = $('#select_tipo_vencimento option:selected').val()
+    var dia_vencimento_contrato = $('#select_dia_vencimento option:selected').val()
+    var data_vencimento_contrato = $("#data_vencimento_contrato").val()
 
-				success: function (data) {
-					var resultado = $.parseJSON(data);
-					if (resultado['success'] == true){
-						var servico = {
-								id: resultado["message"],
-								nome: angular.uppercase($scope.modal_servico),
-								descricao: angular.uppercase($scope.modal_descricao),
-								selecionado: ""
-						};
+		var tipo_honorario = $('#select_tipo_honorario option:selected').val()
+    var taxa_honorario = $("#taxa_honorario").val()
+    var honorario = $('#honorario').val()
 
-						$scope.servicos.push(servico);
-						$scope.$apply();
-						$scope.resetar_formulario_servico();
-					}
+    var desconto_inicio = $('#desconto_inicio').val()
+    var desconto_fim = $('#desconto_fim').val()
+    var desconto_temporario = $('#desconto_temporario').val()
+    var total = $('#total').val()
 
-					else{
-						alert(resultado["message"]);
-					}
-				},
-				failure: function (data) {
-					alert('Erro! Falha na execução do ajax');
+		tipo_cliente ? $('#select_tipo_cliente').removeClass('wrong') :  $('#select_tipo_cliente').addClass('wrong')
+		plano ? $('#select_plano').removeClass('wrong') :  $('#select_plano').addClass('wrong')
+		honorario ? $('#honorario').removeClass('wrong') :  $('#honorario').addClass('wrong')
+
+		var cliente = $scope.registro_selecionado.cliente_id
+
+		alert(tipo_cliente+" - "+plano+" - "+honorario)
+		if(tipo_cliente && plano && honorario){
+
+			var data = {
+				cliente: cliente,
+				tipo_cliente:tipo_cliente,
+				plano:plano,
+				honorario:honorario,
+
+				vigencia_inicio:vigencia_inicio,
+				vigencia_fim:vigencia_fim,
+
+				tipo_vencimento:tipo_vencimento,
+				dia_vencimento_contrato:dia_vencimento_contrato,
+				data_vencimento_contrato:data_vencimento_contrato,
+
+				tipo_honorario:tipo_honorario,
+				taxa_honorario:taxa_honorario,
+				honorario:honorario,
+
+				desconto_inicio:desconto_inicio,
+				desconto_fim:desconto_fim,
+				desconto_temporario:desconto_temporario,
+				total:total
 				}
-			});*/
+
+
+			function validate_function(){
+				return true
+			}
+
+
+			function success_function(message) {
+				//$scope.registro_selecionado.plano =
+				resetar_formulario()
+			}
+
+			function fail_function(message) {
+				alert("DEU PAU"+message)
+			}
+
+			request_api("/api/honorario/salvar_contrato",data,validate_function,success_function,fail_function)
+
+			//limpar form e fechar modal
 		}
 		else{
-		alert("VEJA: "+$('#select_tipo_contrato').val())
-		alert($('#select_tipo_contrato option:selected').text());
-    alert($('#select_tipo_contrato option:selected').val());
-
-			($('#select_tipo_contrato').val()) ? alert('oi') : alert('xau')
-			//var test = $('#select_tipo_contrato').val() == '' : $('#select_tipo_contrato').addClass('wrong') : alert('ok')
-			//$('#select_tipo_contrato').addClass('wrong')
-			//$('#valor_honorario').addClass('wrong')
 		}
-		$scope.verificar_servicos();
 	}
 
 	$scope.alterar_contrato = function() {
@@ -131,7 +157,7 @@ app.controller('MeuController', ['$scope', function($scope) {
 			alert('Erro! Preencha os campos antes de enviar');
 		}
 
-		$scope.verificar_servicos();
+		$scope.verificar_contratos();
 	}
 
 	$scope.select_filter_by = function (index) {
@@ -141,23 +167,21 @@ app.controller('MeuController', ['$scope', function($scope) {
 
 	$scope.get_filter_column = function(){
 			var filtrar_pesquisa_por = $scope.filter_by_options[$scope.filter_by_index];
-
 			switch (filtrar_pesquisa_por) {
-
 					case 'codigo':
 							//alert("filtrar por codigo");
-							return {id: $scope.search};
-					case 'descricao':
-							//alert("filtrar por descricao");
-							return {descricao: $scope.search};
+							return {cliente_id: $scope.search};
+					case 'plano':
+							//alert("filtrar pelo plano");
+							return {plano: $scope.search};
 					default:
-							return {nome: $scope.search}
+							return {cliente_nome: $scope.search}
 			}
 	}
 
 
-	$scope.verificar_servicos = function () {
-			if ($scope.servicos == "" || $scope.servicos == []){
+	$scope.verificar_contratos = function () {
+			if ($scope.contratos == "" || $scope.contratos == []){
 					$scope.desabilitar  = 'link_desabilitado';
 			}
 			else{
@@ -165,16 +189,8 @@ app.controller('MeuController', ['$scope', function($scope) {
 			}
 	}
 
-	$scope.resetar_formulario_servico = function() {
-			$('#modal_adicionar_contrato').modal('hide');
-			$('#preferencias').val("");
-			$('#descricao').val("");
-			$scope.model_servico = "";
-			$scope.model_descricao = "";
-	}
-
 	$scope.selecionar_linha = function(registro) {
-			//alert("veja o index: "+registro.id+"-"+registro.nome);
+			//alert("veja o index: "+registro.cliente_id+"-"+registro.cliente_nome);
 
 			if ($scope.registro_selecionado != null){
 					//alert("tinha uma linha selecionada, entao tem que desmarcar a anterior pra marcar a nova");
@@ -182,12 +198,11 @@ app.controller('MeuController', ['$scope', function($scope) {
 							//alert("O cara clicou na linha que ja tava selecionada");
 							$scope.desmarcar_linha_selecionada();
 							//registro.selecionado = "";
-							//$scope.registro_selecionado = null;
+							$scope.registro_selecionado = null;
 							//$scope.opcao_desabilitada = "desabilitado";
 					}
 
 					else{
-							//alert("O usuario tinha um registro selecionado mas selecionou novo registro: "+registro.id+"-"+registro.nome);
 							$scope.desmarcar_linha_selecionada();
 							registro.selecionado = "selected";
 							$scope.registro_selecionado = registro;
@@ -196,11 +211,10 @@ app.controller('MeuController', ['$scope', function($scope) {
 			}
 
 			else{
-					//alert("nao tinha nada marcado, vou marcar"+$scope.registro_selecionado);
+
 					registro.selecionado = 'selected';
 					$scope.registro_selecionado = registro;
 					$scope.opcao_desabilitada = "";
-
 			}
 			$scope.apply();
 	}
@@ -249,7 +263,7 @@ app.controller('MeuController', ['$scope', function($scope) {
 									var resultado = $.parseJSON(data);
 
 									if (resultado['success'] == true){
-											$scope.servicos.splice($scope.servicos.indexOf($scope.registro_selecionado), 1);
+											$scope.contratos.splice($scope.contratos.indexOf($scope.registro_selecionado), 1);
 											$scope.registro_selecionado = null;
 											$scope.opcao_desabilitada = "desabilitado";
 											$scope.$apply();
@@ -274,7 +288,7 @@ app.controller('MeuController', ['$scope', function($scope) {
 					//return false;
 			}
 
-			$scope.verificar_servicos();
+			$scope.verificar_contratos();
 
 	}
 }]);
