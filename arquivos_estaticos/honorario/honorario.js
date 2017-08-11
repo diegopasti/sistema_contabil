@@ -5,13 +5,13 @@ function configurar_formulario_padrao(){
 	$("#tipo_vencimento").val('MENSAL')
 	$("#dia_vencimento_contrato").val('5')
 
-	$("#contrato_inicio").mask("99/99/9999");
-	 $("#contrato_fim").mask("99/99/9999");
-	 $("#data_vencimento_contrato").mask("99/99/9999");
-	 $("#desconto_fim").mask("99/99/9999");
-	 $("#desconto_inicio").mask("99/99/9999");
-	 $("#valor_base").maskMoney({showSymbol:false, symbol:"R$", decimal:",", thousands:"."});
-	 $("#valor_honorario").maskMoney({showSymbol:false, symbol:"R$", decimal:",", thousands:"."});
+	$("#vigencia_inicio").mask("99/99/9999");
+	$("#vigencia_fim").mask("99/99/9999");
+	$("#data_vencimento_contrato").mask("99/99/9999");
+	$("#desconto_fim").mask("99/99/9999");
+	$("#desconto_inicio").mask("99/99/9999");
+	$("#honorario").maskMoney({showSymbol:false, symbol:"R$", decimal:",", thousands:"."});
+	$("#total").maskMoney({showSymbol:false, symbol:"R$", decimal:",", thousands:"."});
 }
 
 function resetar_formulario(){
