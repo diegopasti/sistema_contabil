@@ -77,8 +77,7 @@ function calcular_total (){
 	if (!(honorario == '') && !(desconto == '')) {
 		honorario = parseFloat(honorario.replace('R$ ', '').replace('.', '').replace(',', '.'));
 		desconto = parseFloat(desconto.replace('% ', '').replace('.', '').replace(',', '.'));
-		var total = honorario * (1 - (desconto / 100));
-
+		var total = Math.floor([honorario * (1 - (desconto / 100))] *1000)/ 1000.0
 		$('#total').val('R$ '+total);
 	}
 }
