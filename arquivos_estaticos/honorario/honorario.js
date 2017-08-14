@@ -14,6 +14,8 @@ function configurar_formulario_padrao(){
 
 	desabilitar('group_data_venvimento')
 	desabilitar('group_taxa_honorario')
+	desabilitar('group_total')
+
 
 
 	//$("#group_data_venvimento").addClass('desabilitado')
@@ -33,6 +35,7 @@ function resetar_formulario(){
 	$('#modal_adicionar_contrato').modal('hide');
 }
 
+/*	Funções de eventos	*/
 function verificar_tipo_vencimento () {
 	var tipo_vencimento = $('#select_tipo_vencimento option:selected').val();
 	if (tipo_vencimento == 'ANUAL'){
@@ -68,21 +71,33 @@ function calcular_honorario() {
 	}
 }
 
-function validate_data_vigencia(){
-	alert("vim aqui?")
-	var data_inicial = $('#vigencia_inicio');
-	var data_fim = $('#vigencia_fim');
-	data_inicial = data_inicial.split('/');
-	data_fim = data_fim.split('/');
-	if(!data_fim === '' && !data_inicial === '') {
-		if(data_inicial[2]<data_fim[2]) {
-			if (data_inicial[1]<data_fim[1]){
-				if (data_inicial[0]<data_fim[0]){
-					alert('Data invalida')
-				}
-			}
+function calcular_total (){
+	var honorario = $('#honorario').val();
+	var desconto = $('#desconto_temporario').val();
+	if (!(honorario == '') && !(desconto == '')) {
+		honorario = parseFloat(honorario.replace('R$ ', '').replace('.', '').replace(',', '.'));
+		desconto = parseFloat(desconto.replace('% ', '').replace('.', '').replace(',', '.'));
+		var total = honorario * (1 - (desconto / 100));
+
+		$('#total').val('R$ '+total);
+	}
+}
+
+
+/*	Funções de validar no final	*/
+function verificar_data_vigencia(inicio, fim) {
+	//alert('venho aqui?')
+	var data_inicio = $('#' + inicio).val();
+	var data_fim = $('#' + fim).val();
+	var retorno = false
+	if (!((data_inicio && data_fim) == ('__/__/____' || '') )) {
+		var Compara01 = parseInt(data_inicio.split("/")[2].toString() + data_inicio.split("/")[1].toString() + data_inicio.split("/")[0].toString());
+		var Compara02 = parseInt(data_fim.split("/")[2].toString() + data_fim.split("/")[1].toString() + data_fim.split("/")[0].toString());
+		if (Compara01 < Compara02 || Compara01 == Compara02) {
+			retorno = true;
 		}
 	}
+	return retorno;
 }
 
 

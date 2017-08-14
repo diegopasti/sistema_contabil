@@ -21,7 +21,7 @@ class FormContrato(forms.Form):
         label="Início do Contrato", required=False, error_messages=MENSAGENS_ERROS,
         widget=forms.TextInput(
             attrs={
-                'id': 'vigencia_inicio', 'class': "form-control", 'ng-model':'vigencia_inicio', 'onchange':'validate_data_vigencia()'
+                'id': 'vigencia_inicio', 'class': "form-control", 'ng-model':'vigencia_inicio'
             }
         )
     )
@@ -30,7 +30,7 @@ class FormContrato(forms.Form):
         label="Fim do Contrato", required=False, error_messages=MENSAGENS_ERROS,
         widget=forms.TextInput(
             attrs={
-                'class': "form-control", 'id': 'vigencia_fim', 'ng-model':'vigencia_fim'
+                'class': "form-control", 'id': 'vigencia_fim', 'ng-model':'vigencia_fim', 'onblur':'verificar_data_vigencia()'
             }
         )
     )
@@ -60,7 +60,7 @@ class FormContrato(forms.Form):
         label="Honorário*", max_length=30, required=True, error_messages=MENSAGENS_ERROS,
         widget=forms.TextInput(
             attrs={
-                'class': "form-control uppercase", 'id': 'honorario', 'ng-model': 'honorario',
+                'class': "form-control uppercase", 'id': 'honorario', 'ng-model': 'honorario', 'onblur':'calcular_total()'
             }
         )
     )
@@ -89,7 +89,7 @@ class FormContrato(forms.Form):
         label="Total (R$)", max_digits=6, decimal_places=2, required=False, error_messages=MENSAGENS_ERROS,
         widget=forms.TextInput(
             attrs={
-                'id': 'total','class': "form-control", 'ng-model':'total'
+                'id': 'total','class': "form-control readonly", 'ng-model':'total'
             }
         )
     )
@@ -128,7 +128,7 @@ class FormContrato(forms.Form):
         label="Desconto Temporário (%)", required=False, max_digits=5, decimal_places=2, error_messages=MENSAGENS_ERROS,
         widget=forms.TextInput(
             attrs={
-                'id': 'desconto_temporario', 'class': "form-control decimal", 'ng-model':'desconto_temporario'
+                'id': 'desconto_temporario', 'class': "form-control decimal", 'ng-model':'desconto_temporario', 'onblur':'calcular_total()'
             }
         )
     )

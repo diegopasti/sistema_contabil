@@ -356,7 +356,10 @@ color:blue;
 							</div>
 
 							<div class="col-md-2">
-								<div class="form-group">
+								<style>
+									#total[type="text"]:disabled{background-color: #fff;border: hidden; text-align: right;border-bottom: 1px solid #cccccc; border-top: 0px;box-shadow:0 0px 0px #fff}
+								</style>
+								<div class="form-group" id="group_total">
 									<sub><label>{{ formulario_contrato.total.label }}</label></sub>
 									{{ formulario_contrato.total }}
 								</div>
