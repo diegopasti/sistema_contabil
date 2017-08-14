@@ -114,7 +114,7 @@ def salvar_contrato(request):
         cliente = entidade.objects.get(pk=int(request.POST['cliente']))
         contrato.cliente = cliente
         contrato.save()
-        response_dict = response_format_success_message(contrato,[])
+        response_dict = response_format_success_message(contrato,['cliente'])
     else:
         response_dict = response_format_error_message("Formulário com dados inválidos.")
 

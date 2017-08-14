@@ -16,7 +16,6 @@ app.controller('MeuController', ['$scope', function($scope) {
 
 	// Carrega os dados ja cadastrados
 	$scope.carregar_clientes = function() {
-	alert("Carregar clientes..")
 		$.ajax({
 			type: "GET",
 				url: "/api/honorario/lista_contratos",
