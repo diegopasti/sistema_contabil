@@ -185,7 +185,7 @@ color:blue;
 						<h5 id="titulo_modal_adicionar_contrato" style="font-weight: bold">Definir Contrato</h5>
 					</div>
 
-					<div class="modal-body" style="padding: 35px;padding-top: 10px;">
+					<div class="modal-body container-fluid" style="padding: 35px;padding-top: 10px;">
 						<!--
 						<div class="row">
 							<div class="col-md-3">
@@ -234,8 +234,8 @@ color:blue;
 							</div>
 						</div>
 						-->
-						<div class="row no-gutter">
-							<div class="col-md-3">
+						<div class="row no-gutter fluid">
+							<div class="col-md-3 col-xs-12 col-sm-12">
 								<div class="form-group">
 									<sub><label>{{ formulario_contrato.tipo_cliente.label }}</label></sub>
 										<div id="select_tipo_cliente" style="border-radius: 4px;">
@@ -245,7 +245,7 @@ color:blue;
 								</div>
 							</div>
 
-							<div class="col-md-3">
+							<div class="col-md-3 col-xs-12 col-sm-12">
 								<div class="form-group">
 									<sub><label>{{ formulario_contrato.plano.label }}</label></sub>
 										<div id="select_plano" style="border-radius: 4px;">
@@ -258,8 +258,8 @@ color:blue;
 
 						<hr>
 
-						<div class="row no-gutter">
-							<div class="col-md-2">
+						<div class="row no-gutter  fluid">
+							<div class="col-md-2 col-xs-12 col-sm-6">
 								<div class="form-group">
 									<sub><label>{{ formulario_contrato.vigencia_inicio.label }}</label></sub>
 									{{ formulario_contrato.vigencia_inicio }}
@@ -267,7 +267,7 @@ color:blue;
 								</div>
 							</div>
 
-							<div class="col-md-2">
+							<div class="col-md-2 col-xs-12 col-sm-6">
 								<div class="form-group">
 									<sub><label>{{ formulario_contrato.vigencia_fim.label }}</label></sub>
 									{{ formulario_contrato.vigencia_fim }}
@@ -275,7 +275,7 @@ color:blue;
 								</div>
 							</div>
 
-							<div class="col-md-2">
+							<div class="col-md-2 col-xs-12 col-sm-4">
 								<div class="form-group">
 									<sub><label>{{ formulario_contrato.tipo_vencimento.label }}</label></sub>
 									<div id="select_tipo_vencimento" style="border-radius: 4px;">
@@ -286,7 +286,7 @@ color:blue;
 								</div>
 							</div>
 
-							<div class="col-md-2">
+							<div class="col-md-2 col-xs-12 col-sm-4">
 								<div class="form-group" id="group_dia_vencimento">
 									<sub><label>{{ formulario_contrato.dia_vencimento.label }}</label></sub>
 									<div id="select_dia_vencimento" style="border-radius: 4px;">
@@ -296,7 +296,7 @@ color:blue;
 								</div>
 							</div>
 
-							<div class="col-md-2">
+							<div class="col-md-2 col-xs-12 col-sm-4">
 								<div class="form-group" id="group_data_venvimento">
 									<sub><label>{{ formulario_contrato.data_vencimento.label }}</label></sub>
 									{{ formulario_contrato.data_vencimento }}
@@ -304,7 +304,7 @@ color:blue;
 								</div>
 							</div>
 
-							<div class="col-md-2">
+							<div class="col-md-2 col-xs-12 col-sm-12">
 								<div class="form-group" >
 									<sub><label>{{ formulario_contrato.tipo_honorario.label }}</label></sub>
 									<div id="select_tipo_honorario" style="border-radius: 4px;">
@@ -317,21 +317,21 @@ color:blue;
 						</div>
 
 						<div class="row no-gutter">
-							<div class="col-md-2">
+							<div class="col-md-2 col-xs-12">
 								<div class="form-group" id="group_taxa_honorario">
 									<sub><label>{{ formulario_contrato.taxa_honorario.label }}</label></sub>
 									{{ formulario_contrato.taxa_honorario }}
 								</div>
 							</div>
 
-							<div class="col-md-2">
+							<div class="col-md-2 col-xs-12 col-sm-4">
 								<div class="form-group" id="group_honorario">
 									<sub><label>{{ formulario_contrato.honorario.label }}</label></sub>
 									{{ formulario_contrato.honorario }}
 								</div>
 							</div>
 
-							<div class="col-md-2">
+							<div class="col-md-2 col-xs-12 col-sm-6">
 								<div class="form-group">
 									<sub><label>{{ formulario_contrato.desconto_inicio.label }}</label></sub>
 									{{ formulario_contrato.desconto_inicio }}
@@ -339,7 +339,7 @@ color:blue;
 								</div>
 							</div>
 
-							<div class="col-md-2">
+							<div class="col-md-2 col-xs-12 col-sm-6">
 								<div class="form-group">
 									<sub><label>{{ formulario_contrato.desconto_fim.label }}</label></sub>
 									{{ formulario_contrato.desconto_fim }}
@@ -347,7 +347,7 @@ color:blue;
 								</div>
 							</div>
 
-							<div class="col-md-2">
+							<div class="col-md-2 col-xs-12 col-sm-6">
 								<div class="form-group">
 									<sub><label>{{ formulario_contrato.desconto_temporario.label }}</label></sub>
 									{{ formulario_contrato.desconto_temporario }}
@@ -355,7 +355,7 @@ color:blue;
 								</div>
 							</div>
 
-							<div class="col-md-2">
+							<div class="col-md-2 col-xs-12 col-sm-6">
 								<style>
 									#total[type="text"]:disabled{background-color: #fff;border: hidden; text-align: right;border-bottom: 1px solid #cccccc; border-top: 0px;box-shadow:0 0px 0px #fff}
 								</style>
