@@ -263,6 +263,7 @@ def cadastro_protocolo(request):
     else:
         form_entrega = formulario_confirmar_entrega()
         form_relatorio = formulario_gerar_relatorio()
+        #print("VEJA O NOVO CAMPO: ",form_relatorio.filtrar_documentos)
         
     dados = list(protocolo.objects.all())#*30
     clientes = entidade.objects.all()[1:]

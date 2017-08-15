@@ -82,7 +82,14 @@ label {
     padding-top:  6px;
 }
 
+.no-gutter > [class*='col-'] {
+    padding-right:3px;
+    padding-left:3px;
+}
 
+#filtrar_documentos{
+	width: 320px;
+}
 </style>
 {% endblock %}
 
@@ -95,54 +102,81 @@ label {
 
 {% block conteudo %}
 <div id="modal_relatorio" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
-	<div class="modal-dialog" style="width: 40%">
+	<div class="modal-dialog" style="width: 35%;">
 		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal"
-					aria-hidden="true">×</button>
-				<h3 id="myModalLabel">Gerar Relatório</h3>
+			<div class="modal-header"  style="padding-top: 4px;padding-bottom:4px;">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="margin-top: 10px;">×</button>
+				<h4 id="myModalLabel">Gerar Relatório</h4>
 			</div>
 
-
-			<div class="modal-body" style="padding: 30px;">
-				<form action="" method="post" target="_blank" onsubmit="setTimeout(function () { window.location.replace('/protocolo') }, 2)">
+			<form action="" method="post" target="_blank" onsubmit="setTimeout(function () { window.location.replace('/protocolo') }, 2)">
 				{% csrf_token %}
-					<div class="row">
-
-						<div class='col-lg-8'>
+				<div class="modal-body" style="padding-left: 40px;padding-right: 40px;padding-bottom: 20px">
+					<div class="row no-gutter">
+						<div class='col-md-12'>
 							<div style='margin-left: 8px'>
 								<sub><label style=''>Filtrar por Cliente:</label></sub>
 							</div>
 
 							<select id="select_filtrar_por_cliente" class='form-control uppercase'  onblur="selecionar_filtro_cliente()">
-								<option value='' selected></option>
+								<option value='TODOS' selected>TODOS CLIENTES</option>
 								{% for item in clientes %}
 									<option value='{{ item.id }}'>{{ item.id }} - {{ item.nome_razao }}</option>
 								{% endfor %}
 							</select>
 							{{ form_relatorio.filtrar_por_cliente }}
 						</div>
-
-						<div class='col-lg-4'>
+					</div>
+					<!--<div class="row no-gutter">
+						<div class='col-md-12'>
 							<div style='padding-left: 8px'>
 								<sub>{{ form_relatorio.filtrar_por_status.label }}</sub>
 							</div>
 							{{ form_relatorio.filtrar_por_status }}
 						</div>
 					</div>
-
-					<div class="row">
-
-						<div class='col-lg-6'>
+					-->
+					<div class="row no-gutter">
+						<div class='col-md-12'>
 							<div>
 								<div style='padding-left: 8px'>
-									<sub>{{ form_relatorio.filtrar_por_operacao.label }}</sub>
+									<sub>{{ form_relatorio.filtrar_por_status.label }}</sub>
 								</div>
-								{{ form_relatorio.filtrar_por_operacao }}
+								{{ form_relatorio.filtrar_por_status }}
+							</div>
+						</div>
+					</div>
+					<div class="row no-gutter">
+						<div class='col-md-9'>
+							<div>
+								<div style='padding-left: 8px'>
+									<sub>{{ form_relatorio.filtrar_documentos.label }}</sub>
+								</div>
+								{{ form_relatorio.filtrar_documentos }}
 							</div>
 						</div>
 
-						<div class='col-lg-3'>
+						<div class='col-md-3' style="margin-top: 14px;">
+							<div class="row">
+								<div class='col-md-12'>
+									<a role="button" onclick="select_all_documents()" class="btn-sm btn-default pull-right" style="padding: 0px 8px 2px 8px;color:#777">
+											<sub>Selecionar Todos</sub>
+										</a>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class='col-md-12'>
+									<a role="button" onclick="unselect_all_documents()" class="btn-sm btn-default pull-right" style="padding: 0px 8px 2px 8px;color:#777">
+										<sub>Remover Todos</sub>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row no-gutter">
+						<div class='col-md-6'>
 							<div>
 								<div style='padding-left: 8px'>
 									<sub>{{ form_relatorio.filtrar_desde.label }}</sub>
@@ -151,7 +185,7 @@ label {
 							</div>
 						</div>
 
-						<div class='col-lg-3'>
+						<div class='col-md-6'>
 							<div>
 								<div style='padding-left: 8px'>
 									<sub>{{ form_relatorio.filtrar_ate.label }}</sub>
@@ -161,14 +195,20 @@ label {
 						</div>
 					</div>
 
-					<div class="row">
-						<div class="col-lg-3 col-lg-push-9">
+					<div class="row no-gutter">
+						<div class="col-md-offset-8 col-md-4">
 							<button type="submit" id="bt_gerar_relatorio" class="btn btn-primary form-control" name='gerar_relatorio'  value='value_gerar_relatorio' style="position: relative; margin-top: 20px">Gerar</button>
 							<!-- <a href="#myModal" role="button" class="btn btn-primary form-control" data-toggle="modal" '  > Adicionar</a>  -->
 						</div>
 					</div>
-				</form>
-			</div>
+				</div>
+
+				<div class="modal-footer"  style="padding-left: 40px;padding-right: 40px;padding-top: 0px;padding-bottom: 10px;">
+
+
+					<!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+				</div>
+			</form>
 		</div>
 	</div>
 </div>
@@ -192,7 +232,6 @@ label {
 							<sub>{{ form_entrega.recebido_por.label }}</sub>
 						</div>
 						{{ form_entrega.recebido_por }}
-
 					</div>
 
 					<div class="row" style="padding-left: 15px; padding-right: 15px">
@@ -212,7 +251,6 @@ label {
 											<sub>{{ form_entrega.data_entrega.label }}</sub>
 										</div>
 										{{ form_entrega.data_entrega }}
-
 									</div>
 								</td>
 
@@ -225,19 +263,13 @@ label {
 									</div>
 								</td>
 
-
 								<td>
-
 									<div style='padding-left: 10px'>
 										{{ form_entrega.protocolo_id }}
 									</div>
-
 								</td>
-
 							</tr>
-
 						</table>
-
 					</div>
 
 					<div class="row" style="padding-left: 15px; padding-right: 15px">
@@ -245,11 +277,10 @@ label {
 							<sub>{{ form_entrega.observacao_entrega.label }}</sub>
 						</div>
 						{{ form_entrega.observacao_entrega }}
-
 					</div>
 
 					<div class="row">
-						<div class="col-lg-3 col-lg-push-9">
+						<div class="col-lg-5 col-lg-push-7">
 							<button type="submit" class="btn btn-primary form-control" name='confirmar_protocolo' style="position: relative; margin-top: 20px">Confirmar</button>
 							<!-- <a href="#myModal" role="button" class="btn btn-primary form-control" data-toggle="modal" '  > Adicionar</a>  -->
 						</div>
@@ -263,82 +294,80 @@ label {
 <div class="row">
 	<div class="col-lg-12 col-md-12 col-xs-12">
 		<div class="box box-default" style="margin-top: -20px;">
+			<div class="box-heading">
 
-            <div class="box-heading">
-
-                <div class="box-header with-border">
-                    <h5 class="box-title">Protocolos Emitidos</h5>
-
-                    <div class="pull-right">
-                        <a href="/protocolo/emitir_protocolo" role="button" class="btn btn-sm btn-primary"><i class="fa fa-plus fa-1x" aria-hidden="true"></i> Novo Protocolo</a>
-                        <a href="#modal_relatorio" id='bt_relatorio' role="button" class="btn btn-sm btn-default" data-toggle="modal" style='margin-left: 10px;'><i class="fa fa-file-text-o"></i> Gerar Relatório</a>
-                        <a href="#" role="button" class="btn btn-sm btn-default pull-right link_desabilitado" id="bt_confirmar_entrega" data-toggle="modal" data-target="#myModal" style="position: relative; margin-top: 0px;margin-right: 2px;margin-left: 10px;"><i class="fa fa-check" aria-hidden="true"></i> Confirmar Recebimento</a>
-                    </div>
-                </div>
+				<div class="box-header with-border">
+					<h5 class="box-title">Protocolos Emitidos</h5>
+					<div class="pull-right">
+						<a href="/protocolo/emitir_protocolo" role="button" class="btn btn-sm btn-primary"><i class="fa fa-plus fa-1x" aria-hidden="true"></i> Novo Protocolo</a>
+						<a href="#modal_relatorio" id='bt_relatorio' role="button" class="btn btn-sm btn-default" data-toggle="modal" style='margin-left: 10px;'><i class="fa fa-file-text-o"></i> Gerar Relatório</a>
+						<a href="#" role="button" class="btn btn-sm btn-default pull-right link_desabilitado" id="bt_confirmar_entrega" data-toggle="modal" data-target="#myModal" style="position: relative; margin-top: 0px;margin-right: 2px;margin-left: 10px;"><i class="fa fa-check" aria-hidden="true"></i> Confirmar Recebimento</a>
+					</div>
+				</div>
 			</div>
 			<!-- /.panel-heading -->
 
 			<div class="box-body" style="padding-bottom: -10px; margin-top: -5px;">
 				<div>
-                    <table class="table table-condensed table-striped table-bordered table-hover" id="datatable">
+					<table class="table table-condensed table-striped table-bordered table-hover" id="datatable">
 
-                        <thead>
-                            <tr class="linha_cabecalho">
-                                <th style="vertical-align: middle;"></th>
-                                <th style="text-align: center;vertical-align: middle;">Cód</th>
-                                <th style="text-align: center;vertical-align: middle;">Destinatário</th>
-                                <th style="text-align: center;vertical-align: middle;">Emissão</th>
-                                <th style="text-align: center;vertical-align: middle;">Entrega</th>
-                                <th style="text-align: center;vertical-align: middle;">Recebido por</th>
-                                <th style="text-align: center;vertical-align: middle;">Confirmardo</th>
-                            </tr>
-                        </thead>
+						<thead>
+							<tr class="linha_cabecalho">
+								<th style="vertical-align: middle;"></th>
+								<th style="text-align: center;vertical-align: middle;">Cód</th>
+								<th style="text-align: center;vertical-align: middle;">Destinatário</th>
+								<th style="text-align: center;vertical-align: middle;">Emissão</th>
+								<th style="text-align: center;vertical-align: middle;">Entrega</th>
+								<th style="text-align: center;vertical-align: middle;">Recebido por</th>
+								<th style="text-align: center;vertical-align: middle;">Confirmardo</th>
+							</tr>
+						</thead>
 
-                        <tbody>
-                            {% for item in dados %}
+						<tbody>
+							{% for item in dados %}
 
-                            <tr class=''><!--  class="alinhado_meio clickable-row " data-href='/consultar_entidade/{{ item.id }}'> -->
-                                <td style="text-align: center;cursor:pointer">{{ item.id }}</td>
+							<tr class=''><!--  class="alinhado_meio clickable-row " data-href='/consultar_entidade/{{ item.id }}'> -->
+								<td style="text-align: center;cursor:pointer">{{ item.id }}</td>
 
-                                {% if item.numeracao_destinatario == 'AVULSO' %}
-                                <td style="text-align: center;cursor:pointer">AVULSO</td>
-                                {% else %}
-                                <td style="text-align: center;cursor:pointer">{{ item.numeracao_destinatario }}</td>
-                                {% endif %}
-
-
-                                {% if item.destinatario %}
-                                <td class='left_align' style="cursor:pointer">{{ item.destinatario }}</td><!-- Pra colocar o id do destinatario na tela e possibilitar a busca{ item.destinatario.id }} -->
-                                {% else %}
-                                <td class='left_align' style="cursor:pointer">{{ item.nome_avulso }}</td>
-                                {% endif %}
-
-                                <td style="text-align: center;cursor:pointer">{{ item.data_emissao|date:"d/m/Y" }} - {{ item.hora_emissao|date:"H:i:s" }}</td>
-                                {% if item.data_recebimento %}
-                                <td style="text-align: center;cursor:pointer">{{ item.data_recebimento|date:"d/m/Y" }} - {{ item.hora_recebimento|date:"H:i:s" }}</td><!-- às { item.hora_recebimento }}</td> -->
-                                {% else %}
-                                <td style="text-align: center;cursor:pointer">-</td>
-                                {% endif %}
-
-                                {% if item.recebido_por %}
-                                <td class='left_align' style="cursor:pointer">{{ item.recebido_por }}</td>
-                                {% else %}
-                                <td style="text-align: center;cursor:pointer">-</td>
-                                {% endif %}
-
-                                {% if item.situacao %}
-                                    <td align="left" style="text-align: center;cursor:pointer"><span class="label label-success">SIM</span></td>
-                                {% else %}
-                                    <td align="left" style="text-align: center;cursor:pointer"><span class="label label-danger">NÃO</span></td>
-                                {% endif %}
-                            </tr>
+								{% if item.numeracao_destinatario == 'AVULSO' %}
+								<td style="text-align: center;cursor:pointer">AVULSO</td>
+								{% else %}
+								<td style="text-align: center;cursor:pointer">{{ item.numeracao_destinatario }}</td>
+								{% endif %}
 
 
-                            {% empty %}
-                                <tr><td style="text-align: center;" colspan="7">Nenhum protocolo emitido</td></tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
+								{% if item.destinatario %}
+								<td class='left_align' style="cursor:pointer">{{ item.destinatario }}</td><!-- Pra colocar o id do destinatario na tela e possibilitar a busca{ item.destinatario.id }} -->
+								{% else %}
+								<td class='left_align' style="cursor:pointer">{{ item.nome_avulso }}</td>
+								{% endif %}
+
+								<td style="text-align: center;cursor:pointer">{{ item.data_emissao|date:"d/m/Y" }} - {{ item.hora_emissao|date:"H:i:s" }}</td>
+								{% if item.data_recebimento %}
+								<td style="text-align: center;cursor:pointer">{{ item.data_recebimento|date:"d/m/Y" }} - {{ item.hora_recebimento|date:"H:i:s" }}</td><!-- às { item.hora_recebimento }}</td> -->
+								{% else %}
+								<td style="text-align: center;cursor:pointer">-</td>
+								{% endif %}
+
+								{% if item.recebido_por %}
+								<td class='left_align' style="cursor:pointer">{{ item.recebido_por }}</td>
+								{% else %}
+								<td style="text-align: center;cursor:pointer">-</td>
+								{% endif %}
+
+								{% if item.situacao %}
+										<td align="left" style="text-align: center;cursor:pointer"><span class="label label-success">SIM</span></td>
+								{% else %}
+										<td align="left" style="text-align: center;cursor:pointer"><span class="label label-danger">NÃO</span></td>
+								{% endif %}
+							</tr>
+
+
+							{% empty %}
+								<tr><td style="text-align: center;" colspan="7">Nenhum protocolo emitido</td></tr>
+							{% endfor %}
+						</tbody>
+					</table>
 
 				</div>
 
@@ -395,19 +424,17 @@ label {
 					     else {
 					    	 table.$('tr.selected').removeClass('selected');
 					    	 $(this).addClass('selected');
-                             var confirmado = table.cell('.selected', 6).data();
-                             if (confirmado.indexOf("SIM") !=-1) {
-                                 desabilitar_botao('#bt_confirmar_entrega');
-                                 $('#bt_confirmar_entrega').addClass('link_desabilitado');
-                                 $('#tooltip_confirmar').tooltip({title: "Esse documento já foi confirmado!", animation: true, delay:{show: 200, hide: 200}, placement: "top"});
-
-
-                             }
-                             else{
-                                 habilitar_botao('#bt_confirmar_entrega');
-                                 $('#bt_confirmar_entrega').removeClass('link_desabilitado');
-                                 $('#tooltip_confirmar').tooltip("destroy");
-                             }
+									 var confirmado = table.cell('.selected', 6).data();
+									 if (confirmado.indexOf("SIM") !=-1) {
+										 desabilitar_botao('#bt_confirmar_entrega');
+										 $('#bt_confirmar_entrega').addClass('link_desabilitado');
+										 $('#tooltip_confirmar').tooltip({title: "Esse documento já foi confirmado!", animation: true, delay:{show: 200, hide: 200}, placement: "top"});
+									 }
+									 else{
+										 habilitar_botao('#bt_confirmar_entrega');
+										 $('#bt_confirmar_entrega').removeClass('link_desabilitado');
+										 $('#tooltip_confirmar').tooltip("destroy");
+									 }
 
 					    	 habilitar_botao('#visualizar_protocolo');
 					    	 $('#visualizar_protocolo').removeClass('link_desabilitado');
@@ -460,27 +487,27 @@ label {
 
 				<div class='row'>
 
-                    {% if dados %}
+					{% if dados %}
 					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6" style='margin-top:-36px;'>
-                    {% else %}
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6" style='margin-top:6px;'>
-                    {% endif %}
+					{% else %}
+					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6" style='margin-top:6px;'>
+					{% endif %}
 
-						<label class='left_align'><sub>Buscar por:</sub></label>
-						 <select id='buscar_por' class='form-control'>
-						 	<option value="2" selected>Nome do Destinátario</option>
-						 	<option value="5">Nome do Recebedor</option>
-						 	<option value="1">Código Protocolo</option>
-						 	<option value="3">Data Emissão</option>
-						 	<option value="4">Data Entrega</option>
-						</select>
+					<label class='left_align'><sub>Buscar por:</sub></label>
+					 <select id='buscar_por' class='form-control'>
+						<option value="2" selected>Nome do Destinátario</option>
+						<option value="5">Nome do Recebedor</option>
+						<option value="1">Código Protocolo</option>
+						<option value="3">Data Emissão</option>
+						<option value="4">Data Entrega</option>
+					</select>
 					</div>
 
-                    {% if dados %}
+					{% if dados %}
 					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6" style='margin-left:-20px;margin-top:-36px;'>
-                    {% else %}
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6" style='margin-left:-20px;margin-top:6px;'>
-                    {% endif %}
+					{% else %}
+					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6" style='margin-left:-20px;margin-top:6px;'>
+					{% endif %}
 
 						<label class='left_align'><sub>Filtrar por:</sub></label>
 						 <select id='filtrar_por' class='form-control'>
@@ -491,12 +518,11 @@ label {
 						</select>
 					</div>
 
-                {% if dados %}
-				<div class="col-lg-4 col-md-4 col-sm-5 col-xs-6" style='margin-left:-20px;margin-top: -11px;'>
-                {% else %}
-                <div class="col-lg-4 col-md-4 col-sm-5 col-xs-6" style='margin-left:-20px;margin-top: 31px;'>
-                {% endif %}
-
+					{% if dados %}
+					<div class="col-lg-4 col-md-4 col-sm-5 col-xs-6" style='margin-left:-20px;margin-top: -11px;'>
+					{% else %}
+					<div class="col-lg-4 col-md-4 col-sm-5 col-xs-6" style='margin-left:-20px;margin-top: 31px;'>
+					{% endif %}
 						<input type="text" id="search" class="form-control" autofocus placeholder="Consultar..">
 					</div>
 
@@ -558,13 +584,18 @@ label {
 {% block recursos_complementares %}
 {% load staticfiles %}
 <script type="text/javascript" src="{% static 'scripts/mask.js' %}"></script>
+<script type="text/javascript" src="{% static 'select2/js/select2.min.js' %}"></script>
+<link href="{% static 'select2/css/select2.min.css' %}" rel="stylesheet"/>
+
+
 
 <script>
 jQuery(document).ready(function(){
 	$("#data_entrega").mask("99/99/9999");
 	$("#filtrar_desde").mask("99/99/9999");
 	$("#filtrar_ate").mask("99/99/9999");
-   	$("#hora_entrega").mask("99:99");
+	$("#filtrar_ate").val("");
+  $("#hora_entrega").mask("99:99");
 });
 </script>
 
@@ -806,6 +837,52 @@ function selecionar_filtro_cliente(){
 	$("#filtrar_por_cliente").val(destinatario);
 
 }
+</script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		var select = document.getElementById("filtrar_documentos");
+
+		/*
+		var all_options = document.createElement("option");
+		all_options.id = "select_all_documents";
+		all_options.text = "TODOS DOCUMENTOS";
+		all_options.value = "TODOS";
+		select.add(all_options, select[0]);
+
+		var nothing = document.createElement("option");
+		nothing.text = "NENHUM DOCUMENTO";
+		nothing.value = "NENHUM";
+		select.add(nothing, select[-1]);
+		*/
+	});
+
+	$('#filtrar_documentos').select2();
+
+	function select_all_documents(){
+		alert("marcar")
+		$("#filtrar_documentos").find("option").each(function(this) {
+    	$(this).attr('selected', 'selected');
+    });
+	}
+
+	function unselect_all_documents(){
+	alert("desmarcar")
+		$("#filtrar_documentos").find("option").each(function(this) {
+    	$(this).attr('selected', false);
+    });
+	}
+
+	//$('#filtrar_documentos').change( function() {
+	//alert("clicou pra selecionar todos");
+	//$('#form-search-amenities > option').prop("selected", false);
+  //  $('#filtrar_documentos option').prop('selected', false);
+  //  $('#filtrar_documentos option').prop('disabled', true);
+	//});
+
+
+
 </script>
 
 {% endblock %}

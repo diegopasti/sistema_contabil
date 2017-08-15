@@ -28,3 +28,4 @@ pip install http://pypi.python.org/packages/source/d/django-xhtml2pdf/django-xht
 
 
 pip install requests
+pip install django-multiselectfield

@@ -6,11 +6,8 @@ Created on 2 de set de 2015
 '''
 
 import datetime
-
 from django import forms
-
-from entidade.models import entidade
-
+from protocolo.models import documento
 
 MENSAGENS_ERROS={'required': 'Precisa ser Informado!',
                  'invalid' : 'Formato Inválido!'
@@ -24,23 +21,29 @@ class formulario_adicionar_documento(forms.Form):
     descricao = forms.CharField(label="Descrição (Opcional): ",max_length=500,required=False,error_messages=MENSAGENS_ERROS,
                                 widget=forms.Textarea(attrs={'class':"form-control", 'id':'descricao' }))
 
+
 class formulario_gerar_relatorio(forms.Form):
     
     filtrar_por_cliente = forms.CharField(label="Filtrar por Cliente: ",max_length=100,required=False,error_messages=MENSAGENS_ERROS,widget=forms.TextInput(attrs={'class':'form-control uppercase' ,'id':'filtrar_por_cliente','readonly':True,'type':"hidden" })) #
     
     opcoes_filtro = (                            
-        ('TODOS','Todos Protocolos'),
-        ('ABERTOS','Protocolos em Aberto'),
-        ('CONFIRMADOS','Protocolos Confirmados'),
+        ('TODOS','TODOS PROTOCOLOS'),
+        ('ABERTOS','PROTOCOLOS EM ABERTO'),
+        ('CONFIRMADOS','PROTOCOLOS CONFIRMADOS'),
     )
-    
+
+    lista_documentos = documento.objects.all()
+    filtrar_documentos = forms.ModelMultipleChoiceField(queryset=lista_documentos,
+        widget=forms.SelectMultiple(attrs={'class': "form-control", 'id': 'filtrar_documentos'})
+    )
+
     filtrar_por_status = forms.ChoiceField(label="Filtrar por Status:",choices=opcoes_filtro,required=False,error_messages=MENSAGENS_ERROS, #choices=opcoes_tipos_registros, default='C',
                     widget=forms.Select(attrs={'class':"form-control" ,'id':'filtrar_por_status'})
                     )
     
     opcoes_operacao = (                            
-        ('EMITIDOS','Protocolos Emitidos'),
-        ('RECEBIDOS','Protocolos Recebidos'),
+        ('EMITIDOS','PROTOCOLO EMITIDOS'),
+        ('RECEBIDOS','PROTOCOLOS RECEBIDOS'),
     )
     
     filtrar_por_operacao = forms.ChoiceField(label="Filtrar por Operacao:",choices=opcoes_operacao,required=False,error_messages=MENSAGENS_ERROS, #choices=opcoes_tipos_registros, default='C',

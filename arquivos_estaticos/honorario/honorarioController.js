@@ -2,6 +2,14 @@ var app = angular.module('app', ['angularUtils.directives.dirPagination']);
 
 app.controller('MeuController', ['$scope', function($scope) {
 
+	$scope.screen_height = window.innerHeight // screen.availHeight; - PEGA O TAMANHO DA TELA DO DISPOSITIVO
+	$scope.screen_width  = window.innerWidth  // PEGA O TAMANHO DA JANELA DO BROWSER
+
+	$scope.screen_desktop = null;
+	$scope.screen_notebook = null;
+	$scope.screen_tablet = null;
+	$scope.screen_phone = null;
+
 	$scope.sortType           = 'codigo';    // set the default sort type
 	$scope.sortReverse        = false;  // set the default sort order
 	$scope.filter_by          = '1';
@@ -13,6 +21,35 @@ app.controller('MeuController', ['$scope', function($scope) {
 	$scope.opcao_desabilitada = "desabilitado";
 	$scope.registro_selecionado = null;
 	$scope.esta_adicionando     = null;
+
+	$scope.reajustar_tela = function (){
+		$scope.screen_height = window.innerHeight
+		$scope.screen_width  = window.innerWidth
+
+		$scope.screen_desktop = false;
+		$scope.screen_notebook = false;
+		$scope.screen_tablet = false;
+		$scope.screen_phone = false;
+
+		if ($scope.screen_width < 576){
+			$scope.screen_phone = true;
+		}
+
+		else if ($scope.screen_width < 768){
+			$scope.screen_tablet = true;
+		}
+
+		else if ($scope.screen_width < 992){
+			$scope.screen_notebook = true;
+		}
+		else if ($scope.screen_width < 1200){
+			$scope.screen_desktop = true;
+		}
+
+
+
+		$scope.$apply();
+	}
 
 	// Carrega os dados ja cadastrados
 	$scope.carregar_clientes = function() {

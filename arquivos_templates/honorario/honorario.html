@@ -424,6 +424,16 @@ color:blue;
 					-->
 
 					<div ng-show="contratos_carregados">
+
+						EH O SEGUINTE.. VEJA O TAMANHO DA TELA: {% verbatim %}
+						SCREEN: {{ screen_width }}x{{ screen_height }}<br>
+						DESKTOP: {{ screen_desktop }}<br>
+						NOTEBOOK: {{ screen_notebook }}<br>
+						TABLET: {{ screen_tablet }}<br>
+						PHONE: {{ screen_phone }}<br>
+
+
+						{% endverbatim %}
 						<div class="dataTable_wrapper">
 							<div class='row'>
 								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -434,17 +444,17 @@ color:blue;
 
 											<th class='center' ng-click="sortType = 'cliente'; sortReverse = !sortReverse">Cliente</th>
 
-											<th class="center" ng-click="sortType = 'plano'; sortReverse = !sortReverse">Plano</th>
+											<th class="center" ng-hide='screen_phone' ng-click="sortType = 'plano'; sortReverse = !sortReverse">Plano</th>
 
-											<th class='center' ng-click="sortType = 'inicio'; sortReverse = !sortReverse">Início</th>
+											<th class='center' ng-hide='screen_phone' ng-click="sortType = 'inicio'; sortReverse = !sortReverse">Início</th>
 
-											<th class='center' ng-click="sortType = 'termino'; sortReverse = !sortReverse">Término</th>
+											<th class='center' ng-hide='screen_phone' ng-click="sortType = 'termino'; sortReverse = !sortReverse">Término</th>
 
-											<th class='center' ng-click="sortType = 'honorario'; sortReverse = !sortReverse">Honorário (R$)</th>
+											<th class='center' ng-hide='screen_phone' ng-click="sortType = 'honorario'; sortReverse = !sortReverse">Honorário (R$)</th>
 
-											<th class='center' ng-click="sortType = 'descontos'; sortReverse = !sortReverse">Descontos (%)</th>
+											<th class='center' ng-hide='screen_phone' ng-click="sortType = 'descontos'; sortReverse = !sortReverse">Descontos (%)</th>
 
-											<th class='center' ng-click="sortType = 'plano'; sortReverse = !sortReverse" >Total (R$)</th>
+											<th class='center' ng-hide='screen_phone' ng-click="sortType = 'plano'; sortReverse = !sortReverse" >Total (R$)</th>
 										</tr>
 										</thead>
 
@@ -473,29 +483,29 @@ color:blue;
 											<td class='center' style="width: 30px;">{{ contrato.cliente_id }}</td> <!-- {{ $index+1 }} -->
 											<td class="left" style="padding-left: 10px;">{{ contrato.cliente_nome }}</td>
 
-											<td ng-class="{true:'left', false:'center'}[contrato.plano=='']" style="padding-left: 10px;">
+											<td ng-hide='screen_phone' ng-class="{true:'left', false:'center'}[contrato.plano=='']" style="padding-left: 10px;">
 												<span ng-if="contrato.plano">{{ contrato.plano }}</span>
 												<span ng-if="!contrato.plano">-</span>
 											</td>
 
-											<td ng-class="{true:'left', false:'center'}[contrato.vigencia_inicio=='']" style="width: 100px;">
+											<td ng-hide='screen_phone' ng-class="{true:'left', false:'center'}[contrato.vigencia_inicio=='']" style="width: 100px;">
 												<span ng-if="contrato.vigencia_inicio">{{ contrato.vigencia_inicio }}</span>
 												<span ng-if="!contrato.vigencia_inicio">-</span>
 											</td>
 
-											<td ng-class="{true:'left', false:'center'}[contrato.vigencia_fim=='']" style="width: 100px;">
+											<td ng-hide='screen_phone' ng-class="{true:'left', false:'center'}[contrato.vigencia_fim=='']" style="width: 100px;">
 												{{ contrato.contrato.vigencia_fim }}
 											</td>
 
-											<td class='right' style="width: 130px;">
+											<td ng-hide='screen_phone' class='right' style="width: 130px;">
 												{{ contrato.contrato.valor_honorario }}
 											</td>
 
-											<td class="center" style="width: 130px;">
+											<td ng-hide='screen_phone' class="center" style="width: 130px;">
 												{{ contrato.contrato.desconto_temporario+contrato.contrato.desconto_indicacoes }}
 											</td>
 
-											<td ng-class="{true:'right', false:'right'}[contrato.plano===null]" style="width: 130px;">
+											<td ng-hide='screen_phone' ng-class="{true:'right', false:'right'}[contrato.plano===null]" style="width: 130px;">
 												{{ contrato.contrato.valor_honorario-(contrato.contrato.valor_honorario*(contrato.contrato.desconto_temporario/100)) }}</span>
 											</td>
 										</tr>
@@ -585,8 +595,13 @@ color:blue;
 		});
 
 		angular.element(document.getElementById('controle_angular')).scope().carregar_clientes();
+		angular.element(document.getElementById('controle_angular')).scope().reajustar_tela();
 		configurar_formulario_padrao()
 		NProgress.done();
 	});
+
+	window.onresize = function(event) {
+    angular.element(document.getElementById('controle_angular')).scope().reajustar_tela();
+	};
 </script>
 {% endblock %}

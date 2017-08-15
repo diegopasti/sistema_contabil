@@ -65,9 +65,11 @@ class documento(models.Model):
     def precarregar_dados_digitar(self):
         from nucleo.initial_data import protocolo
         for item in protocolo.referencias_documentos:
-            print "Olha a referencia:",item
-            #novo_documento = documento()
-            #novo_documento.nome = item
+            novo_documento = documento()
+            novo_documento.nome = item
+
+    def __unicode__(self):
+        return self.nome
 
 
 
