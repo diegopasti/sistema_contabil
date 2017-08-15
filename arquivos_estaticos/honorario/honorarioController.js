@@ -74,7 +74,6 @@ app.controller('MeuController', ['$scope', function($scope) {
 	$scope.adicionar_contrato = function() {
 
 		var tipo_cliente = $('#select_tipo_cliente option:selected').val()
-		alert("VEJA O TIPO: "+tipo_cliente)
 		var plano = $('#select_plano option:selected').val()
 		var honorario = $('#honorario').val()
 
@@ -328,4 +327,23 @@ app.controller('MeuController', ['$scope', function($scope) {
 			$scope.verificar_contratos();
 
 	}
+
+	$scope.get_salario_vigente = function(){
+		$.ajax({
+			url: '/api/preferencias/salario_vigente/',
+			type: 'get', //this is the default though, you don't actually need to always mention it
+
+			success: function(data) {
+				$('#form-group-taxa-salario').tooltip({title:"Valor de Referência: "+data.salario_vigencia_atual});
+				$scope.salario_vigente = data.salario_vigencia_atual;
+				$('#salario_vigente').val(data.salario_vigencia_atual)
+				$scope.$apply();
+			},
+
+			failure: function(data) {
+				alert('Got an error dude');
+			}
+		});
+	}
+
 }]);

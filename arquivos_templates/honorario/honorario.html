@@ -20,9 +20,8 @@
 <script src="% static 'datatable/DataTables-1.10.11/js/dataTables.bootstrap.min.js' %}"></script>
 <script src="% static 'datatable/plugins/select/Select-1.1.2/js/dataTables.select.min.js' %}"></script>-->
 
-<!-- JQUERY UI DATAPICKER
-<link rel="stylesheet" href="% static 'jquery/jquery-ui-1.11.4/jquery-ui.css' %}">-->
-<!--<link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+<!-- JQUERY UI DATAPICKER-->
+<link rel="stylesheet" href="{% static 'jquery/jquery-ui-1.11.4/jquery-ui.css' %}">
 
 <!-- JQUERY AUTOCOMPLETE EDITABLE
 <link rel="stylesheet" type="text/css" href="% static 'jquery/jquery-editable-select/jquery.editable-select.min.css' %}" />
@@ -235,8 +234,8 @@ color:blue;
 							</div>
 						</div>
 						-->
-						<div class="row no-gutter">
-							<div class="col-md-3">
+						<div class="row no-gutter fluid">
+							<div class="col-md-3 col-xs-12 col-sm-12">
 								<div class="form-group">
 									<sub><label>{{ formulario_contrato.tipo_cliente.label }}</label></sub>
 										<div id="select_tipo_cliente" style="border-radius: 4px;">
@@ -246,7 +245,7 @@ color:blue;
 								</div>
 							</div>
 
-							<div class="col-md-3">
+							<div class="col-md-3 col-xs-12 col-sm-12">
 								<div class="form-group">
 									<sub><label>{{ formulario_contrato.plano.label }}</label></sub>
 										<div id="select_plano" style="border-radius: 4px;">
@@ -259,8 +258,8 @@ color:blue;
 
 						<hr>
 
-						<div class="row no-gutter">
-							<div class="col-md-2">
+						<div class="row no-gutter  fluid">
+							<div class="col-md-2 col-xs-12 col-sm-6">
 								<div class="form-group">
 									<sub><label>{{ formulario_contrato.vigencia_inicio.label }}</label></sub>
 									{{ formulario_contrato.vigencia_inicio }}
@@ -268,7 +267,7 @@ color:blue;
 								</div>
 							</div>
 
-							<div class="col-md-2">
+							<div class="col-md-2 col-xs-12 col-sm-6">
 								<div class="form-group">
 									<sub><label>{{ formulario_contrato.vigencia_fim.label }}</label></sub>
 									{{ formulario_contrato.vigencia_fim }}
@@ -276,7 +275,7 @@ color:blue;
 								</div>
 							</div>
 
-							<div class="col-md-2">
+							<div class="col-md-2 col-xs-12 col-sm-4">
 								<div class="form-group">
 									<sub><label>{{ formulario_contrato.tipo_vencimento.label }}</label></sub>
 									<div id="select_tipo_vencimento" style="border-radius: 4px;">
@@ -287,8 +286,8 @@ color:blue;
 								</div>
 							</div>
 
-							<div class="col-md-2">
-								<div class="form-group">
+							<div class="col-md-2 col-xs-12 col-sm-4">
+								<div class="form-group" id="group_dia_vencimento">
 									<sub><label>{{ formulario_contrato.dia_vencimento.label }}</label></sub>
 									<div id="select_dia_vencimento" style="border-radius: 4px;">
 										{{ formulario_contrato.dia_vencimento }}
@@ -297,16 +296,16 @@ color:blue;
 								</div>
 							</div>
 
-							<div class="col-md-2">
-								<div class="form-group">
+							<div class="col-md-2 col-xs-12 col-sm-4">
+								<div class="form-group" id="group_data_venvimento">
 									<sub><label>{{ formulario_contrato.data_vencimento.label }}</label></sub>
 									{{ formulario_contrato.data_vencimento }}
 									<!--<input id="check_tipo_vencimento" data-toggle="toggle" data-width="120" data-on="Variável" data-off="Fixo" type="checkbox">-->
 								</div>
 							</div>
 
-							<div class="col-md-2">
-								<div class="form-group">
+							<div class="col-md-2 col-xs-12 col-sm-12">
+								<div class="form-group" >
 									<sub><label>{{ formulario_contrato.tipo_honorario.label }}</label></sub>
 									<div id="select_tipo_honorario" style="border-radius: 4px;">
 										{{ formulario_contrato.tipo_honorario }}
@@ -318,21 +317,21 @@ color:blue;
 						</div>
 
 						<div class="row no-gutter">
-							<div class="col-md-2">
-								<div class="form-group" id="form-group-taxa-salario">
+							<div class="col-md-2 col-xs-12">
+								<div class="form-group" id="group_taxa_honorario">
 									<sub><label>{{ formulario_contrato.taxa_honorario.label }}</label></sub>
 									{{ formulario_contrato.taxa_honorario }}
 								</div>
 							</div>
 
-							<div class="col-md-2">
-								<div class="form-group">
+							<div class="col-md-2 col-xs-12 col-sm-4">
+								<div class="form-group" id="group_honorario">
 									<sub><label>{{ formulario_contrato.honorario.label }}</label></sub>
 									{{ formulario_contrato.honorario }}
 								</div>
 							</div>
 
-							<div class="col-md-2">
+							<div class="col-md-2 col-xs-12 col-sm-6">
 								<div class="form-group">
 									<sub><label>{{ formulario_contrato.desconto_inicio.label }}</label></sub>
 									{{ formulario_contrato.desconto_inicio }}
@@ -340,7 +339,7 @@ color:blue;
 								</div>
 							</div>
 
-							<div class="col-md-2">
+							<div class="col-md-2 col-xs-12 col-sm-6">
 								<div class="form-group">
 									<sub><label>{{ formulario_contrato.desconto_fim.label }}</label></sub>
 									{{ formulario_contrato.desconto_fim }}
@@ -348,7 +347,7 @@ color:blue;
 								</div>
 							</div>
 
-							<div class="col-md-2">
+							<div class="col-md-2 col-xs-12 col-sm-6">
 								<div class="form-group">
 									<sub><label>{{ formulario_contrato.desconto_temporario.label }}</label></sub>
 									{{ formulario_contrato.desconto_temporario }}
@@ -356,8 +355,11 @@ color:blue;
 								</div>
 							</div>
 
-							<div class="col-md-2">
-								<div class="form-group">
+							<div class="col-md-2 col-xs-12 col-sm-6">
+								<style>
+									#total[type="text"]:disabled{background-color: #fff;border: hidden; text-align: right;border-bottom: 1px solid #cccccc; border-top: 0px;box-shadow:0 0px 0px #fff}
+								</style>
+								<div class="form-group" id="group_total">
 									<sub><label>{{ formulario_contrato.total.label }}</label></sub>
 									{{ formulario_contrato.total }}
 								</div>
@@ -595,6 +597,7 @@ color:blue;
 		});
 
 		angular.element(document.getElementById('controle_angular')).scope().carregar_clientes();
+		angular.element(document.getElementById('controle_angular')).scope().get_salario_vigente();
 		angular.element(document.getElementById('controle_angular')).scope().reajustar_tela();
 		configurar_formulario_padrao()
 		NProgress.done();
