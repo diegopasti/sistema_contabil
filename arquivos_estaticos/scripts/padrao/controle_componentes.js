@@ -10,11 +10,13 @@ $(".disabled").click(function (e) {
     Desabilita/Habilita componente.
 */
 function desabilitar(campo){
-    $("#"+campo).addClass('desabilitado');
+  $("#"+campo+ ' input').attr('disabled', true);
+  $("#"+campo).addClass('desabilitado noselect');
 }
 
 function habilitar(campo){
-    $("#"+campo).removeClass('desabilitado');
+  $("#"+campo+ ' input').attr('disabled', false);
+  $("#"+campo).removeClass('desabilitado noselect');
 }
 
 
