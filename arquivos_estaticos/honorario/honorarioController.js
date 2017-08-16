@@ -142,7 +142,7 @@ app.controller('MeuController', ['$scope', function($scope) {
 				$scope.registro_selecionado.contrato.desconto_temporario = parseFloat(message.fields.desconto_temporario)
 
 
-				if (!message.fields.desconto_indicacoes){
+				if (message.fields.desconto_indicacoes!=0){
 					alert("TEM DESCONTO DE INDICACOES: "+message.fields.desconto_indicacoes)
 					$scope.registro_selecionado.contrato.desconto_indicacoes = message.fields.desconto_indicacoes//parseFloat(message.fields.desconto_indicacoes)
 				}
