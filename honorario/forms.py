@@ -60,7 +60,7 @@ class FormContrato(forms.Form):
         label="Honorário*", max_length=30, required=True, error_messages=MENSAGENS_ERROS,
         widget=forms.TextInput(
             attrs={
-                'class': "form-control uppercase", 'id': 'valor_honorario', 'ng-model': 'valor_honorario', 'onchange':'calcular_total()'
+                'class': "form-control uppercase", 'id': 'valor_honorario', 'ng-model': 'valor_honorario', 'onchange':'calcular_total()', 'onblur':'calcular_total()'
             }
         )
     )
@@ -128,7 +128,7 @@ class FormContrato(forms.Form):
         label="Desconto Temporário (%)", required=False, max_digits=5, decimal_places=2, error_messages=MENSAGENS_ERROS,
         widget=forms.TextInput(
             attrs={
-                'id': 'desconto_temporario', 'class': "form-control decimal", 'ng-model':'desconto_temporario', 'onchange':'calcular_total()'
+                'id': 'desconto_temporario', 'class': "form-control decimal", 'ng-model':'desconto_temporario', 'onchange':'calcular_total()', 'onblur':'calcular_total()'
             }
         )
     )
