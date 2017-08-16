@@ -76,7 +76,11 @@ def get_lista_contratos(request):
             response_cliente['contrato']['dia_vencimento'] = contrato.dia_vencimento
             response_cliente['contrato']['dia_vencimento'] = contrato.data_vencimento
             response_cliente['contrato']['desconto_temporario'] = float(contrato.desconto_temporario)
-            if (contrato.desconto_indicacoes):  response_cliente['contrato']['desconto_indicacoes'] = float(contrato.desconto_indicacoes)
+
+            #if (contrato.desconto_indicacoes):
+            response_cliente['contrato']['desconto_indicacoes'] = float(contrato.desconto_indicacoes)
+            print("VEJA O QUE TEM DE INDICACAO: ", response_cliente['contrato']['desconto_indicacoes'])
+
             if (contrato.desconto_inicio): response_cliente['contrato']['desconto_inicio'] = str(contrato.desconto_inicio.strftime('%d/%m/%Y'))
             if (contrato.desconto_fim): response_cliente['contrato']['desconto_fim'] = str(contrato.desconto_fim.strftime('%d/%m/%Y'))
 

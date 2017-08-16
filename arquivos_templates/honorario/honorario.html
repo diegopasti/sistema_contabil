@@ -34,7 +34,9 @@
 
 <script src="{% static 'angular-1.5.8/angular.min.js'%}"></script>
 <script src="{% static 'angular-1.5.8/dirPagination.js'%}"></script>
+<script src="{% static 'angular-1.5.8/angular-locale_pt-br.js'%}"></script>
 <link href="{% static 'styles/servico/servico.css' %}" rel="stylesheet"/>
+
 
 
 <style type="text/css">
@@ -487,17 +489,17 @@ color:blue;
 											</td>
 
 											<td ng-hide='screen_phone || screen_tablet || screen_notebook' ng-class="{'right': contrato.contrato.valor_honorario, 'center': !contrato.plano  }" style="width: 130px;">
-												<span ng-if="contrato.contrato.valor_honorario">{{ contrato.contrato.valor_honorario }}</span>
+												<span ng-if="contrato.contrato.valor_honorario">{{ contrato.contrato.valor_honorario | currency:"" }}</span>
 												<span ng-if="!contrato.plano"></span>
 											</td>
 
 											<td ng-hide='screen_phone || screen_tablet || screen_notebook' class="center" style="width: 130px;">
-												<span ng-if="contrato.plano">{{ contrato.contrato.desconto_temporario + contrato.contrato.desconto_indicacoes }}</span>
+												<span ng-if="contrato.plano">{{ contrato.contrato.desconto_temporario -- contrato.contrato.desconto_indicacoes }}</span>
 												<span ng-if="!contrato.plano"></span>
 											</td>
 
 											<td ng-hide='screen_phone || screen_tablet || screen_notebook' ng-class="{'right': contrato.plano, 'center':!contrato.plano }" style="width: 130px;">
-												<span ng-if="contrato.plano">{{ contrato.contrato.valor_honorario-(contrato.contrato.valor_honorario*(contrato.contrato.desconto_temporario/100)) }}</span></span>
+												<span ng-if="contrato.plano">{{ contrato.contrato.valor_honorario-(contrato.contrato.valor_honorario*(contrato.contrato.desconto_temporario/100)) | currency:"" }}</span>
 												<span ng-if="!contrato.plano"></span>
 											</td>
 										</tr>
