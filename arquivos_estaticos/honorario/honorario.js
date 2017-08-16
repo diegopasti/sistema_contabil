@@ -6,7 +6,7 @@ function configurar_formulario_padrao(){
 	$("#dia_vencimento_contrato").val('5')
 	configurar_campo_data('vigencia_inicio')
 	configurar_campo_data('vigencia_fim')
-	configurar_campo_data('data_vencimento_contrato')
+	configurar_campo_data('data_vencimento')
 	configurar_campo_data('desconto_inicio')
 	configurar_campo_data('desconto_fim')
 	$("#valor_honorario").maskMoney({showSymbol:false, symbol:"R$", decimal:",", thousands:"."});
@@ -44,6 +44,7 @@ function verificar_tipo_vencimento () {
 		habilitar('group_data_venvimento');
 	}else{
 		$("#dia_vencimento_contrato").val('5')
+		$("#data_vencimento").val('')
 		desabilitar('group_data_venvimento');
 		habilitar('group_dia_vencimento')
 	}
@@ -57,8 +58,9 @@ function verificar_tipo_honorario () {
 		$('#taxa_honorario').val('')
 		$('#valor_honorario').val('')
 		desabilitar('group_taxa_honorario')
-
+		$("#total").val('')
 	}
+
 }
 
 function calcular_honorario() {
@@ -72,13 +74,15 @@ function calcular_honorario() {
 }
 
 function calcular_total (){
+
+
 	var honorario = $('#valor_honorario').val();
 	var desconto = $('#desconto_temporario').val();
 	if (!(honorario == '') && !(desconto == '')) {
 		honorario = parseFloat(honorario.replace('R$ ', '').replace('.', '').replace(',', '.'));
 		desconto = parseFloat(desconto.replace('% ', '').replace('.', '').replace(',', '.'));
 		var total = Math.floor([honorario * (1 - (desconto / 100))] *100)/ 100.0
-		$('#total').val('R$ '+total);
+		$("#total").val(total);
 	}
 }
 
