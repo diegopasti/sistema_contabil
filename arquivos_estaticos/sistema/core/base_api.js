@@ -44,7 +44,7 @@ function execute_ajax(url,request_method,data_paramters,success_function,fail_fu
         var data_object = $.parseJSON(response['data-object'])
         //var moment_date = moment(data_object['fields']['joined_date']).format("DD/MM/YYYY - HH:mm:ss")
         if (success_function != null) {
-          success_function(message);
+          success_function(data_object);
         }
       }
 

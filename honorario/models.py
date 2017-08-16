@@ -19,7 +19,8 @@ class Contrato(models.Model):
 
     taxa_honorario  = models.DecimalField("Honorário:", max_digits=5, decimal_places=2, null=True,blank=False)
     valor_honorario = models.DecimalField("Valor:", max_digits=6, decimal_places=2, null=True,blank=False)
-    dia_vencimento  = models.CharField("Dia do Vencimento:",null=True,default=5,max_length=2)
+    dia_vencimento  = models.CharField("Dia do Vencimento",null=True,default=5,max_length=2)
+    data_vencimento = models.DateField("Data de Vencimento",null=True)
 
     desconto_temporario = models.DecimalField("Desconto Temporário:", max_digits=5,default=0, decimal_places=2, null=True,blank=True)
     desconto_inicio = models.DateField(null=True)

@@ -9,7 +9,7 @@ function configurar_formulario_padrao(){
 	configurar_campo_data('data_vencimento_contrato')
 	configurar_campo_data('desconto_inicio')
 	configurar_campo_data('desconto_fim')
-	$("#honorario").maskMoney({showSymbol:false, symbol:"R$", decimal:",", thousands:"."});
+	$("#valor_honorario").maskMoney({showSymbol:false, symbol:"R$", decimal:",", thousands:"."});
 	$("#total").maskMoney({showSymbol:false, symbol:"R$", decimal:",", thousands:"."});
 
 	desabilitar('group_data_venvimento')
@@ -27,7 +27,7 @@ function resetar_formulario(){
 	$("#vigencia_fim").val('')
 	$("#data_vencimento").val('')
 	$("#taxa_honorario").val('')
-	$("#honorario").val('')
+	$("#valor_honorario").val('')
 	$("#desconto_inicio").val('')
 	$("#desconto_fim").val('')
 	$("#desconto_temporario").val('')
@@ -55,7 +55,7 @@ function verificar_tipo_honorario () {
 		habilitar('group_taxa_honorario');
 	}else{
 		$('#taxa_honorario').val('')
-		$('#honorario').val('')
+		$('#valor_honorario').val('')
 		desabilitar('group_taxa_honorario')
 
 	}
@@ -67,12 +67,12 @@ function calcular_honorario() {
 	var multiplicador = $('#taxa_honorario').val()
 	if (multiplicador != ''){
 		var total = salario_vigente * parseFloat(multiplicador)
-		$('#honorario').val(total)
+		$('#valor_honorario').val(total)
 	}
 }
 
 function calcular_total (){
-	var honorario = $('#honorario').val();
+	var honorario = $('#valor_honorario').val();
 	var desconto = $('#desconto_temporario').val();
 	if (!(honorario == '') && !(desconto == '')) {
 		honorario = parseFloat(honorario.replace('R$ ', '').replace('.', '').replace(',', '.'));

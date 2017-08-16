@@ -37,7 +37,10 @@ def response_format(result,message,object,list_fields):
     response_dict['success'] = result
     response_dict['message'] = message
     if result:
-        response_dict['data-object'] = serializers.serialize('json', [object], fields=tuple(list_fields))
+        if list_fields is not None:
+            response_dict['data-object'] = serializers.serialize('json', [object], fields=tuple(list_fields))
+        else:
+            response_dict['data-object'] = serializers.serialize('json', [object])
         response_dict['data-object'] = response_dict['data-object'][1:-1]
 
     else:
@@ -63,6 +66,7 @@ def get_lista_contratos(request):
             response_cliente['contrato']['tipo_cliente'] = contrato.tipo_cliente
 
             if(contrato.vigencia_inicio): response_cliente['contrato']['vigencia_inicio'] = str(contrato.vigencia_inicio.strftime('%d/%m/%Y'))
+
             if (contrato.vigencia_fim): response_cliente['contrato']['vigencia_fim'] = str(contrato.vigencia_fim.strftime('%d/%m/%Y'))
             response_cliente['contrato']['taxa_honorario'] = contrato.taxa_honorario
 
@@ -70,10 +74,12 @@ def get_lista_contratos(request):
             if (contrato.valor_honorario): response_cliente['contrato']['valor_honorario'] = float(contrato.valor_honorario)
 
             response_cliente['contrato']['dia_vencimento'] = contrato.dia_vencimento
+            response_cliente['contrato']['dia_vencimento'] = contrato.data_vencimento
             response_cliente['contrato']['desconto_temporario'] = float(contrato.desconto_temporario)
+            if (contrato.desconto_indicacoes):  response_cliente['contrato']['desconto_indicacoes'] = float(contrato.desconto_indicacoes)
             if (contrato.desconto_inicio): response_cliente['contrato']['desconto_inicio'] = str(contrato.desconto_inicio.strftime('%d/%m/%Y'))
             if (contrato.desconto_fim): response_cliente['contrato']['desconto_fim'] = str(contrato.desconto_fim.strftime('%d/%m/%Y'))
-            if (contrato.desconto_indicacoes):  response_cliente['contrato']['desconto_indicacoes'] = float(contrato.desconto_indicacoes)
+
             response_cliente['contrato']['cadastrado_por'] = contrato.cadastrado_por.nome_razao
             response_cliente['contrato']['data_cadastro'] = str(contrato.data_cadastro.strftime('%d/%m/%Y'))
             response_cliente['contrato']['ultima_alteracao'] = str(contrato.ultima_alteracao.strftime('%d/%m/%Y'))
@@ -90,6 +96,7 @@ def get_lista_contratos(request):
             response_cliente['contrato']['taxa_honorario'] = None
             response_cliente['contrato']['valor_honorario'] = None
             response_cliente['contrato']['dia_vencimento'] = None
+            response_cliente['contrato']['data_vencimento'] = None
             response_cliente['contrato']['desconto_temporario'] = None
             response_cliente['contrato']['desconto_inicio'] = None
             response_cliente['contrato']['desconto_fim'] = None
@@ -114,8 +121,9 @@ def salvar_contrato(request):
         cliente = entidade.objects.get(pk=int(request.POST['cliente']))
         contrato.cliente = cliente
         contrato.save()
-        response_dict = response_format_success_message(contrato,['cliente'])
+        response_dict = response_format_success_message(contrato,None)
     else:
+        print("VEJA OS ERROS: ",form.errors)
         response_dict = response_format_error_message("Formulário com dados inválidos.")
 
     return HttpResponse(json.dumps(response_dict))

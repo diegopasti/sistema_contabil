@@ -56,11 +56,11 @@ class FormContrato(forms.Form):
         )
     )
 
-    honorario = forms.CharField(
+    valor_honorario = forms.CharField(
         label="Honorário*", max_length=30, required=True, error_messages=MENSAGENS_ERROS,
         widget=forms.TextInput(
             attrs={
-                'class': "form-control uppercase", 'id': 'honorario', 'ng-model': 'honorario', 'onblur':'calcular_total()'
+                'class': "form-control uppercase", 'id': 'valor_honorario', 'ng-model': 'valor_honorario', 'onblur':'calcular_total()'
             }
         )
     )
@@ -110,7 +110,7 @@ class FormContrato(forms.Form):
         label="Dia do Vencimento", required=False, error_messages=MENSAGENS_ERROS,choices=opcoes_dias,
         widget=forms.Select(
             attrs={
-                'id': 'dia_vencimento_contrato','class': "form-control decimal", 'ng-model':'dia_vencimento_contrato',
+                'id': 'dia_vencimento','class': "form-control decimal", 'ng-model':'dia_vencimento',
             }
         )
     )
@@ -119,7 +119,7 @@ class FormContrato(forms.Form):
         label="Data de Vencimento", required=False, error_messages=MENSAGENS_ERROS,
         widget=forms.TextInput(
             attrs={
-                'id': 'data_vencimento_contrato', 'class': "form-control decimal", 'ng-model': 'data_vencimento_contrato'
+                'id': 'data_vencimento', 'class': "form-control decimal", 'ng-model': 'data_vencimento'
             }
         )
     )
@@ -174,10 +174,10 @@ class FormContrato(forms.Form):
 
     def validar_inicio_fim_contrato(self):
         form_data = self.cleaned_data
-        if form_data['desconto_fim'] != None and form_data['desconto_inicio'] != None:
-            if form_data['contrato_fim'] < form_data['contrato_inicio']:
-                self._errors["contrato_fim"] = ["Encerramento do contrato não pode ser anterior ao inicio do contrato."]  # Will raise a error message
-                del form_data['contrato_fim']
+        if form_data['vigencia_fim'] != None and form_data['vigencia_inicio'] != None:
+            if form_data['vigencia_fim'] < form_data['vigencia_inicio']:
+                self._errors["vigencia_fim"] = ["Encerramento do contrato não pode ser anterior ao inicio do contrato."]  # Will raise a error message
+                del form_data['vigencia_fim']
                 return False
         return True
 
@@ -186,7 +186,7 @@ class FormContrato(forms.Form):
         if form_data['desconto_fim'] != None and form_data['desconto_inicio'] != None:
             if form_data['desconto_fim'] < form_data['desconto_inicio']:
                 self._errors["desconto_fim"] = ["Data de encerramento do desconto não pode ser anterior à data de inicio do desconto."]  # Will raise a error message
-                del form_data['contrato_fim']
+                del form_data['desconto_fim']
                 return False
         return True
 
