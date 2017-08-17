@@ -80,7 +80,7 @@ class FormContrato(forms.Form):
         widget=forms.TextInput(
             attrs={
                 'id': 'taxa_honorario','class': "form-control decimal", 'ng-model':'taxa_honorario',
-                'ng-blur':'calcular_valor_base()', 'onkeyup':'calcular_honorario()'
+                'ng-blur':'calcular_valor_base()', 'onkeyup':'calcular_honorario()' , 'onchange':'calcular_total()'
             }
         )
     )

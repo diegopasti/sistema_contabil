@@ -16,7 +16,7 @@ app.controller('MeuController', ['$scope', function($scope) {
 	$scope.filter_by_index    = parseInt($scope.filter_by);
 	$scope.filter_by_options  = ["codigo","cliente", "plano"];
 	$scope.search             = '';     // set the default search/filter term
-	$scope.minimal_quantity_rows = [1,2,3,4,5,6,7,8,9]
+	$scope.minimal_quantity_rows = [1,2,3,4,5,6,7,8,9,10]
 
 	$scope.opcao_desabilitada = "desabilitado";
 	$scope.registro_selecionado = null;
