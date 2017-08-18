@@ -369,4 +369,22 @@ app.controller('MeuController', ['$scope', function($scope) {
 		});
 	}
 
+	$scope.load_fields = function(){
+			$scope.registro_selecionado;
+			$scope.esta_adicionando = true;
+			$('#tipo_cliente').val($scope.registro_selecionado.contrato.tipo_cliente)
+			$('#plano ').select($scope.registro_selecionado.plano)
+			$('#vigencia_inicio').val($scope.registro_selecionado.contrato.vigencia_inicio)
+			$('#vigencia_fim').val($scope.registro_selecionado.contrato.vigencia_fim)
+			$('#dia_vencimento').val($scope.registro_selecionado.contrato.dia_vencimento)
+			$("#data_vencimento").val($scope.registro_selecionado.contrato.data_vencimento)
+			$('#tipo_honorario').select($scope.registro_selecionado.contrato.tipo_honorario)
+			$("#taxa_honorario").val($scope.registro_selecionado.contrato.taxa_honorario)
+			$('#valor_honorario').val($scope.registro_selecionado.contrato.valor_honorario *100.0).trigger('mask.maskMoney')
+			$('#desconto_inicio').val($scope.registro_selecionado.contrato.desconto_inicio)
+			$('#desconto_fim').val($scope.registro_selecionado.contrato.desconto_fim)
+			$('#desconto_temporario').val($scope.registro_selecionado.contrato.desconto_temporario)
+			calcular_total();
+			$scope.apply();
+	}
 }]);
