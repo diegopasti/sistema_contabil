@@ -81,6 +81,8 @@ app.controller('MeuController', ['$scope', function($scope) {
 		var vigencia_inicio = $("#vigencia_inicio").val()
 		var vigencia_fim = $("#vigencia_fim").val()
 
+		alert("VEJA AS DATAS: "+vigencia_inicio+" - "+vigencia_fim)
+
 		var tipo_vencimento = $('#select_tipo_vencimento option:selected').val()
     var dia_vencimento = $('#select_dia_vencimento option:selected').val()
 
@@ -136,8 +138,8 @@ app.controller('MeuController', ['$scope', function($scope) {
 			function success_function(message) {
 				//alert("VEJA O RESULT: "+JSON.stringify(message))
 				$scope.registro_selecionado.plano = $('#select_plano option:selected').text()
-				$scope.registro_selecionado.contrato.vigencia_inicio = message.fields.vigencia_inicio
-				$scope.registro_selecionado.contrato.vigencia_fim = message.fields.vigencia_fim
+				$scope.registro_selecionado.contrato.vigencia_inicio = vigencia_inicio
+				$scope.registro_selecionado.contrato.vigencia_fim = vigencia_fim
 				$scope.registro_selecionado.contrato.valor_honorario = message.fields.valor_honorario
 				$scope.registro_selecionado.contrato.desconto_temporario = parseFloat(message.fields.desconto_temporario)
 
@@ -149,7 +151,6 @@ app.controller('MeuController', ['$scope', function($scope) {
 				else{
 					alert("NAO TEM DESCONTO DE INDICACOES: "+message.fields.desconto_indicacoes)
 					$scope.registro_selecionado.contrato.desconto_indicacoes = 0
-
 				}
 
 				$scope.registro_selecionado.contrato.desconto_temporario = message.fields.desconto_temporario
@@ -160,12 +161,10 @@ app.controller('MeuController', ['$scope', function($scope) {
 			}
 
 			function fail_function(message) {
-				alert("DEU PAU"+message)
+				alert("ERRO: "+message)
 			}
 
 			request_api("/api/honorario/salvar_contrato",data,validate_function,success_function,fail_function)
-
-			//limpar form e fechar modal
 		}
 		else{
 		}
