@@ -27,20 +27,21 @@ class formulario_gerar_relatorio(forms.Form):
     filtrar_por_cliente = forms.CharField(label="Filtrar por Cliente: ",max_length=100,required=False,error_messages=MENSAGENS_ERROS,widget=forms.TextInput(attrs={'class':'form-control uppercase' ,'id':'filtrar_por_cliente','readonly':True,'type':"hidden" })) #
     
     opcoes_filtro = (                            
-        ('TODOS','TODOS PROTOCOLOS'),
+        ('','TODOS PROTOCOLOS'),
         ('ABERTOS','PROTOCOLOS EM ABERTO'),
         ('CONFIRMADOS','PROTOCOLOS CONFIRMADOS'),
     )
 
     lista_documentos = documento.objects.all()
-    filtrar_documentos = forms.ModelMultipleChoiceField(queryset=lista_documentos,
+    filtrar_documentos = forms.ModelMultipleChoiceField(label='Filtrar por Documentos',required=False,queryset=lista_documentos,
         widget=forms.SelectMultiple(attrs={'class': "form-control", 'id': 'filtrar_documentos'})
     )
 
     filtrar_por_status = forms.ChoiceField(label="Filtrar por Status:",choices=opcoes_filtro,required=False,error_messages=MENSAGENS_ERROS, #choices=opcoes_tipos_registros, default='C',
                     widget=forms.Select(attrs={'class':"form-control" ,'id':'filtrar_por_status'})
                     )
-    
+
+
     opcoes_operacao = (                            
         ('EMITIDOS','PROTOCOLO EMITIDOS'),
         ('RECEBIDOS','PROTOCOLOS RECEBIDOS'),
@@ -49,7 +50,7 @@ class formulario_gerar_relatorio(forms.Form):
     filtrar_por_operacao = forms.ChoiceField(label="Filtrar por Operacao:",choices=opcoes_operacao,required=False,error_messages=MENSAGENS_ERROS, #choices=opcoes_tipos_registros, default='C',
                     widget=forms.Select(attrs={'class':"form-control" ,'id':'filtrar_por_operacao'})
                     )
-    
+
     filtrar_desde          = forms.DateField(
                                 label="Desde:",required=False,
                                 widget= forms.DateInput(attrs={'class':"form-control" ,'id':'filtrar_desde'},format = '%d/%m/%Y'), 

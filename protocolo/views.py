@@ -25,6 +25,7 @@ from entidade.models import entidade, contato, localizacao_simples  # , localiza
 from entidade.views import verificar_erros_formulario
 from protocolo.formularios import formulario_gerar_relatorio, formulario_adicionar_documento
 from protocolo.models import protocolo, item_protocolo,documento #item_protocolo_serializer
+from protocolo.report import report_protocols_per_documents
 from sistema_contabil.settings import BASE_DIR
 
 #from sistema_contabil.settings import BASE_DIR, STATIC_URL
@@ -158,14 +159,21 @@ def cadastro_protocolo(request):
         form_relatorio = formulario_gerar_relatorio()
         
         if 'gerar_relatorio' in request.POST:
+
             form_relatorio = formulario_gerar_relatorio(request.POST)
-            
-            if form_relatorio.is_valid(): 
+
+            if form_relatorio.is_valid():
                 filtro_por_cliente = form_relatorio['filtrar_por_cliente'].value().upper()
                 filtro_por_status = form_relatorio['filtrar_por_status'].value().upper()
                 filtro_por_data_desde = form_relatorio['filtrar_desde'].value()
                 filtro_por_operacao = form_relatorio['filtrar_por_operacao'].value()
                 filtro_por_data_ate = form_relatorio['filtrar_ate'].value()
+                filtro_por_documento = form_relatorio['filtrar_documentos'].value()
+
+                if len(filtro_por_documento) != 0:
+                    return report_protocols_per_documents(request,form_relatorio)
+
+
                  
                 if filtro_por_cliente == '':
                     resultado = protocolo.objects.all()
@@ -184,11 +192,10 @@ def cadastro_protocolo(request):
                     print 'emitidos desde: ',filtro_por_data_desde
                     
                     if filtro_por_operacao == "EMITIDOS":
-                        resultado = resultado.filter(data_emissao__gte=filtro_por_data_desde)   
+                        resultado = resultado.filter(data_emissao__gte=filtro_por_data_desde)
                     else:
                         resultado = resultado.filter(data_recebimento__gte=filtro_por_data_desde)
-                    
-                
+
                 if filtro_por_data_ate != "":
                     filtro_por_data_ate = converte_formato_data(filtro_por_data_ate)
                     
@@ -207,6 +214,8 @@ def cadastro_protocolo(request):
                 form_relatorio = formulario_gerar_relatorio()
                 
                 return gerar_relatorio_simples(request,resultado)
+            else:
+                print("DEU ERRO? ",form_relatorio.errors)
                 
         elif 'confirmar_protocolo' in request.POST:
             form_entrega = formulario_confirmar_entrega(request.POST)
