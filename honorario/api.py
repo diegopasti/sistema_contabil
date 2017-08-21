@@ -118,7 +118,6 @@ def get_lista_contratos(request):
     return HttpResponse(json.dumps(response_dict))
 
 def salvar_contrato(request):
-    print("SALVAR: ",request.POST)
     result, form = filter_request(request,FormContrato)
     if result:
         contrato = form.form_to_object()

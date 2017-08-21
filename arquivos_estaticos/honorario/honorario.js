@@ -3,7 +3,7 @@ function configurar_formulario_padrao(){
 	$("#plano").val(1)
 	$("#tipo_honorario").val('FIXO')
 	$("#tipo_vencimento").val('MENSAL')
-	$("#dia_vencimento_contrato").val('5')
+	$("#dia_vencimento").val('5')
 	configurar_campo_data('vigencia_inicio')
 	configurar_campo_data('vigencia_fim')
 	configurar_campo_data('data_vencimento')
@@ -39,11 +39,11 @@ function resetar_formulario(){
 function verificar_tipo_vencimento () {
 	var tipo_vencimento = $('#select_tipo_vencimento option:selected').val();
 	if (tipo_vencimento == 'ANUAL'){
-		$("#dia_vencimento_contrato").val('')
+		$("#dia_vencimento").val('')
 		desabilitar('group_dia_vencimento');
 		habilitar('group_data_venvimento');
 	}else{
-		$("#dia_vencimento_contrato").val('5')
+		$("#dia_vencimento").val('5')
 		$("#data_vencimento").val('')
 		desabilitar('group_data_venvimento');
 		habilitar('group_dia_vencimento')
@@ -53,10 +53,12 @@ function verificar_tipo_vencimento () {
 function verificar_tipo_honorario () {
 	var tipo_vencimento = $('#select_tipo_honorario option:selected').val();
 	if (tipo_vencimento == 'VARIAVEL'){
+		$('#valor_honorario').val('');
 		habilitar('group_taxa_honorario');
-	}else{
+		$("#total").val('');
+	}
+	else{
 		$('#taxa_honorario').val('')
-		$('#valor_honorario').val('')
 		desabilitar('group_taxa_honorario')
 		$("#total").val('')
 	}
@@ -65,24 +67,25 @@ function verificar_tipo_honorario () {
 
 function calcular_honorario() {
 	var salario_vigente = angular.element(document.getElementById('controle_angular')).scope().salario_vigente;
-	salario_vigente = parseFloat(salario_vigente.replace('R$ ','').replace('.','').replace(',','.'));
-	var multiplicador = $('#taxa_honorario').val()
+	salario_vigente = Number(salario_vigente.replace('R$ ','').replace('.','').replace(',','.')); //975.3
+	var multiplicador = $('#taxa_honorario').val().replace(',','.')
 	if (multiplicador != ''){
-		var total = salario_vigente * parseFloat(multiplicador)
-		$('#valor_honorario').val(total)
+		var total = salario_vigente * (Number(multiplicador))
+		total = Math.round(total*10000)/100.0;
+		$('#valor_honorario').val(total).trigger('mask.maskMoney')
 	}
 }
 
 function calcular_total (){
-
-
 	var honorario = $('#valor_honorario').val();
 	var desconto = $('#desconto_temporario').val();
-	if (!(honorario == '') && !(desconto == '')) {
-		honorario = parseFloat(honorario.replace('R$ ', '').replace('.', '').replace(',', '.'));
-		desconto = parseFloat(desconto.replace('% ', '').replace('.', '').replace(',', '.'));
-		var total = Math.floor([honorario * (1 - (desconto / 100))] *100)/ 100.0
-		$("#total").val(total);
+	if (!(honorario == '')) {
+		honorario = Number(honorario.replace(/\./g,'').replace(',','.'));
+		desconto = Number(desconto.replace(',','.'));
+		var total =honorario * (1 - (desconto/100))
+		total = Math.round(total *10000) / 100.0
+		//total *= 100;
+		$('#total').val(total).trigger('mask.maskMoney');
 	}
 }
 
