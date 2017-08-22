@@ -367,12 +367,89 @@ color:blue;
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="modal-footer">
 						<div class="row">
 							<div class="col-md-2 col-md-push-10">
 								<button type="submit" id="bt_submit_servico" class="btn btn-sm btn-primary form-control" data-toggle="modal" data-target="">Salvar</button>
 								<!-- <a href="#modal_adicionar_documento" role="button"            ng-class="{'desabilitado': modal_servico == ''}"                            class="btn btn-primary form-control" data-toggle="modal" '  > Adicionar</a>  -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div id="modal_indicacoes" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+		<div class="modal-dialog" style="width: 70%">
+			<!--  > -->
+			<form id="form_indicacoes" method="post" novalidate autocomplete="off">
+				{% csrf_token %}
+				<div class="modal-content">
+
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						<h5 id="titulo_modal_indicacoes" style="font-weight: bold">Indicações</h5>
+					</div>
+
+					<div class="modal-body" style="padding: 35px;padding-top: 10px;">
+
+						<div ng-show="contratos_carregados">
+							<div class="dataTable_wrapper">
+								<div class='row'>
+									<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+										<table class="table table-condensed  table-striped table-bordered table-hover" id="datatable">
+											<thead>
+												<tr class="linha_cabecalho">
+													<th class='center' style="width: 40px;" ng-click="sortType = 'id'; sortReverse = !sortReverse"></th>
+
+													<th class='center' ng-click="sortType = 'cliente'; sortReverse = !sortReverse">Empresa Indicada</th>
+
+													<th class="center" ng-click="sortType = 'plano'; sortReverse = !sortReverse">Data de Indicação</th>
+
+													<th class='center' ng-click="sortType = 'inicio'; sortReverse = !sortReverse">Taxa Desconto</th>
+
+													<th class='center' ng-click="sortType = 'inicio'; sortReverse = !sortReverse">Ativo</th>
+												</tr>
+											</thead>
+										</table>
+										<!--<tbody>
+										{% verbatim %}
+											<tr ng-if="(contratos|filter:filterIds()).length == 0">
+												<td colspan="8" class="center">Nenhum Cliente Cadastrado!</td>
+											</tr>
+
+											<tr ng-cloak class="angular-repeat linha_selecionavel {{ contrato.selecionado }}" ng-click="selecionar_linha(contrato)" pagination-id="paginate_contratos" dir-paginate="contrato in contratos | filter: get_filter_column() | itemsPerPage:10 | orderBy:sortType:sortReverse as resultado" >
+												<tr ng-repeat='contrato in contratos' class="linha_selecionavel {{ contrato.selecionado }}" ng-click="selecionar_linha(contrato)" pagination-id="paginate_contratos">
+
+												<td class='center' style="width: 30px;">{{ contrato.cliente_id }}</td>
+												<td class="left" style="padding-left: 10px;">{{ contrato.cliente_nome }}</td>
+											</tr>
+										</tbody>-->
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-4">
+								<style>
+									#total[type="text"]:disabled{background-color: #fff;border: hidden; text-align: right;border-bottom: 1px solid #cccccc; border-top: 0px;box-shadow:0 0px 0px #fff}
+								</style>
+								<div class="form-group" id="group_total">
+									<!--<sub><label>{{ Formindica.total.label }} </label></sub>
+									{{ FormIndicacoes.total }}-->
+
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="modal-footer">
+						<div class="row">
+							<div class="col-md-2 col-md-push-10">
+								<button type="submit" id="bt_submit_indicacoes" class="btn btn-sm btn-primary form-control" data-toggle="modal" data-target="">Fechar</button>
 							</div>
 						</div>
 					</div>
@@ -396,7 +473,7 @@ color:blue;
 								<a href="#" id='bt_adicionar' role="button" class="btn btn-sm btn-primary" ng-class="{true:'desabilitado', false:''}[registro_selecionado==null]"  data-toggle="modal" data-target="#modal_adicionar_contrato" ng-click="load_fields();esta_adicionando = true">Contrato</a>
 								<a href="#" id='bt_servicos' role="button" class="btn btn-sm btn-default" ng-class="{true:'desabilitado', false:''}[registro_selecionado==null]"  data-toggle="modal" data-target="#modal_servicos" ng-click="configurar_inclusao_servico();esta_adicionando = true" style='margin-left: 5px;'>Serviços</a>
 								<!--<a href="#" role="button" id="bt_consultar_cliente" class="btn btn-sm btn-default pull-left desabilitado" style='margin-left: 5px;'><i class="fa fa-pencil-square-o fa-1x"></i> Editar</a>-->
-								<a href="#" role="button" id="bt_indicacoes" class="btn btn-sm btn-default pull-left" ng-class="{true:'desabilitado', false:''}[registro_selecionado==null]" style='margin-left: 5px;'> Indicações</a>
+								<a href="#" id='bt_indicacoes' role="button" class="btn btn-sm btn-default pull-left" ng-class="{true:'desabilitado', false:''}[registro_selecionado==null]" data-toggle="modal" data-target="#modal_indicacoes" ng-click="carregar_indicacao()" style='margin-left: 5px;'> Indicações</a>
 
 								<div class="btn-group" role="group" style='margin-left: 5px;'>
 									<button type="button" id='bt_outras_acoes' class="btn btn-sm btn-default dropdown-toggle desabilitado" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span>

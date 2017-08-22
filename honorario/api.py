@@ -4,7 +4,7 @@ from django.http import HttpResponse, Http404
 
 from entidade.models import entidade
 from honorario.forms import FormContrato
-from honorario.models import Contrato
+from honorario.models import Contrato, Indicacao
 from sistema_contabil import settings
 from django.core import serializers
 import json
@@ -74,7 +74,7 @@ def get_lista_contratos(request):
             if (contrato.valor_honorario): response_cliente['contrato']['valor_honorario'] = float(contrato.valor_honorario)
 
             response_cliente['contrato']['dia_vencimento'] = contrato.dia_vencimento
-            response_cliente['contrato']['dia_vencimento'] = contrato.data_vencimento
+            response_cliente['contrato']['data_vencimento'] = contrato.data_vencimento
             response_cliente['contrato']['desconto_temporario'] = float(contrato.desconto_temporario)
 
             #if (contrato.desconto_indicacoes):
@@ -96,8 +96,6 @@ def get_lista_contratos(request):
             response_cliente['contrato']['vigencia_inicio'] = None
             response_cliente['contrato']['vigencia_fim'] = None
             response_cliente['contrato']['taxa_honorario'] = None
-
-            response_cliente['contrato']['taxa_honorario'] = None
             response_cliente['contrato']['valor_honorario'] = None
             response_cliente['contrato']['dia_vencimento'] = None
             response_cliente['contrato']['data_vencimento'] = None
@@ -111,11 +109,35 @@ def get_lista_contratos(request):
             response_cliente['contrato']['alterado_por'] = None
 
         response_dict.append(response_cliente)
-        #print("CLIENTE: "+item.nome_razao+" - CONTRATO: ",contrato)
-
-    #print("VEJA OS CONTRATOS: ",lista_clientes)
-    # response_dict = response_format_error("Formulário com dados inválidos.")
     return HttpResponse(json.dumps(response_dict))
+
+'''Temporario'''
+def get_lista_indicacoes(request):
+
+    id_cliente = int(request.post['cliente_id'])
+    lista_indicacoes = Indicacao.objects.filter(cliente=id_cliente)
+    response_dict = []
+    for indicacao in lista_indicacoes :
+
+        if len(indicacao) != 0:
+            response_indicacao = {}
+            response_indicacao['cliente_id'] = indicacao.cliente
+            response_indicacao['indicacao']['nome_empresa'] = indicacao.indicacao.nome_razao
+            response_indicacao['indicacao']['data_registro'] = indicacao.data_cadastro
+            response_indicacao['indicacao']['taxa_desconto'] = indicacao.taxa_desconto
+            response_indicacao['indicacao']['indicacao_ativa'] = indicacao.indicacao_ativa
+        else:
+            response_indicacao = {}
+            response_indicacao['cliente_id'] = None
+            response_indicacao['indicacao']['nome_empresa'] = None
+            response_indicacao['indicacao']['data_registro'] = None
+            response_indicacao['indicacao']['taxa_desconto'] = None
+            response_indicacao['indicacao']['indicacao_ativa'] = None
+
+        response_dict.append(response_indicacao)
+
+    return HttpResponse(json.dump(response_dict))
+'''FIM Temporario'''
 
 def salvar_contrato(request):
     result, form = filter_request(request,FormContrato)

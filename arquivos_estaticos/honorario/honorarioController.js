@@ -72,6 +72,25 @@ app.controller('MeuController', ['$scope', function($scope) {
 		});
 	}
 
+	/*Carregar Lista Indicacoes*/
+	$scope.carregar_indicacao = function () {
+		$.ajax({
+			type: 'GET',
+			url: "/api/honorario/lista_indicacao",
+			success: function (data) {
+				$scope.indicacoes = JSON.parse(data);
+				$scope.indicacoes_carregadas = true;
+				$scope.$apply();
+
+			},
+			failure: function (data) {
+				$scope.indicacao = [];
+				$scope.desabilitar = 'link_desabilitado'
+				alert("Não foi possivel carregar a lista de indicacoes")
+			}
+		})
+	}
+
 	$scope.adicionar_contrato = function() {
 
 		var tipo_cliente = $('#select_tipo_cliente option:selected').val()
@@ -137,6 +156,7 @@ app.controller('MeuController', ['$scope', function($scope) {
 
 			function success_function(message) {
 				//alert("VEJA O RESULT: "+JSON.stringify(message))
+				$scope.registro_selecionado.contrato.tipo_cliente = $('#tipo_cliente option:selected').text()
 				$scope.registro_selecionado.plano = $('#select_plano option:selected').text()
 				$scope.registro_selecionado.contrato.vigencia_inicio = vigencia_inicio
 				$scope.registro_selecionado.contrato.vigencia_fim = vigencia_fim
@@ -369,21 +389,25 @@ app.controller('MeuController', ['$scope', function($scope) {
 	}
 
 	$scope.load_fields = function(){
-			$scope.registro_selecionado;
-			$scope.esta_adicionando = true;
-			$('#tipo_cliente').val($scope.registro_selecionado.contrato.tipo_cliente)
-			$('#plano ').select($scope.registro_selecionado.plano)
-			$('#vigencia_inicio').val($scope.registro_selecionado.contrato.vigencia_inicio)
-			$('#vigencia_fim').val($scope.registro_selecionado.contrato.vigencia_fim)
-			$('#dia_vencimento').val($scope.registro_selecionado.contrato.dia_vencimento)
-			$("#data_vencimento").val($scope.registro_selecionado.contrato.data_vencimento)
-			$('#tipo_honorario').select($scope.registro_selecionado.contrato.tipo_honorario)
-			$("#taxa_honorario").val($scope.registro_selecionado.contrato.taxa_honorario)
-			$('#valor_honorario').val($scope.registro_selecionado.contrato.valor_honorario *100.0).trigger('mask.maskMoney')
-			$('#desconto_inicio').val($scope.registro_selecionado.contrato.desconto_inicio)
-			$('#desconto_fim').val($scope.registro_selecionado.contrato.desconto_fim)
-			$('#desconto_temporario').val($scope.registro_selecionado.contrato.desconto_temporario)
-			calcular_total();
-			$scope.apply();
+		var plano = $scope.registro_selecionado.plano
+		//var tipo_cliente = $scope.registro_selecionado.contrato.tipo_cliente
+		alert("plano:		"+plano);
+		//$scope.registro_selecionado;
+		$scope.esta_adicionando = true;
+		$('#plano ').val(plano)
+		//$('#tipo_cliente option:selected').val(tipo_cliente)
+		$('#vigencia_inicio').val($scope.registro_selecionado.contrato.vigencia_inicio)
+		$('#vigencia_fim').val($scope.registro_selecionado.contrato.vigencia_fim)
+		$('#dia_vencimento').val($scope.registro_selecionado.contrato.dia_vencimento)
+		$("#data_vencimento").val($scope.registro_selecionado.contrato.data_vencimento)
+		$('#tipo_honorario').select($scope.registro_selecionado.contrato.tipo_honorario)
+		$("#taxa_honorario").val($scope.registro_selecionado.contrato.taxa_honorario)
+		$('#valor_honorario').val($scope.registro_selecionado.contrato.valor_honorario *100.0).trigger('mask.maskMoney')
+		$('#desconto_inicio').val($scope.registro_selecionado.contrato.desconto_inicio)
+		$('#desconto_fim').val($scope.registro_selecionado.contrato.desconto_fim)
+		$('#desconto_temporario').val($scope.registro_selecionado.contrato.desconto_temporario)
+		calcular_total();
+		$scope.apply();
 	}
+
 }]);
