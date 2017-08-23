@@ -35,3 +35,13 @@ class Contrato(models.Model):
 
     def serialize(self):
         serialized_values = {}
+
+class Indicacao (models.Model):
+    cliente = models.ForeignKey(entidade, related_name = "cliente")
+    indicacao = models.ForeignKey(entidade,related_name = "indicacao")
+    taxa_desconto = models.DecimalField("Taxa Desconto",max_digits=5, decimal_places=2, default=0)
+    indicacao_ativa = models.BooleanField(default=True)
+    cadastrado_por = models.ForeignKey(entidade, related_name="indicacao_cadastrado_por", default=1)
+    data_cadastro = models.DateTimeField(auto_now_add=True)
+    ultima_alteracao = models.DateTimeField(null=True, auto_now=True)
+    alterado_por = models.ForeignKey(entidade, related_name="indicacao_alterado_por", default=1)

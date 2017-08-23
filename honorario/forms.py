@@ -197,5 +197,27 @@ class FormContrato(forms.Form):
         return contrato
         #contrato.tipo_contrato = self.cleaned_data['tipo_contrato']
 
+class FormIndicacoes(forms.Form):
+    '''id = forms.CharField
+    #foi_indicado_por = forms.ModelField()
+    # esta_indicando = models.ForeignKey(entidade, default=0)
+    taxa_desconto = forms.DecimalField("Taxa Desconto", max_digits=5, decimal_places=2, default=0)
+    indicacao_ativa = forms.BooleanField(default=True)
+    data_cadastro_indicacao = forms.DateTimeField(auto_now_add=True)
+    id_cadastrante = forms.CharField("Id cadastrante", max_length=50, default=0)
+    data_encerramento = forms.DateTimeField(null=True, auto_now=True)
+    data_ultima_alteracao = forms.DateTimeField(null=True, auto_now=True)
+    id_encerrador = forms.CharField("Id encerrador", max_length=50, null=True)'''
+
+    total = forms.CharField(
+        label="Total (R$)", max_length=20, required=False, error_messages=MENSAGENS_ERROS,
+        widget=forms.TextInput(
+            attrs={
+                'id': 'total', 'class': "form-control readonly", 'ng-model': 'total'
+            }
+        )
+    )
+
+
 
 
