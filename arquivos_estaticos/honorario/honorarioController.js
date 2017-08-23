@@ -126,10 +126,10 @@ app.controller('MeuController', ['$scope', function($scope) {
 			url: "/api/honorario/lista_indicacao/" + $scope.registro_selecionado.cliente_id,
 
 			success: function (data) {
-				alert("VEJA A RESPOSTA: "+JSON.stringify(data))
+				//alert("VEJA A RESPOSTA: "+JSON.stringify(data))
 				$scope.registro_selecionado.indicacoes = JSON.parse(data);
 				$scope.$apply();
-				alert("VEJA O QUE TEMOS NAS INDICACOES: "+$scope.registro_selecionado.indicacoes[0].cliente_id)
+				//alert("VEJA O QUE TEMOS NAS INDICACOES: "+$scope.registro_selecionado.indicacoes[0].cliente_id)
 			},
 			failure: function (data) {
 				$scope.indicacao = [];

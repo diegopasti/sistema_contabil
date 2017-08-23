@@ -403,7 +403,7 @@ color:blue;
 
 				<div class="modal-body" style="padding: 35px;padding-top: 10px;">
 
-					<div ng-show="contratos_carregados">
+					<div>
 						<div class="dataTable_wrapper">
 							<div class='row'>
 								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -421,23 +421,33 @@ color:blue;
 												<th class='center'>Ativo</th>
 											</tr>
 										</thead>
-									</table>
-									<tbody>
+
+										<tbody>
 									{% verbatim %}
 										<tr ng-if="(registro_selecionado.indicacoes|filter:filterIds()).length == 0">
 											<td colspan="8" class="center">Nenhuma indicacao Cadastrada!</td>
 										</tr>
 
 
+
 										<tr ng-repeat='registro in registro_selecionado.indicacoes'>
 											<td class='center' style="width: 30px;">{{ registro.cliente_id }}</td>
-											<!--<td class="left" style="padding-left: 10px;">{{ registro.indicacao.cliente_nome }}</td>
+											<td class="left" style="padding-left: 10px;">{{ registro.indicacao.nome_razao }}</td>
+											<td class="center" style="width: 30px">{{ registro.indicacao.data_cadastro }}</td>
+											<td class="center" style="width: 30px;">{{ registro.indicacao.taxa_desconto }}</td>
 											<td class="center" style="width: 30px">{{ registro.indicacao.indicacao_ativa }}</td>
-											<td class="center" style="width: 30px;">{{ registro.indicacao.data_cadastro }}</td>
-											<td class="center" style="width: 30px">{{ registro.indicacao.taxa_desconto }}</td>-->
+										</tr>
+
+										<tr ng-repeat="k in minimal_quantity_rows.slice(registro_selecionado.indicacoes.length,minimal_quantity_rows.length)">
+											<td style="width:30px; height: 30px;"></td>
+											<td></td>
+											<td style="width:140px;"></td>
+											<td class='center' style="width: 120px;"></td>
+											<td class='center' style="width: 80px;"></td>
 										</tr>
 									{% endverbatim %}
 									</tbody>
+									</table>
 								</div>
 							</div>
 						</div>

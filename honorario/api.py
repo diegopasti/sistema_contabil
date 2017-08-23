@@ -124,6 +124,7 @@ def get_lista_indicacoes(request,cliente_id):
         response_indicacao = {}
         response_indicacao['cliente_id'] = indicacao.cliente.id
         response_indicacao['indicacao'] = {}
+        response_indicacao['indicacao']['selecionado'] = ''
         response_indicacao['indicacao']['nome_razao'] = indicacao.indicacao.nome_razao
         response_indicacao['indicacao']['data_cadastro'] = str(indicacao.data_cadastro.strftime('%d/%m/%Y'))
         response_indicacao['indicacao']['taxa_desconto'] = float(indicacao.taxa_desconto)
