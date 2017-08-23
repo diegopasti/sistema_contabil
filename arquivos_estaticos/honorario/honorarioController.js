@@ -5,10 +5,10 @@ app.controller('MeuController', ['$scope', function($scope) {
 	$scope.screen_height = window.innerHeight // screen.availHeight; - PEGA O TAMANHO DA TELA DO DISPOSITIVO
 	$scope.screen_width  = window.innerWidth  // PEGA O TAMANHO DA JANELA DO BROWSER
 
-	$scope.screen_desktop = null;
-	$scope.screen_notebook = null;
-	$scope.screen_tablet = null;
-	$scope.screen_phone = null;
+	$scope.screen4 = null;
+	$scope.screen3 = null;
+	$scope.screen2 = null;
+	$scope.screen1 = null;
 
 	$scope.sortType           = 'codigo';    // set the default sort type
 	$scope.sortReverse        = false;  // set the default sort order
@@ -26,27 +26,76 @@ app.controller('MeuController', ['$scope', function($scope) {
 		$scope.screen_height = window.innerHeight
 		$scope.screen_width  = window.innerWidth
 
-		$scope.screen_desktop = false;
-		$scope.screen_notebook = false;
-		$scope.screen_tablet = false;
-		$scope.screen_phone = false;
+		$scope.screen5 = false;  // Giant Screen:   1681 or more
+		$scope.screen4 = false;  // Larger Screen:  1025 ~ 1680 + 656
+		$scope.screen3 = false;  // Large Screen:    769 ~ 1024 + 304
+		$scope.screen2 = false;  // Medium Screen:   321 ~ 720 + 240
+		$scope.screen1 = false;  // Small Screen:    361 ~ 480 + 120
+		$scope.screen0 = false;  // Smaller Screen:    0 ~ 360
 
-		if ($scope.screen_width < 576){
-			$scope.screen_phone = true;
+
+		//if ($scope.col_cliente_size){
+		//	$scope.col_cliente_size = $scope.col_cliente_size - 50; // PROBLEMA QUANDO 481,482,483,484px no 485 volta ao normal
+		//}
+		//else{
+		//	$scope.col_cliente_size = 100;
+		//}
+
+
+		// QUANDO A TELA TA NO MENOR TAMANHO (304px) A COLUNA CLIENTE TEM 185px. SE EU QUERO UM OFFSET NO FINAL
+		//alert("VEJA A COLUNA: "+$scope.col_cliente_size)
+
+		//alert("TEM ALGUMA COISA AQui: "+$scope.col_cliente_size)
+		// PROBLEMA QUANDO TO REFRESH NUMA TELA MAIOR DEPOIS DESCO PRA UMA MENOR
+		//if(!$scope.col_cliente_size){
+		//	$scope.col_cliente_size = $scope.screen_width - ($scope.screen_width*0,6788); // 120
+
+			// 304 -> 185 = 0,6058
+			// 360 -> 241 = 0,6694
+			// 480 -> 360 = 0,7500
+			// 720 -> 497 = 0,6902
+			// MEDIA 0,6788
+		//}
+
+		//alert("VEJA O TAMANHO (NA RESOLUCAO BAIXA COMECA COM 185px: "+ $scope.col_cliente_size)
+
+
+
+
+		//$scope.col_cliente_size = $('.col-cliente').width();
+
+		if ($scope.screen_width <= 360){
+			$scope.screen0 = true;
+			//if($scope.screen_width <= $scope.col_cliente_size){
+			//	alert("COLUNA SERIA MAIOR QUE A A TELA.. AI VOU ACERTAR.."+$scope.col_cliente_size)
+			//	$scope.col_cliente_size = $scope.screen_width - 120;
+			//}
+
+			//else{
+			//	alert("OLHA AS PROPORÇOES.."+$scope.screen_width+" - "+$scope.col_cliente_size)
+			//}
+			//$scope.col_cliente_size = $scope.screen_width - 120;
+			//$scope.col_cliente_size = $scope.col_cliente_size - 10;
 		}
 
-		else if ($scope.screen_width < 768){
-			$scope.screen_tablet = true;
+		else if ($scope.screen_width <= 480){
+			$scope.screen1 = true;
+			//$scope.col_cliente_size = $scope.col_cliente_size - 120;
 		}
 
-		else if ($scope.screen_width < 992){
-			$scope.screen_notebook = true;
+		else if ($scope.screen_width <= 720){
+			$scope.screen2 = true;
+			//$scope.col_cliente_size = $scope.col_cliente_size - 10;
 		}
-		else if ($scope.screen_width < 1200){
-			$scope.screen_desktop = true;
+
+		else if ($scope.screen_width <= 1024){
+			$scope.screen3 = true;
+		}
+		else if ($scope.screen_width <= 1268){
+			$scope.screen4 = true;
 		}
 		else{
-			$scope.screen_desktop = true;
+			$scope.screen5 = true;
 		}
 		$scope.$apply();
 	}
@@ -62,6 +111,7 @@ app.controller('MeuController', ['$scope', function($scope) {
 					//$scope.verificar_contratos();
 					$scope.contratos_carregados = true;
 					$scope.$apply();
+					$scope.reajustar_tela();
 
 				},
 				failure: function (data) {
@@ -170,11 +220,9 @@ app.controller('MeuController', ['$scope', function($scope) {
 
 
 				if (message.fields.desconto_indicacoes!=0){
-					alert("TEM DESCONTO DE INDICACOES: "+message.fields.desconto_indicacoes)
 					$scope.registro_selecionado.contrato.desconto_indicacoes = message.fields.desconto_indicacoes//parseFloat(message.fields.desconto_indicacoes)
 				}
 				else{
-					alert("NAO TEM DESCONTO DE INDICACOES: "+message.fields.desconto_indicacoes)
 					$scope.registro_selecionado.contrato.desconto_indicacoes = 0
 				}
 

@@ -160,6 +160,16 @@ color:blue;
   z-index: 1;
   transition: .15s ease-out;
 }
+
+.responsive-text{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#table_contratos td{
+	height: 26px;
+}
 </style>
 {% endblock %}
 
@@ -172,7 +182,7 @@ color:blue;
 
 {% block conteudo %}
 
-<div id="controle_angular" ng-app="app" ng-controller="MeuController" ng-init="contratos_carregados=false">
+<div id="controle_angular" ng-app="app" ng-cloak ng-controller="MeuController" ng-init="contratos_carregados=false">
 
 	<div id="modal_adicionar_contrato" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
 		<div class="modal-dialog" style="width: 70%">
@@ -449,7 +459,7 @@ color:blue;
 
 	<div class="row">
 		<div class="col-lg-12 col-md-12 col-xs-12">
-			<div class="box box-default" style="margin-top: -25px;">
+			<div class="box box-default" >
 
 				<div class="box-heading">
 
@@ -458,7 +468,6 @@ color:blue;
 						<div class="pull-right">
 							<div class="btn-group" role="group" aria-label="...">
 								<a href="#" id='bt_adicionar' role="button" class="btn btn-sm btn-primary" ng-class="{true:'desabilitado', false:''}[registro_selecionado==null]"  data-toggle="modal" data-target="#modal_adicionar_contrato" ng-click="load_fields();esta_adicionando = true">Contrato</a>
-
 								<a href="#" id='bt_servicos' role="button" class="btn btn-sm btn-default" ng-class="{true:'desabilitado', false:''}[registro_selecionado==null]"  data-toggle="modal" data-target="#modal_servicos" ng-click="configurar_inclusao_servico();esta_adicionando = true" style='margin-left: 5px;'>Serviços</a>
 								<!--<a href="#" role="button" id="bt_consultar_cliente" class="btn btn-sm btn-default pull-left desabilitado" style='margin-left: 5px;'><i class="fa fa-pencil-square-o fa-1x"></i> Editar</a>-->
 								<a href="#" id='bt_indicacoes' role="button" class="btn btn-sm btn-default pull-left" ng-class="{true:'desabilitado', false:''}[registro_selecionado==null]" data-toggle="modal" data-target="#modal_indicacoes" ng-click="carregar_indicacao()" style='margin-left: 5px;'> Indicações</a>
@@ -487,81 +496,80 @@ color:blue;
 
 				<div class="box-body" style="padding-bottom: -10px; margin-top: 0px;">
 
-					<div ng-show="!contratos_carregados">
-						CARREGANDO..
-					</div>
-
-
 					<!--<div id="divCarregando" class="progresso">
 							<!--<img src="~/Imagens/midi.gif" />--
 							<br /> Carregando...
 					</div>
 					-->
 
-					<div ng-show="contratos_carregados">
-						<div class="dataTable_wrapper">
-							<div class='row'>
-								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-									<table class="table table-condensed  table-striped table-bordered table-hover" id="datatable">
-										<thead>
-											<tr class="linha_cabecalho">
-												<th class='center' style="width: 40px;" ng-click="sortType = 'id'; sortReverse = !sortReverse"></th>
+					<div class="dataTable_wrapper">
+						<div class='row'>
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								<table class="table table-condensed  table-striped table-bordered table-hover" id="table_contratos" style="width: 100%;">
+									<thead>
+										<tr class="linha_cabecalho">
+											<th class='center' style="width: 40px;" ng-click="sortType = 'id'; sortReverse = !sortReverse"></th>
 
-												<th class='center' ng-click="sortType = 'cliente'; sortReverse = !sortReverse">Cliente</th>
+											<th class='center' ng-click="sortType = 'cliente'; sortReverse = !sortReverse">Cliente</th>
 
-												<th class="center" ng-hide='screen_phone || screen_tablet' ng-click="sortType = 'plano'; sortReverse = !sortReverse">Plano</th>
+											<th class="center" ng-hide='screen0 || screen1' ng-click="sortType = 'plano'; sortReverse = !sortReverse">Plano</th>
 
-												<th class='center' ng-hide='screen_phone || screen_tablet || screen_notebook' ng-click="sortType = 'inicio'; sortReverse = !sortReverse">Início</th>
+											<th class='center' ng-hide='screen0 || screen1 || screen2 || screen3' ng-click="sortType = 'inicio'; sortReverse = !sortReverse">Início</th>
 
-												<th class='center' ng-hide='screen_phone || screen_tablet || screen_notebook' ng-click="sortType = 'termino'; sortReverse = !sortReverse">Término</th>
+											<th class='center' ng-hide='screen0 || screen1 || screen2 || screen3' ng-click="sortType = 'termino'; sortReverse = !sortReverse">Término</th>
 
-												<th class='center' ng-hide='screen_phone || screen_tablet || screen_notebook' ng-click="sortType = 'valor_honorario'; sortReverse = !sortReverse">Honorário (R$)</th>
+											<th class='center' ng-hide='screen0 || screen1 || screen2 || screen3' ng-click="sortType = 'valor_honorario'; sortReverse = !sortReverse">Honorário (R$)</th>
 
-												<th class='center' ng-hide='screen_phone || screen_tablet || screen_notebook' ng-click="sortType = 'descontos'; sortReverse = !sortReverse">Descontos (%)</th>
+											<th class='center' ng-hide='screen0 || screen1 || screen2 || screen3' ng-click="sortType = 'descontos'; sortReverse = !sortReverse">Desc (%)</th>
 
-												<th class='center' ng-hide='screen_phone || screen_tablet || screen_notebook' ng-click="sortType = 'plano'; sortReverse = !sortReverse" >Total (R$)</th>
-											</tr>
-										</thead>
+											<th class='center' ng-hide='screen0 || screen1 || screen2' ng-click="sortType = 'plano'; sortReverse = !sortReverse" >Total (R$)</th>
+										</tr>
+									</thead>
 
 										<tbody>
 
+									<div><!-- ng-show="contratos_carregados">-->
+										<tbody style="font-size: 11px;">
 										{% verbatim %}
 										<tr ng-if="(contratos|filter:filterIds()).length == 0">
 											<td colspan="8" class="center">Nenhum Cliente Cadastrado!</td>
 										</tr>
 
-										<tr ng-cloak class="angular-repeat linha_selecionavel {{ contrato.selecionado }}" ng-click="selecionar_linha(contrato)" pagination-id="paginate_contratos" dir-paginate="contrato in contratos | filter: get_filter_column() | itemsPerPage:10 | orderBy:sortType:sortReverse as resultado" >
+										<tr class="angular-repeat linha_selecionavel {{ contrato.selecionado }}" ng-click="selecionar_linha(contrato)" pagination-id="paginate_contratos" dir-paginate="contrato in contratos | filter: get_filter_column() | itemsPerPage:10 | orderBy:sortType:sortReverse as resultado">
 											<!--<tr ng-repeat='contrato in contratos' class="linha_selecionavel {{ contrato.selecionado }}" ng-click="selecionar_linha(contrato)" pagination-id="paginate_contratos">-->
 
 											<td class='center' style="width: 30px;">{{ contrato.cliente_id }}</td> <!-- {{ $index+1 }} -->
-											<td class="left" style="padding-left: 10px;">{{ contrato.cliente_nome }}</td>
+											<td class="col-cliente" class="left">
+												{{ contrato.cliente_nome }}
+												<!--<div class="responsive-text"  style="max-width: {{ col_cliente_size }}px">{{ contrato.cliente_nome }}</div> isso faz cortar as palavras mas temos um problema com alinhamento que nao fica perfeito dependendo de como a largura foi carregada inicialmente -->
+											</td>
 
-											<td ng-hide='screen_phone || screen_tablet' ng-class="{true:'left', false:'center'}[contrato.plano=='']" style="padding-left: 10px;">
+											<td ng-hide='screen0 || screen1' ng-class="{true:'left', false:'center'}[contrato.plano=='']">
 												<span ng-if="contrato.plano">{{ contrato.plano }}</span>
 												<span ng-if="!contrato.plano"></span>
 											</td>
 
-											<td ng-hide='screen_phone || screen_tablet || screen_notebook' ng-class="{true:'left', false:'center'}[contrato.contrato.vigencia_inicio=='']" style="width: 100px;">
+											<td ng-hide='screen0 || screen1 || screen2 || screen3' ng-class="{true:'left', false:'center'}[contrato.contrato.vigencia_inicio=='']" style="width: 80px;">
 												<span ng-if="contrato.contrato.vigencia_inicio">{{ contrato.contrato.vigencia_inicio }}</span>
 												<span ng-if="!contrato.plano"></span>
 											</td>
 
-											<td ng-hide='screen_phone || screen_tablet || screen_notebook' ng-class="{true:'left', false:'center'}[contrato.contrato.vigencia_fim=='']" style="width: 100px;">
+											<td ng-hide='screen0 || screen1 || screen2 || screen3' ng-class="{true:'left', false:'center'}[contrato.contrato.vigencia_fim=='']" style="width: 80px;">
 												<span ng-if="contrato.contrato.vigencia_fim">{{ contrato.contrato.vigencia_fim }}</span>
 												<span ng-if="!contrato.plano"></span>
 											</td>
 
-											<td ng-hide='screen_phone || screen_tablet || screen_notebook' ng-class="{'right': contrato.contrato.valor_honorario, 'center': !contrato.plano  }" style="width: 130px;">
+											<td ng-hide='screen0 || screen1 || screen2 || screen3' ng-class="{'right': contrato.contrato.valor_honorario, 'center': !contrato.plano  }" style="width: 130px;">
 												<span ng-if="contrato.contrato.valor_honorario">{{ contrato.contrato.valor_honorario | currency:"" }}</span>
 												<span ng-if="!contrato.plano"></span>
 											</td>
 
-											<td ng-hide='screen_phone || screen_tablet || screen_notebook' class="center" style="width: 130px;">
+											<td ng-hide='screen0 || screen1 || screen2 || screen3' class="center" style="width: 80px;">
 												<span ng-if="contrato.plano">{{ contrato.contrato.desconto_temporario -- contrato.contrato.desconto_indicacoes }}</span>
 												<span ng-if="!contrato.plano"></span>
 											</td>
 
-											<td ng-hide='screen_phone || screen_tablet || screen_notebook' ng-class="{'right': contrato.plano, 'center':!contrato.plano }" style="width: 130px;">
+											<td ng-hide='screen0 || screen1 || screen2' ng-class="{'right': contrato.plano, 'center':!contrato.plano }" style="width: 130px;">
 												<span ng-if="contrato.plano">{{ contrato.contrato.valor_honorario-(contrato.contrato.valor_honorario*(contrato.contrato.desconto_temporario/100)) | currency:"" }}</span>
 												<span ng-if="!contrato.plano"></span>
 											</td>
@@ -569,13 +577,13 @@ color:blue;
 
 
 										<tr ng-repeat="k in minimal_quantity_rows.slice(contratos.length,minimal_quantity_rows.length)">
-											<td height="30" style="width:30px;"></td>
+											<td style="width:30px;"></td>
 											<td></td>
 											<td style="width:120px;"></td>
-											<td class='center' style="width: 100px;"></td>
-											<td class='center' style="width: 100px;"></td>
+											<td class='center' style="width: 80px;"></td>
+											<td class='center' style="width: 80px;"></td>
 											<td class='right' style="width: 130px;"></td>
-											<td class='center' style="width: 130px;"></td>
+											<td class='center' style="width: 80px;"></td>
 											<td class='right' style="width: 130px;"></td>
 										</tr>
 
@@ -585,15 +593,17 @@ color:blue;
 										</tr>
 										{% endverbatim %}
 										</tbody>
-									</table>
-								</div>
+
+									</div>
+								</table>
 							</div>
-
 						</div>
-						<div class='row'>
 
+					</div>
+
+					<div class='row no-gutter' style="padding: 0px 10px 0px 10px;">
 						{% verbatim %}
-						<div class="col-md-2 col-sm-4 col-xs-6" style='margin-top:6px;'>
+						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12" style='margin-top:6px;'>
 							<label id="label_buscar_por" class='left {{ desabilitar }}'><sub>Buscar por:</sub></label>
 							<select id='buscar_por' class='form-control {{ desabilitar }}' ng-model="filter_by" ng-change="select_filter_by()">
 								<option value="0">Código</option>
@@ -602,22 +612,20 @@ color:blue;
 							</select>
 						</div>
 
-						<div class="col-md-4 col-sm-5 col-xs-6" style='margin-left:-20px;margin-top: 31px;'>
+						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style='margin-top: 31px;'>
 							<input type="text" id="search" ng-model='search' class="form-control {{ desabilitar }}" placeholder="Consultar..">
 						</div>
 
-						<div class="col-md-offset-3 col-md-4 col-xs-12 mt-xs-0 pull-right" >
-							<span class="pull-right" style="margin-top:-54px;margin-bottom: -30px;margin-right: 0px;">
 
+
+						<div class="col-lg-offset-2 col-lg-4 col-md-6 col-sm-4 col-xs-12 mt-xs-0 pull-right" >
+							<span class="pull-right" style="height: 64px;padding-top: 10px;"><!-- style="margin-top:-54px;margin-bottom: -30px;margin-right: 0px;">-->
 								<dir-pagination-controls pagination-id="paginate_contratos" max-size="4" auto-hide="false" boundary-links="false" direction-links="true">
 
 								</dir-pagination-controls>
 							</span>
 						</div>
 						{% endverbatim %}
-
-
-					</div>
 					</div>
 				</div>
 			</div>
@@ -651,7 +659,6 @@ color:blue;
 
 		angular.element(document.getElementById('controle_angular')).scope().carregar_clientes();
 		angular.element(document.getElementById('controle_angular')).scope().get_salario_vigente();
-		angular.element(document.getElementById('controle_angular')).scope().reajustar_tela();
 		configurar_formulario_padrao()
 		NProgress.done();
 	});

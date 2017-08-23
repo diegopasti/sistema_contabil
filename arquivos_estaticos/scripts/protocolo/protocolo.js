@@ -94,3 +94,21 @@ function configurar_datatable(datatable_id){
 	
 	});
 }
+
+function selecionar_situacao_protocolo(){
+	var opcao = $("#filtrar_por_operacao").val().toLowerCase()
+	opcao = opcao[0].toUpperCase() + opcao.slice(1);
+
+	if(opcao == "Emitidos"){
+		$("#label_filtrar_desde").text(opcao+" desde")
+		$("#label_filtrar_ate").text("Até")
+	}
+
+	else if(opcao == "Recebidos"){
+		$("#label_filtrar_ate").text(opcao+" até")
+		$("#label_filtrar_desde").text("Desde")
+	}
+
+
+
+}
