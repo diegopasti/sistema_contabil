@@ -112,20 +112,26 @@ def get_lista_contratos(request):
     return HttpResponse(json.dumps(response_dict))
 
 '''Temporario'''
-def get_lista_indicacoes(request):
+def get_lista_indicacoes(request,cliente_id):
 
-    id_cliente = int(request.post['cliente_id'])
+    print ("CHEGANDO NAS INDICACOES")
+    id_cliente = int(cliente_id)
     lista_indicacoes = Indicacao.objects.filter(cliente=id_cliente)
     response_dict = []
+    print ('Olha a lista de indicacoes',lista_indicacoes)
     for indicacao in lista_indicacoes :
 
         if len(indicacao) != 0:
             response_indicacao = {}
             response_indicacao['cliente_id'] = indicacao.cliente
             response_indicacao['indicacao']['nome_empresa'] = indicacao.indicacao.nome_razao
-            response_indicacao['indicacao']['data_registro'] = indicacao.data_cadastro
+            response_indicacao['indicacao']['data_cadastro'] = str(indicacao.data_cadastro.strftime('%d/%m/%Y'))
             response_indicacao['indicacao']['taxa_desconto'] = indicacao.taxa_desconto
             response_indicacao['indicacao']['indicacao_ativa'] = indicacao.indicacao_ativa
+            response_indicacao['indicacao']['cadastrado_por'] = indicacao.cadastrado_por.nome_razao
+            response_indicacao['indicacao']['ultima_alteracao'] = str(indicacao.ultima_alteracao.strftime('%d/%m/%Y'))
+            response_indicacao['indicacao']['alterador_por'] = indicacao.alterado_por
+
         else:
             response_indicacao = {}
             response_indicacao['cliente_id'] = None
@@ -133,10 +139,12 @@ def get_lista_indicacoes(request):
             response_indicacao['indicacao']['data_registro'] = None
             response_indicacao['indicacao']['taxa_desconto'] = None
             response_indicacao['indicacao']['indicacao_ativa'] = None
+            response_indicacao['indicacao']['cadastrado_por'] = None
+            response_indicacao['indicacao']['ultima_alteracao'] = None
+            response_indicacao['indicacao']['alterador_por'] = None
 
         response_dict.append(response_indicacao)
-
-    return HttpResponse(json.dump(response_dict))
+    return HttpResponse(json.dump({'teste': 'oi'}))
 '''FIM Temporario'''
 
 def salvar_contrato(request):

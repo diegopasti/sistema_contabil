@@ -75,11 +75,12 @@ app.controller('MeuController', ['$scope', function($scope) {
 	/*Carregar Lista Indicacoes*/
 	$scope.carregar_indicacao = function () {
 		$.ajax({
+
 			type: 'GET',
-			url: "/api/honorario/lista_indicacao",
+			url: "/api/honorario/lista_indicacao/" + $scope.registro_selecionado.cliente_id,
+
 			success: function (data) {
 				$scope.indicacoes = JSON.parse(data);
-				$scope.indicacoes_carregadas = true;
 				$scope.$apply();
 
 			},
@@ -88,7 +89,11 @@ app.controller('MeuController', ['$scope', function($scope) {
 				$scope.desabilitar = 'link_desabilitado'
 				alert("Não foi possivel carregar a lista de indicacoes")
 			}
-		})
+		});
+	}
+
+	$scope.adicionar_indicacao = function () {
+		alert('to vinda aqui')
 	}
 
 	$scope.adicionar_contrato = function() {
