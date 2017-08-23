@@ -58,10 +58,6 @@ app.controller('MeuController', ['$scope', function($scope) {
 		//}
 
 		//alert("VEJA O TAMANHO (NA RESOLUCAO BAIXA COMECA COM 185px: "+ $scope.col_cliente_size)
-
-
-
-
 		//$scope.col_cliente_size = $('.col-cliente').width();
 
 		if ($scope.screen_width <= 360){
@@ -130,9 +126,10 @@ app.controller('MeuController', ['$scope', function($scope) {
 			url: "/api/honorario/lista_indicacao/" + $scope.registro_selecionado.cliente_id,
 
 			success: function (data) {
-				$scope.indicacoes = JSON.parse(data);
+				alert("VEJA A RESPOSTA: "+JSON.stringify(data))
+				$scope.registro_selecionado.indicacoes = JSON.parse(data);
 				$scope.$apply();
-
+				alert("VEJA O QUE TEMOS NAS INDICACOES: "+$scope.registro_selecionado.indicacoes[0].cliente_id)
 			},
 			failure: function (data) {
 				$scope.indicacao = [];

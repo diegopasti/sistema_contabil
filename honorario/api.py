@@ -63,6 +63,7 @@ def get_lista_contratos(request):
             contrato = contrato[0]
             response_cliente['contrato'] = {}
             response_cliente['plano'] = contrato.plano.nome
+            response_cliente['indicacoes'] = []
             response_cliente['contrato']['tipo_cliente'] = contrato.tipo_cliente
 
             if(contrato.vigencia_inicio): response_cliente['contrato']['vigencia_inicio'] = str(contrato.vigencia_inicio.strftime('%d/%m/%Y'))
@@ -92,6 +93,7 @@ def get_lista_contratos(request):
         else:
             response_cliente['contrato'] = {}
             response_cliente['plano'] = None
+            response_cliente['indicacoes'] = []
             response_cliente['contrato']['tipo_cliente'] = None
             response_cliente['contrato']['vigencia_inicio'] = None
             response_cliente['contrato']['vigencia_fim'] = None
@@ -118,20 +120,19 @@ def get_lista_indicacoes(request,cliente_id):
     id_cliente = int(cliente_id)
     lista_indicacoes = Indicacao.objects.filter(cliente=id_cliente)
     response_dict = []
-    print ('Olha a lista de indicacoes',lista_indicacoes)
     for indicacao in lista_indicacoes :
+        response_indicacao = {}
+        response_indicacao['cliente_id'] = indicacao.cliente.id
+        response_indicacao['indicacao'] = {}
+        response_indicacao['indicacao']['nome_razao'] = indicacao.indicacao.nome_razao
+        response_indicacao['indicacao']['data_cadastro'] = str(indicacao.data_cadastro.strftime('%d/%m/%Y'))
+        response_indicacao['indicacao']['taxa_desconto'] = float(indicacao.taxa_desconto)
+        response_indicacao['indicacao']['indicacao_ativa'] = indicacao.indicacao_ativa
+        response_indicacao['indicacao']['cadastrado_por'] = indicacao.cadastrado_por.nome_razao
+        response_indicacao['indicacao']['ultima_alteracao'] = str(indicacao.ultima_alteracao.strftime('%d/%m/%Y'))
+        response_indicacao['indicacao']['alterador_por'] = indicacao.alterado_por.nome_razao
 
-        if len(indicacao) != 0:
-            response_indicacao = {}
-            response_indicacao['cliente_id'] = indicacao.cliente
-            response_indicacao['indicacao']['nome_empresa'] = indicacao.indicacao.nome_razao
-            response_indicacao['indicacao']['data_cadastro'] = str(indicacao.data_cadastro.strftime('%d/%m/%Y'))
-            response_indicacao['indicacao']['taxa_desconto'] = indicacao.taxa_desconto
-            response_indicacao['indicacao']['indicacao_ativa'] = indicacao.indicacao_ativa
-            response_indicacao['indicacao']['cadastrado_por'] = indicacao.cadastrado_por.nome_razao
-            response_indicacao['indicacao']['ultima_alteracao'] = str(indicacao.ultima_alteracao.strftime('%d/%m/%Y'))
-            response_indicacao['indicacao']['alterador_por'] = indicacao.alterado_por
-
+        """
         else:
             response_indicacao = {}
             response_indicacao['cliente_id'] = None
@@ -142,9 +143,9 @@ def get_lista_indicacoes(request,cliente_id):
             response_indicacao['indicacao']['cadastrado_por'] = None
             response_indicacao['indicacao']['ultima_alteracao'] = None
             response_indicacao['indicacao']['alterador_por'] = None
-
+        """
         response_dict.append(response_indicacao)
-    return HttpResponse(json.dump({'teste': 'oi'}))
+    return HttpResponse(json.dumps(response_dict))
 '''FIM Temporario'''
 
 def salvar_contrato(request):

@@ -424,18 +424,19 @@ color:blue;
 									</table>
 									<tbody>
 									{% verbatim %}
-										<!--<tr ng-if="(indicacao|filter:filterIds()).length == 0">
+										<tr ng-if="(registro_selecionado.indicacoes|filter:filterIds()).length == 0">
 											<td colspan="8" class="center">Nenhuma indicacao Cadastrada!</td>
-										</tr>-->
-
-										<tr>
-											<tr ng-repeat='indicacao in indicacao'>
-											<td class='center' style="width: 30px;">{{ indicacao.cliente_id }}</td>
-											<td class="left" style="padding-left: 10px;">{{ indicacao.indicacao.cliente_nome }}</td>
-											<td class="center" style="width: 30px">{{ indicacao.indicacao_ativa }}</td>
-											<td class="center" style="width: 30px;">{{ indicacao.data_cadastro }}</td>
-											<td class="center" style="width: 30px">{{ indicacao.taxa_desconto }}</td>
 										</tr>
+
+
+										<tr ng-repeat='registro in registro_selecionado.indicacoes'>
+											<td class='center' style="width: 30px;">{{ registro.cliente_id }}</td>
+											<!--<td class="left" style="padding-left: 10px;">{{ registro.indicacao.cliente_nome }}</td>
+											<td class="center" style="width: 30px">{{ registro.indicacao.indicacao_ativa }}</td>
+											<td class="center" style="width: 30px;">{{ registro.indicacao.data_cadastro }}</td>
+											<td class="center" style="width: 30px">{{ registro.indicacao.taxa_desconto }}</td>-->
+										</tr>
+									{% endverbatim %}
 									</tbody>
 								</div>
 							</div>
@@ -460,9 +461,7 @@ color:blue;
 	<div class="row">
 		<div class="col-lg-12 col-md-12 col-xs-12">
 			<div class="box box-default" >
-
 				<div class="box-heading">
-
 					<div class="box-header with-border">
 						<h5 class="box-title">Contratos</h5>
 						<div class="pull-right">
@@ -476,32 +475,19 @@ color:blue;
 									<button type="button" id='bt_outras_acoes' class="btn btn-sm btn-default dropdown-toggle desabilitado" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span>
 									</button>
 									<ul class="dropdown-menu dropdown-menu-right">
-											<li><a href="#">Action</a></li>
-											<li><a href="#">Another action</a></li>
-											<li><a href="#">Something else here</a></li>
-											<li role="separator" class="divider"></li>
-											<li><a href="#modal_justificativa" id="bt_desativar_cliente" data-toggle="modal"><i class="fa fa-trash-o"></i> Desativar</a></li>
+										<li><a href="#">Action</a></li>
+										<li><a href="#">Another action</a></li>
+										<li><a href="#">Something else here</a></li>
+										<li role="separator" class="divider"></li>
+										<li><a href="#modal_justificativa" id="bt_desativar_cliente" data-toggle="modal"><i class="fa fa-trash-o"></i> Desativar</a></li>
 									</ul>
 								</div>
 							</div>
 						</div>
-
 					</div>
-					<span style="display: block;width:100%; text-align: center;"><sub style="color: #888;">
-							{% verbatim %}
-								SCREEN: {{ screen_width }}x{{ screen_height }} | DESKTOP: {{ screen_desktop }} | NOTEBOOK: {{ screen_notebook }} | TABLET: {{ screen_tablet }} | PHONE: {{ screen_phone }}<br>
-							{% endverbatim %}
-						</sub></span>
 				</div>
 
 				<div class="box-body" style="padding-bottom: -10px; margin-top: 0px;">
-
-					<!--<div id="divCarregando" class="progresso">
-							<!--<img src="~/Imagens/midi.gif" />--
-							<br /> Carregando...
-					</div>
-					-->
-
 					<div class="dataTable_wrapper">
 						<div class='row'>
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -525,8 +511,6 @@ color:blue;
 											<th class='center' ng-hide='screen0 || screen1 || screen2' ng-click="sortType = 'plano'; sortReverse = !sortReverse" >Total (R$)</th>
 										</tr>
 									</thead>
-
-
 
 									<div><!-- ng-show="contratos_carregados">-->
 										<tbody style="font-size: 11px;">
@@ -575,7 +559,6 @@ color:blue;
 											</td>
 										</tr>
 
-
 										<tr ng-repeat="k in minimal_quantity_rows.slice(contratos.length,minimal_quantity_rows.length)">
 											<td style="width:30px;"></td>
 											<td></td>
@@ -587,18 +570,15 @@ color:blue;
 											<td class='right' style="width: 130px;"></td>
 										</tr>
 
-
 										<tr ng-if="resultado.length === 0 && (contratos|filter:filterIds()).length > 0">
 											<td colspan="3" class='center'>Nenhum resultado Encontrado</td>
 										</tr>
 										{% endverbatim %}
 										</tbody>
-
 									</div>
 								</table>
 							</div>
 						</div>
-
 					</div>
 
 					<div class='row no-gutter' style="padding: 0px 10px 0px 10px;">
