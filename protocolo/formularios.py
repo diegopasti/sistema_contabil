@@ -24,20 +24,20 @@ class formulario_adicionar_documento(forms.Form):
 
 class formulario_gerar_relatorio(forms.Form):
     
-    filtrar_por_cliente = forms.CharField(label="Filtrar por Cliente: ",max_length=100,required=False,error_messages=MENSAGENS_ERROS,widget=forms.TextInput(attrs={'class':'form-control uppercase' ,'id':'filtrar_por_cliente','readonly':True,'type':"hidden" })) #
+    filtrar_por_cliente = forms.CharField(label="Cliente",max_length=100,required=False,error_messages=MENSAGENS_ERROS,widget=forms.TextInput(attrs={'class':'form-control uppercase' ,'id':'filtrar_por_cliente','readonly':True,'type':"hidden" })) #
     
     opcoes_filtro = (                            
-        ('','TODOS PROTOCOLOS'),
+        ('TODOS PROTOCOLOS','TODOS PROTOCOLOS'),
         ('ABERTOS','PROTOCOLOS EM ABERTO'),
         ('CONFIRMADOS','PROTOCOLOS CONFIRMADOS'),
     )
 
     lista_documentos = documento.objects.all()
-    filtrar_documentos = forms.ModelMultipleChoiceField(label='Filtrar por Documentos',required=False,queryset=lista_documentos,
+    filtrar_documentos = forms.ModelMultipleChoiceField(label='Documentos',required=False,queryset=lista_documentos,
         widget=forms.SelectMultiple(attrs={'class': "form-control", 'id': 'filtrar_documentos'})
     )
 
-    filtrar_por_status = forms.ChoiceField(label="Filtrar por Status:",choices=opcoes_filtro,required=False,error_messages=MENSAGENS_ERROS, #choices=opcoes_tipos_registros, default='C',
+    filtrar_por_status = forms.ChoiceField(label="Protocolo",choices=opcoes_filtro,required=False,error_messages=MENSAGENS_ERROS, #choices=opcoes_tipos_registros, default='C',
                     widget=forms.Select(attrs={'class':"form-control" ,'id':'filtrar_por_status'})
                     )
 
@@ -47,18 +47,18 @@ class formulario_gerar_relatorio(forms.Form):
         ('RECEBIDOS','PROTOCOLOS RECEBIDOS'),
     )
     
-    filtrar_por_operacao = forms.ChoiceField(label="Filtrar por Operacao:",choices=opcoes_operacao,required=False,error_messages=MENSAGENS_ERROS, #choices=opcoes_tipos_registros, default='C',
-                    widget=forms.Select(attrs={'class':"form-control" ,'id':'filtrar_por_operacao'})
+    filtrar_por_operacao = forms.ChoiceField(label="Situação",choices=opcoes_operacao,required=False,error_messages=MENSAGENS_ERROS, #choices=opcoes_tipos_registros, default='C',
+                    widget=forms.Select(attrs={'class':"form-control" ,'id':'filtrar_por_operacao', 'onchange':'selecionar_situacao_protocolo()'})
                     )
 
     filtrar_desde          = forms.DateField(
-                                label="Desde:",required=False,
+                                label="Emitidos desde",required=False,
                                 widget= forms.DateInput(attrs={'class':"form-control" ,'id':'filtrar_desde'},format = '%d/%m/%Y'), 
                                 input_formats=('%d/%m/%Y',)
                                 ) 
     
     filtrar_ate          = forms.DateField(
-                                label="Até:",initial=datetime.date.today,required=False,
+                                label="Até",initial=datetime.date.today,required=False,
                                 widget= forms.DateInput(attrs={'class':"form-control" ,'id':'filtrar_ate'},format = '%d/%m/%Y'), 
                                 input_formats=('%d/%m/%Y',)
                                 )

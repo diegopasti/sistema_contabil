@@ -179,67 +179,118 @@ display: none;
 					.form-group:last-child{
 						border-right: 0px solid #ccc;
 					}*/
+
+					table{
+					font-size: 12px;
+					}
 				</style>
 
-				<div class="row no-gutter">
-					<div class="col-md-4 form-group">
+				<div class="row no-gutter" style="margin-top: -10px;">
+					<div class="col-md-4 col-sm-6 col-xs-12 form-group">
 						<label><sub>Cliente</sub></label>
 						<input id="filtro_cliente" type="text" value="{{ filtro_cliente }}" disabled class="form-control form-filter-option"/>
 					</div>
 
-					<div class="col-md-2 form-group">
-						<label><sub>Situação</sub></label>
+					<div class="col-md-2 col-sm-6 col-xs-12 form-group">
+						<label><sub>Protocolo</sub></label>
 						<input id="filtro_status" type="text" value="{{ filtro_status }}" disabled class="form-control form-filter-option"/>
 					</div>
 
-					<div class="col-md-2 form-group">
-						<label><sub>Operação</sub></label>
+					<div class="col-md-2 col-sm-6 col-xs-12 form-group">
+						<label><sub>Situação</sub></label>
 						<input id="filtro_operacao" type="text" value="{{ filtro_operacao }}" disabled class="form-control form-filter-option"/>
 					</div>
 
-					<div class="col-md-2 form-group">
-						<label><sub>Data Inicial</sub></label>
-						<input id="filtro_desde" type="text" value="{{ filtro_desde }}" disabled class="form-control form-filter-option"/>
+					<div class="col-md-2 col-sm-3 col-xs-6 form-group">
+						<label>
+							<sub>{{ filtro_operacao|title }}
+							{% if filtro_desde %}
+								{% if filtro_ate %}
+									entre
+								{% else %}
+									a partir de
+								{% endif %}
+							{% else %}
+								{% if filtro_ate %}
+									até
+								{% else %}
+
+								{% endif %}
+							{% endif %}
+							</sub>
+						</label>
+
+						{% if filtro_desde %}
+								{% if filtro_ate %}
+									<input id="filtro_desde" type="text" value="{{ filtro_desde }} à {{ filtro_ate }}" disabled class="form-control form-filter-option"/>
+								{% else %}
+									<input id="filtro_desde" type="text" value="{{ filtro_desde }}" disabled class="form-control form-filter-option"/>
+								{% endif %}
+							{% else %}
+								{% if filtro_ate %}
+									<input id="filtro_desde" type="text" value="{{ filtro_ate }}" disabled class="form-control form-filter-option"/>
+								{% else %}
+									<input id="filtro_desde" type="text" value="QUALQUER PERÍODO" disabled class="form-control form-filter-option"/>
+								{% endif %}
+							{% endif %}
+
 					</div>
 
-					<div class="col-md-2 form-group">
+					<!--<div class="col-md-2 col-sm-3 col-xs-6 form-group">
 						<label><sub>Data Final</sub></label>
 						<input id="filtro_ate" type="text" value="{{ filtro_ate }}" disabled class="form-control form-filter-option"/>
+					</div>-->
+
+					<div class="col-md-2 col-sm-3 col-xs-6 form-group">
+						<label><sub>Resultado</sub></label>
+						<input id="resultado" type="text" value="1500" disabled class="form-control form-filter-option"/>
 					</div>
 				</div>
 
-				{{ filtro_por_cliente }}
-				{{ filtro_por_status }}
-				{{ filtro_por_data_desde }}
-				{{ filtro_por_operacao }}
-				{{ filtro_por_data_ate }}
-				{{ filtro_por_documento }}
-
-				<div>
+				<div style="margin-top: 10px;">
+					{% for item in protocols_list %}
 					<table class="table table-condensed table-striped table-bordered table-hover" id="datatable">
+					<thead>
+					<tr class="linha_cabecalho"><th colspan="6">DOCUMENTO: {{ item.documento }}</th></tr>
 
-						<thead>
-							<tr class="linha_cabecalho">
-								<th style="vertical-align: middle;"></th>
-								<th style="text-align: center;vertical-align: middle;">Nº PROTOCOLO</th>
-								<th style="text-align: center;vertical-align: middle;">DESTINATÁRIO</th>
-								<th style="text-align: center;vertical-align: middle;">EMISSÃO</th>
-								<th style="text-align: center;vertical-align: middle;">ENTREGA</th>
-								<th style="text-align: center;vertical-align: middle;">RECEBIDO POR</th>
-							</tr>
-						</thead>
-
-						<tbody>
-						{% for item in protocols_list %}
-						<tr>
-							<td>{{ item.id }}</td>
+						<tr class="linha_cabecalho">
+							<th style="vertical-align: middle;"></th>
+							<th style="text-align: center;vertical-align: middle;">Nº PROTOCOLO</th>
+							<th style="text-align: center;vertical-align: middle;">DESTINATÁRIO</th>
+							<th style="text-align: center;vertical-align: middle;">EMISSÃO</th>
+							<th style="text-align: center;vertical-align: middle;">ENTREGA</th>
+							<th style="text-align: center;vertical-align: middle;">RECEBIDO POR</th>
 						</tr>
-						{% empty %}
-						<tr><td>Nenhum registro</td></tr>
+					</thead>
 
-						{% endfor %}
-						</tbody>
+					<tbody>
+					{% for protocolo in item.protocolos %}
+					<tr>
+						<td style="width: 30px;text-align: center;">{{ forloop.counter }}</td>
+						{% if protocolo.numeracao_destinatario == 'AVULSO' %}
+						<td style="text-align: center;cursor:pointer; width: 100px;">AVULSO</td>
+						{% else %}
+						<td style="text-align: center;cursor:pointer;width: 100px;">{{ protocolo.numeracao_destinatario }}</td>
+						{% endif %}
+
+						<td>{{ protocolo.destinatario.nome_razao }}</td>
+						<td style="width: 140px;text-align: center;cursor:pointer">{{ protocolo.data_emissao|date:"d/m/Y" }} - {{ protocolo.hora_emissao|date:"H:i:s" }}</td>
+						<td style="width: 140px;text-align: center;cursor:pointer">{{ protocolo.data_recebimento|date:"d/m/Y" }} - {{ protocolo.hora_recebimento|date:"H:i:s" }}</td>
+						{% if protocolo.recebido_por %}
+							<td class='left_align' style="cursor:pointer">{{ protocolo.recebido_por }}</td>
+							{% else %}
+							<td style="text-align: center;cursor:pointer">-</td>
+							{% endif %}
+					</tr>
+					{% empty %}
+					<tr><td>Nenhum protocolo com esse documento</td></tr>
+					{% endfor %}
+
+					{% empty %}
+					<tr><td>Nenhum registro encontrado!</td></tr>
+					</tbody>
 					</table>
+					{% endfor %}
 				</div>
 			</div>
 

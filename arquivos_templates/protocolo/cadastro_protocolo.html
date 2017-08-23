@@ -151,7 +151,7 @@ label {
 					<div class="row no-gutter">
 						<div class='col-md-3'>
 							<div style='margin-left: 8px'>
-								<sub><label style=''>Filtrar por Cliente:</label></sub>
+								<sub><label style=''>Cliente</label></sub>
 							</div>
 
 							<select id="select_filtrar_por_cliente" class='form-control uppercase'  onblur="selecionar_filtro_cliente()">
@@ -182,7 +182,7 @@ label {
 						<div class='col-md-2'>
 							<div>
 								<div style='padding-left: 8px'>
-									<sub>{{ form_relatorio.filtrar_desde.label }}</sub>
+									<sub><label id="label_filtrar_desde">{{ form_relatorio.filtrar_desde.label }}</label></sub>
 								</div>
 								{{ form_relatorio.filtrar_desde }}
 							</div>
@@ -191,7 +191,7 @@ label {
 						<div class='col-md-2'>
 							<div>
 								<div style='padding-left: 8px'>
-									<sub>{{ form_relatorio.filtrar_ate.label }}</sub>
+									<sub><label id="label_filtrar_ate">{{ form_relatorio.filtrar_ate.label }}</label></sub>
 								</div>
 								{{ form_relatorio.filtrar_ate }}
 							</div>
