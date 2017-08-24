@@ -1,5 +1,4 @@
 # -*- encoding: utf-8 -*-
-import datetime
 
 from django.core.checks import messages
 from django.shortcuts import render_to_response
@@ -122,10 +121,9 @@ def get_lista_contratos(request):
         response_dict.append(response_cliente)
     return HttpResponse(json.dumps(response_dict))
 
-'''Temporario'''
+
 def get_lista_indicacoes(request,cliente_id):
 
-    print ("CHEGANDO NAS INDICACOES")
     id_cliente = int(cliente_id)
     lista_indicacoes = Indicacao.objects.filter(cliente=id_cliente)
     response_dict = []
@@ -141,151 +139,28 @@ def get_lista_indicacoes(request,cliente_id):
         response_indicacao['indicacao']['cadastrado_por'] = indicacao.cadastrado_por.nome_razao
         response_indicacao['indicacao']['ultima_alteracao'] = str(indicacao.ultima_alteracao.strftime('%d/%m/%Y'))
         response_indicacao['indicacao']['alterador_por'] = indicacao.alterado_por.nome_razao
-
-        """
-        else:
-            response_indicacao = {}
-            response_indicacao['cliente_id'] = None
-            response_indicacao['indicacao']['nome_empresa'] = None
-            response_indicacao['indicacao']['data_registro'] = None
-            response_indicacao['indicacao']['taxa_desconto'] = None
-            response_indicacao['indicacao']['indicacao_ativa'] = None
-            response_indicacao['indicacao']['cadastrado_por'] = None
-            response_indicacao['indicacao']['ultima_alteracao'] = None
-            response_indicacao['indicacao']['alterador_por'] = None
-        """
         response_dict.append(response_indicacao)
     return HttpResponse(json.dumps(response_dict))
 
+def salvar_indicacao (request):
 
-def cadastro_protocolo(request):
-    erro = False
-    if (request.method == "POST"):
+    empresa = request.POST['empresa']
+    taxa_desconto = request.POST['taxa_desconto']
+    cliente_id = request.POST['cliente_id']
 
-        form_entrega = formulario_confirmar_entrega()
-        form_relatorio = formulario_gerar_relatorio()
+    indicacao = Indicacao()
+    indicacao.cliente_id = int(cliente_id)
+    indicacao.indicacao_id = int(empresa)
+    indicacao.taxa_desconto = float(taxa_desconto)
 
-        if 'gerar_relatorio' in request.POST:
+    try:
+        indicacao.save()
+        response_dict = response_format_success_message(indicacao,['indicacao','cliente','taxa_desconto'])
+    except:
+        response_dict = response_format_error_message('Deu Erro')
 
-            form_relatorio = formulario_gerar_relatorio(request.POST)
+    return HttpResponse(json.dumps(response_dict))
 
-            if form_relatorio.is_valid():
-                filtro_por_cliente = form_relatorio['filtrar_por_cliente'].value().upper()
-                filtro_por_status = form_relatorio['filtrar_por_status'].value().upper()
-                filtro_por_data_desde = form_relatorio['filtrar_desde'].value()
-                filtro_por_operacao = form_relatorio['filtrar_por_operacao'].value()
-                filtro_por_data_ate = form_relatorio['filtrar_ate'].value()
-                filtro_por_documento = form_relatorio['filtrar_documentos'].value()
-
-                if len(filtro_por_documento) != 0:
-                    return report_protocols_per_documents(request, form_relatorio)
-
-                if filtro_por_cliente == '':
-                    resultado = protocolo.objects.all()
-
-                else:
-                    resultado = protocolo.objects.filter(destinatario_id=filtro_por_cliente)
-
-                if filtro_por_status == 'CONFIRMADOS':
-                    resultado = resultado.filter(situacao=1)
-
-                elif filtro_por_status == 'ABERTOS':
-                    resultado = resultado.filter(situacao=0)
-
-                if filtro_por_data_desde != "":
-                    filtro_por_data_desde = converte_formato_data(filtro_por_data_desde)
-                    print 'emitidos desde: ', filtro_por_data_desde
-
-                    if filtro_por_operacao == "EMITIDOS":
-                        resultado = resultado.filter(data_emissao__gte=filtro_por_data_desde)
-                    else:
-                        resultado = resultado.filter(data_recebimento__gte=filtro_por_data_desde)
-
-                if filtro_por_data_ate != "":
-                    filtro_por_data_ate = converte_formato_data(filtro_por_data_ate)
-
-                    if filtro_por_operacao == "EMITIDOS":
-                        resultado = resultado.filter(data_emissao__lte=filtro_por_data_ate)
-                    else:
-                        resultado = resultado.filter(data_recebimento__lte=filtro_por_data_ate)
-                    print 'emitidos ate: ', filtro_por_data_ate
-
-                # print 'resultados: '
-                # for item in resultado:
-                #    print "Veja: ",item
-
-                form_entrega = formulario_confirmar_entrega()
-                form_relatorio = formulario_gerar_relatorio()
-
-                return gerar_relatorio_simples(request, resultado)
-            else:
-                print("DEU ERRO? ", form_relatorio.errors)
-
-        elif 'confirmar_protocolo' in request.POST:
-            form_entrega = formulario_confirmar_entrega(request.POST)
-            p = protocolo.objects.get(pk=int(form_entrega['protocolo_id'].value()))
-
-            if not p.situacao:
-                # messages.add_message(request, messages.SUCCESS, "Protocolo já foi confirmado!")
-                if form_entrega.is_valid():
-                    p = protocolo.objects.get(pk=int(form_entrega['protocolo_id'].value()))
-                    p.situacao = True
-                    p.recebido_por = form_entrega['recebido_por'].value().upper()
-                    p.doc_receptor = form_entrega['doc_receptor'].value()
-
-                    data = form_entrega['data_entrega'].value()
-                    data = data.replace(" ", "")
-                    tempo = form_entrega['hora_entrega'].value()
-
-                    if data != "":
-                        dia = int(data[:2])
-                        mes = int(data[3:5])
-                        ano = int(data[6:])
-                        data_entrega = datetime.date(ano, mes, dia)
-
-                        if tempo != "":
-                            tempo = tempo.split(':')
-                            hora = int(tempo[0])
-                            minuto = int(tempo[1])
-                            hora_entrega = datetime.time(hora, minuto)
-
-                            if validar_temporalidade(p.data_emissao, p.hora_emissao, data_entrega, hora_entrega):
-                                p.data_recebimento = data_entrega
-                                p.hora_recebimento = hora_entrega
-                                p.save()
-                                return HttpResponseRedirect('/protocolo')
-
-                            else:
-                                messages.add_message(request, messages.SUCCESS,
-                                                     "Erro! Horário da entrega não pode ser anterior a emissão.")
-                                erro = True
-
-                        else:
-                            print "foi informado somente o dia, que nao pode ser anterior ao da emissao"
-
-                else:
-                    msg = verificar_erros_formulario(form_entrega)
-                    messages.add_message(request, messages.SUCCESS, msg)
-                    erro = True
-            else:
-                return HttpResponseRedirect('/protocolo')
-
-        else:
-            # print "e uma requisicao mas sem name do form"
-            return HttpResponseRedirect('protocolo/cadastro_protocolo.html')
-
-    else:
-        form_entrega = formulario_confirmar_entrega()
-        form_relatorio = formulario_gerar_relatorio()
-        # print("VEJA O NOVO CAMPO: ",form_relatorio.filtrar_documentos)
-
-    dados = list(protocolo.objects.all())  # *30
-    clientes = entidade.objects.all()[1:]
-    return render_to_response("protocolo/cadastro_protocolo.html",
-                              {"form_entrega": form_entrega, "form_relatorio": form_relatorio, 'clientes': clientes,
-                               'dados': dados, 'erro': erro}, context_instance=RequestContext(request))
-
-'''FIM Temporario'''
 
 def salvar_contrato(request):
     result, form = filter_request(request,FormContrato)

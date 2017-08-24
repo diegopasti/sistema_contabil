@@ -140,7 +140,45 @@ app.controller('MeuController', ['$scope', function($scope) {
 	}
 
 	$scope.adicionar_indicacao = function () {
-		alert('to vinda aqui')
+		alert('Vindo?'+$scope.registro_selecionado.cliente_id)
+		var empresa = $('#indicacao').val()
+		var taxa_desconto = $('#taxa_desconto_indicacao').val()
+		var cliente_id = $scope.registro_selecionado.cliente_id
+
+		var data = {
+			empresa : empresa,
+			taxa_desconto : taxa_desconto,
+			cliente_id : cliente_id
+		}
+
+		function validate_function () {
+			if(empresa == '' && taxa_desconto==''){
+				alert('Preecha os campos')
+				return false
+			}
+			return true
+		}
+
+		function success_function(message) {
+			alert("menssagem:	"+message['data_cadastro'])
+			nova_indicaco = {
+				cliente_id: cliente_id,
+				indicacao: {
+					nome_razao : $('#indicacao option:selected').text(),
+					taxa_desconto : taxa_desconto,
+					indicacao_ativa : true
+				}
+			}
+			$scope.registro_selecionado.indicacoes.push(nova_indicaco)
+			$scope.$apply()
+		}
+
+		function fail_function() {
+			alert('fail_function')
+		}
+		//request_api(url,data_paramters,validator_functions,success_function,fail_function){
+		request_api("/api/honorario/salvar_indicacao/",data,validate_function,success_function,fail_function)
+
 	}
 
 	$scope.adicionar_contrato = function() {
@@ -458,6 +496,27 @@ app.controller('MeuController', ['$scope', function($scope) {
 		$('#desconto_temporario').val($scope.registro_selecionado.contrato.desconto_temporario)
 		calcular_total();
 		$scope.apply();
+	}
+
+	$scope.load_clientes = function () {
+		alert("vindo aqui")
+		$.ajax({
+
+			type: 'GET',
+			url: "/api/honorario/clientes/" + $scope.registro_selecionado.cliente_id,
+
+			success: function (data) {
+				//alert("VEJA A RESPOSTA: "+JSON.stringify(data))
+				$scope.registro_selecionado.clientes = JSON.parse(data);
+				$scope.$apply();
+				//alert("VEJA O QUE TEMOS NAS INDICACOES: "+$scope.registro_selecionado.indicacoes[0].cliente_id)
+			},
+			failure: function (data) {
+				$scope.clientes = [];
+				$scope.desabilitar = 'link_desabilitado'
+				alert("Não foi possivel carregar a lista de indicacoes")
+			}
+		});
 	}
 
 }]);

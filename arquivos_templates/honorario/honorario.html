@@ -402,66 +402,69 @@ color:blue;
 				</div>
 
 				<div class="modal-body" style="padding: 35px;padding-top: 10px;">
-					<div class="row" style="padding: 5px;padding-bottom: 10px">
-						<div class="col-md-2 col-md-push-8">
-							<button type="submit" id="bt_adicionar_indicacao" class="form-control" data-toggle="modal">Adicionar</button>
-						</div>
+					<div class="row">
+						<form ng-submit="adicionar_indicacao()">
+							<div class="col-lg-8	">
+								<sub><label>{{ formulario_indicacao.indicacao.label }}</label></sub>
+								{{ formulario_indicacao.indicacao }}
+							</div>
+							<div class="col-lg-2">
+								<sub><label>{{ formulario_indicacao.taxa_desconto_indicacao.label }}</label></sub>
+								{{ formulario_indicacao.taxa_desconto_indicacao }}
+							</div>
+							<div class="col-lg-2"  style="padding-top: 20px">
+								<button type="submit" id="bt_adicionar_indicacao" class="btn btn-sm btn-primary form-control" data-toggle="modal">Adicionar</button>
+							</div>
+						</form>
 					</div>
 
-					<div class="col-lg-5">
-							<select id="select_filtrar_por_cliente" class='form-control uppercase'>
-								<option value='TODOS' selected>TODOS CLIENTES</option>
-								{% for item in clientes %}
-									<option value='{{ item.id }}'>{{ item.id }} - {{ item.nome_razao }}</option>
-								{% endfor %}
-							</select>
-						</div>
+					<br>
 
-					<div ng-show="contratos_carregados">
-						<div class="dataTable_wrapper">
-							<div class='row'>
-								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-									<table class="table table-condensed  table-striped table-bordered table-hover" id="datatable">
-										<thead>
-											<tr class="linha_cabecalho">
-												<th class='center' style="width: 40px;" ng-click="sortType = 'id'; sortReverse = !sortReverse"></th>
+					<div class="row">
+						<div ng-show="contratos_carregados">
+							<div class="dataTable_wrapper">
+								<div class='row'>
+									<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+										<table class="table table-condensed  table-striped table-bordered table-hover" id="datatable">
+											<thead>
+												<tr class="linha_cabecalho">
+													<th class='center' style="width: 40px;" ng-click="sortType = 'id'; sortReverse = !sortReverse"></th>
 
-												<th class='center'>Empresa Indicada</th>
+													<th class='center'>Empresa Indicada</th>
 
-												<th class="center">Data de Indicação</th>
+													<th class="center">Data de Indicação</th>
 
-												<th class='center'>Taxa Desconto</th>
+													<th class='center'>Taxa Desconto</th>
 
-												<th class='center'>Ativo</th>
-											</tr>
-										</thead>
+													<th class='center'>Ativo</th>
+												</tr>
+											</thead>
 
-										<tbody>
-									{% verbatim %}
-										<tr ng-if="(registro_selecionado.indicacoes|filter:filterIds()).length == 0">
-											<td colspan="8" class="center">Nenhuma indicacao Cadastrada!</td>
-										</tr>
+											<tbody>
+												{% verbatim %}
+													<tr ng-if="(registro_selecionado.indicacoes|filter:filterIds()).length == 0">
+														<td colspan="8" class="center">Nenhuma indicacao Cadastrada!</td>
+													</tr>
 
+													<tr ng-repeat='registro in registro_selecionado.indicacoes'>
+														<td class='center' style="width: 30px;">{{ registro.cliente_id }}</td>
+														<td class="left" style="padding-left: 10px;">{{ registro.indicacao.nome_razao }}</td>
+														<td class="center" style="width: 30px">{{ registro.indicacao.data_cadastro }}</td>
+														<td class="center" style="width: 30px;">{{ registro.indicacao.taxa_desconto }}</td>
+														<td class="center" style="width: 30px">{{ registro.indicacao.indicacao_ativa }}</td>
+													</tr>
 
-
-										<tr ng-repeat='registro in registro_selecionado.indicacoes'>
-											<td class='center' style="width: 30px;">{{ registro.cliente_id }}</td>
-											<td class="left" style="padding-left: 10px;">{{ registro.indicacao.nome_razao }}</td>
-											<td class="center" style="width: 30px">{{ registro.indicacao.data_cadastro }}</td>
-											<td class="center" style="width: 30px;">{{ registro.indicacao.taxa_desconto }}</td>
-											<td class="center" style="width: 30px">{{ registro.indicacao.indicacao_ativa }}</td>
-										</tr>
-
-										<tr ng-repeat="k in minimal_quantity_rows.slice(registro_selecionado.indicacoes.length,minimal_quantity_rows.length)">
-											<td style="width:30px; height: 30px;"></td>
-											<td></td>
-											<td style="width:140px;"></td>
-											<td class='center' style="width: 120px;"></td>
-											<td class='center' style="width: 80px;"></td>
-										</tr>
-									{% endverbatim %}
-									</tbody>
-									</table>
+													<tr ng-repeat="k in minimal_quantity_rows.slice(registro_selecionado.indicacoes.length,minimal_quantity_rows.length)">
+														<td style="width:30px; height: 30px;"></td>
+														<td></td>
+														<td style="width:140px;"></td>
+														<td class='center' style="width: 120px;"></td>
+														<td class='center' style="width: 80px;"></td>
+													</tr>
+												{% endverbatim %}
+											</tbody>
+										</table>
+									</div>
 								</div>
 							</div>
 						</div>

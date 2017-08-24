@@ -1,5 +1,6 @@
 # -*- encoding: utf-8 -*-
 from entidade.formularios import MENSAGENS_ERROS
+from entidade.models import entidade
 from honorario.models import Contrato
 from servico.models import Plano
 from django import forms
@@ -197,7 +198,7 @@ class FormContrato(forms.Form):
         return contrato
         #contrato.tipo_contrato = self.cleaned_data['tipo_contrato']
 
-class FormIndicacoes(forms.Form):
+class FormIndicacao(forms.Form):
     '''id = forms.CharField
     #foi_indicado_por = forms.ModelField()
     # esta_indicando = models.ForeignKey(entidade, default=0)
@@ -209,14 +210,27 @@ class FormIndicacoes(forms.Form):
     data_ultima_alteracao = forms.DateTimeField(null=True, auto_now=True)
     id_encerrador = forms.CharField("Id encerrador", max_length=50, null=True)'''
 
-    total = forms.CharField(
-        label="Total (R$)", max_length=20, required=False, error_messages=MENSAGENS_ERROS,
-        widget=forms.TextInput(
+    indicacao = forms.ModelChoiceField(
+        queryset= entidade.objects.filter(ativo=True),label = "Indicar cliente",empty_label='Selecione um cliente...', error_messages = MENSAGENS_ERROS,
+        widget = forms.Select(
             attrs={
-                'id': 'total', 'class': "form-control readonly", 'ng-model': 'total'
+                'id': 'indicacao', 'class': "form-control", 'ng-model': 'indicacao'
+            }
+        )
+
+    )
+
+    taxa_desconto_indicacao = forms.DecimalField(
+        label='Taxa desconto', error_messages= MENSAGENS_ERROS,
+        widget = forms.TextInput(
+            attrs={
+                'id':'taxa_desconto_indicacao', 'class': 'form-control', 'ng-model':'taxa_desconto_indicacao'
             }
         )
     )
+
+
+
 
 
 
