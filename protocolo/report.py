@@ -5,6 +5,8 @@ Created on 17 de ago de 2017
 @author: Diego
 '''
 import os
+
+import datetime
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.template import Context
@@ -86,11 +88,13 @@ def report_protocols_per_documents(request, form):
     resultado = []
 
     #print ("HORA DE FILTRAR PELOS DOCUMENTOS - CONEXOES ATE AQUI:", len(connection.queries))
+    total_protocolos = 0
     if filtro_documento!="":
         for id_documento in filtro_documento:
             documento = Documento.objects.get(pk=int(id_documento))
             #print ("PEGUEI O DOCUMENTO ESPECIFICO - CONEXOES:", len(connection.queries))
             protocolos_selecionados = []
+            protocolos_abertos = 0
             for item in protocols_list:
                 item_protocolo = ItemProtocolo.objects.filter(documento=documento, protocolo=item)
                 #print ("FILTREI TODOS PROTOCOLOS QUE TEM ESSE DOCUMENTO - CONEXOES:", len(connection.queries))
@@ -98,8 +102,11 @@ def report_protocols_per_documents(request, form):
                 #print ("VERIFIQUEI O TOTAL DE RESPOSTAS - CONEXOES:", len(connection.queries))
                 #print("ESTAMOS PROCURANDO", documento.nome, " NO PROTOCOLO:", item.id,"RESULTADO: ",item_protocolo)
                 if item_protocolo.count() != 0:
+                    if item.situacao == 0:
+                        protocolos_abertos = protocolos_abertos + 1
                     protocolos_selecionados.append(item)
-            resultado.append({'documento':documento.nome,'protocolos':protocolos_selecionados})
+                    total_protocolos = total_protocolos + 1
+            resultado.append({'documento':documento.nome,'protocolos_abertos':protocolos_abertos,'protocolos':protocolos_selecionados})
 
         print ("HORA DE FILTRAR PELOS DOCUMENTOS - CONEXOES ATE AQUI:", len(connection.queries))
 
@@ -198,6 +205,8 @@ def report_protocols_per_documents(request, form):
 
     parametros = {
         'protocols_list':resultado,
+        'total_protocolos': total_protocolos,
+        'data_atual':datetime.datetime.now(),
         'images_path':images_path,
         'filtro_cliente':filtro_cliente,
         'filtro_status':filtro_status,
