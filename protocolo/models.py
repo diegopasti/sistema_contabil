@@ -4,7 +4,7 @@ Created on 1 de abr de 2016
 
 @author: Win7
 '''
-
+import datetime
 from rest_framework import serializers
 
 """
@@ -91,6 +91,13 @@ class protocolo(models.Model):
     recebido_por     = models.CharField("Recebido por:",max_length=100,null=True,blank=True,error_messages=MENSAGENS_ERROS)
     doc_receptor     = models.CharField("Identidade:",max_length=20,null=True,blank=True,error_messages=MENSAGENS_ERROS)
     situacao         = models.BooleanField(default=False)
+
+    def calcular_dias_atraso(self):
+        data_atual = datetime.date.today()
+        resultado = data_atual - self.data_emissao
+        #print("VEJA O RESULTADO: ", resultado.days)
+        return resultado.days
+
      
     
 class item_protocolo(models.Model):    
