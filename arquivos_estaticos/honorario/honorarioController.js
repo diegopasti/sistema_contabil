@@ -140,7 +140,6 @@ app.controller('MeuController', ['$scope', function($scope) {
 	}
 
 	$scope.adicionar_indicacao = function () {
-		alert('Vindo?'+$scope.registro_selecionado.cliente_id)
 		var empresa = $('#indicacao').val()
 		var taxa_desconto = $('#taxa_desconto_indicacao').val()
 		var cliente_id = $scope.registro_selecionado.cliente_id
@@ -152,7 +151,7 @@ app.controller('MeuController', ['$scope', function($scope) {
 		}
 
 		function validate_function () {
-			if(empresa == '' && taxa_desconto==''){
+			if(empresa == '' || taxa_desconto==''){
 				alert('Preecha os campos')
 				return false
 			}
@@ -160,13 +159,14 @@ app.controller('MeuController', ['$scope', function($scope) {
 		}
 
 		function success_function(message) {
-			alert("menssagem:	"+message['data_cadastro'])
+			var date = message['fields']["data_cadastro"]
 			nova_indicaco = {
 				cliente_id: cliente_id,
 				indicacao: {
 					nome_razao : $('#indicacao option:selected').text(),
 					taxa_desconto : taxa_desconto,
-					indicacao_ativa : true
+					indicacao_ativa : true,
+					data_cadastro : date
 				}
 			}
 			$scope.registro_selecionado.indicacoes.push(nova_indicaco)
@@ -174,7 +174,7 @@ app.controller('MeuController', ['$scope', function($scope) {
 		}
 
 		function fail_function() {
-			alert('fail_function')
+			alert('Empresa informada já foi indicada anteriormente')
 		}
 		//request_api(url,data_paramters,validator_functions,success_function,fail_function){
 		request_api("/api/honorario/salvar_indicacao/",data,validate_function,success_function,fail_function)

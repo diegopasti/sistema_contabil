@@ -144,20 +144,30 @@ def get_lista_indicacoes(request,cliente_id):
 
 def salvar_indicacao (request):
 
+
     empresa = request.POST['empresa']
-    taxa_desconto = request.POST['taxa_desconto']
+    taxa_desconto = float(request.POST['taxa_desconto'])
     cliente_id = request.POST['cliente_id']
 
-    indicacao = Indicacao()
-    indicacao.cliente_id = int(cliente_id)
-    indicacao.indicacao_id = int(empresa)
-    indicacao.taxa_desconto = float(taxa_desconto)
+
+    lista_indicacao = Indicacao.objects.filter(indicacao=empresa) #verificando se já existe esse indicacção na lista de indicacoes do cliente
+
+
+    #Só salva caso o cliente nao tenha indicado a emrpesa
+    if (len(lista_indicacao) == 0):
+        indicacao = Indicacao()
+        indicacao.cliente_id = int(cliente_id)
+        indicacao.indicacao_id = int(empresa)
+        indicacao.taxa_desconto = taxa_desconto
+
+
 
     try:
         indicacao.save()
-        response_dict = response_format_success_message(indicacao,['indicacao','cliente','taxa_desconto'])
+        response_dict = response_format_success_message(indicacao,['indicacao','cliente','taxa_desconto','data_cadastro'])
     except:
-        response_dict = response_format_error_message('Deu Erro')
+        print("Não aceita vazio")
+        response_dict = response_format_error_message(False)
 
     return HttpResponse(json.dumps(response_dict))
 
