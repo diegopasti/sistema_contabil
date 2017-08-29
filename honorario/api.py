@@ -133,6 +133,7 @@ def get_lista_indicacoes(request,cliente_id):
         response_indicacao['indicacao'] = {}
         response_indicacao['indicacao']['selecionado'] = ''
         response_indicacao['indicacao']['nome_razao'] = indicacao.indicacao.nome_razao
+        response_indicacao['indicacao']['indicacao_id'] = indicacao.indicacao.id
         response_indicacao['indicacao']['data_cadastro'] = str(indicacao.data_cadastro.strftime('%d/%m/%Y'))
         response_indicacao['indicacao']['taxa_desconto'] = float(indicacao.taxa_desconto)
         response_indicacao['indicacao']['indicacao_ativa'] = indicacao.indicacao_ativa
@@ -152,15 +153,11 @@ def salvar_indicacao (request):
 
     lista_indicacao = Indicacao.objects.filter(indicacao=empresa) #verificando se já existe esse indicacção na lista de indicacoes do cliente
 
-
-    #Só salva caso o cliente nao tenha indicado a emrpesa
     if (len(lista_indicacao) == 0):
         indicacao = Indicacao()
         indicacao.cliente_id = int(cliente_id)
         indicacao.indicacao_id = int(empresa)
         indicacao.taxa_desconto = taxa_desconto
-
-
 
     try:
         indicacao.save()

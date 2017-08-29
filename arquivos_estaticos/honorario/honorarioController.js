@@ -19,8 +19,10 @@ app.controller('MeuController', ['$scope', function($scope) {
 	$scope.minimal_quantity_rows = [1,2,3,4,5,6,7,8,9,10]
 
 	$scope.opcao_desabilitada = "desabilitado";
-	$scope.registro_selecionado = null;
-	$scope.esta_adicionando     = null;
+	$scope.registro_selecionado 	= null;
+	$scope.indicacao_selecionada 	= null;
+	$scope.esta_adicionando     	= null;
+	$scope.esta_indicando					= false;
 
 	$scope.reajustar_tela = function (){
 		$scope.screen_height = window.innerHeight
@@ -479,16 +481,16 @@ app.controller('MeuController', ['$scope', function($scope) {
 	$scope.load_fields = function(){
 		var plano = $scope.registro_selecionado.plano
 		//var tipo_cliente = $scope.registro_selecionado.contrato.tipo_cliente
-		alert("plano:		"+plano);
+		alert("plano:		"+JSON.stringify($scope.registro_selecionado));
 		//$scope.registro_selecionado;
 		$scope.esta_adicionando = true;
-		$('#plano ').val(plano)
-		//$('#tipo_cliente option:selected').val(tipo_cliente)
+		$('#plano').find('option:selected').text(plano)
+		//s$('#tipo_cliente').find('option:selected').val($scope.registro_selecionado.contato.tipo_cliente)
 		$('#vigencia_inicio').val($scope.registro_selecionado.contrato.vigencia_inicio)
 		$('#vigencia_fim').val($scope.registro_selecionado.contrato.vigencia_fim)
-		$('#dia_vencimento').val($scope.registro_selecionado.contrato.dia_vencimento)
+		$('#dia_vencimento option:selected').text($scope.registro_selecionado.contrato.dia_vencimento)
 		$("#data_vencimento").val($scope.registro_selecionado.contrato.data_vencimento)
-		$('#tipo_honorario').select($scope.registro_selecionado.contrato.tipo_honorario)
+		$('#tipo_honorario').find('option:selected').text($scope.registro_selecionado.contrato.tipo_honorario)
 		$("#taxa_honorario").val($scope.registro_selecionado.contrato.taxa_honorario)
 		$('#valor_honorario').val($scope.registro_selecionado.contrato.valor_honorario *100.0).trigger('mask.maskMoney')
 		$('#desconto_inicio').val($scope.registro_selecionado.contrato.desconto_inicio)
@@ -519,4 +521,44 @@ app.controller('MeuController', ['$scope', function($scope) {
 		});
 	}
 
+	$scope.selecionar_linha_indicacao = function(indicacao){
+		if ($scope.indicacao_selecionada !==  null){
+			if($scope.indicacao_selecionada == indicacao){
+				$scope.desmarcar_linha_indicacao();
+			}
+			else{
+				$scope.desmarcar_linha_indicacao();
+				indicacao.selecionado = 'selected';
+				$scope.indicacao_selecionada = indicacao;
+				$scope.esta_indicando = true
+				$scope.carregar_indicacao_selecionada();
+			}
+		}
+		else{
+			indicacao.selecionado = 'selected';
+			$scope.indicacao_selecionada = indicacao;
+			$scope.esta_indicando = true;
+			$scope.carregar_indicacao_selecionada();
+		}
+		//alert(JSON.stringify($scope.indicacao_selecionada))
+		$scope.apply();
+	}
+
+	$scope.desmarcar_linha_indicacao = function () {
+		$('#taxa_desconto_indicacao').val('')
+		$('#indicacao').val('')
+		$scope.indicacao_selecionada.selecionado = "";
+		$scope.indicacao_selecionada = null;
+		$scope.esta_indicando = false
+	}
+
+	$scope.carregar_indicacao_selecionada = function(){
+		var indica = $scope.indicacao_selecionada.indicacao_id
+		$('#taxa_desconto_indicacao').val($scope.indicacao_selecionada.taxa_desconto)
+		$('#indicacao').val(indica)
+	}
+
+	$scope.alterar_indicacao = function () {
+		alert("Uhul")
+	}
 }]);

@@ -403,8 +403,9 @@ color:blue;
 
 				<div class="modal-body" style="padding: 35px;padding-top: 10px;">
 					<div class="row">
-						<form ng-submit="adicionar_indicacao()">
-							<div class="col-lg-8	">
+						<form ng-submit="esta_indicando? alterar_indicacao() : adicionar_indicacao()">
+
+							<div class="col-lg-8"> <!--ng-class="'esta_indicando' ? 'desabilitado nonselect' " -->
 								<sub><label>{{ formulario_indicacao.indicacao.label }}</label></sub>
 								{{ formulario_indicacao.indicacao }}
 							</div>
@@ -413,7 +414,12 @@ color:blue;
 								{{ formulario_indicacao.taxa_desconto_indicacao }}
 							</div>
 							<div class="col-lg-2"  style="padding-top: 20px">
-								<button type="submit" id="bt_adicionar_indicacao" class="btn btn-sm btn-primary form-control" data-toggle="modal">Adicionar</button>
+								<button type="submit" id="bt_adicionar_indicacao" class="btn btn-sm btn-primary form-control" data-toggle="modal">
+									{% verbatim %}
+									<span  href="#" ng-if="indicacao_selecionada == null">Adicionar</span>
+									<span href="#" ng-if="indicacao_selecionada != null">Alterar</span>
+									{% endverbatim %}
+								</button>
 							</div>
 						</form>
 					</div>
@@ -442,14 +448,14 @@ color:blue;
 
 											<tbody>
 												{% verbatim %}
-													<tr ng-if="(registro_selecionado.indicacoes|filter:filterIds()).length == 0">
+													<!--<tr ng-if="(registro_selecionado.indicacoes|filter:filterIds()).length == 0">
 														<td colspan="8" class="center">Nenhuma indicacao Cadastrada!</td>
-													</tr>
+													</tr>-->
 
-													<tr ng-repeat='registro in registro_selecionado.indicacoes'>
+													<tr class="angular-repeat linha_selecionavel {{ registro.indicacao.selecionado }}" ng-repeat='registro in registro_selecionado.indicacoes' ng-click="selecionar_linha_indicacao(registro.indicacao)">
 														<td class='center' style="width: 30px;">{{ registro.cliente_id }}</td>
-														<td class="left" style="padding-left: 10px;">{{ registro.indicacao.nome_razao }}</td>
-														<td class="center" style="width: 30px">{{ registro.indicacao.data_cadastro }}</td>
+														<td class="left"	style="padding-left: 10px;">{{ registro.indicacao.nome_razao }}</td>
+														<td class="center" style="width: 30px">{{ registro.indicacao.data_cadastro| date:'dd/MM/yyyy' }}</td>
 														<td class="center" style="width: 30px;">{{ registro.indicacao.taxa_desconto }}</td>
 														<td class="center" style="width: 30px">{{ registro.indicacao.indicacao_ativa }}</td>
 													</tr>
