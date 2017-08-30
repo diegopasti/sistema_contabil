@@ -405,9 +405,9 @@ color:blue;
 					<div class="row">
 						<form ng-submit="esta_indicando? alterar_indicacao() : adicionar_indicacao()">
 
-							<div class="col-lg-8"> <!--ng-class="'esta_indicando' ? 'desabilitado nonselect' " -->
+							<div class="col-lg-8 "  ng-class="{desabilitado: ( indicacao_selecionada != null), nonselect: (indicacao_selecionada != null)}"> <!--ng-class="'esta_indicando' ? 'desabilitado nonselect' " -->
 								<sub><label>{{ formulario_indicacao.indicacao.label }}</label></sub>
-								{{ formulario_indicacao.indicacao }}
+									{{ formulario_indicacao.indicacao }}
 							</div>
 							<div class="col-lg-2">
 								<sub><label>{{ formulario_indicacao.taxa_desconto_indicacao.label }}</label></sub>
@@ -457,7 +457,73 @@ color:blue;
 														<td class="left"	style="padding-left: 10px;">{{ registro.indicacao.nome_razao }}</td>
 														<td class="center" style="width: 30px">{{ registro.indicacao.data_cadastro| date:'dd/MM/yyyy' }}</td>
 														<td class="center" style="width: 30px;">{{ registro.indicacao.taxa_desconto }}</td>
-														<td class="center" style="width: 30px">{{ registro.indicacao.indicacao_ativa }}</td>
+														<td class="center" style="width: 30px; padding-left: 15px; padding-top: 4px">
+															<style>
+																.switch {
+																	position: relative;
+																	display: table;
+																	width: 50px;
+																	height: 20px;
+																}
+
+																.switch input {display:none;}
+
+																.slider {
+																	position: absolute;
+																	cursor: pointer;
+																	top: 0;
+																	left: 0;
+																	right: 0;
+																	bottom: 0;
+																	background-color: #47FF7F;
+																	-webkit-transition: 1s;
+																	transition: 1s;
+																}
+
+																.slider:before {
+																	position: absolute;
+																	content: "";
+																	height: 15px;
+																	width: 15px;
+																	left: 4px;
+																	bottom: 3px;
+																	background-color: #c4bbcc;
+																	-webkit-transition: 1s;
+																	transition: .40s;
+																}
+
+																input:checked + .slider {
+																	background-color: #FA4226;
+																}
+
+																input:focus + .slider {
+																	box-shadow: 0 0 1px #2196F3;
+																}
+
+																input:checked + .slider:before {
+																	-webkit-transform: translateX(26px);
+																	-ms-transform: translateX(26px);
+																	transform: translateX(26px);
+																}
+
+																/* Rounded sliders */
+																.slider.round {
+																	border-radius: 20px;
+																}
+
+																.slider.round:before {
+																	border-radius: 50%;
+																}
+															</style>
+															<label class="switch" style="padding-bottom: 20px">
+																<input type="checkbox"  ng-checked='registro.indicacao.indicacao_ativa == false' ng-click="ativar_desativar_indicacao()" >
+																<span class="slider round" ng-checked="registro.indicacao.indicacao_ativa == true" ></span>
+															</label>
+
+														</td>
+														<!--<td class="center" style="width: 30px" ng-if="registro.indicacao.indicacao_ativa">Bolo</td>
+														<td class="center" style="width: 30px" ng-if="!(registro.indicacao.indicacao_ativa)">Pudim</td>-->
+
 													</tr>
 
 													<tr ng-repeat="k in minimal_quantity_rows.slice(registro_selecionado.indicacoes.length,minimal_quantity_rows.length)">

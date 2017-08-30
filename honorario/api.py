@@ -168,6 +168,38 @@ def salvar_indicacao (request):
 
     return HttpResponse(json.dumps(response_dict))
 
+def alterar_indicacao (request):
+    empresa_id = request.POST['empresa']
+    empresa_nome = request.POST['empresa_nome']
+    taxa_desconto = float(request.POST['taxa_desconto'])
+    indicacao_bd = Indicacao.objects.get(indicacao=empresa_id)
+
+    if (indicacao_bd.indicacao.nome_razao == empresa_nome and indicacao_bd.taxa_desconto != taxa_desconto):
+
+        try:
+            Indicacao.objects.filter(indicacao=empresa_id).update(taxa_desconto=taxa_desconto)
+            response_dict = response_format_success_message(indicacao_bd,['indicacao','cliente','taxa_desconto'])
+        except:
+            response_dict = response_format_error_message(False)
+
+    else:
+        response_dict = response_format_error_message(False)
+
+    return HttpResponse(json.dumps(response_dict))
+
+def alterar_boolean_indicacao(request):
+    print("to vindo aqui")
+    #falta terminar
+    '''empresa = request.POST['empresa']
+        indicacao_bd = Indicacao.objects.filter(indicacao=empresa)
+        try:
+            print ('entrei')
+            Indicacao.objects.filter(indicacao=empresa).update(indicacao_ativa=False)
+            response_dict = response_format_success_message(indicacao_bd, ['indicacao', 'cliente', 'taxa_desconto'])
+        except:
+            print ("Nao deu")
+            response_dict = response_format_error_message(False)'''
+    return HttpResponse(json.dumps({}))
 
 def salvar_contrato(request):
     result, form = filter_request(request,FormContrato)

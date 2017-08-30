@@ -559,6 +559,62 @@ app.controller('MeuController', ['$scope', function($scope) {
 	}
 
 	$scope.alterar_indicacao = function () {
-		alert("Uhul")
+		var empresa = $('#indicacao').val()
+		var empresa_nome = $('#indicacao option:selected').text()
+		var taxa_desconto = $('#taxa_desconto_indicacao').val()
+		var cliente_id = $scope.registro_selecionado.cliente_id
+
+		var data = {
+			empresa : empresa,
+			empresa_nome : empresa_nome,
+			taxa_desconto : taxa_desconto,
+			cliente_id : cliente_id
+		}
+
+		function validate_function () {
+			if(taxa_desconto==''){
+				alert('Informe uma taxa de desconto')
+				return false
+			}
+			return true
+		}
+
+		function success_function(message) {
+			$scope.carregar_indicacao()
+			$scope.$apply()
+		}
+
+		function fail_function() {
+			alert("Indique uma taxa de desconto diferente da atual")
+		}
+		//request_api(url,data_paramters,validator_functions,success_function,fail_function){
+		request_api("/api/honorario/alterar_indicacao/",data,validate_function,success_function,fail_function)
+
 	}
+	/*Falta terminar*/
+	$scope.ativar_desativar_indicacao = function () {
+
+		var empresa = $('#indicacao').val()
+		var cliente_id = $scope.registro_selecionado.cliente_id
+
+		var data = {
+			empresa : empresa,
+			cliente_id : cliente_id
+		}
+
+		function validate_function () {
+			return true
+		}
+
+		function success_function(message) {
+
+		}
+
+		function fail_function() {
+		}
+		//request_api(url,data_paramters,validator_functions,success_function,fail_function){
+		request_api("/api/honorario/alterar_boolean_indicacao/",data,validate_function,success_function,fail_function)
+
+	}
+
 }]);

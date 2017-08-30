@@ -64,6 +64,7 @@ urlpatterns = [
     url(r'^api/preferencias/alterar_servico/(?P<servico_id>\d+)/$', "servico.views.alterar_servico"),
     url(r'^api/preferencias/excluir_servico/(?P<servico_id>\d+)/$', "servico.views.excluir_servico"),
 
+
     url(r'^planos/$', "servico.views.cadastro_planos"),
     url(r'^api/planos/$', "servico.views.consultar_planos"),
     url(r'^api/planos/adicionar$', "servico.views.adicionar_plano"),
@@ -76,6 +77,8 @@ urlpatterns = [
     url(r'^api/honorario/salvar_contrato', "honorario.api.salvar_contrato"),
     url(r'^api/honorario/lista_indicacao/(?P<cliente_id>\d+)/', "honorario.api.get_lista_indicacoes"),
     url(r'^api/honorario/salvar_indicacao/', "honorario.api.salvar_indicacao"),
+    url(r'^api/honorario/alterar_indicacao/', "honorario.api.alterar_indicacao"),
+    url(r'^api/honorario/alterar_boolean_indicacao/', "honorario.api.alterar_boolean_indicacao"),
 
 
     #url(r'^api/preferencias/alterar_salario/(?P<id>\d+)/$', "preferencias.views.alterar_salario"),
