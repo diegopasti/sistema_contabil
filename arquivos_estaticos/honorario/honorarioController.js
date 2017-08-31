@@ -130,12 +130,12 @@ app.controller('MeuController', ['$scope', function($scope) {
 			success: function (data) {
 				//alert("VEJA A RESPOSTA: "+JSON.stringify(data))
 				$scope.registro_selecionado.indicacoes = JSON.parse(data);
+				alert(JSON.stringify($scope.registro_selecionado.indicacoes))
 				$scope.$apply();
 				//alert("VEJA O QUE TEMOS NAS INDICACOES: "+$scope.registro_selecionado.indicacoes[0].cliente_id)
 			},
 			failure: function (data) {
 				$scope.indicacao = [];
-				$scope.desabilitar = 'link_desabilitado'
 				alert("Não foi possivel carregar a lista de indicacoes")
 			}
 		});
@@ -172,6 +172,7 @@ app.controller('MeuController', ['$scope', function($scope) {
 				}
 			}
 			$scope.registro_selecionado.indicacoes.push(nova_indicaco)
+			$scope.carregar_indicacao()
 			$scope.$apply()
 		}
 
@@ -591,9 +592,35 @@ app.controller('MeuController', ['$scope', function($scope) {
 		request_api("/api/honorario/alterar_indicacao/",data,validate_function,success_function,fail_function)
 
 	}
-	/*Falta terminar*/
+
 	$scope.ativar_desativar_indicacao = function () {
 
+		var empresa = $('#indicacao').val()
+		var cliente_id = $scope.registro_selecionado.cliente_id
+		var status = $('#indicacao_ativa').val()
+
+		var data = {
+			empresa : empresa,
+			indicacao_ativa : status
+		}
+
+		function validate_function () {
+			return true
+		}
+
+		function success_function(message) {
+			alert("Trocou")
+
+		}
+
+		function fail_function() {
+			alert("Nao alterou")
+		}
+		//request_api(url,data_paramters,validator_functions,success_function,fail_function){
+		request_api("/api/honorario/alterar_boolean_indicacao/",data,validate_function,success_function,fail_function)
+	}
+
+	$scope.deletar_indicacao = function () {
 		var empresa = $('#indicacao').val()
 		var cliente_id = $scope.registro_selecionado.cliente_id
 
@@ -607,14 +634,19 @@ app.controller('MeuController', ['$scope', function($scope) {
 		}
 
 		function success_function(message) {
-
+			alert("Deletado o registro")
+			$scope.carregar_indicacao()
+			$scope.indicacao_selecionada = null
+			$scope.$apply()
 		}
 
 		function fail_function() {
+			alert("Não foi possivel deletar neste momento")
 		}
 		//request_api(url,data_paramters,validator_functions,success_function,fail_function){
-		request_api("/api/honorario/alterar_boolean_indicacao/",data,validate_function,success_function,fail_function)
+		request_api("/api/honorario/deletar_indicacao/",data,validate_function,success_function,fail_function)
 
 	}
+
 
 }]);

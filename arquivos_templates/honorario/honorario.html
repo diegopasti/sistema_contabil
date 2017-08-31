@@ -413,14 +413,24 @@ color:blue;
 								<sub><label>{{ formulario_indicacao.taxa_desconto_indicacao.label }}</label></sub>
 								{{ formulario_indicacao.taxa_desconto_indicacao }}
 							</div>
-							<div class="col-lg-2"  style="padding-top: 20px">
-								<button type="submit" id="bt_adicionar_indicacao" class="btn btn-sm btn-primary form-control" data-toggle="modal">
-									{% verbatim %}
-									<span  href="#" ng-if="indicacao_selecionada == null">Adicionar</span>
-									<span href="#" ng-if="indicacao_selecionada != null">Alterar</span>
-									{% endverbatim %}
-								</button>
-							</div>
+							{% verbatim %}
+
+								<span  href="#" ng-if="indicacao_selecionada == null">
+									<div class="col-lg-2"  style="padding-top: 20px">
+									<button type="submit" id="bt_adicionar_indicacao" class="btn btn-sm btn-primary form-control" data-toggle="modal">Adicionar</button>
+									</div>
+								</span>
+								<span href="#" ng-if="indicacao_selecionada != null">
+									<div class="col-lg-1"  style="">
+										<sub>Deletar</sub>
+										<button type="button" ng-click="deletar_indicacao()" class="btn btn-sm btn-primary form-control" style="background-color:#ff3824; border:#ff3824"; data-toggle="modal">X</button>
+									</div>
+									<div class="col-lg-1"  style=>
+										<sub>Alterar </sub>
+									<button type="submit" id="bt_adicionar_indicacao" class="btn btn-sm btn-primary form-control" data-toggle="modal">>>></button>
+									</div>
+								</span>
+								{% endverbatim %}
 						</form>
 					</div>
 
@@ -516,8 +526,8 @@ color:blue;
 																}
 															</style>
 															<label class="switch" style="padding-bottom: 20px">
-																<input type="checkbox"  ng-checked='registro.indicacao.indicacao_ativa == false' ng-click="ativar_desativar_indicacao()" >
-																<span class="slider round" ng-checked="registro.indicacao.indicacao_ativa == true" ></span>
+																<input type="checkbox"  ng-checked='registro.indicacao.indicacao_ativa == 0' ng-click="ativar_desativar_indicacao()" >
+																<span class="slider round" ></span>
 															</label>
 
 														</td>
@@ -544,11 +554,6 @@ color:blue;
 				</div>
 
 				<div class="modal-footer">
-					<div class="row">
-						<div class="col-md-2 col-md-push-8 ">
-							<button type="submit" id="bt_submit_indicacoes" class="btn btn-sm btn-primary form-control" data-toggle="modal" data-target="">Fechar</button>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>

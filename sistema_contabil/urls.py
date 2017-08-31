@@ -79,6 +79,7 @@ urlpatterns = [
     url(r'^api/honorario/salvar_indicacao/', "honorario.api.salvar_indicacao"),
     url(r'^api/honorario/alterar_indicacao/', "honorario.api.alterar_indicacao"),
     url(r'^api/honorario/alterar_boolean_indicacao/', "honorario.api.alterar_boolean_indicacao"),
+    url(r'^api/honorario/deletar_indicacao/', "honorario.api.deletar_indicacao"),
 
 
     #url(r'^api/preferencias/alterar_salario/(?P<id>\d+)/$', "preferencias.views.alterar_salario"),

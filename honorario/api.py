@@ -188,18 +188,29 @@ def alterar_indicacao (request):
     return HttpResponse(json.dumps(response_dict))
 
 def alterar_boolean_indicacao(request):
-    print("to vindo aqui")
-    #falta terminar
-    '''empresa = request.POST['empresa']
-        indicacao_bd = Indicacao.objects.filter(indicacao=empresa)
-        try:
-            print ('entrei')
-            Indicacao.objects.filter(indicacao=empresa).update(indicacao_ativa=False)
-            response_dict = response_format_success_message(indicacao_bd, ['indicacao', 'cliente', 'taxa_desconto'])
-        except:
-            print ("Nao deu")
-            response_dict = response_format_error_message(False)'''
-    return HttpResponse(json.dumps({}))
+    empresa = request.POST['empresa']
+    indicacao_bd = Indicacao.objects.get(indicacao=empresa)
+    status = not indicacao_bd.indicacao_ativa
+    try:
+        Indicacao.objects.filter(indicacao=empresa).update(indicacao_ativa= status)
+        response_dict = response_format_success_message(indicacao_bd, ['indicacao','indicacao_ativa'])
+    except:
+        response_dict = response_format_error_message(False)
+    return HttpResponse(json.dumps(response_dict))
+
+def deletar_indicacao (request):
+    empresa = request.POST['empresa']
+    indicacao_bd = Indicacao.objects.get(indicacao=empresa)
+    print()
+
+    try :
+        indicacao_bd.indicacao.delete()
+        response_dict = response_format_success_message(indicacao_bd,[])
+    except:
+        print("N deu")
+        response_dict = response_format_error_message(False)
+
+    return HttpResponse(json.dumps(response_dict))
 
 def salvar_contrato(request):
     result, form = filter_request(request,FormContrato)
