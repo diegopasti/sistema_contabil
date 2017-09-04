@@ -217,19 +217,21 @@ STATICFILES_DIRS = (
 """
 
 
-WORKING_CONFIGURATION = os.path.join(BASE_DIR, 'conf/working.json')
-WORKING_SERVER = "http://192.168.1.126:8010"
-from nucleo.working_api import WorkingManager
+SERVER_DIGITAR = False
+if SERVER_DIGITAR:
+    WORKING_CONFIGURATION = os.path.join(BASE_DIR, 'conf/working.json')
+    WORKING_SERVER = "http://192.168.1.126:8010"
+    from nucleo.working_api import WorkingManager
 
-try:
-    if "runserver" in sys.argv:
-        WorkingManager().register_programming_backend()
+    try:
+        if "runserver" in sys.argv:
+            WorkingManager().register_programming_backend()
 
-    elif "test" in sys.argv:
-        WorkingManager().register_test_backend()
+        elif "test" in sys.argv:
+            WorkingManager().register_test_backend()
 
-    else:
+        else:
+            pass
+
+    except:
         pass
-
-except:
-    pass
