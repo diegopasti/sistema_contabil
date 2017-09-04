@@ -98,7 +98,7 @@ WSGI_APPLICATION = 'sistema_contabil.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db-old.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -218,7 +218,7 @@ STATICFILES_DIRS = (
 
 
 WORKING_CONFIGURATION = os.path.join(BASE_DIR, 'conf/working.json')
-WORKING_SERVER = "http://192.168.25.7:8010"
+WORKING_SERVER = "http://192.168.1.126:8010"
 from nucleo.working_api import WorkingManager
 
 try:

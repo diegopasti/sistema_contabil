@@ -133,6 +133,7 @@ def get_lista_indicacoes(request,cliente_id):
         response_indicacao['indicacao'] = {}
         response_indicacao['indicacao']['selecionado'] = ''
         response_indicacao['indicacao']['nome_razao'] = indicacao.indicacao.nome_razao
+        response_indicacao['indicacao']['indicacao_id'] = indicacao.indicacao.id
         response_indicacao['indicacao']['data_cadastro'] = str(indicacao.data_cadastro.strftime('%d/%m/%Y'))
         response_indicacao['indicacao']['taxa_desconto'] = float(indicacao.taxa_desconto)
         response_indicacao['indicacao']['indicacao_ativa'] = indicacao.indicacao_ativa
@@ -144,23 +145,72 @@ def get_lista_indicacoes(request,cliente_id):
 
 def salvar_indicacao (request):
 
+
     empresa = request.POST['empresa']
-    taxa_desconto = request.POST['taxa_desconto']
+    taxa_desconto = float(request.POST['taxa_desconto'])
     cliente_id = request.POST['cliente_id']
 
-    indicacao = Indicacao()
-    indicacao.cliente_id = int(cliente_id)
-    indicacao.indicacao_id = int(empresa)
-    indicacao.taxa_desconto = float(taxa_desconto)
+
+    lista_indicacao = Indicacao.objects.filter(indicacao=empresa) #verificando se já existe esse indicacção na lista de indicacoes do cliente
+
+    if (len(lista_indicacao) == 0):
+        indicacao = Indicacao()
+        indicacao.cliente_id = int(cliente_id)
+        indicacao.indicacao_id = int(empresa)
+        indicacao.taxa_desconto = taxa_desconto
 
     try:
         indicacao.save()
-        response_dict = response_format_success_message(indicacao,['indicacao','cliente','taxa_desconto'])
+        response_dict = response_format_success_message(indicacao,['indicacao','cliente','taxa_desconto','data_cadastro'])
     except:
-        response_dict = response_format_error_message('Deu Erro')
+        print("Não aceita vazio")
+        response_dict = response_format_error_message(False)
 
     return HttpResponse(json.dumps(response_dict))
 
+def alterar_indicacao (request):
+    empresa_id = request.POST['empresa']
+    empresa_nome = request.POST['empresa_nome']
+    taxa_desconto = float(request.POST['taxa_desconto'])
+    indicacao_bd = Indicacao.objects.get(indicacao=empresa_id)
+
+    if (indicacao_bd.indicacao.nome_razao == empresa_nome and indicacao_bd.taxa_desconto != taxa_desconto):
+
+        try:
+            Indicacao.objects.filter(indicacao=empresa_id).update(taxa_desconto=taxa_desconto)
+            response_dict = response_format_success_message(indicacao_bd,['indicacao','cliente','taxa_desconto'])
+        except:
+            response_dict = response_format_error_message(False)
+
+    else:
+        response_dict = response_format_error_message(False)
+
+    return HttpResponse(json.dumps(response_dict))
+
+def alterar_boolean_indicacao(request):
+    empresa = request.POST['empresa']
+    indicacao_bd = Indicacao.objects.get(indicacao=empresa)
+    status = not indicacao_bd.indicacao_ativa
+    try:
+        Indicacao.objects.filter(indicacao=empresa).update(indicacao_ativa= status)
+        response_dict = response_format_success_message(indicacao_bd, ['indicacao','indicacao_ativa'])
+    except:
+        response_dict = response_format_error_message(False)
+    return HttpResponse(json.dumps(response_dict))
+
+def deletar_indicacao (request):
+    empresa = request.POST['empresa']
+    indicacao_bd = Indicacao.objects.get(indicacao=empresa)
+    print()
+
+    try :
+        indicacao_bd.indicacao.delete()
+        response_dict = response_format_success_message(indicacao_bd,[])
+    except:
+        print("N deu")
+        response_dict = response_format_error_message(False)
+
+    return HttpResponse(json.dumps(response_dict))
 
 def salvar_contrato(request):
     result, form = filter_request(request,FormContrato)

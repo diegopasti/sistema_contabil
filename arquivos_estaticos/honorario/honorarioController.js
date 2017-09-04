@@ -19,8 +19,10 @@ app.controller('MeuController', ['$scope', function($scope) {
 	$scope.minimal_quantity_rows = [1,2,3,4,5,6,7,8,9,10]
 
 	$scope.opcao_desabilitada = "desabilitado";
-	$scope.registro_selecionado = null;
-	$scope.esta_adicionando     = null;
+	$scope.registro_selecionado 	= null;
+	$scope.indicacao_selecionada 	= null;
+	$scope.esta_adicionando     	= null;
+	$scope.esta_indicando					= false;
 
 	$scope.reajustar_tela = function (){
 		$scope.screen_height = window.innerHeight
@@ -128,19 +130,18 @@ app.controller('MeuController', ['$scope', function($scope) {
 			success: function (data) {
 				//alert("VEJA A RESPOSTA: "+JSON.stringify(data))
 				$scope.registro_selecionado.indicacoes = JSON.parse(data);
+				//alert(JSON.stringify($scope.registro_selecionado.indicacoes))
 				$scope.$apply();
 				//alert("VEJA O QUE TEMOS NAS INDICACOES: "+$scope.registro_selecionado.indicacoes[0].cliente_id)
 			},
 			failure: function (data) {
 				$scope.indicacao = [];
-				$scope.desabilitar = 'link_desabilitado'
 				alert("Não foi possivel carregar a lista de indicacoes")
 			}
 		});
 	}
 
 	$scope.adicionar_indicacao = function () {
-		//alert('Vindo?'+$scope.registro_selecionado.cliente_id)
 		var empresa = $('#indicacao').val()
 		var taxa_desconto = $('#taxa_desconto_indicacao').val()
 		var cliente_id = $scope.registro_selecionado.cliente_id
@@ -153,28 +154,30 @@ app.controller('MeuController', ['$scope', function($scope) {
 
 		function validate_function () {
 			if(empresa == '' || taxa_desconto==''){
-				alert('Empresa e taxa precisa ser informado.')
+				alert('Preecha os campos')
 				return false
 			}
 			return true
 		}
 
 		function success_function(message) {
-			//alert("menssagem:	"+message['data_cadastro'])
+			var date = message['fields']["data_cadastro"]
 			nova_indicaco = {
 				cliente_id: cliente_id,
 				indicacao: {
 					nome_razao : $('#indicacao option:selected').text(),
 					taxa_desconto : taxa_desconto,
-					indicacao_ativa : true
+					indicacao_ativa : true,
+					data_cadastro : date
 				}
 			}
 			$scope.registro_selecionado.indicacoes.push(nova_indicaco)
+			$scope.carregar_indicacao()
 			$scope.$apply()
 		}
 
 		function fail_function() {
-			//alert('fail_function')
+			alert('Empresa informada já foi indicada anteriormente')
 		}
 		//request_api(url,data_paramters,validator_functions,success_function,fail_function){
 		request_api("/api/honorario/salvar_indicacao/",data,validate_function,success_function,fail_function)
@@ -480,15 +483,16 @@ app.controller('MeuController', ['$scope', function($scope) {
 		var plano = $scope.registro_selecionado.plano
 		//var tipo_cliente = $scope.registro_selecionado.contrato.tipo_cliente
 		//alert("plano:		"+plano);
+		//alert("plano:		"+JSON.stringify($scope.registro_selecionado));
 		//$scope.registro_selecionado;
 		$scope.esta_adicionando = true;
-		$('#plano ').val(plano)
-		//$('#tipo_cliente option:selected').val(tipo_cliente)
+		$('#plano').find('option:selected').text(plano)
+		//s$('#tipo_cliente').find('option:selected').val($scope.registro_selecionado.contato.tipo_cliente)
 		$('#vigencia_inicio').val($scope.registro_selecionado.contrato.vigencia_inicio)
 		$('#vigencia_fim').val($scope.registro_selecionado.contrato.vigencia_fim)
-		$('#dia_vencimento').val($scope.registro_selecionado.contrato.dia_vencimento)
+		$('#dia_vencimento option:selected').text($scope.registro_selecionado.contrato.dia_vencimento)
 		$("#data_vencimento").val($scope.registro_selecionado.contrato.data_vencimento)
-		$('#tipo_honorario').select($scope.registro_selecionado.contrato.tipo_honorario)
+		$('#tipo_honorario').find('option:selected').text($scope.registro_selecionado.contrato.tipo_honorario)
 		$("#taxa_honorario").val($scope.registro_selecionado.contrato.taxa_honorario)
 		$('#valor_honorario').val($scope.registro_selecionado.contrato.valor_honorario *100.0).trigger('mask.maskMoney')
 		$('#desconto_inicio').val($scope.registro_selecionado.contrato.desconto_inicio)
@@ -517,4 +521,132 @@ app.controller('MeuController', ['$scope', function($scope) {
 			}
 		});
 	}
+
+	$scope.selecionar_linha_indicacao = function(indicacao){
+		if ($scope.indicacao_selecionada !==  null){
+			if($scope.indicacao_selecionada == indicacao){
+				$scope.desmarcar_linha_indicacao();
+			}
+			else{
+				$scope.desmarcar_linha_indicacao();
+				indicacao.selecionado = 'selected';
+				$scope.indicacao_selecionada = indicacao;
+				$scope.esta_indicando = true
+				$scope.carregar_indicacao_selecionada();
+			}
+		}
+		else{
+			indicacao.selecionado = 'selected';
+			$scope.indicacao_selecionada = indicacao;
+			$scope.esta_indicando = true;
+			$scope.carregar_indicacao_selecionada();
+		}
+		//alert(JSON.stringify($scope.indicacao_selecionada))
+		$scope.apply();
+	}
+
+	$scope.desmarcar_linha_indicacao = function () {
+		$('#taxa_desconto_indicacao').val('')
+		$('#indicacao').val('')
+		$scope.indicacao_selecionada.selecionado = "";
+		$scope.indicacao_selecionada = null;
+		$scope.esta_indicando = false
+	}
+
+	$scope.carregar_indicacao_selecionada = function(){
+		var indica = $scope.indicacao_selecionada.indicacao_id
+		$('#taxa_desconto_indicacao').val($scope.indicacao_selecionada.taxa_desconto)
+		$('#indicacao').val(indica)
+	}
+
+	$scope.alterar_indicacao = function () {
+		var empresa = $('#indicacao').val()
+		var empresa_nome = $('#indicacao option:selected').text()
+		var taxa_desconto = $('#taxa_desconto_indicacao').val()
+		var cliente_id = $scope.registro_selecionado.cliente_id
+
+		var data = {
+			empresa : empresa,
+			empresa_nome : empresa_nome,
+			taxa_desconto : taxa_desconto,
+			cliente_id : cliente_id
+		}
+
+		function validate_function () {
+			if(taxa_desconto==''){
+				alert('Informe uma taxa de desconto')
+				return false
+			}
+			return true
+		}
+
+		function success_function(message) {
+			$scope.carregar_indicacao()
+			$scope.$apply()
+		}
+
+		function fail_function() {
+			alert("Indique uma taxa de desconto diferente da atual")
+		}
+		//request_api(url,data_paramters,validator_functions,success_function,fail_function){
+		request_api("/api/honorario/alterar_indicacao/",data,validate_function,success_function,fail_function)
+
+	}
+
+	$scope.ativar_desativar_indicacao = function () {
+
+		var empresa = $('#indicacao').val()
+		var cliente_id = $scope.registro_selecionado.cliente_id
+		var status = $('#indicacao_ativa').val()
+
+		var data = {
+			empresa : empresa,
+			indicacao_ativa : status
+		}
+
+		function validate_function () {
+			return true
+		}
+
+		function success_function(message) {
+			alert("Trocou")
+
+		}
+
+		function fail_function() {
+			alert("Nao alterou")
+		}
+		//request_api(url,data_paramters,validator_functions,success_function,fail_function){
+		request_api("/api/honorario/alterar_boolean_indicacao/",data,validate_function,success_function,fail_function)
+	}
+
+	$scope.deletar_indicacao = function () {
+		var empresa = $('#indicacao').val()
+		var cliente_id = $scope.registro_selecionado.cliente_id
+
+		var data = {
+			empresa : empresa,
+			cliente_id : cliente_id
+		}
+
+		function validate_function () {
+			return true
+		}
+
+		function success_function(message) {
+			alert("Deletado o registro")
+			$scope.carregar_indicacao()
+			$scope.indicacao_selecionada = null
+			$scope.$apply()
+		}
+
+		function fail_function() {
+			alert("Não foi possivel deletar neste momento")
+		}
+		//request_api(url,data_paramters,validator_functions,success_function,fail_function){
+		request_api("/api/honorario/deletar_indicacao/",data,validate_function,success_function,fail_function)
+
+	}
+
+
 }]);

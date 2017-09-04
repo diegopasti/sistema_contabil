@@ -403,18 +403,34 @@ color:blue;
 
 				<div class="modal-body" style="padding: 35px;padding-top: 10px;">
 					<div class="row">
-						<form ng-submit="adicionar_indicacao()">
-							<div class="col-lg-8">
+						<form ng-submit="esta_indicando? alterar_indicacao() : adicionar_indicacao()">
+
+							<div class="col-lg-8 "  ng-class="{desabilitado: ( indicacao_selecionada != null), nonselect: (indicacao_selecionada != null)}"> <!--ng-class="'esta_indicando' ? 'desabilitado nonselect' " -->
 								<sub><label>{{ formulario_indicacao.indicacao.label }}</label></sub>
-								{{ formulario_indicacao.indicacao }}
+									{{ formulario_indicacao.indicacao }}
 							</div>
 							<div class="col-lg-2">
 								<sub><label>{{ formulario_indicacao.taxa_desconto_indicacao.label }}</label></sub>
 								{{ formulario_indicacao.taxa_desconto_indicacao }}
 							</div>
-							<div class="col-lg-2"  style="padding-top: 20px">
-								<button type="submit" id="bt_adicionar_indicacao" class="btn btn-sm btn-primary form-control" data-toggle="modal">Adicionar</button>
-							</div>
+							{% verbatim %}
+
+								<span  href="#" ng-if="indicacao_selecionada == null">
+									<div class="col-lg-2"  style="padding-top: 20px">
+									<button type="submit" id="bt_adicionar_indicacao" class="btn btn-sm btn-primary form-control" data-toggle="modal">Adicionar</button>
+									</div>
+								</span>
+								<span href="#" ng-if="indicacao_selecionada != null">
+									<div class="col-lg-1"  style="">
+										<sub>Deletar</sub>
+										<button type="button" ng-click="deletar_indicacao()" class="btn btn-sm btn-primary form-control" style="background-color:#ff3824; border:#ff3824"; data-toggle="modal">X</button>
+									</div>
+									<div class="col-lg-1"  style=>
+										<sub>Alterar </sub>
+									<button type="submit" id="bt_adicionar_indicacao" class="btn btn-sm btn-primary form-control" data-toggle="modal">>>></button>
+									</div>
+								</span>
+								{% endverbatim %}
 						</form>
 					</div>
 					<br>
@@ -445,12 +461,78 @@ color:blue;
 														<td colspan="8" class="center">Nenhuma indicacao Cadastrada!</td>
 													</tr>-->
 
-													<tr ng-repeat='registro in registro_selecionado.indicacoes'>
-														<td class='center' style="width: 30px;">{{$index+1}}</td>
-														<td class="left" style="padding-left: 10px;">{{ registro.indicacao.nome_razao }}</td>
-														<td class="center" style="width: 30px">{{ registro.indicacao.data_cadastro }}</td>
+													<tr class="angular-repeat linha_selecionavel {{ registro.indicacao.selecionado }}" ng-repeat='registro in registro_selecionado.indicacoes' ng-click="selecionar_linha_indicacao(registro.indicacao)">
+														<td class='center' style="width: 30px;">{{ $index+1 }}</td>
+														<td class="left"	style="padding-left: 10px;">{{ registro.indicacao.nome_razao }}</td>
+														<td class="center" style="width: 30px">{{ registro.indicacao.data_cadastro| date:'dd/MM/yyyy' }}</td>
 														<td class="center" style="width: 30px;">{{ registro.indicacao.taxa_desconto }}</td>
-														<td class="center" style="width: 30px">{{ registro.indicacao.indicacao_ativa }}</td>
+														<td class="center" style="width: 30px; padding-left: 15px; padding-top: 4px">
+															<style>
+																.switch {
+																	position: relative;
+																	display: table;
+																	width: 50px;
+																	height: 20px;
+																}
+
+																.switch input {display:none;}
+
+																.slider {
+																	position: absolute;
+																	cursor: pointer;
+																	top: 0;
+																	left: 0;
+																	right: 0;
+																	bottom: 0;
+																	background-color: #47FF7F;
+																	-webkit-transition: 1s;
+																	transition: 1s;
+																}
+
+																.slider:before {
+																	position: absolute;
+																	content: "";
+																	height: 15px;
+																	width: 15px;
+																	left: 4px;
+																	bottom: 3px;
+																	background-color: #c4bbcc;
+																	-webkit-transition: 1s;
+																	transition: .40s;
+																}
+
+																input:checked + .slider {
+																	background-color: #FA4226;
+																}
+
+																input:focus + .slider {
+																	box-shadow: 0 0 1px #2196F3;
+																}
+
+																input:checked + .slider:before {
+																	-webkit-transform: translateX(26px);
+																	-ms-transform: translateX(26px);
+																	transform: translateX(26px);
+																}
+
+																/* Rounded sliders */
+																.slider.round {
+																	border-radius: 20px;
+																}
+
+																.slider.round:before {
+																	border-radius: 50%;
+																}
+															</style>
+															<label class="switch" style="padding-bottom: 20px">
+																<input type="checkbox"  ng-checked='registro.indicacao.indicacao_ativa == 0' ng-click="ativar_desativar_indicacao()" >
+																<span class="slider round" ></span>
+															</label>
+
+														</td>
+														<!--<td class="center" style="width: 30px" ng-if="registro.indicacao.indicacao_ativa">Bolo</td>
+														<td class="center" style="width: 30px" ng-if="!(registro.indicacao.indicacao_ativa)">Pudim</td>-->
+
 													</tr>
 
 													<tr ng-repeat="k in minimal_quantity_rows.slice(registro_selecionado.indicacoes.length,minimal_quantity_rows.length)">
@@ -471,11 +553,6 @@ color:blue;
 				</div>
 
 				<div class="modal-footer">
-					<div class="row">
-						<div class="col-md-2 col-md-push-8 ">
-							<button type="submit" id="bt_submit_indicacoes" class="btn btn-sm btn-primary form-control" data-toggle="modal" data-target="">Fechar</button>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
