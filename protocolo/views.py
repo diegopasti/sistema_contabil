@@ -150,7 +150,8 @@ def validar_temporalidade(data_primeira_operacao,hora_primeira_operacao,data_seg
     
     return primeiro_datetime < segundo_datetime
 
-def cadastro_protocolo(request):
+
+def cadastro_protocolo(request, protocolo_id=None):
 
     erro = False
     if (request.method == "POST"):
@@ -276,7 +277,17 @@ def cadastro_protocolo(request):
         
     dados = list(protocolo.objects.all())#*30
     clientes = entidade.objects.all()[1:]
-    return render_to_response("protocolo/cadastro_protocolo.html",{"form_entrega":form_entrega,"form_relatorio":form_relatorio,'clientes':clientes,'dados':dados,'erro':erro},context_instance=RequestContext(request))
+
+    selecionar_protocolo = None
+    if protocolo_id is not None:
+        try:
+            selecionar_protocolo = protocolo.objects.get(pk=int(protocolo_id))
+        except:
+            pass
+
+
+
+    return render_to_response("protocolo/cadastro_protocolo.html",{"form_entrega":form_entrega,"form_relatorio":form_relatorio,'selecionar_protocolo':selecionar_protocolo,'clientes':clientes,'dados':dados,'erro':erro},context_instance=RequestContext(request))
 
 """
 def imprimir_protocolo(request,emissor,destinatario,documentos,):

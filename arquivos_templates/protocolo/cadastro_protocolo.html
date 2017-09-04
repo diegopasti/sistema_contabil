@@ -571,37 +571,34 @@ label {
 	<div class="col-lg-12">
 		<div class="box box-default" style="margin-top: 0px; margin-left: 0px; margin-right: 0px; ">
 			<div class="box-heading">
-
-                <div class="box-header with-border">
-                  <h5 class="box-title">Detalhes</h5><!-- (Emitido por: <label id="lb_emitido_por"></label>)</h5> -->
-
-                    <div class="pull-right">
-                        <a href='/protocolo' role="button" class="btn btn-sm btn-primary pull-right" id="visualizar_protocolo" target="_blank" style="position: relative; margin-top: 0px;"><i class="fa fa-search fa-1x" aria-hidden="true"></i> Visualizar Protocolo</a>
-                    </div>
-                </div>
+				<div class="box-header with-border">
+					<h5 class="box-title">Detalhes</h5><!-- (Emitido por: <label id="lb_emitido_por"></label>)</h5> -->
+					<div class="pull-right">
+						<a href='/protocolo' role="button" class="btn btn-sm btn-primary pull-right" id="visualizar_protocolo" target="_blank" style="position: relative; margin-top: 0px;"><i class="fa fa-search fa-1x" aria-hidden="true"></i> Visualizar Protocolo</a>
+					</div>
+				</div>
 			</div>
 			<!-- /.panel-heading -->
 
 			<div class="panel-body">
-                <div class="table-responsive">
-                    <table class="table table-condensed table-bordered" cellspacing="0" width="100%"  id="datatable_detalhes">
+				<div class="table-responsive">
+					<table class="table table-condensed table-bordered" cellspacing="0" width="100%"  id="datatable_detalhes">
 
-                        <thead>
-                            <tr class="linha_cabecalho">
-                                <th style="text-align: center;vertical-align: middle;">Documento</th>
-                                <th style="text-align: center;vertical-align: middle;">Complemento</th>
-                                <th style="text-align: center;vertical-align: middle;">Referência</th>
-                                <th style="text-align: center;vertical-align: middle;">Vencimento</th>
-                                <th style="text-align: center;vertical-align: middle;">Valor</th>
-                            </tr>
-                        </thead>
+						<thead>
+						<tr class="linha_cabecalho">
+							<th style="text-align: center;vertical-align: middle;">Documento</th>
+							<th style="text-align: center;vertical-align: middle;">Complemento</th>
+							<th style="text-align: center;vertical-align: middle;">Referência</th>
+							<th style="text-align: center;vertical-align: middle;">Vencimento</th>
+							<th style="text-align: center;vertical-align: middle;">Valor</th>
+						</tr>
+						</thead>
 
-                        <tbody>
+						<tbody>
 
-
-                        </tbody>
-                    </table>
-                    <!-- /.table-responsive -->
+						</tbody>
+					</table>
+					<!-- /.table-responsive -->
 				</div>
 			</div>
 		</div>
@@ -615,6 +612,7 @@ label {
 {% block recursos_complementares %}
 {% load staticfiles %}
 <script type="text/javascript" src="{% static 'scripts/mask.js' %}"></script>
+<!--<script src="//cdn.datatables.net/plug-ins/1.10.16/api/fnFindCellRowIndexes.js"></script>-->
 
 
 
@@ -635,6 +633,13 @@ jQuery(document).ready(function(){
 	var table = $('#datatable').DataTable();
 	var campo = $('#buscar_por').val();
 	var filtro = $('#filtrar_por').val();
+
+	var selecionar_protocolo = '{{ selecionar_protocolo.destinatario.nome_razao }}';
+	if(selecionar_protocolo !=''){
+		if($("#search").val() != ''){
+			table.search('').columns().search( '' ).draw(); // reseta a pesquisa
+		}
+	}
 
 	if (filtro == 'emitidos'){
 		table.columns(campo).search(this.value).draw();
@@ -933,6 +938,18 @@ function selecionar_filtro_cliente(){
 		var selectedItems = [];
 		$("#filtrar_documentos").val(selectedItems).trigger("change");
 	});
+</script>
+
+<script>
+	{% if selecionar_protocolo %}
+	var table = $('#datatable').DataTable();
+	var selecionar_protocolo = '{{ selecionar_protocolo.destinatario.nome_razao }}';
+
+	$('#search').val(selecionar_protocolo);
+	$('#search').keyup()
+	table.columns(0).search('^{{ selecionar_protocolo.id }}$', true, false).draw();
+
+	{% endif %}
 </script>
 
 {% endblock %}

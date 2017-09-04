@@ -140,7 +140,7 @@ app.controller('MeuController', ['$scope', function($scope) {
 	}
 
 	$scope.adicionar_indicacao = function () {
-		alert('Vindo?'+$scope.registro_selecionado.cliente_id)
+		//alert('Vindo?'+$scope.registro_selecionado.cliente_id)
 		var empresa = $('#indicacao').val()
 		var taxa_desconto = $('#taxa_desconto_indicacao').val()
 		var cliente_id = $scope.registro_selecionado.cliente_id
@@ -152,15 +152,15 @@ app.controller('MeuController', ['$scope', function($scope) {
 		}
 
 		function validate_function () {
-			if(empresa == '' && taxa_desconto==''){
-				alert('Preecha os campos')
+			if(empresa == '' || taxa_desconto==''){
+				alert('Empresa e taxa precisa ser informado.')
 				return false
 			}
 			return true
 		}
 
 		function success_function(message) {
-			alert("menssagem:	"+message['data_cadastro'])
+			//alert("menssagem:	"+message['data_cadastro'])
 			nova_indicaco = {
 				cliente_id: cliente_id,
 				indicacao: {
@@ -174,7 +174,7 @@ app.controller('MeuController', ['$scope', function($scope) {
 		}
 
 		function fail_function() {
-			alert('fail_function')
+			//alert('fail_function')
 		}
 		//request_api(url,data_paramters,validator_functions,success_function,fail_function){
 		request_api("/api/honorario/salvar_indicacao/",data,validate_function,success_function,fail_function)
@@ -190,7 +190,7 @@ app.controller('MeuController', ['$scope', function($scope) {
 		var vigencia_inicio = $("#vigencia_inicio").val()
 		var vigencia_fim = $("#vigencia_fim").val()
 
-		alert("VEJA AS DATAS: "+vigencia_inicio+" - "+vigencia_fim)
+		//alert("VEJA AS DATAS: "+vigencia_inicio+" - "+vigencia_fim)
 
 		var tipo_vencimento = $('#select_tipo_vencimento option:selected').val()
     var dia_vencimento = $('#select_dia_vencimento option:selected').val()
@@ -269,7 +269,7 @@ app.controller('MeuController', ['$scope', function($scope) {
 			}
 
 			function fail_function(message) {
-				alert("ERRO: "+message)
+				alert("Erro: "+message)
 			}
 
 			request_api("/api/honorario/salvar_contrato",data,validate_function,success_function,fail_function)
@@ -479,7 +479,7 @@ app.controller('MeuController', ['$scope', function($scope) {
 	$scope.load_fields = function(){
 		var plano = $scope.registro_selecionado.plano
 		//var tipo_cliente = $scope.registro_selecionado.contrato.tipo_cliente
-		alert("plano:		"+plano);
+		//alert("plano:		"+plano);
 		//$scope.registro_selecionado;
 		$scope.esta_adicionando = true;
 		$('#plano ').val(plano)
@@ -499,9 +499,8 @@ app.controller('MeuController', ['$scope', function($scope) {
 	}
 
 	$scope.load_clientes = function () {
-		alert("vindo aqui")
+		//alert("vindo aqui")
 		$.ajax({
-
 			type: 'GET',
 			url: "/api/honorario/clientes/" + $scope.registro_selecionado.cliente_id,
 
@@ -518,5 +517,4 @@ app.controller('MeuController', ['$scope', function($scope) {
 			}
 		});
 	}
-
 }]);

@@ -275,15 +275,15 @@ display: none;
 
 					<tbody>
 					{% for protocolo in item.protocolos %}
-					<tr>
-						<td style="width: 30px;text-align: center;">{{ forloop.counter }}</td>
+					<tr class='clickable-row' data-toggle="modal" data-target=".bs-example-modal-lg" data-href='{{ protocolo.id }}'>
+						<td style="width: 30px;text-align: center;cursor:pointer;">{{ forloop.counter }}</td>
 						{% if protocolo.numeracao_destinatario == 'AVULSO' %}
 						<td style="text-align: center;cursor:pointer; width: 100px;">AVULSO</td>
 						{% else %}
 						<td style="text-align: center;cursor:pointer;width: 100px;">{{ protocolo.numeracao_destinatario }}</td>
 						{% endif %}
 
-						<td>{{ protocolo.destinatario.nome_razao }}</td>
+						<td style="text-align: left;cursor:pointer;">{{ protocolo.destinatario.nome_razao }}</td>
 						<td style="width: 140px;text-align: center;cursor:pointer">{{ protocolo.data_emissao|date:"d/m/Y" }} - {{ protocolo.hora_emissao|date:"H:i:s" }}</td>
 						<td style="width: 140px;text-align: center;cursor:pointer">{{ protocolo.emitido_por|slice:':15' }}{% if protocolo.emitido_por|length > 15 %}..{% endif %}</td>
 
@@ -294,7 +294,7 @@ display: none;
 						{% endif %}
 
 						{% if protocolo.recebido_por %}
-							<td class='left_align'>{{ protocolo.recebido_por|slice:':15' }}{% if protocolo.recebido_por|length > 15 %}..{% endif %}</td>
+							<td class='left_align'>{{ protocolo.recebido_por|slice:':14' }}{% if protocolo.recebido_por|length > 14 %}..{% endif %}</td>
 							{% else %}
 							<td style="text-align: center;cursor:pointer">-</td>
 							{% endif %}
@@ -310,11 +310,54 @@ display: none;
 					{% endfor %}
 				</div>
 			</div>
-
-
 		</div>
 
 		<!--<div class="panel-footer" style="margin-top: -37px;"></div>
+	</div> -->
+</div>
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-lg"  style="width: 290px;">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel">Consultar Informações</h4>
+			</div>
+			<div class="modal-body" style="width: 260px;margin-left: auto;margin-right: auto;padding-bottom: 0px;">
+				<!--<h5 style="text-align: center;">Escolha o tipo da Entidade</h5>-->
+
+				<div class="row">
+					<div class="col-xs-6 col-md-6" style="width: 130px;padding: 5px;text-align: center;padding-bottom: 0px;">
+						<a id='bt_visualizar_protocolo' href="#" class="thumbnail" target="_blank">
+							<div class="icon">
+								<i class="fa fa-search fa-2x" aria-hidden="true" style="color: #999;padding-top: 10px;margin-left: -8px;"></i>
+							</div>
+							<div class="icon-label" style="margin-bottom: -10px;">
+								<h5>Visualizar<br>Protocolo</h5>
+							</div>
+						</a>
+					</div>
+
+					<div class="col-xs-6 col-md-6" style="width: 130px;padding: 5px;text-align: center;padding-bottom: 0px;">
+						<a id='bt_confirmar_protocolo' href="#" class="thumbnail" target="_blank">
+							<div class="icon">
+								<i class="fa fa-check fa-2x" aria-hidden="true" style="color: #999;padding-top: 10px;margin-left: -8px;"></i>
+							</div>
+							<div class="icon-label" style="margin-bottom: -10px;">
+								<h5>Confirmar<br>Protocolo</h5>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="modal-footer" style="margin-top: 0px;padding-top: 5px;">
+				<!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Save changes</button>-->
+			</div>
+
+		</div>
 	</div>
 </div>
 {% include "componentes/mensagem.html" with messages=messages %}
@@ -323,4 +366,16 @@ display: none;
 {% block recursos_complementares %}
 {% load staticfiles %}
 
+<script>
+jQuery(document).ready(function($) {
+    $(".clickable-row").click(function() {
+        //window.location = $(this).data("href");
+        var id_protocolo = $(this).data("href");
+        $("#bt_visualizar_protocolo").attr('href','/protocolo/visualizar/'+id_protocolo)
+        $("#bt_confirmar_protocolo").attr('href','/protocolo/'+id_protocolo)
+        //alert("VAMOS OLHAR O PROTOCOLOS: "+$(this).data("href"));
+    });
+});
+</script>
 {% endblock %}
+

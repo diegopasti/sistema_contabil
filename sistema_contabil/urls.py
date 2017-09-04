@@ -31,6 +31,7 @@ urlpatterns = [
     
     url(r'^gerar_pdf/$', "protocolo.views.gerar_pdf"),
     url(r'^protocolo/$', "protocolo.views.cadastro_protocolo"),
+    url(r'^protocolo/(?P<protocolo_id>\d+)/$', "protocolo.views.cadastro_protocolo"),
     url(r'^protocolo/get_detalhes_protocolo/(?P<protocolo_id>\d+)/$', "protocolo.views.get_detalhes_protocolo"),
     url(r'^protocolo/visualizar/(?P<protocolo_id>\d+)/$', "protocolo.views.visualizar_protocolo"),
     

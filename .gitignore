@@ -1,5 +1,5 @@
 
-/db.sqlite3
+/db-old.sqlite3
 .idea/
 LIXO/
 arquivos_estaticos/jquery/labelauty/jQuery-Plugin-For-Labeled-Checkbox-Radio-Button-Labelauty/
@@ -8,7 +8,7 @@ arquivos_estaticos/sistema/honorario/
 backup-banco/
 db-teste.sqlite3
 db.json
-db.sqlite3
+db-old.sqlite3
 db_20170217.sqlite3
 db_dados_basico_digitar.sqlite3
 db_zerado.sqlite3
